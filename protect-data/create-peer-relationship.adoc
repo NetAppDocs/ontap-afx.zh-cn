@@ -1,0 +1,28 @@
+---
+sidebar: sidebar 
+permalink: protect-data/create-peer-relationship.html 
+keywords: afx, afx system, peering, peer relationship 
+summary: '对等关系定义了允许集群和存储虚拟机 (VM) 安全地交换数据的网络连接。您可以在不同集群上的存储虚拟机之间创建对等关系，以使用SnapMirror实现数据保护和灾难恢复。' 
+---
+= 在 AFX 存储系统上创建集群间 SVM 对等关系
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+对等关系定义了允许集群和存储虚拟机 (VM) 安全地交换数据的网络连接。您可以在不同集群上的存储虚拟机之间创建对等关系，以使用SnapMirror实现数据保护和灾难恢复。
+
+.开始之前
+您必须先在本地集群和远程集群之间建立集群对等关系，然后才能创建存储虚拟机对等关系。link:snapshot-replication.html#step-1-create-a-cluster-peer-relationship["创建集群对等关系"]如果您还没有这样做的话。
+
+.步骤
+. 在系统管理器中，选择*保护>概览*。
+. 在*存储 VM 对等体*下选择*添加存储 VM 对等体*。
+. 选择本地集群上的存储虚拟机；然后选择远程集群上的存储虚拟机。
+. 选择*添加存储虚拟机对等体*。
+
+
+.相关信息
+* https://docs.netapp.com/us-en/ontap/peering/peering-basics-concept.html["了解有关同伴关系的更多信息"^] 。
+

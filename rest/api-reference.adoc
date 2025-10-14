@@ -1,0 +1,43 @@
+---
+sidebar: sidebar 
+permalink: rest/api-reference.html 
+keywords: afx, afx system, rest api, rest api reference, swagger 
+summary: AFX REST API 参考包含有关所有 API 调用的详细信息。该文档在开发自动化应用程序时很有用。 
+---
+= AFX 存储系统的 REST API 参考
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+AFX REST API 参考包含有关所有 API 调用的详细信息。该文档在开发自动化应用程序时很有用。
+
+.开始之前
+您需要以下物品：
+
+* AFX 集群管理 LIF 的 IP 地址或 FQDN
+* 集群管理员帐户的凭证
+
+
+.步骤
+. 将您的 Web 浏览器连接到集群管理 IP 地址或域名：
++
+`\https://$FQDN_IP_PORT/docs/api`
+
++
+*例子*
+
++
+`\https://10.61.25.33/docs/api`
+
+. 如果出现提示，请提供用户名和密码。
+. 向下滚动到 *Cluster* 类别并选择端点旁边的 *GET* `/cluster`单个 API 调用的示例。
+
+
+.相关信息
+* https://docs.netapp.com/us-en/ontap-restapi/index.html["ONTAP REST API 参考"^]
+

@@ -1,0 +1,36 @@
+---
+sidebar: sidebar 
+permalink: administer/submit-view-case.html 
+keywords: afx, afx system, support, support case 
+summary: 如果您遇到需要帮助的问题，您可以使用ONTAP系统管理器向技术支持提交案例。您还可以使用ONTAP系统管理器查看正在进行或已结案的案件。 
+---
+= 提交并查看 AFX 存储系统的支持案例
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果您遇到需要帮助的问题，您可以使用ONTAP系统管理器向技术支持提交案例。您还可以使用ONTAP系统管理器查看正在进行或已结案的案件。
+
+.开始之前
+你需要link:https://activeiq-link.netapp.com/["在Active IQ注册"]查看您的 AFX 存储系统的支持案例。
+
+.步骤
+. 要创建并提交新的支持案例，请在系统管理器中选择：
++
+.. *集群*，然后*支持*
+.. *前往NetApp支持*
+
+
+. 要查看以前提交的案例，请在系统管理器中选择：
++
+.. *集群*，然后*支持*
+.. *查看我的案例*
+
+
+
+
+.相关信息
+* https://docs.netapp.com/us-en/ontap/task_admin_view_submit_support_cases.html["使用ONTAP系统管理器查看和提交支持案例"^]
+

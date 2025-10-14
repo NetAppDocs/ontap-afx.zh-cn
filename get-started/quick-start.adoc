@@ -1,0 +1,26 @@
+---
+sidebar: sidebar 
+permalink: get-started/quick-start.html 
+keywords: afx, afx system, quick start 
+summary: 要初始启动并运行您的 AFX 系统，您需要安装硬件组件、设置集群并准备管理集群和 SVM。 
+---
+= 快速启动设置 AFX 存储系统
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+要初始启动并运行您的 AFX 系统，您需要安装硬件组件、设置集群并准备管理集群和 SVM。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["一个"]安装并设置硬件
+[role="quick-margin-para"]
+link:../install-setup/install-setup-workflow.html["安装"]您的 AFX 存储系统并准备设置集群。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["两个"]设置集群
+[role="quick-margin-para"]
+按照快速简便的流程link:../install-setup/cluster-setup.html["设置"]使用系统管理器的ONTAP集群。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["三"]准备管理您的集群
+[role="quick-margin-para"]
+在生产环境中部署 AFX 之前，必须link:../get-started/prepare-cluster-admin.html["准备"]通过了解管理结构（包括存储虚拟机 (SVM)、用户、角色和管理界面），确保安全、高效和有效的集群管理。

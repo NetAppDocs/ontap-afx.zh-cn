@@ -1,0 +1,174 @@
+---
+sidebar: sidebar 
+permalink: install-setup/install-switches.html 
+keywords: afx, afx 1k, install, setup, switches, cisco 9332, cisco 9336, switches, 
+summary: 了解如何安装 AFX 1K 存储系统和存储架的开关。 
+---
+= 安装 AFX 1K 存储系统的交换机
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+完成 AFX 1K 存储系统安装的准备工作后，您应该在机柜或电信机架中安装交换机。
+
+在机柜或机架中安装Cisco Nexus 9332D-GX2B 或 9364D-GX2A 交换机。如果使用Cisco Nexus 9364D-GX2A 交换机，请安装直通面板套件。
+
+.开始之前
+确保您拥有以下可用组件：
+
+* 直通面板套件，可从NetApp获得（部件号 X8784-R6）。
++
+NetApp直通面板套件包含以下硬件：
+
++
+** 一个直通盲板
+** 四个 10-32 x .75 螺丝
+** 四个 10-32 夹紧螺母
+
+
+* 对于每个交换机，使用八个 10-32 或 12-24 螺钉和夹紧螺母将支架和滑轨安装到前后柜柱上。
+* 用于在NetApp机柜中安装交换机的Cisco标准导轨套件。
+
+
+
+NOTE: 直通套件中不包含跳线。如果您的交换机未附带跳线，请联系NetApp订购正确的跳线。
+
+
+NOTE: Cisco 9332D-GX2B 和 9364D-GX2A 是端口侧进气交换机。交换机的网络端口必须安装在机柜的前面，排气扇必须安装在机柜的后面。对于这种配置，您必须确保使用足够长的电缆从机柜前部的网络端口延伸到机柜后部的存储端口。  + 有关这些交换机的更多详细信息，请访问Cisco网站： https://www.cisco.com/c/en/us/td/docs/dcn/hw/nx-os/nexus9000/9332d-gx2b/cisco-nexus-9332d-gx2b-nx-os-mode-switch-hardware-installation-guide.html["Cisco Nexus 9332D-GX2B NX-OS 模式交换机硬件安装指南"^]和 https://www.cisco.com/c/en/us/td/docs/dcn/hw/nx-os/nexus9000/9364d-gx2a/cisco-nexus-9364d-gx2a-nx-os-mode-switch-hardware-installation-guide.html["Cisco Nexus 9364D-GX2A NX-OS 模式交换机硬件安装指南"^]。
+
+.步骤
+. 安装直通盲板。
++
+.. 确定机柜或机架中交换机和盲板的垂直位置。
+.. 在前柜导轨两侧的相应方孔中安装两个夹紧螺母。
+.. 将面板垂直置于中央，以防止侵入相邻的机架空间，然后拧紧螺丝。
+.. 将两根跳线的母连接器从面板后部插入并穿过刷子组件。
++
+image::../media/cisco_9148_jumper_cords.gif[跳线母接头]
+
++
+[cols="1,4"]
+|===
+
+
+ a| 
+image::../media/icon_round_1.png[标注编号 1]
+ a| 
+跳线的母连接器。
+
+|===
+
+
+. 将机架安装支架安装到交换机底盘上。
++
+.. 将前机架安装支架放置在交换机机箱的一侧，使安装耳与机箱面板（在 PSU 或风扇侧）对齐，然后使用四颗 M4 螺钉将支架固定到机箱上。
++
+image::../media/3132q_front_bracket.gif[前支架]
+
+.. 对交换机另一侧的另一个前机架安装支架重复步骤 2a。
+.. 将后机架安装支架安装在交换机机箱上。
+.. 对交换机另一侧的另一个后机架安装支架重复步骤 2c。
+
+
+. 将夹紧螺母安装在所有四个 IEA 柱的方孔位置。
++
+image::../media/ru_locations_for_3132q_v.gif[夹紧螺母位置]
+
++
+将两个 9332D-GX2B 交换机安装在可有效访问控制器和机架的机柜位置，例如中间排。
+
+. 将滑轨安装在机柜或机架中。
++
+.. 将第一个滑轨放置在左后柱背面的所需位置，插入具有匹配螺纹类型的螺钉，然后用手指拧紧螺钉。
++
+image::../media/drw_3132q_v_slider_rails_ieops-2494.svg[滑轨安装]
+
++
+[cols="1,4"]
+|===
+
+
+ a| 
+image::../media/icon_round_1.png[标注编号 1]
+ a| 
+轻轻滑动滑轨，将其与机架上的螺丝孔对齐。
+
+
+
+ a| 
+image::../media/icon_round_2.png[标注编号 2]
+ a| 
+将滑轨的螺钉拧紧到机柜立柱上。
+
+|===
+.. 对右侧后柱重复步骤 4a。
+.. 在橱柜上的所需位置重复步骤 4a 和 4b。
+
+
+. 将交换机安装在机柜或机架中。
++
+
+NOTE: 此步骤需要两个人：一个人从前面支撑交换机，另一个人将交换机引导到后部滑动导轨中。
+
++
+.. 将开关的背面放置在机柜上的所需位置。
++
+image::../media/drw_switch_cabinet_position_generic_ieops-2348.svg[3232C 定位于 U39-40]
+
++
+[cols="1,4"]
+|===
+
+
+ a| 
+image::../media/icon_round_1.png[标注编号 1]
+ a| 
+当将机箱推向后柱时，将两个后机架安装导轨与滑动导轨对齐
+
+
+
+ a| 
+image::../media/icon_round_2.png[标注编号 2]
+ a| 
+轻轻滑动交换机，直到前机架安装支架与前柱齐平。
+
+|===
+.. 将交换机安装到机柜或机架上。
++
+image::../media/3132q_attaching.gif[开关附件]
+
++
+[cols="1,4"]
+|===
+
+
+ a| 
+image::../media/icon_round_1.png[标注编号 1]
+ a| 
+一个人将机箱前部保持水平，另一个人将后部的四个螺丝完全拧紧到机柜柱上。
+
+|===
+.. 现在底盘无需任何辅助即可得到支撑，将前螺钉完全拧紧到柱子上。
+.. 对机柜上所需位置的第二个开关重复步骤 5a 至 5c。
++
+
+NOTE: 通过使用完全安装的开关作为支撑，在安装过程中无需握住第二个开关的前部。
+
+
+
+. 安装开关后，将跳线连接到开关电源入口。
+. 将两根跳线的公插头连接到最近的可用 PDU 插座。
++
+
+NOTE: 为了保持冗余，两根电线必须连接到不同的 PDU。
+
+. 将每个交换机上的管理端口连接到任一管理交换机（如果订购）或将其直接连接到管理网络。
++
+管理网络端口是右侧 PSU 附近的下方 RJ-45 端口。安装交换机后，将每个交换机的 CAT6 电缆穿过直通面板，以连接到管理交换机或网络。
+
+
+
+.下一步是什么？
+在机柜或机架中安装交换机后，您link:deploy-hardware.html["在机柜或机架中安装 AFX 1K 存储系统和搁架"]。

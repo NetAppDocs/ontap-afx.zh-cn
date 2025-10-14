@@ -1,0 +1,148 @@
+---
+sidebar: sidebar 
+permalink: administer/expand-cluster.html 
+keywords: afx, afx system, expansion, cluster expansion, expand cluster, add nodes 
+summary: 您可以独立于存储容量扩展 AFX 集群的计算容量。扩展过程不会中断，并且随着卷在节点之间重新平衡，性能会线性提高。当您适应 AFX 用户的持续需求时，此功能是一项显著的优势。 
+---
+= 扩展 AFX 存储系统集群
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以独立于存储容量扩展 AFX 集群的计算容量。扩展过程不会中断，并且随着卷在节点之间重新平衡，性能会线性提高。当您适应 AFX 系统用户的持续需求时，此功能是一项显著的优势。
+
+
+
+== 准备扩展集群
+
+在扩展 AFX 集群之前，您应该熟悉基本要求和一般故障排除方法。
+
+
+
+=== 要求
+
+您需要集群管理员帐户的凭据，并且能够使用 SSH 连接到ONTAP CLI。扩展集群时，必须添加偶数个节点，并遵守基于版本的 AFX 系统的大小限制。
+
+
+
+=== 故障排除
+
+在执行集群扩展时，您应该了解一些概念和故障排除场景。
+
+
+
+==== 自动重新平衡卷
+
+自动拓扑管理 (ATM) 是内部 AFX 系统组件，可检测分配不平衡并重新平衡集群节点之间的卷。它依靠零复制卷移动 (ZCVM) 技术使用元数据更新而不是复制数据来重新定位卷。  ZCVM 是 AFX 存储系统可用的默认卷移动技术。
+
+
+
+==== 可能的故障排除场景
+
+在与 AFX 集群扩展相关的卷移动期间，您可能需要调查几种情况。
+
+ATM 未移动卷:: 当集群已经处于平衡状态或没有符合条件的卷可以移动时，就会发生这种情况。
+关于 ATM 应如何或何时激活的困惑:: 看起来，卷的分配速度似乎没有像预期的那样快。 ATM 每五分钟尝试检测并响应一次硬件事件。在最坏的情况下，重新平衡操作会在上一次操作完成 40 分钟后启动。
+
+
+
+
+==== CLI 命令
+
+您可以使用多个命令来监视集群扩展操作。
+
+* `volume move show`
+* `volume move show -instance`
+
+
+您应该根据需要联系NetApp支持以获取更多帮助。
+
+
+
+== 添加节点以扩展集群
+
+此过程描述如何向现有集群添加一对节点，并且可以适应其他部署环境。您需要同时使用ONTAP CLI 和系统管理器管理界面。
+
+.步骤
+. 连接到ONTAP CLI 并设置高级权限级别：
++
+`afx> set advanced`
+
+. 显示当前节点的卷位置；注意每个节点的卷数：
++
+`afx> vol show -fields node,size,constituent-count -is-constituent true -node *`
+
+. 显示集群互连 IP 地址并保存以供后续步骤使用：
++
+`afx> net int show -role cluster`
+
+. 登录到要添加到集群的每个节点的服务处理器。
+. 在提示符下，键入 *system console* 以访问节点的控制台。
+. 启动节点显示启动菜单提示：
++
+`LOADER> boot_ontap menu`
+
++
+如果菜单未加载，请使用 *Ctrl+C* 技术访问启动菜单。
+
+. 从菜单中选择适当的启动选项之一；如果出现提示，请输入 *yes* 继续。
++
+如果您从这里返回到 LOADER，请在 LOADER 提示符下输入 *boot_ontap*。
+
+. 使用集群设置向导配置节点管理 LIF、子网和网关。
++
+系统管理器将使用此配置来检测要添加到集群的节点。根据提示输入端口、IP地址、网络掩码、默认网关等值。
+
+. 按 *CTL+C* 访问 CLI。
+. 修改集群互连地址，以便它们在您的网络中可路由；使用适合您环境的配置：
++
+`afx> net int show -role cluster`
+
++
+`afx> net int modify -vserver Cluster -lif clus1 -address 192.168.100.201`
+
++
+`afx> net int modify -vserver Cluster -lif clus2 -address 192.168.100.202`
+
++
+仅当其他接口不使用ONTAP自动创建的 169.254.xx 地址时才需要执行此步骤。
+
+. 在另一个 AFX 节点控制器上重复上述步骤。
+. 使用集群管理 IP 地址访问系统管理器。
+. 在系统管理器中，选择*集群*，然后选择*概览*；选择*节点*选项卡。
+. 找到“不属于此集群”部分；选择image:icon_add_blue_bg.png["蓝色矩形框内有一个加号，后面跟着白色字母“add”"]。
++
+** 如果在集群互连 IP 地址更改之前发现了节点，则需要退出窗口并返回以重新发现节点。
+** 您可以选择使用 CLI 而不是系统管理器来添加节点；请参阅命令 `cluster add-node`。
+
+
+. 在*添加节点*菜单中提供配置详细信息；您可以手动添加管理 IP 地址或使用子网。
+. 连接到ONTAP CLI 以监控节点添加操作的状态：
++
+`afx> add-node-status`
+
+. 操作完成后，确认所有节点上的卷位置；使用适当的节点名称对每个节点发出一次命令：
++
+`afx> set advanced`
+
++
+`afx> vol show -fields node,size,constituent-count -is-constituent true -node NODE_NAME`
+
+
+
+.结果
+* 向集群添加新节点不会造成中断。
+* 音量移动应该自动发生。
+* 性能将线性扩展。
+
+
+
+
+== 相关信息
+
+* link:../get-started/prepare-cluster-admin.html["准备管理您的 AFX 系统"]
+* link:../faq-ontap-afx.html["ONTAP AFX 存储系统常见问题解答"]
+* https://mysupport.netapp.com/["NetApp 支持站点"^]
+

@@ -1,0 +1,65 @@
+---
+indexpage:
+  title: AFX 文档
+  summary: NetApp ONTAP AFX 存储系统是一种分解的硬件和软件解决方案，专注于满足高性能 NAS 和 S3 客户的独特需求。其性能和可扩展性专门设计用于满足
+    AI 和 ML 工作负载的要求。  AFX 提供了简化的用户体验，使其可由存储专家和非专家进行管理。
+  keywords: afx, afx system, afx docs
+  lead: NetApp AFX 存储系统是一种分解的硬件和软件解决方案，专注于满足高性能 NAS 和 S3 客户的独特需求。其性能和可扩展性专门设计用于满足
+    AI 和 ML 工作负载的要求。  AFX 提供了简化的用户体验，使其可由存储专家和非专家进行管理。
+  tiles:
+  - title: 开始使用
+    links:
+    - title: 了解 AFX
+      url: "/get-started/ontap-afx-storage.html"
+    - title: 快速启动
+      url: "/get-started/quick-start.html"
+    - title: 安装 AFX 硬件
+      url: "/install-setup/install-setup-workflow.html"
+    - title: 设置 AFX 集群
+      url: "/install-setup/cluster-setup.html"
+  - title: 集群管理
+    links:
+    - title: 准备管理 AFX
+      url: "/get-started/prepare-cluster-admin.html"
+    - title: 管理存储虚拟机
+      url: "/administer/display-svms.html"
+    - title: 升级和维护集群
+      url: "/administer/expand-cluster.html"
+    - title: 额外的管理
+      url: "/administer/additional-ontap-cluster.html"
+  - title: 管理数据和访问
+    links:
+    - title: 准备管理数据
+      url: "/manage-data/prepare-manage-data.html"
+    - title: 创建并配置卷
+      url: "/manage-data/create-configure-volume.html"
+    - title: 创建并配置存储桶
+      url: "/manage-data/create-configure-bucket.html"
+  - title: 保护数据
+    links:
+    - title: 准备保护数据
+      url: "/protect-data/prepare-protect-data.html"
+    - title: 创建快照
+      url: "/protect-data/create-snapshot.html"
+  - title: 安全数据
+    links:
+    - title: 准备保护数据
+      url: "/secure-data/prepare-secure-data.html"
+    - title: 加密静态数据
+      url: "/secure-data/encrypt-data-at-rest.html"
+  - title: REST API
+    links:
+    - title: 了解 REST API
+      url: "/rest/learn-rest-api.html"
+    - title: 您的第一次 API 调用
+      url: "/rest/first-call.html"
+    - title: REST API 参考
+      url: "/rest/api-reference.html"
+  - title: 获取更多信息
+    links:
+    - title: AFX 系统常见问题解答
+      url: "/faq-ontap-afx.html"
+    - title: 其他ONTAP系统的文档
+      url: https://docs.netapp.com/us-en/ontap-family/
+    - title: 其他资源
+      url: "/learn-more/additional-resources.html"

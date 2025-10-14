@@ -1,0 +1,66 @@
+---
+sidebar: sidebar 
+permalink: administer/manage-ethernet-ports.html 
+keywords: afx, afx system, ethernet, ethernet ports 
+summary: AFX 系统使用的端口为网络连接和通信提供了基础。有多种配置选项可用于定制网络的第二层方面。 
+---
+= 管理 AFX 存储系统以太网端口
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+AFX 系统使用的端口为网络连接和通信提供了基础。有多种选项可用于定制网络的第二层配置。
+
+
+
+== 创建 VLAN
+
+VLAN 由分组到广播域的交换机端口组成。  VLAN 使您能够提高安全性、隔离潜在问题并限制 IP 网络基础设施内的可用路径。
+
+.开始之前
+网络中部署的交换机必须符合 IEEE 802.1Q 标准或具有特定于供应商的 VLAN 实现。
+
+.关于此任务
+请注意以下事项：
+
+* 您无法在没有任何成员端口的接口组端口上创建 VLAN。
+* 当您第一次在端口上配置 VLAN 时，端口可能会关闭，从而导致网络暂时断开。后续向同一端口添加 VLAN 不会影响端口状态。
+* 您不应在网络接口上创建与交换机的本机 VLAN 具有相同标识符的 VLAN。例如，如果网络接口 e0b 位于本机 VLAN 10 上，则不应在该接口上创建 VLAN e0b-10。
+
+
+.步骤
+. 在系统管理器中，选择*网络*，然后选择*以太网端口*。
+. 选择image:icon_vlan.png["蓝色加号，后跟单词 vlan"]。
+. 提供配置详细信息，包括所需节点的 ID、广播域和端口。
++
+VLAN 不能连接到托管集群 LIF 的端口或分配给集群 IP 空间的端口。
+
+. 选择*保存*。
+
+
+.结果
+您已创建 VLAN 来提高安全性、隔离问题并限制 IP 网络基础设施内的可用路径。
+
+
+
+== 创建 LAG
+
+链路聚合组 (LAG) 是一种将多个物理网络连接组合成单个逻辑连接的技术。您可以使用它来增加带宽并在节点之间提供冗余。
+
+.步骤
+. 在系统管理器中，选择*网络*，然后选择*以太网端口*。
+. 选择*链接聚合组*。
+. 提供配置详细信息，包括节点、广播域、端口、模式和负载分布。
+. 选择*保存*。
+
+
+
+
+== 相关信息
+
+* link:../administer/manage-cluster-networking.html["管理 AFX 群集网络"]
+* https://docs.netapp.com/us-en/ontap/networking/configure_network_ports_cluster_administrators_only_overview.html["了解ONTAP网络端口配置"^]
+* https://docs.netapp.com/us-en/ontap/networking/combine_physical_ports_to_create_interface_groups.html["组合物理端口以创建ONTAP接口组"^]
+

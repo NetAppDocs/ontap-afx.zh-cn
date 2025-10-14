@@ -1,0 +1,109 @@
+---
+sidebar: sidebar 
+permalink: administer/manage-autosupport.html 
+keywords: afx, afx system, autosupport 
+summary: AutoSupport是一项NetApp技术，您可以使用它来主动监控 AFX 存储系统的健康状况。它可以自动向NetApp技术支持、您的内部支持组织或支持合作伙伴发送消息。 
+---
+= 管理 AFX 存储系统集群的AutoSupport
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+AutoSupport是一项NetApp技术，您可以使用它来主动监控 AFX 存储系统的健康状况。它可以自动向NetApp技术支持、您的内部支持组织或支持合作伙伴发送消息。
+
+当您设置 AFX 集群时， AutoSupport默认启用，并且消息将发送给NetApp技术支持。要向您的内部支持组织发送消息，您需要正确配置您的集群并提供有效的电子邮件主机。  AFX 在激活 24 小时后开始发送AutoSupport消息。
+
+
+NOTE: 您需要使用集群管理员帐户登录系统管理器来管理AutoSupport。
+
+
+
+== 测试AutoSupport连接
+
+设置集群后，您应该测试AutoSupport连接以验证技术支持是否可以接收AutoSupport生成的消息。
+
+.步骤
+. 在系统管理器中，选择*集群*，然后选择*设置*。
+. 在“* AutoSupport*”旁边选择image:icon_kabob.gif["三个垂直的蓝点"]然后*测试连接*。
+. 输入AutoSupport消息的主题并选择 *发送测试AutoSupport消息*。
+
+
+
+
+== 添加AutoSupport收件人
+
+您可以选择将内部支持组织的成员添加到接收AutoSupport消息的电子邮件地址列表中。
+
+.步骤
+. 在系统管理器中，选择*集群*，然后选择*设置*。
+. 在“* AutoSupport*”旁边选择image:icon_kabob.gif["三个垂直的蓝点"]然后是*更多选项*。
+. 在“*电子邮件*”旁边，选择image:icon_edit_pencil_blue_outline.png["铅笔图标"]进而image:icon_add.gif["蓝色加号，后跟单词 Add"]。
+. 提供收件人的电子邮件地址；对于收件人类别，选择：
++
+** 为您的合作伙伴提供*合作伙伴*
+** *一般*适用于您的内部支持组织的成员
+
+
+. 选择*保存*。
+
+
+.结果
+您添加的电子邮件地址将收到针对其特定收件人类别的新AutoSupport消息。
+
+
+
+== 发送AutoSupport数据
+
+如果您的 AFX 系统出现问题，您应该手动发送AutoSupport数据。这可以显著减少识别和解决问题所需的时间。
+
+.步骤
+. 在系统管理器中，选择*集群*，然后选择*设置*。
+. 在“* AutoSupport*”旁边选择image:icon_kabob.gif["三个垂直的蓝点"]然后*生成并发送*。
+. 提供AutoSupport消息的主题。
+. 选择*发送*。
+
+
+.结果
+您的AutoSupport数据已发送至技术支持。
+
+
+
+== 抑制支持案例生成
+
+如果您正在对 AFX 系统执行升级或维护，您可能希望抑制AutoSupport支持案例的生成，直到升级或维护完成。
+
+.步骤
+. 在系统管理器中，选择*集群*，然后选择*设置*。
+. 在“* AutoSupport*”旁边选择image:icon_kabob.gif["三个垂直的蓝点"]然后*抑制支持案例生成*。
+. 指定抑制生成支持案例的小时数以及您不想为其生成案例的节点。
+. 选择*发送*。
+
+
+.结果
+在您指定的时间内不会生成AutoSupport案例。如果您在指定时间之前完成升级或维护，则应立即恢复支持案例生成。
+
+
+
+== 恢复支持案例生成
+
+如果您在升级或维护期间抑制了支持案例的生成，则应在升级或维护完成后立即恢复支持案例的生成。
+
+.步骤
+. 在系统管理器中，选择*集群*，然后选择*设置*。
+. 在“* AutoSupport*”旁边选择image:icon_kabob.gif["三个垂直的蓝点"]然后*恢复支持案例生成*。
+. 选择要恢复AutoSupport案例生成的节点。
+. 选择*发送*。
+
+
+.结果
+AutoSupport案例将根据需要为您的 AFX 系统自动生成。
+
+
+
+== 相关信息
+
+* https://docs.netapp.com/us-en/ontap/system-admin/manage-autosupport-concept.html["了解ONTAP AutoSupport"^]
+* https://docs.netapp.com/us-en/ontap/system-admin/requirements-autosupport-reference.html["准备使用ONTAP AutoSupport"^]
+

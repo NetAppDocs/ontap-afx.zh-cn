@@ -1,0 +1,36 @@
+---
+sidebar: sidebar 
+permalink: secure-data/prepare-secure-data.html 
+keywords: afx, afx system, prepare, prepare secure, prepare secure data 
+summary: 在管理 AFX 数据之前，您应该熟悉主要概念和功能。 
+---
+= 准备保护您的 AFX 存储系统数据
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在管理 AFX 数据之前，您应该熟悉主要概念和功能。
+
+
+TIP: 由于AFF和FAS系统上的许多概念和管理程序与 AFX 存储系统相同，因此查看 Unified ONTAP文档会很有帮助。
+
+
+
+== 术语和选项
+
+您应该熟悉几个与 AFX 数据安全相关的术语。
+
+勒索软件:: 勒索软件是一种恶意软件，它会加密文件，使用户无法访问它们。通常需要某种形式的付款才能解密数据。  NetApp ONTAP通过自主勒索软件防护 (ARP) 等功能提供防御勒索软件的解决方案。
+加密:: 加密是将数据转换为安全格式的过程，未经适当授权就无法轻易读取。 ONTAP提供基于软件和基于硬件的加密技术来保护静态数据。这确保了当存储介质被重新利用、退回、放错地方或被盗时，它无法被读取。这些加密解决方案可以使用外部密钥管理服务器或ONTAP提供的板载密钥管理器进行管理。
+数字证书和 PKI:: 数字证书是用于证明公钥所有权的电子文档。公钥和相关的私钥可以以多种方式使用，包括通常作为更大的安全框架（如 TLS 和 IPsec）的一部分来建立身份。这些密钥以及支持协议和格式标准构成了公钥基础设施 (PKI) 的基础。
+
+
+
+
+== 相关信息
+
+* link:../administer/additional-ontap-svm.html["额外的 AFX SVM 管理"]
+* link:../get-started/prepare-cluster-admin.html["准备管理 AFX 系统"]
+

@@ -1,0 +1,44 @@
+---
+section: svm-admin
+title: 管理您的存储虚拟机和数据
+entries:
+- title: 管理数据
+  entries:
+  - title: 准备管理您的数据
+    url: "/manage-data/prepare-manage-data.html"
+  - title: 创建并配置卷
+    url: "/manage-data/create-configure-volume.html"
+  - title: 管理卷
+    url: "/manage-data/manage-volumes.html"
+  - title: 创建并配置存储桶
+    url: "/manage-data/create-configure-bucket.html"
+  - title: 管理存储桶
+    url: "/manage-data/manage-buckets.html"
+  - title: 监控和排除存储故障
+    url: "/manage-data/monitor-debug-storage.html"
+- title: 保护数据
+  entries:
+  - title: 准备保护您的数据
+    url: "/protect-data/prepare-protect-data.html"
+  - title: 创建一致性组
+    url: "/protect-data/create-consistency-group.html"
+  - title: 管理一致性组
+    url: "/protect-data/manage-consistency-groups.html"
+  - title: 创建快照
+    url: "/protect-data/create-snapshot.html"
+  - title: 管理快照
+    url: "/protect-data/manage-snapshots.html"
+  - title: 创建 SVM 对等关系
+    url: "/protect-data/create-peer-relationship.html"
+  - title: 设置和管理快照复制
+    url: "/protect-data/snapshot-replication.html"
+  - title: 管理政策和时间表
+    url: "/protect-data/policies-schedules.html"
+- title: 安全数据
+  entries:
+  - title: 准备保护您的数据
+    url: "/secure-data/prepare-secure-data.html"
+  - title: 加密静态数据
+    url: "/secure-data/encrypt-data-at-rest.html"
+- title: 额外的管理
+  url: "/administer/additional-ontap-svm.html"

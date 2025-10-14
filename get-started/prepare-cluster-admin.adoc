@@ -1,0 +1,194 @@
+---
+sidebar: sidebar 
+permalink: get-started/prepare-cluster-admin.html 
+keywords: afx, afx system, prepare, administration 
+summary: 在生产环境中部署 AFX 之前，必须了解管理结构和配置选项。这可确保您的 AFX 集群管理安全、高效且有效。 
+---
+= 准备管理您的 AFX 存储系统
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在生产环境中部署 AFX 之前，必须了解管理结构和配置选项。这可确保您的 AFX 集群管理安全、高效且有效。
+
+
+
+== 了解存储虚拟机
+
+存储虚拟机 (SVM) 是ONTAP集群内的隔离服务器或租户环境。您可以配置 SVM 来向连接的客户端提供数据。您应该熟悉 AFX SVM 的功能和特性。
+
+
+NOTE: 当您设置并初始部署 AFX 集群时，会创建一个数据 SVM。如果需要，您可以创建额外的数据 SVM。
+
+行政控制:: 数据 SVM 可用于建立和强制执行数据和应用程序的隔离。当一个较大的组织中有许多不同的团体时，这会很有用。可以将管理控制委托给 SVM 来制定与数据访问、安全和保护相关的策略。
+账户和 RBAC 角色:: AFX 有两个级别的身份验证和授权：集群级别和 SVM 级别。除了集群账户之外，每个 SVM 都有自己独特的一组用户和角色。在大多数情况下，使用集群级别帐户就足够了。但根据您的环境，您可能还需要配置和使用限制性更强的 SVM 帐户和角色。看link:../administer/additional-ontap-svm.html["额外的 AFX SVM 管理"]了解更多信息。
+SVM 范围的资源:: AFX 资源和可配置实体与集群或特定 SVM 相关联。  SVM 范围内有许多资源，包括卷和存储桶以及 SVM 用户帐户和 RBAC 角色。
+专用网络接口:: 每个 SVM 都有自己专用的一组网络接口。例如，将单独的 LIF 分配给 SVM 以用于管理和客户端数据访问。
+
+
+
+
+== 两个AFX管理层级
+
+使用 AFX 执行的管理ONTAP任务通常分为两类。某些任务适用于整个ONTAP集群，而其他任务适用于特定的 SVM。这就导致了两级管理模式。
+
+值得注意的是，这些级别描述了如何组织和分配管理任务，而不一定描述了如何配置相关的安全性。例如，虽然需要集群管理员帐户来执行集群级别管理，但它也可以用于 SVM 管理。
+
+集群管理员:: 集群管理员可以完全控制 AFX 集群，包括所有数据 SVM。 AFX 集群管理级别仅包括集群管理员可以执行的任务，而不包括任何特定于 SVM 的管理任务。看link:../administer/view-dashboard.html["管理您的集群"]了解更多信息。
+SVM 管理员:: SVM 管理员角色可以控制特定的数据 SVM，因此与集群管理员相比受到的限制更严格。 SVM 管理涉及对具有 SVM 范围的对象和资源执行任务，例如创建卷。看link:../manage-data/prepare-manage-data.html["管理您的存储虚拟机和数据"]了解更多信息。
+
+
+
+
+== 三个管理界面
+
+与AFF和FAS系统一样，AFX 有三个管理界面。您需要使用的 LIF（或 IP 地址）根据管理界面和您的环境而有所不同。
+
+
+NOTE: 对于大多数管理任务来说，系统管理器用户界面是首选。除非另有说明，否则您应该使用管理员帐户。
+
+[cols="25,75"]
+|===
+| 接口 | 描述 
+
+
+| System Manager | 这是一个可通过网络浏览器访问的图形用户界面。它易于使用，并能提供客户所需的大部分功能。通过系统管理器访问 AFX 可为大多数ONTAP集群和 SVM 管理需求提供最简单的体验。 
+
+
+| 命令行界面 | 可以使用 SSH 访问ONTAP CLI。根据您的帐户，您可以访问集群管理 LIF 或 SVM 管理 LIF。 CLI 更难使用，但更强大。对于高级管理任务来说，它是首选，有时也是必需的。 
+
+
+| REST API | AFX 包含一个 REST API，您可以使用它来自动管理您的 AFX 集群。该 API 与 Unified ONTAP个性 REST API 共享许多相同的调用，但经过修改以支持独特的 AFX 功能。 
+|===
+
+
+== 学习在系统管理器中搜索、过滤和排序信息
+
+系统管理器用户界面包括一组强大的功能，使您能够访问和显示所需的信息。学习使用这些功能将帮助您更好地管理 AFX 存储系统。看 https://docs.netapp.com/us-en/ontap/task_admin_search_filter_sort.html["在系统管理器中搜索、过滤和排序信息"^]了解更多信息。
+
+
+
+== 访问ONTAP CLI
+
+虽然您可以使用系统管理器进行大多数 AFX 管理，但有些任务只能使用ONTAP命令行界面执行。
+
+.关于此任务
+您可以通过安全外壳 (SSH) 访问ONTAP CLI。 CLI 具有多个权限级别，决定您可用的命令和命令参数。这 `admin`级别是最低权限，也是您登录时的默认级别。您可以将会话权限提升至 `advanced`如果需要使用 `set`命令。
+
+.开始之前
+您需要以下物品：
+
+* 集群或 SVM 管理 LIF 的 IP 地址或域名
+* 帐户凭据
+* 本地工作站上的 SSH 客户端
+
+
+.步骤
+. 使用 SSH 连接到您的 AFX 集群，例如：
++
+`ssh admin@10.69.117.24`
+
+. 提供帐户密码。
+. 显示层次结构顶部的命令目录：
++
+`?`
+
+. 提升会话的权限级别 `admin`到 `advanced`：
++
+`set -privilege advanced`
+
+
+
+
+
+== 使用ONTAP HA 对
+
+与 Unified ONTAP一样，AFX 集群节点配置为高可用性 (HA) 对，以实现容错和无中断运行。 HA 配对使得存储操作能够在发生节点故障（例如存储故障转移）时保持在线。每个节点都与另一个节点配对，形成一对。这通常是通过两个节点的NVRAM模块之间的直接连接来完成的。
+
+使用 AFX，新的 HA VLAN 被添加到后端集群交换机，以使NVRAM模块能够在 HA 伙伴节点之间保持连接。  HA 对仍然与 AFX 系统一起使用，但不再需要直接连接合作伙伴节点。
+
+
+
+== AFX 系统部署限制
+
+在配置和使用集群时，AFX 会强制执行多项限制，包括最小值和最大值。这些限制分为几个不同的类别，包括：
+
+每个集群的控制器节点:: 每个 AFX 集群必须至少有四个节点。最大节点数根据ONTAP版本的不同而不同。
+存储容量:: 这是集群存储可用区 (SAZ) 中所有 SSD 磁盘的总容量。最大存储容量根据ONTAP版本而有所不同。您应该查看互操作性矩阵工具 (IMT) 中提供的信息来确定集群的功能。
+
+
+
+
+== 确认 AFX 系统健康状况
+
+在执行任何 AFX 管理任务之前，您应该检查集群的健康状况。
+
+
+TIP: 您可以随时检查 AFX 集群的健康状况，包括当您怀疑存在操作或性能问题时。
+
+.开始之前
+您需要以下物品：
+
+* 集群管理 IP 地址或 FQDN
+* 集群的管理员帐户（用户名和密码）
+
+
+.步骤
+. 使用浏览器连接到系统管理器：
++
+`\https://$FQDN_IPADDR/`
+
++
+*例子*
+
++
+`\https://10.61.25.33/`
+
+. 提供管理员用户名和密码，然后选择*Sign in*。
+. 检查系统仪表板和集群状态，包括布线。还请注意左侧的_导航窗格_。
++
+link:../administer/view-dashboard.html["查看仪表板和集群状态"]
+
+. 显示系统事件和审计日志消息。
++
+link:../administer/view-events-log.html["查看 AFX 事件和审计日志"]
+
+. 显示并记录任何*Insight*建议。
++
+link:../administer/view-insights.html["使用 Insights 优化 AFX 集群性能和安全性"]
+
+
+
+
+
+== 创建和使用数据 SVM 的快速入门
+
+安装和设置 AFX 集群后，您可以开始执行大多数 AFX 部署的典型管理任务。以下是开始与客户共享数据所需的高级步骤。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["一个"]显示可用数据 SVM
+[role="quick-margin-para"]
+link:../administer/display-svms.html["显示"]数据 SVM 列表并确定是否有一个可以使用。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["两个"]（可选）创建数据 SVM
+[role="quick-margin-para"]
+link:../administer/create-svm.html["创建"]如果现有 SVM 不可用，则可以使用 SVM 来隔离和保护您的应用程序工作负载和数据。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["三"]配置您的 SVM
+[role="quick-margin-para"]
+link:../administer/configure-svm.html["配置"]您的 SVM 并准备供客户端访问。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["四个"]准备配置存储
+[role="quick-margin-para"]
+link:../manage-data/prepare-manage-data.html["准备"]分配和管理您的数据。
+
+
+
+== 相关信息
+
+* https://docs.netapp.com/us-en/ontap/concepts/introducing-ontap-interfaces-concept.html["ONTAP用户界面"^]
+* https://docs.netapp.com/us-en/ontap/system-admin/set-privilege-level-task.html["在ONTAP CLI 中设置权限级别"^]
+* https://docs.netapp.com/us-en/ontap/system-admin/index.html["了解如何使用ONTAP CLI 进行集群管理"^]
+* link:../faq-ontap-afx.html["AFX 存储系统常见问题解答"]
+

@@ -1,0 +1,22 @@
+---
+sidebar: sidebar 
+permalink: administer/upgrade-ontap.html 
+keywords: afx, afx system, upgrade, upgrade ontap 
+summary: 当您在 AFX 系统上升级ONTAP软件时，您可以利用新的和增强的ONTAP功能，这些功能可以帮助您降低成本、加速关键工作负载、提高安全性并扩大组织可用的数据保护范围。 
+---
+= 在 AFX 存储系统上升级ONTAP
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+当您在 AFX 系统上升级ONTAP软件时，您可以利用新的和增强的ONTAP功能，这些功能可以帮助您降低成本、加速关键工作负载、提高安全性并扩大组织可用的数据保护范围。
+
+AFX 存储系统的ONTAP软件升级遵循与其他ONTAP系统升级相同的流程。如果您拥有Active IQ Digital Advisor （也称为Digital Advisor ）的有效SupportEdge合同，您应该link:https://docs.netapp.com/us-en/ontap/upgrade/create-upgrade-plan.html["使用升级顾问准备升级"^]。升级顾问通过评估您的集群并创建特定于您的配置的升级计划，提供智能信息，帮助您最大限度地减少不确定性和风险。如果您没有Active IQ Digital Advisor的有效SupportEdge合同，您应该link:https://docs.netapp.com/us-en/ontap/upgrade/prepare.html["准备在没有升级顾问的情况下升级"^]。
+
+准备升级后，建议您使用link:https://docs.netapp.com/us-en/ontap/upgrade/task_upgrade_andu_sm.html["通过系统管理器进行自动无中断升级 (ANDU)"]。  ANDU 利用 ONTAP 的高可用性 (HA) 故障转移技术来确保集群在升级期间继续不间断地提供数据。
+
+.相关信息
+* https://docs.netapp.com/us-en/ontap/upgrade/index.html["了解ONTAP升级"^] 。
+

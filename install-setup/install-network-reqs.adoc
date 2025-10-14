@@ -1,0 +1,75 @@
+---
+sidebar: sidebar 
+permalink: install-setup/install-network-reqs.html 
+keywords: shared storage cluster switch 
+summary: 从ONTAP 9.9.1 开始，您可以使用Cisco Nexus 9364d-gx2a 交换机将存储和集群功能组合到共享交换机场景中。 
+---
+= AFX 1K 存储系统的网络要求
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+记录连接到 AFX 1K 存储系统的每个网络所需的信息。
+
+
+
+== 收集网络信息
+
+在开始安装 AFX 1K 存储系统之前，请收集所需的网络信息
+
+* 每个存储系统控制器和所有适用交换机的主机名和 IP 地址。
++
+大多数存储系统控制器通过连接到以太网服务端口（扳手图标）通过 e0M 接口进行管理。
+
++
+请参阅 https://hwu.netapp.com["Hardware Universe"^]了解最新信息。
+
+* 集群管理 IP 地址
++
+集群管理IP地址是集群管理员用来访问管理存储VM和管理集群的集群管理接口的唯一IP地址。您可以从组织中负责分配 IP 地址的管理员处获取此 IP 地址。
+
+* 网络子网掩码
++
+在集群设置期间， ONTAP会推荐一组适合您的配置的网络接口。如有必要，您可以调整建议。
+
+* 网络网关 IP 地址
+* 节点管理 IP 地址（每个节点一个）
+* DNS 域名
+* DNS 名称服务器 IP 地址
+* NTP 服务器 IP 地址
+* 数据子网掩码
+* 用于管理网络流量的 IP 子网。
+
+
+
+
+== Cisco交换机的网络要求
+
+对于Cisco Nexus 9332D-GX2B 和 9364D-GX2A 交换机的安装和维护，请务必检查布线和网络要求。
+
+
+
+=== 网络要求
+
+所有交换机配置都需要以下网络信息。
+
+* 管理网络流量的 IP 子网
+* 每个存储系统控制器和所有适用交换机的主机名和 IP 地址
+* 请参阅 https://hwu.netapp.com["Hardware Universe"^]了解最新信息。
+
+
+
+
+=== 布线要求
+
+* 您拥有适合您的交换机的数量和类型的电缆和电缆连接器。查看 https://hwu.netapp.com["Hardware Universe"^]。
+* 根据您最初配置的交换机类型，您需要使用附带的控制台电缆连接到交换机控制台端口。
+
+
+.下一步是什么？
+查看网络要求后，您link:cable-hardware.html["为 AFX 1K 存储系统连接控制器和存储架"]。

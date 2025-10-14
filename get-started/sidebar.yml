@@ -1,0 +1,46 @@
+---
+section: get-started
+title: 开始使用
+entries:
+- title: 了解您的 AFX 系统
+  entries:
+  - title: 了解NetApp AFX
+    url: "/get-started/ontap-afx-storage.html"
+  - title: 系统特性
+    url: "/get-started/system-design.html"
+  - title: 架构细节
+    url: "/get-started/software-architecture.html"
+  - title: 比较 AFX 与AFF和FAS
+    url: "/get-started/compare-unified-ontap.html"
+- title: 快速启动
+  url: "/get-started/quick-start.html"
+- title: 安装您的 AFX 系统
+  entries:
+  - title: 安装工作流程
+    url: "/install-setup/install-setup-workflow.html"
+  - title: 查看硬件要求
+    url: "/install-setup/install-setup-requirements.html"
+  - title: 准备安装
+    url: "/install-setup/prepare-hardware.html"
+  - title: 安装硬件
+    entries:
+    - title: 安装开关
+      url: "/install-setup/install-switches.html"
+    - title: 安装存储系统和架子
+      url: "/install-setup/deploy-hardware.html"
+  - title: 布线
+    entries:
+    - title: 查看支持的配置
+      url: "/install-setup/afx-cable-overview.html"
+    - title: 收集网络信息
+      url: "/install-setup/install-network-reqs.html"
+    - title: 电缆硬件
+      url: "/install-setup/cable-hardware.html"
+  - title: 打开并配置交换机
+    url: "/install-setup/power-on-configure-switch.html"
+  - title: 启动系统
+    url: "/install-setup/power-on-hardware.html"
+- title: 设置您的 AFX 系统
+  url: "/install-setup/cluster-setup.html"
+- title: 准备管理 AFX
+  url: "/get-started/prepare-cluster-admin.html"

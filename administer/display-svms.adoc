@@ -1,0 +1,25 @@
+---
+sidebar: sidebar 
+permalink: administer/display-svms.html 
+keywords: afx, afx system, svm, display svm 
+summary: 您可以显示 AFX 集群中定义的数据存储虚拟机。每个 SVM 都提供一个独立的环境来组织您的数据并提供客户端访问。 
+---
+= 显示 AFX 存储系统 SVM
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以显示 AFX 集群中定义的数据存储虚拟机。每个 SVM 都提供一个独立的环境来组织您的数据并提供客户端访问。
+
+.步骤
+. 在系统管理器中，选择*集群*，然后选择*存储虚拟机*。
+. 将鼠标悬停在所需的 SVM 上并选择image:icon_kabob.gif["三个垂直的蓝点"]查看主要管理选项，包括启动和停止 SVM。
+. （可选）选择特定的 SVM 以查看更多详细信息，包括概览、设置、复制和文件系统。
+
+
+.相关信息
+* link:../administer/configure-svm.html["配置 AFX 系统 SVM"]
+* link:../get-started/prepare-cluster-admin.html["了解存储虚拟机"]
+

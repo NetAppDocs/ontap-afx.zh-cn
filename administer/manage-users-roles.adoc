@@ -1,0 +1,61 @@
+---
+sidebar: sidebar 
+permalink: administer/manage-users-roles.html 
+keywords: afx, afx system, users, roles 
+summary: 您可以根据 AFX 提供的身份验证和授权服务定义用户帐户和角色。 
+---
+= 管理 AFX 存储系统集群用户和角色
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以根据 AFX 提供的身份验证和授权服务定义用户帐户和角色。
+
+
+NOTE: 每个ONTAP用户都需要分配一个角色。角色包括权限并决定用户能够执行的操作。
+
+
+
+== 创建帐户角色
+
+当您的 AFX 集群设置并初始化时，会自动创建集群管理员和存储 VM 管理员的角色。您可以创建其他用户帐户角色来定义分配了这些角色的用户可以在您的集群上执行的特定功能。
+
+.步骤
+. 在系统管理器中，选择*集群*，然后选择*设置*。
+. 在“*安全*”部分中，在“*用户和角色*”旁边，选择image:icon_arrow.gif["指向右侧的蓝色箭头"]。
+. 在“*角色*”下，选择image:icon_add_blue_bg.png["蓝色矩形框内有一个加号，后面跟着白色字母“add”"]。
+. 提供角色的名称和属性。
+. 选择*保存*。
+
+
+
+
+== 创建集群帐户
+
+您可以创建一个集群级帐户，以便在执行集群或 SVM 管理时使用。
+
+.步骤
+. 在系统管理器中，选择*集群*，然后选择*设置*。
+. 在“*安全*”部分中，选择image:icon_arrow.gif["指向右侧的蓝色箭头"]在*用户和角色*旁边。
+. 选择image:icon_add_blue_bg.png["蓝色矩形框内有一个加号，后面跟着白色字母“add”"]. 在 *用户* 下。
+. 输入用户名，然后选择用户的角色。
++
+该角色应该适合用户。例如，*admin* 角色能够在您的集群上执行所有配置任务。
+
+. 选择用户登录方法和身份验证方法；通常是*密码*。
+. 输入用户的密码。
+. 选择*保存*。
+
+
+.结果
+已创建一个新帐户并可供您的 AFX 集群使用。
+
+
+
+== 相关信息
+
+* link:../administer/prepare-authentication.html["准备身份验证服务"]
+* link:../administer/additional-ontap-svm.html["额外的 AFX SVM 管理"]
+

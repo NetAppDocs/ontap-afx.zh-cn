@@ -1,0 +1,88 @@
+---
+sidebar: sidebar 
+permalink: administer/migrate-svm.html 
+keywords: afx, afx system, svm, migrate svm 
+summary: 您可以将数据 SVM 从一个ONTAP集群迁移到另一个 ONTAP 集群。使用 AFX 进行 SVM 迁移的操作与使用 Unified ONTAP进行的操作相同，但存在一些互操作性方面的考虑。有关执行 SVM 迁移的详细信息，请参阅 Unified ONTAP文档。 
+---
+= 迁移 AFX 存储系统 SVM
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以将数据 SVM 从一个ONTAP集群迁移到另一个 ONTAP 集群。使用 AFX 进行 SVM 迁移的操作与使用 Unified ONTAP进行的操作相同，但存在一些互操作性方面的考虑。有关执行 SVM 迁移的详细信息，请参阅提供的 Unified ONTAP文档。
+
+
+
+== 互操作性注意事项
+
+在规划和执行 SVM 迁移之前，您应该了解互操作性注意事项，包括功能和限制。
+
+
+
+=== 使用情形
+
+集群管理员可以将 SVM 从源集群重新定位到目标集群。您可以将其作为容量管理和负载平衡的一部分，或者允许设备升级或数据中心整合。
+
+由于 AFX 存储系统不支持从 Unified ONTAP进行就地升级，因此 SVM 迁移是一个重要的用例。您可以将应用程序工作负载从 Unified ONTAP9 集群迁移到 AFX 集群，而不会造成中断。此外，SVM 还可以通过其他方式迁移，包括从 AFX 集群迁移到 Unified ONTAP集群以及在 AFX 集群之间迁移。
+
+
+
+=== 版本互操作性
+
+下表根据源集群和目标集群的ONTAP特性和版本描述了允许的 SVM 迁移。
+
+[cols="40,30,30"]
+|===
+| 方向 | 源版本 | 目标版本 
+
+
+| 统一到 AFX | 9.15.1 - 9.17.1 | 9.17.1 
+
+
+| AFX 到统一 | 9.17.1 | 9.17.1 
+
+
+| AFX 到 AFX | 9.17.1 | 9.17.1 
+|===
+
+
+=== 预检查
+
+Unified ONTAP包含几项预检查，这些预检查也是通过 AFX 实现的。此外，还添加了几个新的预检查来标记 AFX 不支持的功能，包括：
+
+* FabricPool （驻留在复合聚合上的卷）
+* 厚置备卷
+
+
+
+
+=== 卷配置
+
+配置 AFX 卷是为了平衡集群的存储可用区 (SAZ) 中 AFX 卷的放置。
+
+空间保障:: AFX 不支持厚配置。如果正在迁移的 SVM 中的任何卷是厚置备的，则使用预检查来导致迁移失败。
+加密:: AFX 系统支持NetApp卷加密 (NVE)，但不支持NetApp聚合加密 (NAE)。因此，Unified ONTAP集群中的任何 NAE 卷在迁移到 AFX 时都会转换为 NVE 卷。下表总结了兼容性和转换。
+
+
+[cols="50,50"]
+|===
+| 源卷 | 目标卷 
+
+
+| 纯文本 | 纯文本 
+
+
+| 北威州 | 北威州 
+
+
+| 国家工程院 | 北威州 
+|===
+
+
+== 相关信息
+
+* https://docs.netapp.com/us-en/ontap/svm-migrate/index.html["ONTAP SVM 数据移动性"^]
+* link:../faq-ontap-afx.html["AFX 存储系统常见问题解答"]
+

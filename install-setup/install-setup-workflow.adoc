@@ -1,0 +1,42 @@
+---
+sidebar: sidebar 
+permalink: install-setup/install-setup-workflow.html 
+keywords: afx, afx 1k, install, setup, workflow 
+summary: 开始安装和设置 AFX 1K 存储系统并将其部署到您的ONTAP环境中。 
+---
+= AFX 1K 存储系统的安装和设置工作流程
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+要安装和配置 AFX 1K 存储系统，您需要查看硬件要求、准备站点、安装交换机、安装和连接硬件组件、启动系统并设置ONTAP AFX 集群。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["一个"]link:install-setup-requirements.html["查看硬件安装要求"]
+[role="quick-margin-para"]
+查看安装 AFX 1K 存储系统的硬件要求。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["两个"]link:prepare-hardware.html["准备安装 AFX 1K 存储系统"]
+[role="quick-margin-para"]
+准备安装 AFX 1K 存储系统，包括准备场地、检查环境和电气要求、确保有足够的机架空间、拆开设备包装、根据装箱单验证内容以及注册硬件以获得支持。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["三"]link:install-switches.html["安装 AFX 1K 存储系统的交换机"]
+[role="quick-margin-para"]
+在机柜或机架中安装Cisco Nexus 9332D-GX2B 或 9364D-GX2A 交换机。如果使用Cisco Nexus 9364D-GX2A 交换机，请安装直通面板套件。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["四个"]link:deploy-hardware.html["安装 AFX 1K 存储系统的硬件"]
+[role="quick-margin-para"]
+安装存储系统和架子的导轨套件。将存储系统固定在机柜或电信机架中。接下来，将架子滑到安装好的导轨上。最后，将电缆管理设备连接到存储系统的后部，以便有组织地布线。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["五"]link:cable-hardware.html["为 AFX 1K 存储系统连接控制器和存储架"]
+[role="quick-margin-para"]
+要连接硬件，首先将存储控制器节点连接到网络，然后将控制器节点和存储架连接到集群交换机。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["六"]link:power-on-configure-switch.html["打开并配置 AFX 1K 存储系统的交换机"]
+[role="quick-margin-para"]
+连接硬件，然后打开电源并配置 AFX 1K 存储系统的交换机。查看Cisco Nexus 9332D-GX2B 和 9364D-GX2A 交换机的配置说明。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-7.png["七"]link:power-on-hardware.html["启动 AFX 1K 存储系统"]
+[role="quick-margin-para"]
+在打开控制器节点的电源之前，打开每个存储架的电源并分配唯一的存储架 ID，以清楚地识别设置中的每个存储架。

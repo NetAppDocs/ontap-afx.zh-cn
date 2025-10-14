@@ -1,0 +1,67 @@
+---
+sidebar: sidebar 
+permalink: administer/prepare-authentication.html 
+keywords: afx, afx cluster, authentication 
+summary: 您需要准备AFX系统使用的身份验证和授权服务，以定义用户帐户和角色。 
+---
+= 准备 AFX 存储系统身份验证服务
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您需要准备AFX系统对用户账户和角色定义的身份验证和授权服务。
+
+
+
+== 配置 LDAP
+
+您可以配置轻量级目录访问协议 (LDAP) 服务器以在中心位置维护身份验证信息。
+
+.开始之前
+您必须生成证书签名请求并添加 CA 签名的服务器数字证书。
+
+.步骤
+. 在系统管理器中，选择*集群*，然后选择*设置*。
+. 选择image:icon_gear_white_bg.png["蓝色机械齿轮的轮廓"]在 *LDAP* 旁边。
+. 选择image:icon_add.gif["蓝色加白色背景"]并提供 LDAP 服务器的名称或 IP 地址。
+. 提供必要的配置信息，包括架构、基本 DN、端口和绑定。
+. 选择*保存*。
+
+
+
+
+== 配置 SAML 身份验证
+
+安全断言标记语言 (SAML) 身份验证使用户能够通过安全身份提供商 (IdP) 而不是使用其他协议（如 LDAP）的提供商进行身份验证。
+
+.开始之前
+* 必须配置您计划用于远程身份验证的身份提供者。有关配置详细信息，请参阅提供商文档。
+* 您必须拥有身份提供者的 URI。
+
+
+.步骤
+. 在系统管理器中，选择*集群*，然后选择*设置*。
+. 选择image:icon_gear_white_bg.png["机械齿轮的蓝色轮廓"]在 *安全* 下，*SAML 身份验证* 旁边。
+. 选择*启用 SAML 身份验证*。
+. 提供 *IdP URL* 和 *主机系统* IP 地址并选择 *保存*。
++
+确认窗口显示已自动复制到剪贴板的元数据信息。
+
+. 导航到您指定的 IdP 系统并从剪贴板复制元数据以更新系统元数据。
+. 返回系统管理器中的确认窗口并选择*我已使用主机 URI 或元数据配置了 IdP*。
+. 选择*注销*以启用基于 SAML 的身份验证。
++
+IdP 系统将显示身份验证屏幕。
+
+
+
+
+
+== 相关信息
+
+* link:../administer/manage-users-roles.html["管理 AFX 集群用户和角色"]
+* https://docs.netapp.com/us-en/ontap/system-admin/configure-saml-authentication-task.html["为远程ONTAP用户配置 SAML 身份验证"^]
+* https://docs.netapp.com/us-en/ontap/authentication-access-control/index.html["身份验证和访问控制"^]
+

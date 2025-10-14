@@ -1,0 +1,19 @@
+---
+sidebar: sidebar 
+permalink: administer/view-jobs.html 
+keywords: afx, afx system, view jobs 
+summary: AFX 包括一个内部平台，可根据您的配置和管理操作运行后台作业。这些作业可以是长期运行的 AFX 组件，也可以是响应管理任务或 REST API 请求而执行的短暂进程。您可以根据需要显示和监控作业。 
+---
+= 查看 AFX 存储系统作业
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+AFX 包括一个内部平台，可根据您的配置和管理操作运行后台作业。这些作业可以是长期运行的 AFX 组件，也可以是响应管理任务或 REST API 请求而执行的短暂进程。您可以根据需要显示和监控作业。
+
+.步骤
+. 在系统管理器中，选择*事件和作业*，然后选择*作业*。
+. 根据需要自定义显示以及搜索和下载工作信息。
+

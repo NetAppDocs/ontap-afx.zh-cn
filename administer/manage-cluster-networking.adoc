@@ -1,0 +1,117 @@
+---
+sidebar: sidebar 
+permalink: administer/manage-cluster-networking.html 
+keywords: afx, afx system, networking, cluster networking, broadcast domain, ipsace, subnet, network interface 
+summary: 您需要配置 AFX 存储系统的网络。网络环境支持多种连接场景，包括客户端访问 SVM 上的数据和集群间通信。 
+---
+= 管理 AFX 存储系统集群网络
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您需要配置 AFX 存储系统的网络。网络环境支持多种场景，包括客户端访问 SVM 上的数据和集群间通信。
+
+
+NOTE: 创建网络资源是重要的第一步。您还需要根据需要执行其他管理操作，例如编辑或删除网络定义。
+
+
+
+== 创建广播域
+
+广播域通过对属于同一第二层网络的端口进行分组来简化集群网络的管理。然后可以为存储虚拟机 (SVM) 分配组中的端口，用于数据或管理流量。
+
+集群设置期间会创建多个广播域，包括：
+
+默认:: 该广播域包含“默认”IP空间中的端口。这些端口主要用于提供数据。还包括集群管理和节点管理端口。
+集群:: 该广播域包含“集群”IP空间中的端口。这些端口用于集群通信，包括集群中所有节点的所有集群端口。
+
+
+您可以在集群初始化后创建其他广播域。创建广播域时，将自动创建包含相同端口的故障转移组。
+
+.关于此任务
+为广播域定义的端口的最大传输单元 (MTU) 值将更新为广播域中设置的 MTU 值。
+
+.步骤
+. 在系统管理器中，选择*网络*，然后选择*概览*。
+. 在“广播域”下，选择image:icon_add_blue_bg.png["蓝色矩形框内有一个加号，后面跟着白色字母“add”"]。
+. 提供广播域的名称或接受默认值。
++
+所有广播域名在 IP 空间内必须是唯一的。
+
+. 提供最大传输单元（MTU）。
++
+MTU是广播域内可接受的最大数据包。
+
+. 选择所需的端口并选择*保存*。
+
+
+
+
+== 创建 IP 空间
+
+IP空间是IP地址和相关网络配置的管理域。这些空间可用于通过隔离管理和路由来支持您的 SVM。例如，当客户端具有来自相同 IP 地址和子网范围的重叠 IP 地址时，它们很有用。
+
+
+TIP: 您必须先拥有一个 IP 空间，然后才能创建子网。
+
+.步骤
+. 在系统管理器中，选择*网络*，然后选择*概览*。
+. 在“IP 空间”下，选择image:icon_add_blue_bg.png["蓝色矩形框内有一个加号，后面跟着白色字母“add”"]。
+. 提供 IP 空间的名称或接受默认值。
++
+所有 IP 空间名称在集群内必须是唯一的。
+
+. 选择*保存*。
+
+
+.下一步
+您可以使用 IP 空间来创建子网。
+
+
+
+== 创建子网
+
+子网或子网强制对网络中的 IP 地址空间进行逻辑划分。它使您能够分配专用的 IP 地址块来创建网络接口 (LIF)。子网允许您使用子网名称而不是特定的 IP 地址和网络掩码组合，从而简化了 LIF 的创建。
+
+.开始之前
+您必须有一个广播域和将定义子网的 IP 空间。另请注意：
+
+* 所有子网名称在特定 IP 空间内必须是唯一的。
+* 子网使用的 IP 地址范围不能与其他子网的 IP 地址重叠。
+
+
+.步骤
+. 在系统管理器中，选择*网络*，然后选择*概览*。
+. 在“子网”选项卡下，选择image:icon_add_blue_bg.png["蓝色矩形框内有一个加号，后面跟着白色字母“add”"]。
+. 提供配置详细信息，包括子网名称、IP 地址详细信息和广播域。
+. 选择*保存*。
+
+
+.下一步
+新的子网将简化网络接口的创建。
+
+
+
+== 创建网络接口
+
+逻辑网络接口 (LIF) 由 IP 地址和相关网络配置参数组成。它可以与物理或逻辑端口相关联，通常由客户端用来访问 SVM 提供的数据。  LIF 在发生故障时提供弹性，并且可以在节点端口之间迁移，因此通信不会中断。
+
+.步骤
+. 在系统管理器中，选择*网络*，然后选择*概览*。
+. 在“网络接口”选项卡下，选择image:icon_add_blue_bg.png["蓝色矩形框内有一个加号，后面跟着白色字母“add”"]。
+. 提供配置详细信息，包括接口名称、接口类型、允许的协议和 IP 地址详细信息。
+. 选择*保存*。
+
+
+
+
+== 相关信息
+
+* link:../administer/manage-ethernet-ports.html["管理 AFX 以太网端口"]
+* https://docs.netapp.com/us-en/ontap/networking/configure_broadcast_domains_cluster_administrators_only_overview.html["了解ONTAP广播域"^]
+* https://docs.netapp.com/us-en/ontap/networking/configure_ipspaces_cluster_administrators_only_overview.html["了解ONTAP IP 空间配置"^]
+* https://docs.netapp.com/us-en/ontap/networking/configure_subnets_cluster_administrators_only_overview.html["了解ONTAP网络的子网"^]
+* https://docs.netapp.com/us-en/ontap/concepts/network-connectivity-concept.html["网络架构概述"^]
+

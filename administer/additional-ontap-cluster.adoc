@@ -1,0 +1,85 @@
+---
+sidebar: sidebar 
+permalink: administer/additional-ontap-cluster.html 
+keywords: afx, afx system, additional administration, advanced administration 
+summary: 除了典型的 AFX 集群管理之外，您可能还需要根据您的环境执行其他任务。大多数附加任务都可以使用系统管理器执行，但在某些情况下您可能需要使用 CLI。 
+---
+= AFX 存储系统集群的附加管理
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+除了典型的 AFX 集群管理之外，您可能还需要根据您的环境执行其他任务。大多数附加任务都可以使用系统管理器执行，但在某些情况下您可能需要使用 CLI。
+
+
+NOTE: 所描述的ONTAP功能和管理对于运行 Unified ONTAP 的AFX 存储系统和AFF或FAS系统来说是通用的。其中包含指向相关 Unified ONTAP文档的链接（视情况而定）。
+
+
+
+== 许可
+
+AFX 系统的许可方式与 Unified ONTAP AFF和FAS系统类似。  AFX 集群默认包含所支持协议的大多数功能。
+
+
+
+=== ONTAP许可证管理
+
+ONTAP许可证是一个或多个软件授权的记录。所有许可证均使用NetApp许可证文件 (NLF) 定义和提供。参考 https://docs.netapp.com/us-en/ontap/system-admin/manage-licenses-concept.html["ONTAP许可概述"^]了解更多信息。
+
+
+
+=== 在 AFX 系统上安装许可证
+
+您可以安装许可证文件来根据需要激活 AFX 存储系统的附加功能。
+
+.步骤
+. 在系统管理器中，选择*集群*，然后选择*设置*。
+. 在“许可证”旁边，选择image:icon_arrow.gif["指向右侧的蓝色箭头"]。
+. 选择“*功能*”选项卡以显示可用的ONTAP功能。
+. 要选择性地安装许可证，请选择“*已安装的许可证*”选项卡。
+. 选择image:icon_add_blue_bg.png["蓝色矩形框内有一个加号，后面跟着白色字母“add”"]。
+. 选择本地许可证文件并选择*添加*。
+
+
+
+
+== 安全性
+
+您可以在 AFX 部署中配置和使用多种可选的安全功能。
+
+
+
+=== ONTAP安全性和数据加密
+
+保护 AFX 存储系统的安全性和隐私性非常重要。请参阅 https://docs.netapp.com/us-en/ontap/security-encryption/index.html["安全和数据加密"^]
+
+
+
+=== ONTAP身份验证和访问控制
+
+AFX 存储系统提供了多种配置身份验证和访问控制服务的选项。参考 https://docs.netapp.com/us-en/ontap/authentication-access-control/index.html["身份验证和访问控制"^]了解更多信息。
+
+
+
+=== 在 AFX 系统上管理 OAuth 2.0
+
+OAuth 2.0 是行业标准授权框架，用于使用签名的访问令牌来限制和控制对受保护资源的访问。
+
+.步骤
+. 在系统管理器中，选择*集群*，然后选择*设置*。
+. 在“安全”部分中，在“OAuth 2.0 授权”旁边，选择image:icon_arrow.gif["指向右侧的蓝色箭头"]。
+. 启用 OAuth 2.0
+. 选择*添加配置*并提供配置详细信息。
+. 选择*保存*。
+
+
+
+
+== 相关信息
+
+* link:../faq-ontap-afx.html["AFX 存储系统常见问题解答"]
+* https://docs.netapp.com/us-en/ontap/authentication/overview-oauth2.html["ONTAP OAuth 2.0 实施概述"^]
+* link:../administer/additional-ontap-svm.html["AFX SVM 的额外管理"]
+

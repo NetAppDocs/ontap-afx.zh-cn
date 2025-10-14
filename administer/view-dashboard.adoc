@@ -1,0 +1,40 @@
+---
+sidebar: sidebar 
+permalink: administer/view-dashboard.html 
+keywords: afx, afx system, dashboard, view dashboard, cluster status 
+summary: 您可以登录系统管理器来访问 AFX 仪表板并显示集群状态。在开始 AFX 管理任务之前或怀疑存在操作问题时，这是一个很好的第一步。 
+---
+= 查看 AFX 存储系统仪表板
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以登录系统管理器来访问 AFX 仪表板并显示集群状态。在开始 AFX 管理任务之前或怀疑存在操作问题时，这是一个很好的第一步。
+
+.开始之前
+您需要以下物品：
+
+* 集群管理 LIF 的 IP 地址或域名
+* 管理员帐户凭据
+
+
+.步骤
+. 使用浏览器和集群管理 IP 地址连接到系统管理器：
++
+`\https://$FQDN_IPADDR/`
+
++
+*例子*
+
++
+`\https://10.61.25.33/`
+
+. 提供管理员帐户的用户名和密码，然后选择*Sign in*。
+. 在左侧导航窗格中选择“*仪表板*”，并查看页面上的图块，包括集群“*运行状况*”。
+. 在导航窗格中，选择“*Cluster*”，然后选择“*Overview*”。
+. 查看集群名称、版本、 ONTAP特性和其他详细信息。
+. 在概览页面的顶部，选择*布线*以直观显示集群硬件和连接。
+. 在导航窗格中，选择*事件和作业*，然后选择*系统警报*以显示和查看系统警报。
+

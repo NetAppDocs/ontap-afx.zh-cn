@@ -1,0 +1,33 @@
+---
+sidebar: sidebar 
+permalink: manage-data/monitor-debug-storage.html 
+keywords: afx, afx system, monitor, troubleshoot, debug 
+summary:  
+---
+= 监控和排除 AFX 存储系统的故障
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+AFX 系统包括几个选项来监控每个集群管理的存储。
+
+
+
+== 显示 NAS 客户端
+
+您可以显示当前连接到 AFX 集群的 NFS 和 SMB/CIFS 客户端列表。
+
+.步骤
+. 在系统管理器中，在导航窗格中选择“*客户端*”。
+. 根据需要选择选项卡 *NFS* 或 *SMB/CIFS*。
+. 根据需要自定义显示以及搜索和下载客户信息。
+
+
+
+
+== 相关信息
+
+* link:../manage-data/prepare-manage-data.html["准备管理您的 AFX 数据"]
+

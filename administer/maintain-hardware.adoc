@@ -1,0 +1,14 @@
+---
+sidebar: sidebar 
+permalink: administer/maintain-hardware.html 
+keywords: afx, afx system, maintain hardware, hardware 
+summary: 导航至 AFX 维护文档以了解如何对 AFX 存储系统执行维护程序。 
+---
+= 维护 AFX 存储系统硬件
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+导航至 https://docs.netapp.com/us-en/ontap-systems/afx-landing-maintain/index.html["AFX 维护文档"^]了解如何对 AFX 存储系统执行维护程序。

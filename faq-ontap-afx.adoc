@@ -1,0 +1,98 @@
+---
+sidebar: sidebar 
+permalink: faq-ontap-afx.html 
+keywords: afx, afx system, faq, frequently asked questions 
+summary: 此常见问题解答列表提供了客户通常对其 AFX 存储系统提出的问题的答案。它包含的概念和术语在更详细地探索 AFX 或执行高级管理任务时很有用。 
+---
+= AFX 存储系统常见问题解答
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+此常见问题解答列表提供了有关 AFX 存储系统的问题的答案。它包含的概念和术语在更详细地探索 AFX 或执行高级管理任务时很有用。
+
+
+
+== 常规
+
+.什么是ONTAP个性？
+ONTAP是一个强大且多功能的存储平台，以其全面的功能集和对各种存储需求的适应性而闻名。虽然这种灵活性使其成为具有多样化工作负载的组织的绝佳选择，但一些客户可以从针对其特定环境需求进行优化的更定制的存储解决方案中受益。
+
+为了满足这些特殊需求，一些NetApp存储系统提供了独特的ONTAP特性，每种特性都包含一组旨在支持独特客户需求的功能。  ONTAP特性通常是硬件和软件功能的组合，专门用于为目标用例提供优化的体验。  NetApp提供三种ONTAP特性：
+
+统一ONTAP:: Unified ONTAP特性提供了广泛的数据管理功能，支持 NAS、SAN 和 S3 协议，以实现最大的灵活性。这是NetApp 的旗舰产品，可在AFF和FAS系统以及ONTAP Select和Cloud Volumes ONTAP等虚拟化部署上使用。
+AFX:: AFX ONTAP特性提供了一种分解的解决方案，旨在满足高性能 NAS 和 S3 工作负载（包括 AI/ML 应用程序）的严格要求。  AFX 系统为需要可扩展、高吞吐量文件和对象存储的客户提供专门的功能。
+ASA r2:: ASA r2 ONTAP特性提供了专为仅 SAN 环境设计的分解解决方案。 https://docs.netapp.com/us-en/asa-r2/["ASA r2 系统"^]  简化块工作负载的存储体验，为 SAN 客户提供简化的管理和优化的性能。
+
+
+通过提供这些独特的ONTAP特性， NetApp使组织能够选择符合其运营要求和应用程序工作负载的存储解决方案。
+
+.我可以更改NetApp存储系统的ONTAP特性吗？
+不可以。您的ONTAP存储系统的特性是不可变的，无法更改。例如，您不能将FAS或AFF存储系统（运行 Unified ONTAP特性）转换或升级为 AFX 存储系统。
+
+.不同ONTAP特性的系统管理器界面看起来都非常相似。我如何确定特定系统的个性？
+在系统管理器中，选择左侧导航窗格中的“*集群*”，然后选择“*概览*”。您将看到页面上显示的个性。或者，您可以在 CLI 中发出命令“system node show”。您还可以使用 REST API 确定ONTAP集群的特性；请参阅link:./rest/first-call.html["您的第一个 AFX 系统 REST API 调用"]了解详情。
+
+.在 AFX 存储系统中，“分解”是什么意思？
+根据上下文，“分解”一词与 AFX 可以有两种不同但相关的含义。
+
+首先要考虑的一个重要概念是将控制器节点的计算能力与存储架分离。借助 AFX，集群计算和存储组件不再像运行 Unified ONTAP特性的FAS和AFF系统那样紧密耦合。相反，它们是通过集群交换机连接的。每个 AFX 节点控制器都拥有整个集群存储池的完整视图。
+
+与分解存储相关的第二个概念是聚合和 RAID 管理被移除为可管理实体。 AFX 内的存储抽象层自动配置和管理存储的低级方面，包括物理磁盘和 RAID 组。这使得 AFX 管理员可以专注于基于卷和存储桶的高级存储配置。
+
+
+
+== 互操作性
+
+.我可以在同一个ONTAP集群中将 AFX 系统节点与AFF、 ASA或FAS系统节点混合使用吗？
+不，每个ONTAP 的个性都是不同的。例如，您不能在同一个集群中混合使用 AFX 和 Unified ONTAP节点。
+
+.如果我想使用运行统一ONTAP （FAS、 AFF、 ASA）的系统和用于SnapMirror或FlexCache 的AFX 系统，我需要哪个ONTAP版本？
+AFX 的SnapMirror版本规则与 Unified ONTAP相同。这意味着要从 Unified ONTAP复制，源系统必须在支持的版本范围内。要从 AFX 复制，Unified ONTAP系统必须是ONTAP 9.16.1 或更高版本（支持高级容量平衡功能的最早版本）。对于FlexCache，源系统和目标系统适用相同的规则，如 https://www.netapp.com/pdf.html?item=/media/7336-tr4743.pdf["TR-4743"^]。
+
+对FlexGroup卷的支持存在一些差异。  AFX 上的FlexGroup卷不能成为使用写回模式的FlexCache卷的原始卷。
+
+.我可以对 AFX 集群进行 ONTAPI（ZAPI）API 调用吗？
+不可以。AFX 仅支持ONTAP REST API。任何使用 ZAPI 的自动化代码都需要转换为 REST API 才能与 AFX 一起使用。
+
+
+
+== 高级概念
+
+.AFX 存储系统支持哪些数据协议？
+AFX 支持的数据协议包括：
+
+* NFSv3、NFSv4.0、NFSv4.1、NFSv4.2
+* SMB2.x、SMB3.x
+* S3
+* NDMP
+
+
+.数据协议在 AFX 中的运行方式是否不同？
+不。AFX 中的数据协议的运行方式与AFF和FAS系统相同。
+
+.AFX 中是否使用高级磁盘分区 (ADP)？
+不可以。ADP 不与 AFX 一起使用。由于 AFX 没有根聚合，因此不需要 ADP 功能来最大限度地提高磁盘空间效率。
+
+.我可以为 AFX 存储系统的后端网络使用不同类型的交换机吗？
+不可以。只有经过专门批准并随 AFX 存储平台提供的交换机才支持后端网络。
+
+.AFX 集群中的存储是如何组织的？
+连接到 AFX 集群的所有磁盘和存储架都是存储可用区 (SAZ) 的一部分。每个 AFX 集群仅支持一个 SAZ，并且不能在 AFX 集群之间共享（ SnapMirror复制和FlexCache操作除外）。
+
+每个节点都可以看到 SAZ 中的所有存储。当存储架添加到集群时， ONTAP会自动添加磁盘。
+
+.与 AFX 相比，Unified ONTAP中的卷移动操作如何工作？
+借助 Unified ONTAP，可以无中断地将卷从集群中的一个节点或聚合重新定位到另一个节点或聚合。这是使用采用SnapMirror技术的后台复制操作来执行的，其中在新位置创建一个新的目标卷。根据卷的大小和集群资源的利用率，卷移动完成所需的时间可能会有所不同。
+
+使用 AFX 时，不存在聚合。所有存储都包含在单个存储可用区内，集群中的每个节点都可以访问该可用区。因此，卷移动实际上不需要复制数据。相反，所有卷移动都是通过节点之间的指针更新来执行的。这被称为零复制卷移动 (ZCVM)，并且是瞬间发生的，因为实际上没有数据被复制或移动。这本质上与 Unified ONTAP使用的卷移动过程相同，但不使用SnapMirror副本。
+
+请注意，在初始版本中，卷只会在存储故障转移场景中以及在集群中添加或删除节点时移动。这些移动仅通过ONTAP进行控制。
+
+.AFX 如何确定在 SAZ 中放置数据的位置？
+AFX 包含一项称为自动拓扑管理 (ATM) 的功能，可响应系统和用户对象的不平衡。 ATM 的主要目标是平衡 AFX 集群中的卷。当检测到不平衡时，会触发内部作业以在活动节点之间均匀分布数据。使用 ZCVM 重新分配数据，只需复制和更新对象元数据。

@@ -1,0 +1,41 @@
+---
+sidebar: sidebar 
+permalink: manage-data/manage-volumes.html 
+keywords: afx, afx system, manage volumes 
+summary: 在管理 AFX 集群中定义的卷时，您可以执行多项管理任务。 
+---
+= 管理 AFX 存储系统卷
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在管理 AFX 集群中定义的卷时，您可以执行多项管理任务。
+
+
+
+== 创建 qtree
+
+qtree 是卷内的逻辑细分，您可以创建它来组织和管理数据。
+
+.步骤
+. 在系统管理器中，选择“*存储*”，然后选择“*Qtrees*”。
+. 选择image:icon_add_blue_bg.png["添加蓝色背景"]并提供包括名称、卷和安全样式在内的基本配置；可选地配置配额。
+. 选择“*保存*”以添加 qtree。
+
+
+
+
+== 创建配额
+
+配额是对用户、组或 qtree 可使用的存储空间量或文件数量设置的限制。配额用于管理和控制 AFX 系统内的资源使用情况。
+
+.步骤
+. 在系统管理器中，选择*存储*，然后选择*配额*。
+. 选择“*使用情况*”选项卡以显示所有卷中的活动配额列表。
+. 选择“*Volumes*”选项卡可显示 AFX 集群中定义的卷列表；选择特定卷可显示其他信息。
+. 要定义配额，请选择“*规则*”选项卡。
+. 提供配置详细信息，包括配额目标、类型和限制。
+. 选择*保存*以添加配额。
+

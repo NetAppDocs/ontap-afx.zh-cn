@@ -1,0 +1,105 @@
+---
+sidebar: sidebar 
+permalink: manage-data/prepare-manage-data.html 
+keywords: afx, afx system, prepare, prepare manage, prepare manage data 
+summary: 在管理 AFX 数据之前，您应该熟悉基本概念和功能。 
+---
+= 准备管理您的 AFX 存储系统数据
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在管理 AFX 数据之前，您应该熟悉基本概念和功能。
+
+
+TIP: 由于AFF和FAS系统上的许多概念和管理程序与 AFX 存储系统相同，因此查看 Unified ONTAP文档会很有帮助。
+
+
+
+== 术语和选项
+
+您应该熟悉几个与 AFX 存储相关的术语。
+
+FlexVolume:: FlexVol是 AFX 存储系统中使用的一种逻辑容器。 FlexVol卷可以扩展、收缩、移动和高效复制。它们还可以使用 qtree 划分为更易于管理的单元，并且可以使用配额来限制资源使用。
+FlexGroup:: FlexGroup卷是一个横向扩展 NAS 容器，可提供高性能和自动负载分配。每个卷由多个透明共享流量的卷组成。  FlexGroup卷具有多种优势，包括改进的可扩展性和性能以及简化的管理。
+FlexCache:: FlexCache是一种ONTAP缓存技术，可在相同或不同的ONTAP集群上创建稀疏、可写的卷副本。它旨在通过让数据更接近用户来提高数据访问性能，从而可以在更小的占用空间下实现更快的吞吐量。  FlexCache对于读取密集型工作流程特别有用，有助于卸载访问量大的卷的流量。
+S3 存储分段:: S3 存储桶是用于保存云中的对象或数据的存储容器。使用ONTAP，S3 NAS 存储桶是 S3 存储桶名称和 NAS 路径之间的映射，允许 S3 访问具有现有卷和目录结构的 SVM 命名空间的任何部分。
+数据容器:: 在 AFX 系统的上下文中，数据容器是一个通用术语，可以是卷或 S3 存储桶。
+qtree:: qtree 是卷内的逻辑细分，您可以创建它来管理和组织数据。它允许您指定其属性和安全样式（NTFS 或 UNIX），并且可以从其父卷继承导出策略或拥有自己的策略。  qtree 可以包含文件和目录，通常用于更精细地管理卷内的权限和配额。
+配额:: ONTAP中的配额是对用户、组或 qtree 可使用的存储空间量或文件数量设置的限制。配额用于管理和控制存储系统内的资源使用情况，确保没有单个用户或应用程序可以消耗过多的资源。
+
+
+
+
+== 数据迁移选项
+
+有几种数据迁移选项。重点是将外部数据迁移到 AFX 集群。
+
+
+
+=== 从 Unified ONTAP迁移数据
+
+可以使用以下技术实现从 Unified ONTAP到 AFX 的完全集成迁移路径：
+
+* SnapMirror
+* SVM 迁移
+* 支持向量机预测
+
+
+此外， FlexCache卷可以在 AFX 和 Unified ONTAP之间以任意方向连接。
+
+
+
+=== 从非ONTAP源迁移数据
+
+可以使用文件级复制操作从非ONTAP系统执行数据迁移。可以使用快速复制实用程序（例如 XCP 或 CloudSync）以及标准实用程序（例如 RoboCopy（用于 SMB）和 rsync（用于 NFS））以及第三方工具（例如 DataDobi）。
+
+
+
+=== 迁移限制
+
+如果数据卷不包含 LUN 或 NVMe 命名空间，则现有的 Unified ONTAP系统可以复制到 AFX。复制到 Unified ONTAP系统时，Unified ONTAP系统支持的最低版本为 9.16.1。这是第一个支持高级容量平衡的 Unified ONTAP版本。
+
+
+
+== AFX 对 NFS 中继的支持
+
+NFS 中继是一种技术，它使 NFS v4.1 客户端能够打开与 NFS 服务器上不同 LIF 的多个连接。这提高了数据传输速度并通过多条路径提供了弹性。中继有利于将FlexVol卷导出到具有中继功能的客户端。
+
+要启用中继，您需要为 NFS 配置 SVM，并且应启用 NFSv4.1。配置更改后，还需要重新安装所有 NFSv4.x 客户端，这可能会造成破坏。
+
+
+
+== 文件系统分析
+
+文件系统分析 (FSA) 是ONTAP中的一项功能，可实时查看FlexGroup或FlexVol卷内的文件使用情况和存储容量趋势。
+
+FSA 通过提供有关存储利用率和优化机会的洞察，消除了对外部工具的需求。  FSA 提供卷文件系统层次结构各个级别的详细视图，包括 SVM、卷、目录和文件级别。
+
+
+
+== 显示存储概览
+
+要开始管理您的 AFX 数据，您应该显示存储概览。
+
+.关于此任务
+您可以访问为 AFX 集群定义的所有卷和存储桶。这些中的每一个都被视为一个数据容器。
+
+.步骤
+. 在系统管理器中，选择“*存储*”，然后选择“*概览*”
+. 在“卷”旁边，选择image:icon_arrow.gif["指向右侧的蓝色箭头"]显示卷列表。
+. 在“存储桶”旁边，选择image:icon_arrow.gif["指向右侧的蓝色箭头"]显示存储桶列表。
+. 根据需要更新或创建数据容器。
+
+
+
+
+== 相关信息
+
+* link:../administer/additional-ontap-svm.html["额外的 AFX SVM 管理"]
+* link:../get-started/prepare-cluster-admin.html["准备管理 AFX 系统"]
+* link:../administer/migrate-svm.html["迁移 AFX 系统 SVM"]
+* https://mysupport.netapp.com/matrix/["NetApp 互操作性表工具"^]
+

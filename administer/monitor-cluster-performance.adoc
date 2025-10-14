@@ -1,0 +1,46 @@
+---
+sidebar: sidebar 
+permalink: administer/monitor-cluster-performance.html 
+keywords: afx, afx system, cluster performance 
+summary: 您可以显示 AFX 集群性能的高级概览。 
+---
+= 监控 AFX 存储系统集群性能
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以显示 AFX 集群性能的高级概览。
+
+
+
+== 存储容量
+
+系统管理器仪表板包括集群存储利用率的高级显示。
+
+.步骤
+. 在系统管理器中，选择导航窗格中的“*仪表板*”。
+. 找到*容量*图块并查看可用和已使用的物理存储。
+. 选择*历史记录*访问Active IQ查看历史数据。
+
+
+
+
+== 集群性能
+
+系统管理器提供了 AFX 集群性能的详细概述。
+
+.步骤
+. 在系统管理器中，选择*分析*，然后选择*性能*。
+. 查看顶部的集群性能摘要，包括延迟和吞吐量。
+. 在“*顶级参与者*”选项卡下，选择所需的 SVM，然后根据需要“启用活动跟踪*”。
+. 在“卷性能”选项卡下，查看特定卷的性能详细信息。
+
+
+
+
+== 相关信息
+
+* link:../administer/additional-ontap-cluster.html["额外的 AFX 集群管理"]
+
