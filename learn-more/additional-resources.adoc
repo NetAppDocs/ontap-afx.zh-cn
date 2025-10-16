@@ -20,7 +20,6 @@ summary: 您可以访问其他资源来帮助管理和支持 AFX，以及了解�
 * https://docs.netapp.com/us-en/ontap/["统一ONTAP"^]
 * https://docs.netapp.com/us-en/asa-r2/["ASA r2"^]
 * https://docs.netapp.com/us-en/ontap-automation/["ONTAP自动化"^]
-* https://docs.netapp.com/us-en/ontap-family["ONTAP系列"^]
 
 
 
@@ -28,5 +27,5 @@ summary: 您可以访问其他资源来帮助管理和支持 AFX，以及了解�
 == NetApp 支持
 
 * https://mysupport.netapp.com/["NetApp 支持站点"^]
-* https://kb.netapp.com/["NetApp知识库"]
+* https://kb.netapp.com/["NetApp知识库"^]
 

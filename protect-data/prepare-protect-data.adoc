@@ -14,7 +14,7 @@ summary: 在保护您的 AFX 数据之前，您应该熟悉一些关键概念和
 在保护您的 AFX 数据之前，您应该熟悉一些关键概念和功能。
 
 
-TIP: 由于AFF和FAS系统上的许多概念和管理程序与 AFX 存储系统相同，因此查看 Unified ONTAP文档会很有帮助。
+TIP: 由于AFF和FAS系统上的许多概念和管理程序与 AFX 存储系统相同，因此查看 Unified ONTAP文档 https://docs.netapp.com/us-en/ontap/data-protection-disaster-recovery/index.html["数据保护和灾难恢复"^]可能会有帮助。
 
 
 
@@ -27,6 +27,15 @@ Snapshot:: 快照是卷的只读、时间点图像。它是 ONTAP 复制和数�
 层次一致性组:: 分层一致性组是在ONTAP 9.16.1 中引入的，并可与 AFX 一起使用。通过分层结构，可以将一个或多个一致性组配置为父级下的子级。这些分层组允许您将单独的快照策略应用于子一致性组，并通过复制父组将所有子组的快照作为单个单元复制到远程集群。
 SnapLock:: SnapLock是ONTAP 的一项功能，允许您通过将文件移动到一次写入多次读取 (WORM) 状态来保护文件。这可以防止在指定的保留期内进行修改或删除。创建的SnapLock卷在基于保留创建后不能从非SnapLock卷转换。
 
+
+
+
+== AFX 数据保护限制
+
+您应该了解 AFX 存储系统强制执行的ONTAP数据保护限制和约束。
+
+.SnapMirror同步 (SM-S)
+使用 SM-S 时存在规模限制。单个 AFX 系统集群中最多可以有 400 个关系。
 
 
 

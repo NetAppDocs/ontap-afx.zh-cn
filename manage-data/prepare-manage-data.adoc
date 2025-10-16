@@ -29,6 +29,13 @@ S3 存储分段:: S3 存储桶是用于保存云中的对象或数据的存储�
 数据容器:: 在 AFX 系统的上下文中，数据容器是一个通用术语，可以是卷或 S3 存储桶。
 qtree:: qtree 是卷内的逻辑细分，您可以创建它来管理和组织数据。它允许您指定其属性和安全样式（NTFS 或 UNIX），并且可以从其父卷继承导出策略或拥有自己的策略。  qtree 可以包含文件和目录，通常用于更精细地管理卷内的权限和配额。
 配额:: ONTAP中的配额是对用户、组或 qtree 可使用的存储空间量或文件数量设置的限制。配额用于管理和控制存储系统内的资源使用情况，确保没有单个用户或应用程序可以消耗过多的资源。
+NFS 中继:: NFS 中继是一种技术，它使 NFS v4.1 客户端能够打开与 NFS 服务器上不同 LIF 的多个连接。这提高了数据传输速度，并在将FlexVol卷导出到具有中继功能的客户端时通过多条路径提供了弹性。
++
+--
+要启用中继，您需要为 NFS 配置 SVM，并且应启用 NFSv4.1。配置更改后，还需要重新安装所有 NFSv4.x 客户端，这可能会造成破坏。对于所有ONTAP系统，NFS 中继的支持和配置过程都是相同的。详细了解 https://docs.netapp.com/us-en/ontap/nfs-trunking/index.html["NFS 中继"^]
+
+--
+文件系统分析:: 文件系统分析 (FSA) 是ONTAP 的一项功能，可实时查看FlexGroup或FlexVol卷内的文件使用情况和存储容量趋势。它通过提供有关存储利用率和优化机会的洞察，消除了对外部工具的需求。FSA 提供卷文件系统层次结构各个级别的详细视图，包括 SVM、卷、目录和文件级别。
 
 
 
@@ -39,44 +46,28 @@ qtree:: qtree 是卷内的逻辑细分，您可以创建它来管理和组织数
 
 
 
-=== 从 Unified ONTAP迁移数据
+=== 从AFF或FAS系统迁移数据
 
-可以使用以下技术实现从 Unified ONTAP到 AFX 的完全集成迁移路径：
+可以使用以下技术实现从AFF或FAS系统（运行 Unified ONTAP个性化功能）到 AFX 的完全集成迁移路径：
 
 * SnapMirror
 * SVM 迁移
 * 支持向量机预测
 
 
-此外， FlexCache卷可以在 AFX 和 Unified ONTAP之间以任意方向连接。
+此外， FlexCache卷可以在 AFX 和AFF或FAS系统之间以任意方向连接。
 
 
 
 === 从非ONTAP源迁移数据
 
-可以使用文件级复制操作从非ONTAP系统执行数据迁移。可以使用快速复制实用程序（例如 XCP 或 CloudSync）以及标准实用程序（例如 RoboCopy（用于 SMB）和 rsync（用于 NFS））以及第三方工具（例如 DataDobi）。
+可以使用文件级复制操作从非ONTAP系统执行数据迁移。快速复制实用程序，例如 https://docs.netapp.com/us-en/xcp/["XCP"^]可以与标准实用程序（例如 RoboCopy（用于 SMB）和 rsync（用于 NFS）以及第三方工具（例如 DataDobi）一起使用。
 
 
 
 === 迁移限制
 
-如果数据卷不包含 LUN 或 NVMe 命名空间，则现有的 Unified ONTAP系统可以复制到 AFX。复制到 Unified ONTAP系统时，Unified ONTAP系统支持的最低版本为 9.16.1。这是第一个支持高级容量平衡的 Unified ONTAP版本。
-
-
-
-== AFX 对 NFS 中继的支持
-
-NFS 中继是一种技术，它使 NFS v4.1 客户端能够打开与 NFS 服务器上不同 LIF 的多个连接。这提高了数据传输速度并通过多条路径提供了弹性。中继有利于将FlexVol卷导出到具有中继功能的客户端。
-
-要启用中继，您需要为 NFS 配置 SVM，并且应启用 NFSv4.1。配置更改后，还需要重新安装所有 NFSv4.x 客户端，这可能会造成破坏。
-
-
-
-== 文件系统分析
-
-文件系统分析 (FSA) 是ONTAP中的一项功能，可实时查看FlexGroup或FlexVol卷内的文件使用情况和存储容量趋势。
-
-FSA 通过提供有关存储利用率和优化机会的洞察，消除了对外部工具的需求。  FSA 提供卷文件系统层次结构各个级别的详细视图，包括 SVM、卷、目录和文件级别。
+如果源数据卷不包含 LUN 或 NVMe 命名空间，则可以将数据从AFF或FAS系统复制到 AFX。从 AFX 复制到AFF或FAS系统时， AFF或FAS系统支持的最低ONTAP版本为 9.16.1。这是第一个支持高级容量平衡的ONTAP版本。
 
 
 
@@ -99,7 +90,7 @@ FSA 通过提供有关存储利用率和优化机会的洞察，消除了对外�
 == 相关信息
 
 * link:../administer/additional-ontap-svm.html["额外的 AFX SVM 管理"]
-* link:../get-started/prepare-cluster-admin.html["准备管理 AFX 系统"]
+* link:../get-started/prepare-cluster-admin.html["准备管理您的 AFX 系统"]
 * link:../administer/migrate-svm.html["迁移 AFX 系统 SVM"]
 * https://mysupport.netapp.com/matrix/["NetApp 互操作性表工具"^]
 
