@@ -553,7 +553,6 @@
   <block id="0fd83bea6e8889a6410f4ad7c356b1c6" category="paragraph">与分解存储相关的第二个概念是聚合和 RAID 管理被移除为可管理实体。 AFX 内的存储抽象层自动配置和管理存储的低级方面，包括物理磁盘和 RAID 组。这使得 AFX 管理员可以专注于基于卷和存储桶的高级存储配置。</block>
   <block id="67a915151759ecc737f698391f7cfd08" category="section-title">互操作性</block>
   <block id="8fbc7f1351a3e90b34e2d50e0c07adcf" category="paragraph-title">我可以在同一个ONTAP集群中将 AFX 系统节点与AFF、 ASA或FAS系统节点混合使用吗？</block>
-  <block id="6855bc632a4fb3c6b7b6e30b99fd4b1c" category="paragraph-title">如果我想使用运行统一ONTAP （FAS、 AFF、 ASA）的系统和用于SnapMirror或FlexCache 的AFX 系统，我需要哪个ONTAP版本？</block>
   <block id="b3c2db23091a0f69d5a98f7aa85c5999" category="inline-link">TR-4743</block>
   <block id="e41e8ba406c753a1f299483cef4ae186" category="paragraph">AFX 的SnapMirror版本规则与 Unified ONTAP相同。这意味着要从 Unified ONTAP复制，源系统必须在支持的版本范围内。要从 AFX 复制，Unified ONTAP系统必须是ONTAP 9.16.1 或更高版本（支持高级容量平衡功能的最早版本）。对于FlexCache，源系统和目标系统适用相同的规则，如<block ref="21d9cc15452a0fa353089141a3f02dce" category="inline-link-rx"></block>。</block>
   <block id="ed403710028c21becee46d02ed8f44c0" category="paragraph">对FlexGroup卷的支持存在一些差异。  AFX 上的FlexGroup卷不能成为使用写回模式的FlexCache卷的原始卷。</block>
@@ -1707,4 +1706,9 @@
   <block id="158b0cd8e98337e4dafd6291bed45568" category="inline-link">互操作性矩阵工具概述</block>
   <block id="c9f4862e07def71045419c1015337766" category="list-text"><block ref="c9f4862e07def71045419c1015337766" category="inline-link-rx"></block></block>
   <block id="b6b9f4e0ea5360bfc7fbf3d03fb49e3e" category="paragraph">AFX 是NetApp提供的三种ONTAP个性化产品之一。您可以发出 REST API 调用来确定ONTAP集群的特性。您还可以使用系统管理器或 CLI 来确定ONTAP特性；有关详细信息，请参阅常见问题解答页面。</block>
+  <block id="43d14ed81363c455618b5103ece599d4" category="paragraph-title">AFX 存储系统何时上市？AFX 支持的最早ONTAP版本是什么？</block>
+  <block id="7f24225fb2bbf5b324522918a991d678" category="paragraph">AFX 存储系统于 2025 年 10 月在NetApp Insight大会上发布。AFX 支持ONTAP 9.17.1 及更高版本。请联系您的NetApp销售代表以了解更多详细信息。</block>
+  <block id="3c9f430479263b3b25ec8e84988d27be" category="paragraph-title">我可以将FlexCache与 AFX 系统集群一起使用吗？</block>
+  <block id="d53231824f8827127654628ac3883d6c" category="paragraph">是AFX 存储系统支持FlexCache与运行 Unified ONTAP特性的AFF或FAS系统之间的通信。唯一的限制是 AFX 不支持具有回写模式的FlexCache 。</block>
+  <block id="f580013220a8ab44a2f9b864e7f6425a" category="paragraph-title">如果我想将AFF或FAS系统（运行统一ONTAP个性）与 AFX 系统一起用于SnapMirror或FlexCache，我需要哪个ONTAP版本？</block>
 </blocks>
