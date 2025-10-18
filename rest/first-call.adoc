@@ -17,7 +17,7 @@ summary: 您可以发出一个简单的 curl 命令来开始使用 AFX REST API 
 您可以发出一个简单的 curl 命令来开始使用 AFX REST API 并确认其可用性。
 
 .关于此任务
-AFX 是ONTAP三位不同人物之一。您可以调用 REST API，根据响应中包含的两个字段来确定集群的ONTAP特性。
+AFX 是NetApp提供的三种ONTAP个性化产品之一。您可以发出 REST API 调用来确定ONTAP集群的特性。您还可以使用系统管理器或 CLI 来确定ONTAP特性；有关详细信息，请参阅常见问题解答页面。
 
 .开始之前
 除了在本地工作站上提供 curl 实用程序之外，您还需要以下内容：
