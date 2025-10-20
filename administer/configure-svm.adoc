@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: administer/configure-svm.html 
 keywords: afx, afx system, configure svm 
-summary: 创建数据 SVM 后，您可以根据您的要求和客户需求更新配置。 
+summary: 创建 SVM 后，您可以根据您的要求和客户需求更新配置。 
 ---
 = 配置 AFX 存储系统 SVM
 :allow-uri-read: 
@@ -11,10 +11,10 @@ summary: 创建数据 SVM 后，您可以根据您的要求和客户需求更新
 
 
 [role="lead"]
-创建数据 SVM 后，您可以根据您的要求和客户需求更新配置。
+创建 SVM 后，您可以根据您的要求和客户需求更新配置。
 
 .关于此任务
-有四种访问 SVM 配置的路径，如特定数据 SVM 的登录页面上的选项卡所示。这些包括：
+有四种访问 SVM 配置的路径，具体体现在特定 SVM 的登录页面上的选项卡中。这些包括：
 
 * 概述
 +

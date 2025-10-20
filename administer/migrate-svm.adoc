@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: administer/migrate-svm.html 
 keywords: afx, afx system, svm, migrate svm 
-summary: 您可以将数据 SVM 从一个ONTAP集群迁移到另一个 ONTAP 集群。使用 AFX 进行 SVM 迁移的操作与使用 Unified ONTAP进行的操作相同，但存在一些互操作性方面的考虑。有关执行 SVM 迁移的详细信息，请参阅 Unified ONTAP文档。 
+summary: 您可以将 SVM 从一个ONTAP集群迁移到另一个 ONTAP 集群。使用 AFX 进行 SVM 迁移的操作与使用 Unified ONTAP进行的操作相同，但存在一些互操作性方面的考虑。有关执行 SVM 迁移的详细信息，请参阅 Unified ONTAP文档。 
 ---
 = 迁移 AFX 存储系统 SVM
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: 您可以将数据 SVM 从一个ONTAP集群迁移到另一个 ONTAP 集
 
 
 [role="lead"]
-您可以将数据 SVM 从一个ONTAP集群迁移到另一个 ONTAP 集群。使用 AFX 进行 SVM 迁移的操作与使用 Unified ONTAP进行的操作相同，但存在一些互操作性方面的考虑。有关执行 SVM 迁移的详细信息，请参阅提供的 Unified ONTAP文档。
+您可以将 SVM 从一个ONTAP集群迁移到另一个 ONTAP 集群。使用 AFX 进行 SVM 迁移的操作与使用 Unified ONTAP进行的操作相同，但存在一些互操作性方面的考虑。有关执行 SVM 迁移的详细信息，请参阅提供的 Unified ONTAP文档。
 
 
 

@@ -14,7 +14,7 @@ summary: NetApp AFX 系统运行定制的ONTAP特性，它与在AFF和FAS存储�
 NetApp AFX 系统运行定制的ONTAP特性，它与在AFF和FAS存储上运行的ONTAP特性（称为统一ONTAP ）不同。您应该了解 AFX 系统与FAS和AFF系统有何相似之处和不同之处。这提供了宝贵的视角，并且在您的环境中部署 AFX 时会很有帮助。
 
 
-TIP: 此 AFX 文档包含 Unified ONTAP文档站点上各个主题的链接。附加内容提供了更多的深度和不同的视角，可以帮助您管理 AFX 存储系统。
+TIP: AFX 文档包含统一ONTAP文档站点上各种主题的链接，其中详细介绍了无论ONTAP特性如何都以相同方式运行的功能。附加内容提供了更深入的帮助，可以帮助您管理 AFX 存储系统。
 
 
 
@@ -22,7 +22,7 @@ TIP: 此 AFX 文档包含 Unified ONTAP文档站点上各个主题的链接。�
 
 AFX 配置与AFF和FAS系统在一些方面有所不同。
 
-高级容量平衡:: 高级容量平衡功能，使用 `-gdd`CLI 参数，默认情况下对所有FlexGroup卷启用。
+高级容量平衡:: 先进的容量平衡功能，使用 `-gdd`CLI 参数，默认情况下对所有FlexGroup卷启用。
 
 
 
@@ -69,7 +69,7 @@ AFX 系统不提供以下与聚合相关的功能：
 === 数据复制
 
 * 不复制包含 LUN 的AFF或FAS系统的卷
-* AFX FlexGroup卷只能复制到 Unified ONTAP 9.16.1 或更高版本
+* FlexGroup卷只能复制到 Unified ONTAP 9.16.1 或更高版本
 
 
 

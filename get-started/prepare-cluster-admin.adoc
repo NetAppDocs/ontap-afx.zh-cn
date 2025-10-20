@@ -19,13 +19,11 @@ summary: 在生产环境中部署 AFX 之前，必须了解管理结构和配置
 
 存储虚拟机 (SVM) 是ONTAP集群内的隔离服务器或租户环境。您可以配置 SVM 来向连接的客户端提供数据。您应该熟悉 AFX SVM 的功能和特性。
 
-
-NOTE: 当您设置并初始部署 AFX 集群时，会创建一个数据 SVM。如果需要，您可以创建额外的数据 SVM。
-
-行政控制:: 数据 SVM 可用于建立和强制执行数据和应用程序的隔离。当一个较大的组织中有许多不同的团体时，这会很有用。可以将管理控制委托给 SVM 来制定与数据访问、安全和保护相关的策略。
+SVM 的类型:: AFX 系统集群托管几种不同类型的 SVM。 *数据 SVM* 用于向客户端提供数据，是 AFX 管理员可以直接访问和配置的一种类型。设置和初始部署 AFX 集群时默认会创建一个数据 SVM，但您可以根据需要创建其他数据 SVM。当在本文档中引用 SVM 时，除非另有说明，否则均指数据 SVM。
+行政控制:: SVM 可用于建立和强制隔离数据和应用程序。当一个较大的组织中有许多不同的团体时，这会很有用。可以将管理控制委托给 SVM 来制定与数据访问、安全和保护相关的策略。
 账户和 RBAC 角色:: AFX 有两个级别的身份验证和授权：集群级别和 SVM 级别。除了集群账户之外，每个 SVM 都有自己独特的一组用户和角色。在大多数情况下，使用集群级别帐户就足够了。但根据您的环境，您可能还需要配置和使用限制性更强的 SVM 帐户和角色。看link:../administer/additional-ontap-svm.html["额外的 AFX SVM 管理"]了解更多信息。
 SVM 范围的资源:: AFX 资源和可配置实体与集群或特定 SVM 相关联。  SVM 范围内有许多资源，包括卷和存储桶以及 SVM 用户帐户和 RBAC 角色。
-专用网络接口:: 每个 SVM 都有自己专用的一组网络接口。例如，将单独的 LIF 分配给 SVM 以用于管理和客户端数据访问。
+专用网络接口:: 每个 SVM 都有自己专用的一组网络接口。例如，将单独的 LIF 分配给 SVM 以用于管理和客户端访问。
 
 
 
@@ -36,8 +34,8 @@ SVM 范围的资源:: AFX 资源和可配置实体与集群或特定 SVM 相关�
 
 值得注意的是，这些级别描述了如何组织和分配管理任务，而不一定描述了如何配置相关的安全性。例如，虽然需要集群管理员帐户来执行集群级别管理，但它也可以用于 SVM 管理。
 
-集群管理员:: 集群管理员可以完全控制 AFX 集群，包括所有数据 SVM。 AFX 集群管理级别仅包括集群管理员可以执行的任务，而不包括任何特定于 SVM 的管理任务。看link:../administer/view-dashboard.html["管理您的集群"]了解更多信息。
-SVM 管理员:: SVM 管理员角色可以控制特定的数据 SVM，因此与集群管理员相比受到的限制更严格。 SVM 管理涉及对具有 SVM 范围的对象和资源执行任务，例如创建卷。看link:../manage-data/prepare-manage-data.html["管理您的存储虚拟机和数据"]了解更多信息。
+集群管理员:: 集群管理员可以完全控制 AFX 集群，包括所有 SVM。AFX 集群管理级别仅包括集群管理员可以执行的任务，而不包括任何特定于 SVM 的管理任务。看link:../administer/view-dashboard.html["管理您的集群"]了解更多信息。
+SVM 管理员:: SVM 管理员角色可以控制特定的 SVM，因此与集群管理员相比受到的限制更多。SVM 管理涉及对具有 SVM 范围的对象和资源执行任务，例如创建卷。看link:../manage-data/prepare-manage-data.html["管理您的存储虚拟机和数据"]了解更多信息。
 
 
 
@@ -119,7 +117,7 @@ NOTE: 对于大多数管理任务来说，系统管理器用户界面是首选�
 存储容量:: 这是集群存储可用区 (SAZ) 中所有 SSD 磁盘的总容量。最大存储容量根据ONTAP版本而有所不同。
 
 
-您应该查看NetApp Hardware Universe和 Interoperability Matrix Tool 中提供的信息来确定集群的功能。
+您应该查看NetApp Hardware Universe和 Interoperability Matrix Tool 中提供的信息，以确定 AFX 集群的功能。
 
 
 
@@ -165,15 +163,15 @@ link:../administer/view-insights.html["使用 Insights 优化 AFX 集群性能�
 
 
 
-== 创建和使用数据 SVM 的快速入门
+== 创建和使用 SVM 快速入门
 
 安装和设置 AFX 集群后，您可以开始执行大多数 AFX 部署的典型管理任务。以下是开始与客户共享数据所需的高级步骤。
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["一个"]显示可用数据 SVM
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["一个"]显示可用的 SVM
 [role="quick-margin-para"]
-link:../administer/display-svms.html["显示"]数据 SVM 列表并确定是否有一个可以使用。
+link:../administer/display-svms.html["显示"]SVM 列表并确定是否有一个可以使用。
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["两个"]（可选）创建数据 SVM
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["两个"]（可选）创建 SVM
 [role="quick-margin-para"]
 link:../administer/create-svm.html["创建"]如果现有 SVM 不可用，则可以使用 SVM 来隔离和保护您的应用程序工作负载和数据。
 
@@ -192,6 +190,7 @@ link:../manage-data/prepare-manage-data.html["准备"]分配和管理您的数�
 * https://docs.netapp.com/us-en/ontap/concepts/introducing-ontap-interfaces-concept.html["ONTAP用户界面"^]
 * https://docs.netapp.com/us-en/ontap/system-admin/set-privilege-level-task.html["在ONTAP CLI 中设置权限级别"^]
 * https://docs.netapp.com/us-en/ontap/system-admin/index.html["了解如何使用ONTAP CLI 进行集群管理"^]
+* https://docs.netapp.com/us-en/ontap/system-admin/types-svms-concept.html["ONTAP集群中的 SVM 类型"^]
 * https://hwu.netapp.com/["NetApp Hardware Universe"^]
 * https://imt.netapp.com/["NetApp 互操作性表工具"^]
 * https://docs.netapp.com/us-en/interoperability-matrix-tool/["互操作性矩阵工具概述"^]

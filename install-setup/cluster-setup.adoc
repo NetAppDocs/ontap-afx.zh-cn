@@ -41,7 +41,7 @@ AFX 集群有四个区域必须进行初始配置。前三个是必需的，最�
 * DNS 域名
 * DNS 名称服务器 IP 地址
 * NTP 服务器 IP 地址
-* 数据子网掩码
+* 子网掩码
 
 
 .步骤
@@ -104,6 +104,6 @@ AFX 集群有四个区域必须进行初始配置。前三个是必需的，最�
 你应该link:../get-started/prepare-cluster-admin.html["准备管理 AFX"]在生产环境中使用 AFX 集群之前。
 
 .相关信息
-* link:../administer/configure-svm.html["配置 AFX 数据 SVM"]
+* link:../administer/configure-svm.html["配置 AFX SVM"]
 * link:../get-started/prepare-cluster-admin.html["准备管理 AFX"]
 

@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: manage-data/create-configure-volume.html 
 keywords: afx, afx system, create volume, volume 
-summary: 您可以创建一个卷并将其附加到数据 SVM。每个卷都可以使用 AFX 支持的访问协议之一向客户端公开。 
+summary: 您可以创建一个卷并将其附加到 SVM。每个卷都可以使用 AFX 支持的访问协议之一向客户端公开。 
 ---
 = 在 AFX 存储系统上创建和配置卷
 :allow-uri-read: 
@@ -11,10 +11,10 @@ summary: 您可以创建一个卷并将其附加到数据 SVM。每个卷都可�
 
 
 [role="lead"]
-您可以创建一个卷并将其附加到数据 SVM。每个卷都可以使用 AFX 支持的访问协议之一向客户端公开。
+您可以创建一个卷并将其附加到 SVM。每个卷都可以使用 AFX 支持的访问协议之一向客户端公开。
 
 .关于此任务
-创建卷时，您需要提供最少量的配置详细信息。可以在创建期间或之后通过编辑卷来提供其他详细信息。如果您已创建其他数据 SVM，则需要为卷选择 SVM。
+创建卷时，您需要提供最少量的配置详细信息。可以在创建期间或之后通过编辑卷来提供其他详细信息。如果您已创建其他 SVM，则需要为卷选择 SVM。
 
 .步骤
 . 在系统管理器中，选择*存储*，然后选择*卷*。
