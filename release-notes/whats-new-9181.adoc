@@ -1,0 +1,34 @@
+---
+sidebar: sidebar 
+permalink: release-notes/whats-new-9181.html 
+keywords: 'afx, release notes, what"s new, 9.18.1' 
+summary: 了解ONTAP 9.18.1 中包含的可用于 AFX 存储系统的新功能。 
+---
+= ONTAP 9.18.1 中适用于 AFX 存储系统的新功能
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+了解ONTAP 9.18.1 中包含的可用于 AFX 存储系统的新功能。
+
+
+
+== 存储资源管理增强
+
+[cols="2,4"]
+|===
+| 更新 | 描述 
+
+
+| 增强体积放置  a| 
+NetApp AFX 可自动平衡集群中所有节点上的卷放置位置。在之前的ONTAP版本中，放置算法是基于集群中的卷数。无论活动情况如何，每个节点都被分配相同数量的卷。从ONTAP 9.18.1 开始，该算法得到了增强，可以在放置或移动体数据时考虑节点的性能。这样可以改善 AFX 集群中各个节点之间的性能平衡，并大大降低单个节点过载的可能性。
+
+|===
+.相关信息
+* https://docs.netapp.com/us-en/ontap/release-notes/index.html["ONTAP 9 发布亮点"^]
+

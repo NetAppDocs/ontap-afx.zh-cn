@@ -565,8 +565,6 @@
   <block id="5f23273522ab6b5896afbea443e4b0e5" category="paragraph-title">AFX 集群中的存储是如何组织的？</block>
   <block id="d37066fb090f24f4a9c3a6f25f61165b" category="paragraph">连接到 AFX 集群的所有磁盘和存储架都是存储可用区 (SAZ) 的一部分。每个 AFX 集群仅支持一个 SAZ，并且不能在 AFX 集群之间共享（ SnapMirror复制和FlexCache操作除外）。</block>
   <block id="515a19ff656ef4e9a76499b11053c88b" category="paragraph">每个节点都可以看到 SAZ 中的所有存储。当存储架添加到集群时， ONTAP会自动添加磁盘。</block>
-  <block id="25241163c37737db44029ed2218be089" category="paragraph">使用 AFX 时，不存在聚合。所有存储都包含在单个存储可用区内，集群中的每个节点都可以访问该可用区。因此，卷移动实际上不需要复制数据。相反，所有卷移动都是通过节点之间的指针更新来执行的。这被称为零复制卷移动 (ZCVM)，并且是瞬间发生的，因为实际上没有数据被复制或移动。这本质上与 Unified ONTAP使用的卷移动过程相同，但不使用SnapMirror副本。</block>
-  <block id="504c7335601a5530da6d79c69af25d23" category="paragraph-title">AFX 如何确定在 SAZ 中放置数据的位置？</block>
   <block id="0dffaaac24629ec57e41901c2c49b5e9" category="paragraph">AFX 包含一项称为自动拓扑管理 (ATM) 的功能，可响应系统和用户对象的不平衡。 ATM 的主要目标是平衡 AFX 集群中的卷。当检测到不平衡时，会触发内部作业以在活动节点之间均匀分布数据。使用 ZCVM 重新分配数据，只需复制和更新对象元数据。</block>
   <block id="1bce74755c5e5305616eddc17873d185" category="summary">NetApp AFX 系统运行定制的ONTAP特性，它与在AFF和FAS存储上运行的ONTAP特性（称为统一ONTAP ）不同。您应该了解 AFX 系统与FAS和AFF系统有何相似之处和不同之处。这提供了宝贵的视角，并且在您的环境中部署 AFX 时会很有帮助。</block>
   <block id="9f2c66d4e6da8c9b288f3ecdc75c974a" category="doc">将 AFX 存储系统与AFF和FAS系统进行比较</block>
@@ -575,24 +573,13 @@
   <block id="51d20ad0622a1bf32203f0fd69eff8ee" category="list-text">高级容量平衡</block>
   <block id="9754d771ba2a8ed846d729e396e82783" category="section-title">不受支持或受限制的 Unified ONTAP功能</block>
   <block id="33871b6190a8d5adbe8b15282054766c" category="inline-link-macro">什么是新的</block>
-  <block id="7b4782deb376294d92e8953f8d14855a" category="paragraph">虽然 AFX、 AFF和FAS存储系统非常相似，但 AFX 不支持一些功能。您应该查看 AFX 的更新和更改<block ref="e4ac4a7dd877729340e2b0880473ea1b" category="inline-link-macro-rx"></block>根据您的发布版本。</block>
-  <block id="7e5420bd0c8a1984076f52885dda77eb" category="paragraph">以下功能分为几个类别，在 AFX 中不可用或已发生更改。</block>
-  <block id="c019c7d7df190a17c6a7c8ae73d2e948" category="section-title">一般特征</block>
-  <block id="55449fd175613962d882ab450cfc5f3c" category="list-text">FabricPool</block>
   <block id="1749d12df3df2319d3eee218a277ff83" category="list-text">MetroCluster</block>
-  <block id="b85613bdef7890eb0e7b102e18d6b27e" category="list-text">基于人工智能的反勒索软件保护</block>
   <block id="15169cb3273453f9de28b0eb0c7c34b0" category="list-text">ONTAPI API（ZAPI）</block>
-  <block id="447c75e67fae69491fa1ab2dd2fdeb78" category="section-title">SAN 相关功能</block>
   <block id="b21d10ebb4dc1d3fa9cab52510e6e840" category="list-text">SAN 管理和客户端访问</block>
-  <block id="cfae0238b4919617857b6a1108b796ae" category="section-title">聚合相关功能</block>
-  <block id="2e0d41fbc34c75b0698a9f38cb988125" category="paragraph">AFX 系统不提供以下与聚合相关的功能：</block>
-  <block id="c800d2b73bbcd99c7c3ec3ee0739dda1" category="list-text">直接访问磁盘聚合</block>
   <block id="a809a3f67f68e189b93c920155d8f362" category="list-text">NetApp聚合加密 (NAE)</block>
   <block id="7b8bac56c28696d13bf861ef5b905715" category="list-text">聚合级重复数据删除</block>
   <block id="bf474f5b27943f46dddafa6903a3aca0" category="list-text">SyncMirror （聚合镜像）</block>
   <block id="542dbb009e960ad2ab0d38ef4a2c5f99" category="list-text">RAID 管理</block>
-  <block id="0a9e63106b5735d38d5bf5377346f3ed" category="section-title">数据复制</block>
-  <block id="d3e592d24d461a69505c06ca342a0fbd" category="list-text">不复制包含 LUN 的AFF或FAS系统的卷</block>
   <block id="1ac02e30a31e8e8a271f79d995edae6b" category="section-title">命令行界面的更改</block>
   <block id="f0fbad4010250530a02ebeee997be99b" category="paragraph">AFX 提供的ONTAP CLI 通常与AFF和FAS系统提供的 CLI 相同。但存在一些差异，包括：</block>
   <block id="6ad554038f01b36139932064b15f012f" category="list-text">与以下相关的新 AFX 命令：</block>
@@ -600,7 +587,6 @@
   <block id="c6a69d731488373ecdb2d591b1a85654" category="list-text">启动媒体</block>
   <block id="f130631d40cc171d52dc63501045c8da" category="list-text">没有与 SAN 相关的命令</block>
   <block id="863a16df67e2ceabb787910e2b537e42" category="list-text">不再需要聚合管理命令</block>
-  <block id="43e46fcef487eab4c976633bb3771ac5" category="list-text">FlexAggr 命令只能显示或展示 FlexAggrs</block>
   <block id="f716c6e3202ed7d92fc8348d46cf91c0" category="inline-link-macro">AFX系统特性</block>
   <block id="ddd733c8c3891b4ecfcd87a0c6163694" category="list-text"><block ref="ddd733c8c3891b4ecfcd87a0c6163694" category="inline-link-macro-rx"></block></block>
   <block id="82a5887f8adb06bd19d86cf8996f4769" category="inline-link-macro">AFX 架构细节</block>
@@ -612,7 +598,6 @@
   <block id="d86fdbf9ebe98514661e8642bcee1f8c" category="list-text">处理包括文本、图像和视频在内的多种数据类型。</block>
   <block id="7c780abd9bdd1f2a63614e10e5038ab8" category="list-text">需要严格响应时间窗口的低延迟实时推理应用程序。</block>
   <block id="9eb56258e895facbc7db3fd59e0bb9d0" category="list-text">数据科学和机器学习流程可以从数据工程师和数据科学家的自助数据管理中受益。</block>
-  <block id="382ba90445ad355e4d0640a736b4ae10" category="list-text">需要高并发性和并行 I/O 的工作负载，例如具有 RDMA 传输的多 GPU 系统。</block>
   <block id="5bd59b49924352b734854b619f72ae71" category="section-title">硬件基础设施</block>
   <block id="1d61c0e2cf63f7bf0195212c9846c849" category="paragraph">NetApp AFX 存储系统提供统一的硬件和软件解决方案，可根据高性能 NAS 客户的需求创建简化的体验。</block>
   <block id="66d537e06ce64167a2a89717123fb13a" category="paragraph">以下硬件组件与 AFX 集群一起使用：</block>
@@ -731,31 +716,16 @@
   <block id="3680a461b7da6c652dacd37e78790a59" category="section-title">逻辑组件</block>
   <block id="c59d0be08da9503ec5fe235ae0fd48e8" category="paragraph">AFX 包含多个逻辑组件。它们与集群的物理组件一起在软件中实现。逻辑组件强制执行决定 AFX 系统的使用和配置的结构。</block>
   <block id="65b9c79f6fc3fe829a50473cb293f46d" category="section-title">公共存储池</block>
-  <block id="98e10503c863685716dd8a6af0655051" category="paragraph">存储可用区 (SAZ) 是整个集群的公共存储池。它是存储架中的磁盘集合，为所有控制器节点提供单一统一的命名空间。 SAZ 提供一种配置模型，对于节点使用哪些存储架没有固定的限制。客户可以将可用空间和存储使用情况视为整个 AFX 集群的属性。</block>
   <block id="68c82055f30da4852b6ba323555b088b" category="section-title">FlexVolume、FlexGroup 和 bucket</block>
-  <block id="2e9f820f533beec53162d9fa6fc87cae" category="paragraph">FlexVolumes、FlexGroups 和 S3 buckets 是基于客户端访问协议向 AFX 管理员公开的_数据容器_。这些可扩展的容器旨在抽象出许多复杂的内部存储细节。</block>
   <block id="4888f5f13a5d3e3be2bd58117e84381a" category="section-title">数据布局和访问</block>
   <block id="f26f912146dbd8ebbf1d5a486eafdd3e" category="paragraph">数据布局和访问经过调整，可实现无缝访问和 GPU 的有效利用。这对于消除瓶颈和保持一致的性能起着至关重要的作用。</block>
   <block id="7a37d7fa7abad6b7c1f982d285ab2c47" category="section-title">SVM 和多租户</block>
-  <block id="5f6ca18e64633c41b7ce8db58e842a58" category="paragraph">AFX 提供了一个基于AFF和FAS系统提供的 SVM 模型的租户模型。  AFX 租户模型已得到简化，以简化管理。</block>
   <block id="789523490b5432d306149df5c01d2946" category="section-title">AFX 集群部署</block>
-  <block id="7f118dd9288c3fe39cf47e1f8c466b6e" category="paragraph">下图说明了典型的 AFX 集群部署。控制器节点与存储架分离并通过共享网络连接。</block>
   <block id="54dc0ff6a5d6a080c896de05ec31762c" category="inline-image-macro">AFX 集群架构</block>
   <block id="9d406ef56e35fceeceb777198c3bf02c" category="paragraph"><block ref="9d406ef56e35fceeceb777198c3bf02c" category="inline-image-macro-rx" type="image"></block></block>
   <block id="146bce7e5064a390cf7d24e569ded6b6" category="list-text">分离存储和计算能力</block>
-  <block id="488ac6d8b0b2f8a57a54112ba3e640c5" category="list-text">与AFF和FAS存储系统不同，集群的 AFX 存储和计算元素是分离的。  AFX 控制器并不局限于访问有限的一组本地磁盘。</block>
-  <block id="3e6ddd52fc2d6199e3bca227606a1e01" category="list-text">删除聚合和 RAID 管理</block>
-  <block id="6746bcab662db05438ad593c8ce3db25" category="list-text">存储管理员不再需要管理聚合和 RAID 组。  AFX 处理这些任务，从而简化管理并为非专业人员提供管理其数据的机会。</block>
   <block id="da5d30cbf87a14e17de4115fc37e0f37" category="list-text">集群的单个存储池</block>
-  <block id="aea305bce3a1dfab3f4b85842e812dc4" category="list-text">将 AFX 计算和存储分离，并简化存储管理，从而形成单一存储池。此存储可用区 (SAZ) 可供 AFX 集群中的所有控制器节点使用。看<block ref="7605095791d77a2a1e3fa2bb7965cf64" category="inline-link-macro-rx"></block>了解更多详情。</block>
   <block id="f07bcd2df9fddb686c563d2c1be9a9ab" category="list-text">高性能</block>
-  <block id="13a40123f8b31b169fc2edd20f3c4842" category="list-text">AFX 专为满足专业 AI/ML 应用程序所需的高性能而构建。它可以更有效地利用现代硬件来提供具有超低延迟的高且持续的带宽。</block>
-  <block id="a0eb69a0317da37cc67f0894aa50b023" category="list-text">操作简便</block>
-  <block id="eb4ceb32a48f8a193f7ade2f4c27c70a" category="list-text">单一存储池以及包括自动存储管理在内的其他功能提供了更为简单的管理和操作模型。</block>
-  <block id="2d215ebfc0280f8163d071454ec7ce01" category="list-text">可扩展性</block>
-  <block id="d873ab9d45206d09cab7051400112531" category="list-text">集群中的控制节点和存储架组可以根据应用需求独立扩展。添加控制器或机架时，管理要求和中断有限。</block>
-  <block id="a28e19685ed26ba7cb421f419ad1ccd3" category="list-text">提高数据移动性</block>
-  <block id="cbddb588d113a3d7c3587214ed253bda" category="list-text">卷可以在集群控制器节点之间无中断地移动，而无需实际复制数据。而是更新元数据目录和索引指针。这极大地提高了典型管理程序以及故障情况下的恢复性能。</block>
   <block id="6c0cd4de34dd2ec788634d8318964a80" category="summary">了解如何将控制器节点连接到网络、交换机和存储架。</block>
   <block id="adfec3799d67c625e4ec00b0811cd65d" category="doc">AFX 1K 存储系统支持的配置</block>
   <block id="9f6b3b511e97827d6204aae870f4b619" category="paragraph">了解 AFX 1K 存储系统支持的硬件组件和布线选项，包括兼容的存储磁盘架、交换机以及正确设置系统所需的电缆类型。</block>
@@ -1641,18 +1611,14 @@
   <block id="9cdb0f273ab22003628192e697981917" category="paragraph-title">集群交换机如何配置？</block>
   <block id="105f13233e6f74d02fd41159a532f770" category="paragraph">集群网络交换机使用NetApp提供的配置文件进行配置。不支持更改配置文件。</block>
   <block id="ad5b5485d7c558ed08465ac5fa9579b3" category="paragraph-title">与AFF或FAS系统相比，AFX 的卷移动操作有何不同？</block>
-  <block id="c5767895814e2f8cb34c84245552ba84" category="paragraph">借助运行 Unified ONTAP特性的AFF和FAS系统，可以无中断地将卷从集群中的一个节点或聚合体重新定位到另一个节点或聚合体。这是使用采用SnapMirror技术的后台复制操作来执行的，其中在新位置创建一个新的目标卷。根据卷的大小和集群资源的利用率，卷移动完成所需的时间可能会有所不同。</block>
-  <block id="604d13ebe56ee6f22f1a3cf482e9cba8" category="paragraph">在初始 AFX 版本中，卷只会在存储故障转移场景中以及在集群中添加或删除节点时移动。这些移动仅通过ONTAP进行控制。</block>
   <block id="0a33bb860367c3285ff09c33b79eef88" category="list-text"><block ref="0a33bb860367c3285ff09c33b79eef88" category="inline-link-rx"></block></block>
   <block id="2042512ad460fc59bd9840e2dbf6204c" category="list-text">NFS 中继</block>
-  <block id="8eac7569fe98a77b56bea69f883ebcb6" category="list-text">NFS 中继是一种技术，它使 NFS v4.1 客户端能够打开与 NFS 服务器上不同 LIF 的多个连接。这提高了数据传输速度，并在将FlexVol卷导出到具有中继功能的客户端时通过多条路径提供了弹性。</block>
   <block id="b76f98fdaf313a65cf2c6f59a3752a76" category="paragraph">要启用中继，您需要为 NFS 配置 SVM，并且应启用 NFSv4.1。配置更改后，还需要重新安装所有 NFSv4.x 客户端，这可能会造成破坏。对于所有ONTAP系统，NFS 中继的支持和配置过程都是相同的。详细了解<block ref="3bbd72ecc33379409e84301ec3f716f9" category="inline-link-rx"></block></block>
   <block id="31a905eba0332220f52d70c6b0e96375" category="list-text">文件系统分析 (FSA) 是ONTAP 的一项功能，可实时查看FlexGroup或FlexVol卷内的文件使用情况和存储容量趋势。它通过提供有关存储利用率和优化机会的洞察，消除了对外部工具的需求。FSA 提供卷文件系统层次结构各个级别的详细视图，包括 SVM、卷、目录和文件级别。</block>
   <block id="5daeb7d02f0c8f2c5f519d60becbcc5d" category="section-title">从AFF或FAS系统迁移数据</block>
   <block id="dce8a1fa8e4a094ef871a7103f3f1f14" category="paragraph">可以使用以下技术实现从AFF或FAS系统（运行 Unified ONTAP个性化功能）到 AFX 的完全集成迁移路径：</block>
   <block id="d1d87d5c226a16c3537cdaf52219e6f9" category="paragraph">此外， FlexCache卷可以在 AFX 和AFF或FAS系统之间以任意方向连接。</block>
   <block id="a7ac1d2e69b9bbb9a2accb2ec30a1d69" category="inline-link">XCP</block>
-  <block id="a1ffadf93063cf27ac6a6513b066437f" category="paragraph">可以使用文件级复制操作从非ONTAP系统执行数据迁移。快速复制实用程序，例如<block ref="2e068de43ed51d2c33a896a672bd332b" category="inline-link-rx"></block>可以与标准实用程序（例如 RoboCopy（用于 SMB）和 rsync（用于 NFS）以及第三方工具（例如 DataDobi）一起使用。</block>
   <block id="d04306e92cf7956801c3a9ab37e4dd4b" category="paragraph">如果源数据卷不包含 LUN 或 NVMe 命名空间，则可以将数据从AFF或FAS系统复制到 AFX。从 AFX 复制到AFF或FAS系统时， AFF或FAS系统支持的最低ONTAP版本为 9.16.1。这是第一个支持高级容量平衡的ONTAP版本。</block>
   <block id="03c39d763ca15978d9ef16c2ba5fe98a" category="inline-link">数据保护和灾难恢复</block>
   <block id="9e873281484e8b5b9a062501ed2ec409" category="admonition">由于AFF和FAS系统上的许多概念和管理程序与 AFX 存储系统相同，因此查看 Unified ONTAP文档<block ref="dbe2ffaa0f590f79d1f22685959df345" category="inline-link-rx"></block>可能会有帮助。</block>
@@ -1684,8 +1650,6 @@
   <block id="4c2e600ea7c53e0c32af10f2e4850cd6" category="paragraph-title">我可以在我的 AFX 存储系统的后端集群网络中使用任何类型的交换机吗？</block>
   <block id="42ed7ea439950fed1039106f87d3419f" category="admonition">AFX 文档包含统一ONTAP文档站点上各种主题的链接，其中详细介绍了无论ONTAP特性如何都以相同方式运行的功能。附加内容提供了更深入的帮助，可以帮助您管理 AFX 存储系统。</block>
   <block id="765b47efc6becfafc2dfb93543aab395" category="list-text">先进的容量平衡功能，使用<block ref="7617fb157efcfcd230d531be7d153280" prefix=" " category="inline-code"></block>CLI 参数，默认情况下对所有FlexGroup卷启用。</block>
-  <block id="80fdcbf5318cc8c8b782fe1e7d993261" category="list-text">FlexGroup卷只能复制到 Unified ONTAP 9.16.1 或更高版本</block>
-  <block id="1803226ae8ecf68b259a8b81dd429f18" category="paragraph">NetApp AFX 存储系统满足 AI/ML 环境和其他相关以数据为中心的应用程序的典型独特需求。AFX 存储系统非常适合管理多种不同工作负载的组织，包括：</block>
   <block id="5da4db9a83f67785c558d8ef8930983d" category="section-title">系统设计特点</block>
   <block id="662e223dde993ac9a5f94e9df73c6020" category="paragraph">AFX 系统具有多种设计特点，使其能够作为高性能 NAS 平台运行。</block>
   <block id="1a305bb61d773e7c7f5ad044dfc05c1d" category="list-text">SVM 的类型</block>
@@ -1694,7 +1658,6 @@
   <block id="e8bc1a75864c7a9374e67c0bd33006ce" category="list-text">每个 SVM 都有自己专用的一组网络接口。例如，将单独的 LIF 分配给 SVM 以用于管理和客户端访问。</block>
   <block id="809ced36d61a966c3c67e773781e8212" category="list-text">集群管理员可以完全控制 AFX 集群，包括所有 SVM。AFX 集群管理级别仅包括集群管理员可以执行的任务，而不包括任何特定于 SVM 的管理任务。看<block ref="b7c6f4e89f282d3743609571d8ac253f" category="inline-link-macro-rx"></block>了解更多信息。</block>
   <block id="1d82ecf6b3e30f8f3261b09fc7460cc8" category="list-text">SVM 管理员角色可以控制特定的 SVM，因此与集群管理员相比受到的限制更多。SVM 管理涉及对具有 SVM 范围的对象和资源执行任务，例如创建卷。看<block ref="ebfee1a77bcca45a20260db66aedfa55" category="inline-link-macro-rx"></block>了解更多信息。</block>
-  <block id="e7cc598931ecb05f201eccb80edc35c0" category="paragraph">您应该查看NetApp Hardware Universe和 Interoperability Matrix Tool 中提供的信息，以确定 AFX 集群的功能。</block>
   <block id="0471cd90a0f200d2ea4dc6668e82834e" category="section-title">创建和使用 SVM 快速入门</block>
   <block id="5874dae1e3f2cc499f13dd22399c0cdc" category="paragraph-title"><block ref="58f667aaf05f87159670e12bd9bc076b" category="inline-image-macro-rx" type="image"></block>显示可用的 SVM</block>
   <block id="928443d797f5bfbe15e0c62ea304137b" category="paragraph"><block ref="fc233a35ea84021cc2134d6c4801b6e5" category="inline-link-macro-rx"></block>SVM 列表并确定是否有一个可以使用。</block>
@@ -1720,4 +1683,61 @@
   <block id="937992c5285f166aa01c3633fc6cb85b" category="list-text">AFX 存储系统不支持NetApp MetroCluster 。这给SVM的迁移带来了限制。您无法将 AFX SVM 迁移到配置为使用MetroCluster 的AFF或FAS系统（或任何运行 Unified ONTAP特性的NetApp系统）或从 AFF 或 FAS 系统迁移。虽然不支持这些迁移方案，但 AFX 预检查也没有明确阻止它们，因此您需要小心不要尝试这些方案。</block>
   <block id="372a3016fd08d93f2bfe7c10abae9936" category="list-text"><block ref="372a3016fd08d93f2bfe7c10abae9936" category="inline-link-macro-rx"></block></block>
   <block id="f090951c6f34b76fa7499153d4fd51be" category="sidebar">维护硬件</block>
+  <block id="e54c3f54834f8c71fc8b62702e6e49d6" category="paragraph-title">AFX集群中数据是如何分配的？</block>
+  <block id="8d32ce02a0e3a054354be2b6938e411d" category="paragraph">分配数据时，可以将其放置在 SAZ 中的任何磁盘上。数据一旦放置完毕，就无需再移动。根据底层数据创建卷，并将其分配给特定节点。 AFX 可以移动交易量，通常是作为平衡过程的一部分。这会影响哪个节点的NVRAM将写入操作提交到磁盘。卷迁移会改变卷的拥有节点，但数据本身可以保持不变。</block>
+  <block id="fea5bf7e0ffa785207241e1460f535ee" category="paragraph-title">AFX 如何管理 SAZ 中的交易量？</block>
+  <block id="c2b54597271f6f6d560cd22eb63e5a01" category="paragraph-title">AFX 集群中，卷是如何放置在节点上的？</block>
+  <block id="1a541551c5f705f0ffec2c7f7e7afb59" category="paragraph">NetApp AFX 可自动平衡集群中所有节点上的卷放置位置。从ONTAP 9.18.1 开始，放置算法得到了增强，在放置或移动体数据时会考虑节点的性能。这样可以改善 AFX 集群中各个节点之间的性能平衡，并大大降低单个节点过载的可能性。之前的 AFX 版本是根据集群中的卷总数来确定放置位置的。无论活动情况如何，每个节点都被分配相同数量的卷。</block>
+  <block id="39d6c09487ae39b696712047458ae97f" category="paragraph">借助运行 Unified ONTAP特性的AFF和FAS系统，可以无中断地将卷从集群中的一个节点或聚合体重新定位到另一个节点或聚合体。这是通过SnapMirror技术的后台复制操作实现的。在目标位置创建一个新的目标卷。根据卷的大小和集群资源的利用情况，卷移动操作完成所需的时间可能会有所不同。</block>
+  <block id="411d09bf181cc2e222bccf10feaa6685" category="paragraph">使用 AFX 时，不存在聚合。所有存储都包含在单个存储可用区 (SAZ) 中，集群中的每个节点都可以访问该可用区。因此，卷移动实际上不需要复制数据。相反，所有卷移动都是通过节点间的指针更新来实现的。这被称为零复制卷移动 (ZCVM)，并且是瞬间发生的，因为实际上没有数据被复制或移动。这本质上与 Unified ONTAP使用的卷移动过程相同，但不使用SnapMirror副本。</block>
+  <block id="268c5fd9a5edfb16a9eb083ccc6295cb" category="paragraph">在最初的 9.17.1 AFX 版本中，卷只会在存储故障转移恢复场景中以及向集群添加或删除节点时移动。这些移动仅通过ONTAP进行控制。</block>
+  <block id="fb5d5611f76c91a55f531d729a96c588" category="paragraph">NetApp AFX 针对高性能 NAS 和对象工作负载进行了优化。因此，它与AFF和FAS以及其他统一ONTAP存储系统存在差异。以下功能在NetApp AFX 中不可用；该列表按主要功能或功能领域进行组织。您还应该查看 AFX 的更新和变更。<block ref="e4ac4a7dd877729340e2b0880473ea1b" category="inline-link-macro-rx"></block>根据你的版本。</block>
+  <block id="2e3bb6088dc4e4a9fd41f59e608d064e" category="section-title">块存储和SAN</block>
+  <block id="1e6026bdcb8941485ad6d5451708325a" category="list-text">LUN 和 NVMe 命名空间</block>
+  <block id="7921b04e636fb6fa93137406e2d5d5f5" category="list-text">卷的厚配置</block>
+  <block id="1ff27fa0db5e6762419b83eb195369cb" category="section-title">骨料和物理存储</block>
+  <block id="9349adf882814a54316e0374c470dc4f" category="list-text">物理节点拥有的聚合</block>
+  <block id="47f64097ec44c9f18f4025941f2e4436" category="list-text">FabricPool分层</block>
+  <block id="9f230f2388eaca64e976d4426cb28829" category="section-title">数据复制（SnapMirror）</block>
+  <block id="d76efe2dcc04a87cf2807d9ac97ca877" category="inline-link">SnapMirror关系兼容的ONTAP版本</block>
+  <block id="b6af26e669bc576925c6e70d3998ef10" category="admonition">Unified ONTAP和 AFX 之间双向支持所有数据复制，并遵循相同的版本控制限制（详见下文）。<block ref="c81211c3848bebb897a62ef728e17034" category="inline-link-rx"></block> （除少数例外情况外）。</block>
+  <block id="9102a23d21c093d0022a6fb5b8246278" category="list-text">无法从包含 LUN 或 NVMe 命名空间的AFF或FAS系统复制卷</block>
+  <block id="76d95595cf37824064f04931bb34b692" category="list-text">FlexGroup卷只能从 AFX 复制到 Unified ONTAP版本 9.16.1 或更高版本（因为需要高级容量平衡）。</block>
+  <block id="b7c94ef25c0629a65f8a1f6ce7014d95" category="section-title">易管理性</block>
+  <block id="a701ac944f045a1319dfa2aefa340a51" category="list-text">不支持的功能（例如MetroCluster）的 REST API</block>
+  <block id="79c2b38f38c51ccecb846e7b61411345" category="list-text">REST API 在性能统计方面存在一些初步限制</block>
+  <block id="53c74ff394516eb726fa498958baa748" category="list-text">AIQ 统一管理器支持</block>
+  <block id="9778559854e477e3145f111560df12c2" category="list-text">Grafana Harvest 版本 25.08.1 及更高版本</block>
+  <block id="2d13ab42fbf58a40e728ee212f01218c" category="list-text">NetApp Trident版本 25.10 及更高版本</block>
+  <block id="ccb648feabbcf21905f5b3e3b6da2bfe" category="list-text">聚合显示现在显示整个存储可用区 (SAZ)</block>
+  <block id="853b2544b8e3ce0ee8744c82e99c89a0" category="paragraph">NetApp AFX 存储系统满足了 NAS 和 S3 对象工作负载对高性能和独立扩展的独特需求。这些应用程序受益于基于高并发性和并行 I/O 的先进设计。  AFX 非常适合部署和管理多种不同类型应用程序工作负载的组织，包括：</block>
+  <block id="25b0ede2a92c78f78da91d95666bf71d" category="list-text">与其他NetApp ONTAP存储系统不同，AFX 集群的计算和存储元素是解耦的，并通过交换网络连接。磁盘所有权不再与特定节点绑定，这带来了诸多好处。例如，AFX 集群的计算和存储组件可以独立扩展。</block>
+  <block id="43d8f973e2fb177a81c60f7548038901" category="list-text">自动化存储管理</block>
+  <block id="2e18b9556df6cd162435d73dfce9ad5a" category="list-text">AFX 存储管理员已无法访问物理聚合数据。相反，当向集群添加新的存储架时，AFX 会自动管理节点的虚拟容量分配以及 RAID 组配置。这种设计简化了管理，并为非专业人员提供了管理数据的机会。</block>
+  <block id="46344363890c22d91f2ef4fed08f5266" category="list-text">由于NetApp AFX 将存储节点和机架解耦，因此集群的所有存储容量都集中在一个名为存储可用区 (SAZ) 的池中。 SAZ 中的磁盘和存储架可供 AFX 集群中的所有存储节点进行读写操作。此外，发生故障时，所有集群节点都可以参与磁盘重建。请参阅<block ref="7605095791d77a2a1e3fa2bb7965cf64" category="inline-link-macro-rx"></block>更多详情请见下文。</block>
+  <block id="7bb6b245106e76057e98a7c54e7f002c" category="list-text">NetApp AFX 提供高且持续的带宽以及超低的延迟，因此专为高性能 NAS 和对象工作负载而设计。 AFX 采用最新的现代硬件以及存储机架，凭借其独特的架构，能够处理高比例的节点和磁盘。将存储节点扩展到超过典型的 1:1（节点：机架）比例，可以最大限度地发挥磁盘的性能，使其达到极限。该设计为您的关键应用提供效率和存储密度。</block>
+  <block id="a4f642d12bd74981e73ac7d7d10741f6" category="list-text">独立且大规模</block>
+  <block id="2fcd66ecd08442fdef6c928acebb950b" category="list-text">基于解耦的存储节点和存储架，AFX 集群可以根据您的应用需求进行独立且无中断的扩展。您可以添加存储节点来获得更多 CPU 和吞吐量，或者添加存储架来获得更多存储容量和磁盘性能。 NetApp AFX 架构为集群的最大规模带来了新的可能性。有关基于您的ONTAP版本的 AFX 集群的最新限制，请参阅NetAppHardware Universe。</block>
+  <block id="2f7fb5bdcacb24913e25f8e91356a001" category="list-text">零拷贝数据迁移</block>
+  <block id="b5d790ac6b0ca829027c20b5f2b59328" category="list-text">NAS 和对象客户端访问ONTAP集群上的卷。您可以无中断地在节点之间迁移卷，以实现容量和性能平衡目标。使用 Unified ONTAP时，卷迁移是使用SnapMirror技术执行的，这可能需要一些时间并占用额外的临时容量。但是，使用 AFX，在共享存储可用区 (SAZ) 内不再需要数据复制操作。相反，仅移动卷元数据，从而显著提高性能。请参阅<block ref="7605095791d77a2a1e3fa2bb7965cf64" category="inline-link-macro-rx"></block>更多详情请见下文。</block>
+  <block id="716320dfdc9aa6d8963d789930acc129" category="list-text">增强型高可用性功能</block>
+  <block id="48006463a92b587d00f84e474456a88b" category="list-text">NetApp AFX 为高可用性 (HA) 配置和处理提供了许多增强功能。 AFX 消除了直接连接 HA 伙伴节点的需要，而是允许 HA 对通过内部集群网络进行通信。这种设计使管理员可以选择在数据中心的不同机架或行中部署 HA 对，以增加容错能力。此外，AFX 零拷贝迁移功能还扩展到了高可用性故障转移场景。当一个节点发生故障时，其卷将故障转移到高可用性伙伴节点，以将剩余的写入操作提交到磁盘。然后ONTAP将卷均匀地分配到集群中所有幸存的节点上。这意味着在数据放置的初始设计中，您不再需要考虑存储故障转移性能。</block>
+  <block id="108832fd85d9c44525525e7110199351" category="admonition">你应该复习一下<block ref="7605095791d77a2a1e3fa2bb7965cf64" category="inline-link-macro-rx"></block>有关硬件互操作性和升级选项的更多信息。</block>
+  <block id="f267a68fd1c8bddcc992701898021398" category="list-text">集群交换机</block>
+  <block id="ca072ee7c94ac8b1c4168b4f9659440c" category="list-text">集群存储网络中至少需要两台交换机。允许的最大值是根据集群中控制器节点的总数来确定的。</block>
+  <block id="5551ba28b2361e1cad3f6c601b809eb8" category="paragraph">您应该查看NetAppHardware Universe和互操作性矩阵工具中提供的详细信息，以确定您的 AFX 集群的功能。</block>
+  <block id="f0fbe990f7dbf23c23155fb4992afadd" category="paragraph">存储可用区 (SAZ) 是整个集群的公共存储池。它是存储架上的一组磁盘，所有控制器节点都对其具有读写权限。 SAZ 提供了一种配置模型，对节点可以使用哪些存储架没有固定限制； ONTAP会自动处理跨节点的卷放置。客户可以将可用空间和存储使用情况视为整个 AFX 集群的属性。</block>
+  <block id="6276d3038553af5a3d64d410c1e6d661" category="paragraph">FlexVolumes、FlexGroups 和 S3 buckets 是基于客户端访问协议向 AFX 管理员公开的_数据容器_。它们的操作方式与 Unified ONTAP完全相同。这些可扩展容器旨在抽象化许多复杂的内部存储细节，例如数据放置和容量平衡。</block>
+  <block id="637decf5bf324423d7de9f02cca6a31e" category="paragraph">AFX 提供了一个基于AFF和FAS系统提供的 SVM 模型的租户模型。AFX 租户模型与 Unified ONTAP相同，但经过简化，可在 NAS 和 S3 对象环境中简化管理。例如，SAN、聚合和RAID组的配置选项已被移除。</block>
+  <block id="ff6c2b95a7fa386685bbbbe0d3ca5899" category="paragraph">下图说明了典型的 AFX 集群部署。AFX 集群包括与存储架分离的控制器节点，这些节点通过共享的内部网络连接。在 AFX 集群边界之外，客户端通过单独的客户端网络访问集群。</block>
+  <block id="56e8bf99f72e4387c99a20eec48f6e38" category="list-text">NFS会话中继</block>
+  <block id="8dbdf6aef2a6207f9a2325908b0086b9" category="list-text">NFS 中继是一种技术，它使 NFS v4.1 客户端能够打开与 NFS 服务器上不同 LIF 的多个连接。这样可以提高数据传输速度，并在向支持中继功能的客户端导出卷时通过多条路径提供弹性。  LIF 必须位于同一节点上才能参与主干链路。</block>
+  <block id="6fe4264e25ab7d4538e3cd8b851adfcf" category="inline-link">复制和同步</block>
+  <block id="78629379d17a65d519f7cf960a03b47b" category="paragraph">可以使用文件级复制操作从非ONTAP系统执行数据迁移。快速复制工具，例如<block ref="2e068de43ed51d2c33a896a672bd332b" category="inline-link-rx"></block>或者<block ref="0f8d02f34458f370fc0c271006069c90" category="inline-link-rx"></block>可以与 RoboCopy（用于 SMB）和 rsync（用于 NFS）等标准实用程序以及 DataDobi 等第三方工具一起使用。</block>
+  <block id="c5066f5f4ccd7899dcc6874e15fde3d5" category="summary">了解ONTAP 9.18.1 中包含的可用于 AFX 存储系统的新功能。</block>
+  <block id="d8d3367441e4d16afdbbbb9a3e68ea0a" category="doc">ONTAP 9.18.1 中适用于 AFX 存储系统的新功能</block>
+  <block id="79be8b53f2b2857aa5fc647e13086c0a" category="section-title">存储资源管理增强</block>
+  <block id="5c9caa41b457294382a8eb7e1cef25e5" category="cell">增强体积放置</block>
+  <block id="bd6a1d603e00e7749c4356b336d60ddb" category="paragraph">NetApp AFX 可自动平衡集群中所有节点上的卷放置位置。在之前的ONTAP版本中，放置算法是基于集群中的卷数。无论活动情况如何，每个节点都被分配相同数量的卷。从ONTAP 9.18.1 开始，该算法得到了增强，可以在放置或移动体数据时考虑节点的性能。这样可以改善 AFX 集群中各个节点之间的性能平衡，并大大降低单个节点过载的可能性。</block>
+  <block id="d529398546b94e10169c1e6f6f8aed12" category="sidebar">ONTAP 9.18.1 的新增功能</block>
 </blocks>
