@@ -60,9 +60,21 @@ FlexGroup卷由多个成员卷组成，这些成员卷自动且透明地共享�
 
 
 
+== 安全性
+
+您可以在 AFX 部署中配置和使用多种可选的安全功能。
+
+
+
+=== FPolicy
+
+FPolicy 是一个文件访问通知框架，用于监控和管理存储虚拟机 (SVM) 上的文件访问事件。您可以使用 FPolicy 创建策略，根据您定义的标准来定义要监视的文件操作，并可选择阻止这些操作。 FPolicy 通常用于安全审计、合规性和数据治理。请参阅 https://docs.netapp.com/us-en/ontap/nas-audit/two-parts-fpolicy-solution-concept.html["了解ONTAP FPolicy 解决方案"^]了解更多信息。
+
+
+
 == ONTAP事件和性能监控
 
-您可以监控集群的健康和性能。这包括设置事件警报和管理系统健康警报通知。参考 https://docs.netapp.com/us-en/ontap/event-performance-monitoring/index.html["事件、性能和健康监控"^]了解更多信息
+您可以监控集群的健康和性能。这包括设置事件警报和管理系统健康警报通知。请参阅 https://docs.netapp.com/us-en/ontap/event-performance-monitoring/index.html["事件、性能和健康监控"^]了解更多信息。
 
 
 
