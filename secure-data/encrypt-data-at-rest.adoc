@@ -46,3 +46,7 @@ NetApp存储加密 (NSE) 支持使用自加密驱动器 (SED) 进行硬件加密
 . 选择*双层加密*以启用软件加密。
 . 选择*保存*。
 
+
+.相关信息
+* https://docs.netapp.com/us-en/ontap/concepts/encryption-concept.html["加密"^]
+
