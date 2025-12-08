@@ -1766,4 +1766,10 @@
   <block id="9b3ab302175091da61fb00078bbdf676" category="paragraph">请参阅<block ref="bb9c67b5a4c15a85b5e6aa6c9afd0285" category="inline-link-rx"></block>有关在您的 AFX 系统上运行的ONTAP版本所支持的卡的更多信息。</block>
   <block id="d41e75fa1b06d9a7c925a3f985c520e5" category="list-text"><block ref="d41e75fa1b06d9a7c925a3f985c520e5" category="inline-link-rx"></block></block>
   <block id="0a0e33e3bee1123a43e4178aad30ed45" category="sidebar">安全IP连接</block>
+  <block id="70aaaf8a9f143b7a315bba12766865d7" category="summary">ONTAP集群回滚是指将所有节点迁移到上一个主要的ONTAP版本的过程。</block>
+  <block id="ae002bc4aaa91da5f0456bd41f4ec74f" category="doc">ONTAP回滚功能不支持 AFX 存储系统</block>
+  <block id="25a89c0d2271ffea21d078f4e6d93fd2" category="paragraph">NetApp AFX 存储系统不支持ONTAP回滚。尝试使用 AFX 执行回滚操作可能会导致集群不稳定和数据丢失。您不应该尝试对 AFX 系统执行还原操作。</block>
+  <block id="b34a4582eb04bf97b29749b7a8e1ee38" category="inline-link-macro">ONTAP恢复</block>
+  <block id="dbca7577f0796430f28fd2f1f5805bc9" category="admonition">AFX 存储系统不支持 <block ref="af98218b92f959dac30e2de6f742409f" category="inline-link-macro-rx"></block> 运营。</block>
+  <block id="0f3715b1b8b72110fa162f2666d15f10" category="sidebar">恢复限制</block>
 </blocks>

@@ -1,0 +1,16 @@
+---
+sidebar: sidebar 
+permalink: administer/revert-ontap.html 
+keywords: afx, afx system, revert, revert ontap, revert limitation 
+summary: ONTAP集群回滚是指将所有节点迁移到上一个主要的ONTAP版本的过程。 
+---
+= ONTAP回滚功能不支持 AFX 存储系统
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP集群回滚是指将所有节点迁移到上一个主要的ONTAP版本的过程。
+
+NetApp AFX 存储系统不支持ONTAP回滚。尝试使用 AFX 执行回滚操作可能会导致集群不稳定和数据丢失。您不应该尝试对 AFX 系统执行还原操作。
