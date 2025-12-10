@@ -444,7 +444,6 @@
   <block id="c06b2149bbe3e94f6eac8a64039cc025" category="list-text">阅读 EULA。</block>
   <block id="d6aeb9cf91111f522e0f1901518a3836" category="list-text">接受默认设置以*显示推荐更新的通知*。或者，选择*自动更新*或*自动忽略*推荐的更新。</block>
   <block id="17ac6cdd9934a4f4aca00f5228a64555" category="list-text">选择确认您的更新修改将应用于所有当前和未来的更新。</block>
-  <block id="09190524572cf4f2b42ddf32f3f54ce7" category="paragraph">根据您的更新选择，推荐的更新将自动下载并安装在您的 OTAP AFX 系统上。</block>
   <block id="5de0adb95551ff3c1458ae6247a4959f" category="section-title">禁用自动更新</block>
   <block id="6141cdc0ba26479d87d6b8c24af9fc18" category="paragraph">如果您希望在安装之前灵活地查看推荐的更新，请禁用自动更新。如果禁用自动更新，则需要手动执行固件和系统文件更新。</block>
   <block id="9c2cdad0235d8d361f21c8343ef95363" category="list-text">在系统管理器中，选择“集群”&gt;“设置”。</block>
@@ -1409,8 +1408,6 @@
   <block id="ce587252d09bb3dfb2d53f154ba81d93" category="section-title">步骤 3：创建复制关系</block>
   <block id="c8733c85583475859780bc7c89c97d92" category="paragraph">快照复制关系在您的 AFX 系统和远程位置之间建立连接，以便您可以将一致性组复制到远程集群。复制的一致性组可用于灾难恢复或数据迁移。</block>
   <block id="c5d439ea8d2444de271a6842180ae515" category="paragraph">为了防止勒索软件攻击，当您设置复制关系时，您可以选择锁定目标快照。锁定的快照不会被意外或恶意删除。如果卷受到勒索软件攻击，您可以使用锁定的快照来恢复数据。</block>
-  <block id="bf5d4ab274f571d57107a348e35cb081" category="inline-link-macro">初始化快照合规时钟</block>
-  <block id="a2070fe1416691eeb91c53762fd2a74c" category="paragraph">如果要锁定目标快照，则必须<block ref="27d9d0ff36409c51abdcd0a6f30da304" category="inline-link-macro-rx"></block>在创建复制关系之前。</block>
   <block id="f07148b3f2fd0f0a23b807626916df29" category="paragraph">创建具有或不具有锁定目标快照的复制关系。</block>
   <block id="b581751404702669bf568b5f9581e76c" category="open-title">带有锁定快照</block>
   <block id="82fd6aa34bfb21de39dd81c963a0a2e8" category="list-text">在系统管理器中，选择*保护&gt;一致性组*。</block>
@@ -1772,4 +1769,5 @@
   <block id="b34a4582eb04bf97b29749b7a8e1ee38" category="inline-link-macro">ONTAP恢复</block>
   <block id="dbca7577f0796430f28fd2f1f5805bc9" category="admonition">AFX 存储系统不支持 <block ref="af98218b92f959dac30e2de6f742409f" category="inline-link-macro-rx"></block> 运营。</block>
   <block id="0f3715b1b8b72110fa162f2666d15f10" category="sidebar">恢复限制</block>
+  <block id="c29e3429d133a5255487ffdb4b3cd5b3" category="paragraph">根据您的更新选择，推荐的更新将自动下载并安装在您的 ONTAP AFX 系统上。</block>
 </blocks>

@@ -7,7 +7,7 @@ summary: 导航至 AFX 维护文档以了解如何对 AFX 存储系统执行维�
 = 维护 AFX 存储系统硬件
 :allow-uri-read: 
 :icons: font
-:imagesdir: ../media/
+:imagesdir: ./media/
 
 
 [role="lead"]

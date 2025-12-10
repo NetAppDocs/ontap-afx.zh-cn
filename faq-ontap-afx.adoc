@@ -10,7 +10,7 @@ summary: 此常见问题解答列表提供了客户通常对其 AFX 存储系统
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ../media/
+:imagesdir: ./media/
 
 
 [role="lead"]

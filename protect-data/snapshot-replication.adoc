@@ -86,8 +86,6 @@ AFX 系统与其他ONTAP系统的集群对等的先决条件相同。link:https:
 为了防止勒索软件攻击，当您设置复制关系时，您可以选择锁定目标快照。锁定的快照不会被意外或恶意删除。如果卷受到勒索软件攻击，您可以使用锁定的快照来恢复数据。
 
 .开始之前
-如果要锁定目标快照，则必须link:../secure-data/ransomware-protection.html#initialize-the-snaplock-compliance-clock["初始化快照合规时钟"]在创建复制关系之前。
-
 创建具有或不具有锁定目标快照的复制关系。
 
 [role="tabbed-block"]
