@@ -72,6 +72,10 @@ AFX 集群有四个区域必须进行初始配置。前三个是必需的，最�
 +
 您可以定义集群加密的详细信息。选择*继续*。
 
++
+
+NOTE: 有关如何在非 Windows 环境中创建集群的信息，请参阅 link:https://docs.netapp.com/us-en/ontap/software_setup/setup-cluster.html["创建ONTAP集群并加入节点"^]。
+
 
 
 .下一步

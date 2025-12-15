@@ -136,7 +136,7 @@ NOTE: 如果 ID 闪烁的时间超过 15 秒，请再次按住货架 ID 按钮�
 .. 将控制台电缆连接到笔记本电脑，然后使用存储系统附带的控制台电缆连接控制器上的串行控制台端口。
 .. 将笔记本电脑连接到管理子网上的交换机。
 +
-image::../media/drw_a1k_70-90_console_connection_ieops-1702.svg[控制台连接]
+image::../media/drw_afx_1k_console_connection_ieops-2708.svg[控制台连接]
 
 
 
