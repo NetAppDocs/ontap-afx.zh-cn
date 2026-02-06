@@ -1772,4 +1772,7 @@
   <block id="f6ea197b186340b340ddfd0eb0da559f" category="inline-link-macro">创建ONTAP集群并加入节点</block>
   <block id="46111b54a1fe09b4b0f338f84ed73d0f" category="admonition">有关如何在非 Windows 环境中创建集群的信息，请参阅 <block ref="084582f867948d8226893522df8bc4b0" category="inline-link-macro-rx"></block>。</block>
   <block id="26790bd35f75a3d2177dc5a2d5e4162f" category="admonition">如果交换机的气流配置为端口侧进气（酒红色风扇和 PSU），则交换机的网络端口必须面向机柜正面安装，排气风扇必须面向机柜背面。使用此配置时，您必须确保使用的电缆足够长，以便从机柜前面的网络端口延伸到机柜后面的存储端口。+ 有关这些交换机的更多详细信息，请访问 Cisco 网站：<block ref="41dd90940bbf956b1a1bc9743b5329d8" category="inline-link-rx"></block> 和 <block ref="0684e00763f44490e4a966ecd9b6db00" category="inline-link-rx"></block>。</block>
+  <block id="5ba4d3956504a570f9a51b322b5f740c" category="list-text">连接两台交换机之间的 ISL 电缆。</block>
+  <block id="86411bbf3fc2afbe73de144737c4ff80" category="list-text">对于 Cisco Nexus 9332D-GX2B 交换机，ISL 连接使用端口 31/32。有关详细信息，请参见 <block ref="bab51173328bbc094a925e4a5c7604c6" category="inline-link-macro-rx"></block>。</block>
+  <block id="f8979ce4e5d66f41e330415672140ef8" category="list-text">对于 Cisco Nexus 9364D-GX2A 交换机，ISL 连接使用端口 63/64。有关详细信息，请参见 <block ref="d3ef7ae1e3bea631e525704fa9f8906b" category="inline-link-macro-rx"></block>。</block>
 </blocks>
