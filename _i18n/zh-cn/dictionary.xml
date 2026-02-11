@@ -1677,7 +1677,6 @@
   <block id="39d6c09487ae39b696712047458ae97f" category="paragraph">借助运行 Unified ONTAP特性的AFF和FAS系统，可以无中断地将卷从集群中的一个节点或聚合体重新定位到另一个节点或聚合体。这是通过SnapMirror技术的后台复制操作实现的。在目标位置创建一个新的目标卷。根据卷的大小和集群资源的利用情况，卷移动操作完成所需的时间可能会有所不同。</block>
   <block id="411d09bf181cc2e222bccf10feaa6685" category="paragraph">使用 AFX 时，不存在聚合。所有存储都包含在单个存储可用区 (SAZ) 中，集群中的每个节点都可以访问该可用区。因此，卷移动实际上不需要复制数据。相反，所有卷移动都是通过节点间的指针更新来实现的。这被称为零复制卷移动 (ZCVM)，并且是瞬间发生的，因为实际上没有数据被复制或移动。这本质上与 Unified ONTAP使用的卷移动过程相同，但不使用SnapMirror副本。</block>
   <block id="268c5fd9a5edfb16a9eb083ccc6295cb" category="paragraph">在最初的 9.17.1 AFX 版本中，卷只会在存储故障转移恢复场景中以及向集群添加或删除节点时移动。这些移动仅通过ONTAP进行控制。</block>
-  <block id="fb5d5611f76c91a55f531d729a96c588" category="paragraph">NetApp AFX 针对高性能 NAS 和对象工作负载进行了优化。因此，它与AFF和FAS以及其他统一ONTAP存储系统存在差异。以下功能在NetApp AFX 中不可用；该列表按主要功能或功能领域进行组织。您还应该查看 AFX 的更新和变更。<block ref="e4ac4a7dd877729340e2b0880473ea1b" category="inline-link-macro-rx"></block>根据你的版本。</block>
   <block id="2e3bb6088dc4e4a9fd41f59e608d064e" category="section-title">块存储和SAN</block>
   <block id="1e6026bdcb8941485ad6d5451708325a" category="list-text">LUN 和 NVMe 命名空间</block>
   <block id="7921b04e636fb6fa93137406e2d5d5f5" category="list-text">卷的厚配置</block>
@@ -1775,4 +1774,6 @@
   <block id="5ba4d3956504a570f9a51b322b5f740c" category="list-text">连接两台交换机之间的 ISL 电缆。</block>
   <block id="86411bbf3fc2afbe73de144737c4ff80" category="list-text">对于 Cisco Nexus 9332D-GX2B 交换机，ISL 连接使用端口 31/32。有关详细信息，请参见 <block ref="bab51173328bbc094a925e4a5c7604c6" category="inline-link-macro-rx"></block>。</block>
   <block id="f8979ce4e5d66f41e330415672140ef8" category="list-text">对于 Cisco Nexus 9364D-GX2A 交换机，ISL 连接使用端口 63/64。有关详细信息，请参见 <block ref="d3ef7ae1e3bea631e525704fa9f8906b" category="inline-link-macro-rx"></block>。</block>
+  <block id="35baa74f76db10604e3f71a16b4078d1" category="paragraph">NetApp AFX 针对高性能 NAS 和对象工作负载进行了优化。因此，AFF 和 FAS 存储系统存在差异。以下功能不适用于 NetApp AFX；列表按主要功能或功能区域进行组织。您还应根据 ONTAP 版本查看 <block ref="e4ac4a7dd877729340e2b0880473ea1b" category="inline-link-macro-rx"></block> 中的 AFX 更新和更改。</block>
+  <block id="86daf5160966102a39f5f3c0390bde11" category="list-text">负载共享镜像</block>
 </blocks>

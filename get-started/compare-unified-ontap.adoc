@@ -29,7 +29,7 @@ AFX 配置与AFF和FAS系统在一些方面有所不同。
 
 == 不受支持或受限制的 Unified ONTAP功能
 
-NetApp AFX 针对高性能 NAS 和对象工作负载进行了优化。因此，它与AFF和FAS以及其他统一ONTAP存储系统存在差异。以下功能在NetApp AFX 中不可用；该列表按主要功能或功能领域进行组织。您还应该查看 AFX 的更新和变更。link:../release-notes/whats-new-9171.html["什么是新的"]根据你的版本。
+NetApp AFX 针对高性能 NAS 和对象工作负载进行了优化。因此，AFF 和 FAS 存储系统存在差异。以下功能不适用于 NetApp AFX；列表按主要功能或功能区域进行组织。您还应根据 ONTAP 版本查看 link:../release-notes/whats-new-9171.html["什么是新的"] 中的 AFX 更新和更改。
 
 
 
@@ -51,6 +51,7 @@ NetApp AFX 针对高性能 NAS 和对象工作负载进行了优化。因此，�
 * 聚合级重复数据删除
 * SyncMirror （聚合镜像）
 * FabricPool分层
+* 负载共享镜像
 
 
 
