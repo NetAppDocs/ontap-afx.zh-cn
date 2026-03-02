@@ -792,28 +792,18 @@
   <block id="808f3fa88e6266b2beb8f1153dd991ec" category="list-text">将以下端口连接到以太网数据网络交换机 B。</block>
   <block id="53c535a8b8a2c8bb670d136b82e73f99" category="list-text">e2b</block>
   <block id="969d430598a257671bdf944480e4d46b" category="list-text">e3b</block>
-  <block id="4015e00b406d10c628519f953d69e086" category="section-title">步骤 3：连接集群和 HA</block>
-  <block id="093fe9dff1e5370d0b97313cefba5acd" category="paragraph">使用集群和 HA 互连电缆将端口 e1a 和 e7a 连接到交换机 A，将 e1b 和 e7b 连接到交换机 B。e1a/e1b 端口用于 HA 连接，e7a/e7b 端口用于集群连接。</block>
-  <block id="7d1e8fb2f50320f7b5004ba0fd39055b" category="list-text">将以下控制器端口连接到集群网络交换机 A 上的任何非 ISL 端口。</block>
   <block id="595df28a8a4a9361a6231a9d84e8cd08" category="list-text">控制器 A</block>
   <block id="9cb7b36b3f2bccc776862e6f2f494077" category="list-text">e1a</block>
   <block id="a9e70fa35de61f4ac25cc4bcd706a55d" category="list-text">控制器 B</block>
-  <block id="29b62d617481485649ea2d5b54fca512" category="image-alt">集群 HA 电缆</block>
-  <block id="f1d133e33e29362e931a34312a961d0b" category="image-alt">将集群连接线连接至集群网络</block>
-  <block id="ac32cb5bd4dc17916ab1ece800d39226" category="list-text">将以下控制器端口连接到集群网络交换机 B 上的任何非 ISL 端口。</block>
   <block id="e737b5ac24a63afc00e81377a906728d" category="list-text">e1b</block>
-  <block id="c61349783073807f1993874d0e3a4a8c" category="section-title">步骤 4：连接控制器到交换机的存储连接</block>
   <block id="da160308e3b4b4a80bf1b72b5bdbedb8" category="inline-link">Hardware Universe</block>
-  <block id="7bebd570400c9d8d9796caad43fdcebd" category="paragraph">将控制器存储端口连接到交换机。确保您的交换机具有正确的电缆和连接器。看<block ref="16a6d09025d51cb8dd3516798b3fee8a" category="inline-link-rx"></block>了解更多信息。</block>
   <block id="d7434100057b78673eee73421ad29942" category="list-text">将以下存储端口连接到交换机 A 上的任何非 ISL 端口。</block>
   <block id="405e469b4aa3065616ee04f4a4b2b35e" category="list-text">e10a</block>
   <block id="2772fdc65a945771c18178a5b650c575" category="list-text">e11a</block>
   <block id="b222cca23840b6a495e76b8c300b08f2" category="image-alt">100 Gb 电缆</block>
-  <block id="56812cf9e76eb2dfaa41475474798d4b" category="image-alt">将控制器存储器用电缆连接至交换机 A</block>
   <block id="dc1921771bb6c193442045d9a99b8c9d" category="list-text">将以下存储端口连接到交换机 B 上的任何非 ISL 端口。</block>
   <block id="d5dec99b9c0f6ad0c56335c85d42e40b" category="list-text">e10b</block>
   <block id="6dfe0149eb6951bd7c7e5c94c1713869" category="list-text">e11b</block>
-  <block id="73b33ccdc5c989a11800499004721836" category="image-alt">将控制器存储器用电缆连接至交换机 B</block>
   <block id="18154dcfffa2547c8d59ed9df65fb3ac" category="section-title">步骤 5：架设机架到交换机的连接线</block>
   <block id="b1ea5415ee8f031dcace291f9c98e0be" category="paragraph">将 NX224 存储扩展架连接到交换机。</block>
   <block id="5a684badbec5242d1800f819ca49559e" category="paragraph">有关存储系统支持的最大架数量以及所有布线选项，请参阅<block ref="43b42c26c42f7c6fe4ef77f9f2ed17ff" category="inline-link-macro-rx"></block>。</block>
@@ -1776,4 +1766,12 @@
   <block id="f8979ce4e5d66f41e330415672140ef8" category="list-text">对于 Cisco Nexus 9364D-GX2A 交换机，ISL 连接使用端口 63/64。有关详细信息，请参见 <block ref="d3ef7ae1e3bea631e525704fa9f8906b" category="inline-link-macro-rx"></block>。</block>
   <block id="35baa74f76db10604e3f71a16b4078d1" category="paragraph">NetApp AFX 针对高性能 NAS 和对象工作负载进行了优化。因此，AFF 和 FAS 存储系统存在差异。以下功能不适用于 NetApp AFX；列表按主要功能或功能区域进行组织。您还应根据 ONTAP 版本查看 <block ref="e4ac4a7dd877729340e2b0880473ea1b" category="inline-link-macro-rx"></block> 中的 AFX 更新和更改。</block>
   <block id="86daf5160966102a39f5f3c0390bde11" category="list-text">负载共享镜像</block>
+  <block id="8c60e60e96c6540bd35beb72adc17cb0" category="section-title">步骤 3：将集群、HA 和存储连接连接到交换机 A</block>
+  <block id="1255d6bb11db98e4f919212687145a90" category="paragraph">使用 4x100GbE 分支电缆将控制器上的集群、HA 和存储端口连接到网络交换机 A。集群和 HA 互连电缆将端口 e1a 和 e7a 连接到交换机 A。e1a 端口用于 HA 连接，e7a 端口用于集群连接。对于存储连接，将端口 e10a 和 e11a 连接到交换机 A。</block>
+  <block id="245afd341214dde6198c6abfdac71264" category="paragraph">确保您的交换机有正确的电缆和连接器。有关更多信息，请参见<block ref="16a6d09025d51cb8dd3516798b3fee8a" category="inline-link-rx"></block>。</block>
+  <block id="e42929c9f069074fd111dfa1c107772e" category="list-text">将以下控制器端口连接到网络交换机 A 上的任何非 ISL 端口。</block>
+  <block id="c1209a2ef5ab3b20312d0aebe91b01d3" category="image-alt">线缆控制器集群</block>
+  <block id="c42589aeb6cdc4aab7c9ee5517ef1f84" category="section-title">步骤 4：将集群、HA 和存储连接连接到交换机 B</block>
+  <block id="14aa705a8a71a02fb1b277002e0c52ed" category="paragraph">使用 4x100GbE 分支电缆将控制器上的集群、HA 和存储端口连接到网络交换机 B。集群和 HA 互连电缆将端口 e1b 和 e7b 连接到交换机 B。e1b 端口用于 HA 连接，e7b 端口用于集群连接。对于存储连接，将端口 e10b 和 e11b 连接到交换机 B。</block>
+  <block id="8cff5fa6944271f10e636cadf3153077" category="list-text">将以下控制器端口连接到网络交换机 B 上的任何非 ISL 端口。</block>
 </blocks>
