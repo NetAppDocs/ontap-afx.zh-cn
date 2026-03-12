@@ -686,15 +686,8 @@
   <block id="67901f429b628d99fcc5a2d234be3c16" category="list-text"><block ref="67901f429b628d99fcc5a2d234be3c16" category="inline-link-rx"></block></block>
   <block id="be295ac553513eb5e74d13f03267efb7" category="inline-link">了解如何使用ONTAP CLI 进行集群管理</block>
   <block id="b1ca62b8e216e4c4af0bae762b5c33bf" category="list-text"><block ref="b1ca62b8e216e4c4af0bae762b5c33bf" category="inline-link-rx"></block></block>
-  <block id="6496e25d87d450f75eeeac2307f5d601" category="summary">要初始启动并运行您的 AFX 系统，您需要安装硬件组件、设置集群并准备管理集群和 SVM。</block>
   <block id="22735d3e264cefb0543000862e7f0904" category="doc">快速启动设置 AFX 存储系统</block>
-  <block id="40a0d9b63d17cd9ee40121b195ad7812" category="paragraph-title"><block ref="58f667aaf05f87159670e12bd9bc076b" category="inline-image-macro-rx" type="image"></block>安装并设置硬件</block>
-  <block id="349838fb1d851d3e2014b9fe39203275" category="inline-link-macro">安装</block>
-  <block id="a89571e2a58d58d092c115e8476ed9e9" category="paragraph"><block ref="956a819b10989cd1b828400e2784a3e3" category="inline-link-macro-rx"></block>您的 AFX 存储系统并准备设置集群。</block>
-  <block id="d950f0cc340509cac6299d8daed8cf0a" category="paragraph-title"><block ref="54f425ce8d89f4ed6b8a546561af5d60" category="inline-image-macro-rx" type="image"></block>设置集群</block>
   <block id="d5158c215f75d40b3dc3a9efd519b60a" category="inline-link-macro">设置</block>
-  <block id="952715d9fa928d1059a800473c5469c0" category="paragraph">按照快速简便的流程<block ref="5f55a5e0ef0b631e2040a3d854a6456f" category="inline-link-macro-rx"></block>使用系统管理器的ONTAP集群。</block>
-  <block id="373a0502633d2333dd8b952009c2d1ad" category="paragraph-title"><block ref="05b2444faffd66d76e88602ea7dd353f" category="inline-image-macro-rx" type="image"></block>准备管理您的集群</block>
   <block id="0ee63ccea22773b7b711a299adc32792" category="inline-link-macro">准备</block>
   <block id="862b23ef0c9f5a6e409d8a2a17fe80e2" category="paragraph">在生产环境中部署 AFX 之前，必须<block ref="8b4d8002fc8012c25c048b6e7a24771f" category="inline-link-macro-rx"></block>通过了解管理结构（包括存储虚拟机 (SVM)、用户、角色和管理界面），确保安全、高效和有效的集群管理。</block>
   <block id="0a6e83c5c4575b7e80d6da08f9735aa2" category="summary">AFX 架构由多个硬件和软件组件组成。这些系统组件被组织成不同的类别。</block>
@@ -818,9 +811,7 @@
   <block id="4a7ee7fbba5bc8a1a276d9ee6a63ed38" category="list-text">模块 B 到交换机 B 的连接</block>
   <block id="fd237566ec57d5c7d07a07d2de3f5da4" category="inline-link-macro">打开电源并配置交换机</block>
   <block id="f5a20b01e4e92799bd754e081d26baa2" category="paragraph">连接硬件后，<block ref="ea78b4766c5f2cc6aaf348a949513439" category="inline-link-macro-rx"></block> 。</block>
-  <block id="61aa41645e90edf222517c80068cc2c5" category="summary">安装 AFX 硬件后，您可以完成集群设置。此过程涉及两个相关的配置阶段，您需要按顺序执行。</block>
   <block id="555d2f7366ee48937103a84c2e34ab15" category="doc">设置 AFX 存储系统ONTAP集群</block>
-  <block id="1a03950a8b042e50b4fa0a4ba5ebf056" category="paragraph">安装 AFX 硬件后，您可以完成ONTAP集群设置。此过程涉及两个相关的配置阶段，您需要按顺序执行。</block>
   <block id="4a10c4c51ce8042f23d8552dbd29c615" category="section-title">执行初始集群设置</block>
   <block id="d67e08295ddac36d182423f29b6d953e" category="paragraph">您可以将笔记本电脑设备连接到 AFX 集群并设置几个全局配置值。</block>
   <block id="a357a6dc879fb21456a023174999f986" category="paragraph">AFX 集群有四个区域必须进行初始配置。前三个是必需的，最后一个是可选的。</block>
@@ -829,7 +820,6 @@
   <block id="98120899673f27e9689b61d6b3870732" category="paragraph">集群管理 IP 地址是集群管理员用来访问管理 SVM 和管理集群的集群管理接口的唯一 IPv4 地址。您可以从组织中负责分配 IP 地址的管理员处获取此 IP 地址。</block>
   <block id="cbb81dee4f5c03c21f392a86f157336d" category="list-text">网络子网掩码</block>
   <block id="c434bb8b0d4ff4f8c72a02f79eb9224a" category="paragraph">在集群设置期间， ONTAP需要一组适合您的配置的网络接口。如有必要，您可以调整建议。</block>
-  <block id="04a28563d9cca86ff33d1886c922c8d7" category="paragraph">您还需要以下物品：</block>
   <block id="e62d1b7c016fb6f9a0829b685c2ab1ea" category="list-text">网络网关 IP 地址</block>
   <block id="4f003881b79490db2f8b01b7c398fce1" category="list-text">DNS 域名</block>
   <block id="e28af899651d52d4e958ed29e85f0c9c" category="list-text">DNS 名称服务器 IP 地址</block>
@@ -843,9 +833,7 @@
   <block id="59b375f59423995965c5949c469b768e" category="paragraph">将显示系统管理器用户界面。</block>
   <block id="e041869cafad45776d41ace1eaf57baf" category="list-text">设置管理员密码。</block>
   <block id="1a3fdad9d641133a1e19c5fdbfe21255" category="paragraph">提供并验证<block ref="21232f297a57a5a743894a0e4a801fc3" prefix=" " category="inline-code"></block>帐户。选择*继续*。</block>
-  <block id="65dc37fafad28c1a8a9c109af3d8d976" category="list-text">配置集群和控制节点的IP地址。</block>
   <block id="35c7fe01157254d80eb6615358234c6a" category="paragraph">提供 IP 地址和子网掩码。</block>
-  <block id="8165f1d7607b0e72446c39d17955414b" category="list-text">配置网络服务。选择*继续*。</block>
   <block id="2d044c807325a8c22321174a6d18dbd9" category="paragraph">定义您的 DNS 和 NTP 服务器的详细信息。</block>
   <block id="083faa6cc4d08f602b1c409c9b142a4c" category="list-text">可选择设置加密。</block>
   <block id="29c706988d6c18477050ac049bc0a43a" category="paragraph">您可以定义集群加密的详细信息。选择*继续*。</block>
@@ -1680,8 +1668,6 @@
   <block id="a701ac944f045a1319dfa2aefa340a51" category="list-text">不支持的功能（例如MetroCluster）的 REST API</block>
   <block id="79c2b38f38c51ccecb846e7b61411345" category="list-text">REST API 在性能统计方面存在一些初步限制</block>
   <block id="53c74ff394516eb726fa498958baa748" category="list-text">AIQ 统一管理器支持</block>
-  <block id="9778559854e477e3145f111560df12c2" category="list-text">Grafana Harvest 版本 25.08.1 及更高版本</block>
-  <block id="2d13ab42fbf58a40e728ee212f01218c" category="list-text">NetApp Trident版本 25.10 及更高版本</block>
   <block id="ccb648feabbcf21905f5b3e3b6da2bfe" category="list-text">聚合显示现在显示整个存储可用区 (SAZ)</block>
   <block id="853b2544b8e3ce0ee8744c82e99c89a0" category="paragraph">NetApp AFX 存储系统满足了 NAS 和 S3 对象工作负载对高性能和独立扩展的独特需求。这些应用程序受益于基于高并发性和并行 I/O 的先进设计。  AFX 非常适合部署和管理多种不同类型应用程序工作负载的组织，包括：</block>
   <block id="25b0ede2a92c78f78da91d95666bf71d" category="list-text">与其他NetApp ONTAP存储系统不同，AFX 集群的计算和存储元素是解耦的，并通过交换网络连接。磁盘所有权不再与特定节点绑定，这带来了诸多好处。例如，AFX 集群的计算和存储组件可以独立扩展。</block>
@@ -1779,4 +1765,66 @@
   <block id="9f17a32279457eb3f0ec945352a82e96" category="inline-link-macro">设置 AFX 集群</block>
   <block id="65baec5e9f4a78defefb1154f095ae89" category="list-text">有关专用 AFX 1K 存储系统部署，请转到 <block ref="b434a61d8681e909828695f9b932fe31" category="inline-link-macro-rx"></block>。</block>
   <block id="2958d97f86a68931454e4d5cb0f3fa2a" category="list-text">对于带有 AI Data Engine (AIDE) 的 AFX 1K 部署，请转到 <block ref="770e46e4a0d2400ce8dd3c354b4e69c6" category="inline-link-macro-rx"></block>。</block>
+  <block id="7485a9a2ae4ee9755a52213e23e1172c" category="inline-link">如何从 NetApp 支持站点下载 NLF 许可证</block>
+  <block id="0d31e45cb458235b1c184c1176df0af6" category="list-text"><block ref="0d31e45cb458235b1c184c1176df0af6" category="inline-link-rx"></block></block>
+  <block id="d0e68fc1dba1032a2fa3af9f7e71bfc4" category="list-text">Grafana Harvest 25.08.1 之前的版本</block>
+  <block id="f4400f8e3998b00dc936390760dfa0b2" category="summary">NetApp AI Data Engine (AIDE) 是在连接到 AFX 群集的数据计算节点上运行的存储集成 AI 数据服务。您可以选择安装 AIDE 并将其与 AFX 群集集成，通过为 AI 和 ML 工作负载提供专用的 GPU 加速数据处理来扩展 AFX，同时保留 ONTAP 的所有优势。</block>
+  <block id="a488cbabbe8d00d891faddf3e2aaedec" category="doc">了解 NetApp AI Data Engine</block>
+  <block id="fd73f0069f1d3fe412b6cc9624e9d727" category="section-title">AIDE 概述</block>
+  <block id="6bcc7c95100882ca261552d0ffd8f1b6" category="paragraph">AIDE 是一个旨在加速和简化 AI 和 ML 工作负载的数据准备和管理的系统。它单独安装，并与 AFX 存储系统集群紧密集成。AIDE 利用高性能和可扩展的 AFX 存储基础，同时为 AI 数据处理、治理和工作流自动化添加专门服务。</block>
+  <block id="37b3dc451b95ca444c011393639868c7" category="paragraph">AIDE 的核心优势是能够跨大型分布式数据集集中和自动化元数据管理。它可以配置为根据 ONTAP 卷中的数据连续编目和更新元数据存储，使用户能够高效地搜索、分类和应用治理策略。内部处理管道生成 AI 就绪数据集，包括为语义搜索和检索任务创建必要的矢量嵌入。</block>
+  <block id="e4a694a3dc8671d50ac2711d735738d2" category="paragraph">安全和治理也是其设计的核心。AIDE 提供身份验证、具有新 RBAC 角色的访问控制、数据分类和策略驱动的实施，以保护敏感信息。自动编辑、屏蔽和审计日志记录等功能可帮助您满足适用的法规要求，并在整个 AI 生命周期中保护关键数据。</block>
+  <block id="a4a07490b53ede56eedd6615965e9098" category="paragraph">AIDE 通过提供快速数据发现、策划和工作流管理工具，为数据工程师和数据科学家赋能。借助专用的 AIDE 控制台和增强的 AFX REST API，用户可以创建策划的数据集，执行矢量搜索，并与外部 AI 和 GenAI 应用程序集成。AIDE 减少了所需的人工工作量，使团队能够专注于从数据中提取见解。</block>
+  <block id="ea206a7167c7e693d778525a7c87c869" category="section-title">安装选项</block>
+  <block id="a4fe9c37a470f8ecf5564e8a245e6426" category="paragraph">可通过两种方法将 AIDE 安装和集成到您的 AFX 存储集群中。</block>
+  <block id="e47448b4066bbe2bcd70858f5bace656" category="section-title">设置 AFX 和 AIDE</block>
+  <block id="76114086772ee7fa8f48ad37d5d95dcb" category="paragraph">同时部署 AFX 存储系统和 AIDE 可提供统一且简化的安装过程，确保即时集成和最佳配置。这种交钥匙方法简化了入职流程，保证了兼容性，并使您能够快速利用全面运行的 AI 数据平台，这是寻求快速实现价值的新部署的理想选择。</block>
+  <block id="a94dcc736627933f5609e28e7ef85321" category="section-title">将 AIDE 与现有 AFX 集群集成</block>
+  <block id="08b9205a85210f5785e7bf74bc45457c" category="paragraph">如果您已经安装并运行了 AFX 存储集群，您可以随时添加 AIDE 来增强数据的访问和价值。AIDE 作为现有 AFX 存储环境的附加组件进行部署，连接到已建立的集群存储网络，而不会中断操作。集成过程会自动发现可用的 ONTAP 卷并同步元数据。您的数据处理工作流程通过 AI 自动化、治理和管理工具得到增强，同时保留其现有的存储基础。</block>
+  <block id="75d38d77f71f859f0e6bfa05a8868b12" category="inline-link">了解 AI Data Engine</block>
+  <block id="14905966d4697587a926c48b4f3b6868" category="list-text"><block ref="14905966d4697587a926c48b4f3b6868" category="inline-link-rx"></block></block>
+  <block id="dcaec67f8b6685884b28ce763c3b6b20" category="inline-link">NetApp AI Data Engine 常见问题解答</block>
+  <block id="19d7d8892fce8fa9173b4cd097aeae29" category="list-text"><block ref="19d7d8892fce8fa9173b4cd097aeae29" category="inline-link-rx"></block></block>
+  <block id="9781d9b60a3156749ead991d1b8f8476" category="inline-link">设置 ONTAP AIDE 集群</block>
+  <block id="72c3ab9fda47d2c464e4e6035e5ee7d5" category="list-text"><block ref="72c3ab9fda47d2c464e4e6035e5ee7d5" category="inline-link-rx"></block></block>
+  <block id="2f05d6cddb39e99b401c758387957ed6" category="inline-link">NetApp AI Data Engine</block>
+  <block id="97bf7903281438713379444f1d00bdfe" category="list-text"><block ref="97bf7903281438713379444f1d00bdfe" category="inline-link-rx"></block></block>
+  <block id="cb2003e71a82c4946bc9b91168398431" category="summary">要最初启动并运行 AFX 系统，需要安装硬件组件、设置集群并准备管理集群和 SVM。</block>
+  <block id="14c19ed730096036466b6f8aa6689f4e" category="paragraph">要最初启动并运行 AFX 系统，需要安装硬件组件、设置集群并准备管理集群和 SVM。</block>
+  <block id="08c7f01b69af18ad32a13c64bc8b43d1" category="paragraph-title"><block ref="58f667aaf05f87159670e12bd9bc076b" category="inline-image-macro-rx" type="image"></block> AI Data Engine (AIDE) 是否也会与 AFX 一起安装？</block>
+  <block id="5089e4b50d1f4e886a231cd5c043ad9d" category="inline-link">AIDE 安装选项</block>
+  <block id="d3d9eaa68fa2acc25f51847944519bc7" category="paragraph">您需要决定是仅安装 AFX，还是将 AFX 与 AI Data Engine 一起安装。查看<block ref="b158da038797eb3a533563ed16d340e2" category="inline-link-rx"></block>以帮助确定最适合您需求的选项。</block>
+  <block id="99882077cc5150985de38b05fe43c5bf" category="paragraph-title"><block ref="54f425ce8d89f4ed6b8a546561af5d60" category="inline-image-macro-rx" type="image"></block> 安装和设置硬件</block>
+  <block id="1f9c2a9600aa7017fad495f671dfcc9d" category="inline-link-macro">安装您的 AFX 存储系统</block>
+  <block id="11aa15e40e1637eea4cb9402a0d516ac" category="inline-link">安装 AIDE 数据计算节点</block>
+  <block id="699373ac8ea184bb06b16fa3333018c8" category="paragraph"><block ref="a832b8bc8244484582041183718520b7" category="inline-link-macro-rx"></block> 也可以选择 <block ref="c3c6cfb14f39c305fe598a32c865c296" category="inline-link-rx"></block> 是否在初始配置中包括 AIDE。</block>
+  <block id="8a28e13725679cf81ae7a97f135f3151" category="paragraph-title"><block ref="05b2444faffd66d76e88602ea7dd353f" category="inline-image-macro-rx" type="image"></block> 设置集群</block>
+  <block id="67cf641733ab3c2361c8f1f769a0874b" category="inline-link">使用新的 AFX 集群设置 AIDE</block>
+  <block id="35a50ba3ebcc67e69ce937368b540ae9" category="paragraph">使用 System Manager 按照快速简单的过程<block ref="5f55a5e0ef0b631e2040a3d854a6456f" category="inline-link-macro-rx"></block>您的 ONTAP 集群。如果您还要在数据计算节点上安装 AIDE 以及 AFX，请查看<block ref="ea340cdc1a42614e036446f1b104ebdd" category="inline-link-rx"></block>以了解其他必需的配置。</block>
+  <block id="927e370f9384cda0a4f5d88224cb1fdb" category="paragraph-title"><block ref="beadfa85a2fdca06b91edc1131c603e6" category="inline-image-macro-rx" type="image"></block> 准备管理您的集群</block>
+  <block id="40b9c78d4cb87fc896b9f0629f52df42" category="summary">安装 AFX 硬件后，您可以完成 ONTAP 集群设置。此过程涉及您应按顺序执行的相关配置阶段。作为其中的一部分，您可以选择添加运行 AI Data Engine (AIDE) 的数据计算节点 (DCN)，使 AFX 存储集群和 DCN 集群能够作为通过相同的 ONTAP 控制平面管理的单个系统运行。</block>
+  <block id="437d7eedd2da2ae1c1685c0d0c80c679" category="section-title">准备设置 AFX 存储系统</block>
+  <block id="f41ed4469bd565e9483931052957aea1" category="paragraph">在设置 ONTAP 集群之前，您应该查看核心 AFX 要求和其他 AIDE 注意事项，以确保您拥有成功完成设置过程所需的所有必要信息和资源。</block>
+  <block id="9d88ee465b7f03fb4741ec9544797f42" category="section-title">核心 AFX 要求</block>
+  <block id="c2eb7333972f3fa93553cd7a06df958c" category="paragraph">设置 AFX 集群时需要考虑几个核心要求。</block>
+  <block id="2381aa60d42fb06772fbc2c2f051f150" category="paragraph-title">硬件安装</block>
+  <block id="6bdae78158db3aed30f99e4020e54ba0" category="paragraph">确保您已完成 AFX 系统的硬件安装。有关详细信息，请参见<block ref="24f1c81fd520b56826d37df1f34835fc" category="inline-link-macro-rx"></block>。</block>
+  <block id="9dac04dd5c39331c1b9184292052ca5f" category="paragraph-title">基本 IP 寻址</block>
+  <block id="bbadb22f847f13b3fb765b4ca3e45a35" category="paragraph">您需要以下 IP 地址配置：</block>
+  <block id="754aeda810cf43298af8b5d9682a3ff0" category="paragraph-title">其他网络配置</block>
+  <block id="3716d7de1273609f72cac60d3ce80a8b" category="paragraph">您还需要以下相关网络信息：</block>
+  <block id="6f17f12812465b184f0ec95def3e37b7" category="section-title">其他 AIDE 注意事项</block>
+  <block id="9b7a97724bdee6ba810c5f7ed7bb4a23" category="paragraph">首次安装和设置 AFX 时，您可以选择包括 NetApp AI Data Engine (AIDE)。如果您计划设置 AIDE，则需要先执行以下操作：</block>
+  <block id="d403e07cdcb82bc6254e18c43e49b61e" category="inline-link">安装 AIDE</block>
+  <block id="f67110073c1073ed49e669e523c3d0aa" category="list-text">确保<block ref="a88dad6aff82834a7260b0bc0d75cb8f" category="inline-link-rx"></block>并将计算节点连接到 AFX 存储网络。</block>
+  <block id="56e6d9b90dd803813cfcc4eafb5af9c2" category="list-text">获取数据计算节点的地址和任何相关网络配置。</block>
+  <block id="51a1e9578b7b51efdaedcad5b2df0d09" category="list-text">配置 AFX 集群和控制器节点的 IP 地址。</block>
+  <block id="8e8eb81d1e3ccb55cbe0fb7ab62931e6" category="list-text">如果要在 AFX 存储系统上安装 AI Data Engine，请提供三个 AIDE DCN 节点的 IP 地址。</block>
+  <block id="b8bd3c09a7652f21306db623894a4a8e" category="list-text">配置网络服务，包括 DNS 和 NIS。选择 *Continue*。</block>
+  <block id="b0124f2be19a540828d3e1c546d45955" category="inline-link">设置 AI Data Engine</block>
+  <block id="9aaf27dbeb82d284903572456c7a9c4b" category="list-text">如果已将 AIDE 作为 AFX 集群设置的一部分，则需要执行其他配置步骤，包括许可和身份验证。有关详细信息，请参见<block ref="bd3118f2bb5e86ecaca641a7e2c5d81b" category="inline-link-rx"></block>。</block>
+  <block id="e656cce89d1f00ff5696185aaf4f7d5d" category="list-text"><block ref="e656cce89d1f00ff5696185aaf4f7d5d" category="inline-link-macro-rx"></block></block>
+  <block id="6afed200d44923974d96400177a883ce" category="inline-link">对 AI Data Engine 的全新增强支持</block>
+  <block id="eae4a2342adfae45b252359cd535161d" category="list-text">了解<block ref="ac735c3e650d75aa2b1309606d309f7d" category="inline-link-rx"></block>。</block>
+  <block id="ec728291e475cad65a149d393bcb1011" category="sidebar">了解 AIDE</block>
 </blocks>

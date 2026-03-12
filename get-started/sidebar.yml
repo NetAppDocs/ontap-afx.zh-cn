@@ -10,6 +10,8 @@ entries:
     url: "/get-started/software-architecture.html"
   - title: 比较 AFX 与AFF和FAS
     url: "/get-started/compare-unified-ontap.html"
+  - title: 了解 AIDE
+    url: "/get-started/learn-about-aide.html"
 - title: 快速启动
   url: "/get-started/quick-start.html"
 - title: 安装您的 AFX 系统

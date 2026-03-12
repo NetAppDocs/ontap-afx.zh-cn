@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: get-started/quick-start.html 
 keywords: afx, afx system, quick start 
-summary: 要初始启动并运行您的 AFX 系统，您需要安装硬件组件、设置集群并准备管理集群和 SVM。 
+summary: 要最初启动并运行 AFX 系统，需要安装硬件组件、设置集群并准备管理集群和 SVM。 
 ---
 = 快速启动设置 AFX 存储系统
 :allow-uri-read: 
@@ -11,16 +11,20 @@ summary: 要初始启动并运行您的 AFX 系统，您需要安装硬件组件
 
 
 [role="lead"]
-要初始启动并运行您的 AFX 系统，您需要安装硬件组件、设置集群并准备管理集群和 SVM。
+要最初启动并运行 AFX 系统，需要安装硬件组件、设置集群并准备管理集群和 SVM。
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["一个"]安装并设置硬件
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["一个"] AI Data Engine (AIDE) 是否也会与 AFX 一起安装？
 [role="quick-margin-para"]
-link:../install-setup/install-setup-workflow.html["安装"]您的 AFX 存储系统并准备设置集群。
+您需要决定是仅安装 AFX，还是将 AFX 与 AI Data Engine 一起安装。查看 https://docs.netapp.com/us-en/ontap-afx/get-started/learn-about-aide.html#installation-options["AIDE 安装选项"]以帮助确定最适合您需求的选项。
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["两个"]设置集群
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["两个"] 安装和设置硬件
 [role="quick-margin-para"]
-按照快速简便的流程link:../install-setup/cluster-setup.html["设置"]使用系统管理器的ONTAP集群。
+link:../install-setup/install-setup-workflow.html["安装您的 AFX 存储系统"] 也可以选择  https://docs.netapp.com/us-en/ai-data-engine/install-setup/install-setup-workflow.html["安装 AIDE 数据计算节点"] 是否在初始配置中包括 AIDE。
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["三"]准备管理您的集群
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["三"] 设置集群
+[role="quick-margin-para"]
+使用 System Manager 按照快速简单的过程link:../install-setup/cluster-setup.html["设置"]您的 ONTAP 集群。如果您还要在数据计算节点上安装 AIDE 以及 AFX，请查看 https://docs.netapp.com/us-en/ai-data-engine/install-setup/cluster-setup-afx.html["使用新的 AFX 集群设置 AIDE"^]以了解其他必需的配置。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["四个"] 准备管理您的集群
 [role="quick-margin-para"]
 在生产环境中部署 AFX 之前，必须link:../get-started/prepare-cluster-admin.html["准备"]通过了解管理结构（包括存储虚拟机 (SVM)、用户、角色和管理界面），确保安全、高效和有效的集群管理。
