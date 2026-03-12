@@ -1078,8 +1078,6 @@
   <block id="eccb4d5293fe0dd408e74aab9093fb9b" category="list-text">LED 闪烁且风扇启动，表明控制器正在通电。</block>
   <block id="2a15831b428ec92914dd2d9b9c14a463" category="list-text">风扇在启动时可能会有噪音，这是正常现象。</block>
   <block id="d420064a5f4919f9be16d853c6d1997c" category="list-text">使用每个电源上的固定装置固定电源线。</block>
-  <block id="d86c8f4fff3fb2feed3ee9c6ab6626ed" category="inline-link-macro">设置 AFX 集群</block>
-  <block id="4eb20ef06f12f582d4ebd27eaee89115" category="paragraph">打开 AFX 1K 存储系统后，您<block ref="a4e3e0c950d1563a6f1d32259f274df6" category="inline-link-macro-rx"></block>。</block>
   <block id="4037f9dba9d587023878b63255863f7d" category="summary">准备在您的ONTAP环境中安装 AFX 1K 存储系统并注册硬件以获取支持权益。</block>
   <block id="b81fa34f137f3d44fa104594a5caaef5" category="paragraph">准备安装您的 AFX 1K 存储系统，准备好场地、拆开包装箱并将包装箱内物品与装箱单进行比较，然后注册系统以获取支持权益。</block>
   <block id="92c8397408f55d9526d554c55cde3d22" category="section-title">步骤 1：准备场地</block>
@@ -1774,4 +1772,11 @@
   <block id="c42589aeb6cdc4aab7c9ee5517ef1f84" category="section-title">步骤 4：将集群、HA 和存储连接连接到交换机 B</block>
   <block id="14aa705a8a71a02fb1b277002e0c52ed" category="paragraph">使用 4x100GbE 分支电缆将控制器上的集群、HA 和存储端口连接到网络交换机 B。集群和 HA 互连电缆将端口 e1b 和 e7b 连接到交换机 B。e1b 端口用于 HA 连接，e7b 端口用于集群连接。对于存储连接，将端口 e10b 和 e11b 连接到交换机 B。</block>
   <block id="8cff5fa6944271f10e636cadf3153077" category="list-text">将以下控制器端口连接到网络交换机 B 上的任何非 ISL 端口。</block>
+  <block id="3e43f7eeca64d5c830b0064870a6156b" category="admonition">在安装和维护过程中，请始终佩戴连接到已验证接地点的接地腕带。未遵循正确的 ESD 预防措施可能会对控制器节点、存储架和网络交换机造成永久性损坏。</block>
+  <block id="1e64a8c98278cbf94fdc5e55cf23d748" category="inline-link-macro">安装 AIDE 数据计算节点</block>
+  <block id="5d16f9931acd5c0aea8659ad61ec6628" category="admonition">如果使用 AI Data Engine（AIDE）部署 AFX 1K，请在打开 AFX 系统电源后安装 AIDE 数据计算节点。请参见 <block ref="770e46e4a0d2400ce8dd3c354b4e69c6" category="inline-link-macro-rx"></block> 了解更多信息。</block>
+  <block id="d9af9d0a822fab56f67da32f96760bcd" category="paragraph">打开 AFX 1K 存储系统电源后，根据您的部署选项完成设置：</block>
+  <block id="9f17a32279457eb3f0ec945352a82e96" category="inline-link-macro">设置 AFX 集群</block>
+  <block id="65baec5e9f4a78defefb1154f095ae89" category="list-text">有关专用 AFX 1K 存储系统部署，请转到 <block ref="b434a61d8681e909828695f9b932fe31" category="inline-link-macro-rx"></block>。</block>
+  <block id="2958d97f86a68931454e4d5cb0f3fa2a" category="list-text">对于带有 AI Data Engine (AIDE) 的 AFX 1K 部署，请转到 <block ref="770e46e4a0d2400ce8dd3c354b4e69c6" category="inline-link-macro-rx"></block>。</block>
 </blocks>
