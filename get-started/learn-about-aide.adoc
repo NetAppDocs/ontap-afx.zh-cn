@@ -11,7 +11,7 @@ summary: 'NetApp AI Data Engine (AIDE) 是在连接到 AFX 群集的数据计算
 
 
 [role="lead"]
-NetApp AI Data Engine (AIDE) 是在连接到 AFX 群集的数据计算节点上运行的存储集成 AI 数据服务。您可以选择安装 AIDE 并将其与 AFX 群集集成，通过为 AI 和 ML 工作负载提供专用的 GPU 加速数据处理来扩展 AFX，同时保留 ONTAP 的所有优势。
+NetApp AI Data Engine (AIDE) 是在连接到 AFX 群集的计算节点上运行的存储集成 AI 数据服务。您可以选择使用以下两种部署模式之一安装 AIDE 并将其与 AFX 群集集成：NetApp 提供的数据计算节点 (DCN) 或第三方服务器上的 AIDE 软件。NetApp DCN 部署提供完整的 AIDE 功能，而第三方服务器部署则以元数据为重点。
 
 
 

@@ -19,7 +19,7 @@ summary: 要最初启动并运行 AFX 系统，需要安装硬件组件、设置
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["两个"] 安装和设置硬件
 [role="quick-margin-para"]
-link:../install-setup/install-setup-workflow.html["安装您的 AFX 存储系统"] 以及可选的  https://docs.netapp.com/us-en/ai-data-engine/install-setup/aide-hardware-requirements.html["安装 AIDE 数据计算节点"] 如果您在初始配置中包含 AIDE。
+link:../install-setup/install-setup-workflow.html["安装您的 AFX 存储系统"] 以及可选的  https://docs.netapp.com/us-en/ai-data-engine/install-aide-server/aide-mde-server-hardware-requirements.html["安装 AIDE 第三方服务器"] 或  https://docs.netapp.com/us-en/ai-data-engine/install-dcn/aide-dcn-hardware-requirements.html["安装 AIDE NetApp 数据计算节点"] 如果您在初始配置中包括 AIDE。
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["三"] 设置集群
 [role="quick-margin-para"]

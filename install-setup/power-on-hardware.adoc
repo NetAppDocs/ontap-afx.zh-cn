@@ -162,5 +162,7 @@ image::../media/drw_affa1k_power_source_icon_ieops-1700.svg[A1K存储系统与A7
 打开 AFX 1K 存储系统电源后，根据您的部署选项完成设置：
 
 * 有关专用 AFX 1K 存储系统部署，请转到 link:../install-setup/cluster-setup.html["设置 AFX 集群"]。
-* 对于带有 AI Data Engine (AIDE) 的 AFX 1K 部署，请转到 link:https://docs.netapp.com/us-en/ai-data-engine/install-setup/aide-hardware-requirements.html["安装 AIDE 数据计算节点"]。
+* 对于带有 AI Data Engine（AIDE）的 AFX 1K 部署，请安装 AIDE 第三方服务器或 NetApp 提供的数据计算节点：
+* 对于第三方服务器部署，完成 https://docs.netapp.com/us-en/ai-data-engine/install-aide-server/aide-mde-server-hardware-requirements.html["第三方服务器上 AI Data Engine 的硬件安装"^]，然后 https://docs.netapp.com/us-en/ai-data-engine/install-setup/install-aide-as-software.html["在第三方服务器上安装 AIDE 软件"^]。
+* 对于 NetApp DCN 部署，请完成 https://docs.netapp.com/us-en/ai-data-engine/install-dcn/aide-dcn-hardware-requirements.html["在 NetApp 提供的数据计算节点上安装 AI Data Engine 的硬件"^]。
 
