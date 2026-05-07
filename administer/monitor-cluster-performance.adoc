@@ -4,25 +4,42 @@ permalink: administer/monitor-cluster-performance.html
 keywords: afx, afx system, cluster performance 
 summary: 您可以显示 AFX 集群性能的高级概览。 
 ---
-= 监控 AFX 存储系统集群性能
+= 监控 AFX 存储系统集群性能和存储利用率
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-您可以显示 AFX 集群性能的高级概览。
+您可以显示 AFX 集群的性能和存储利用率的高级概述。
 
 
 
 == 存储容量
 
-系统管理器仪表板包括集群存储利用率的高级显示。
+监控您的存储利用率，以确保您有足够的存储容量来处理当前和未来的工作负载。
+
+
+
+=== 监控高级集群存储利用率
+
+在 ONTAP System Manager 中，您可以查看整个集群的存储利用率的高级显示。
 
 .步骤
 . 在系统管理器中，选择导航窗格中的“*仪表板*”。
 . 找到*容量*图块并查看可用和已使用的物理存储。
 . 选择*历史记录*访问Active IQ查看历史数据。
+
+
+
+
+=== 监控存储可用区容量详细信息
+
+从 ONTAP 9.19.1 开始，您可以查看存储可用区的容量详细信息，包括空间阈值、快照消耗的空间和数据精简。您还可以将空间使用阈值设置为希望 ONTAP 生成警告和严重警报时的百分比。
+
+.步骤
+. 在 System Manager 中，选择 *Cluster > Overview*，然后选择 *Availability zone*。
+. 要修改警告或临界空间阈值，请在要编辑的阈值下方选择 image:icon_edit_pencil_blue_outline.png["蓝色铅笔编辑图标"]。
 
 
 

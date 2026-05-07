@@ -13,5 +13,10 @@ summary: 在管理 AFX S3 存储桶和客户端访问时，您可以执行多项
 [role="lead"]
 在管理 AFX S3 存储桶和客户端访问时，您可以执行多项管理任务。 AFX 中的 S3 配置和支持与 Unified ONTAP提供的相同。有关详细信息，请参阅 Unified ONTAP文档。
 
+跟上 ONTAP 对 S3 存储支持的最新更改和更新也很重要。例如，从 ONTAP 9.19.1 开始，您可以为每个 S3 用户生成第二个访问密钥。这允许您在原始访问密钥过期时保留对 S3 资源的访问权限。您还可以控制条件操作（写入、复制、删除）的实施。
+
 .相关信息
-https://docs.netapp.com/us-en/ontap/s3-config/index.html["了解ONTAP S3 配置"^]
+* https://docs.netapp.com/us-en/ontap/s3-config/index.html["了解ONTAP S3 配置"^]
+* https://docs.netapp.com/us-en/ontap/s3-config/regenerate-access-keys.html["重新生成 ONTAP S3 密钥并修改其保留期限"^]
+* https://docs.netapp.com/us-en/ontap/s3-config/create-modify-bucket-policy-task.html["将访问规则添加到默认的 ONTAP S3 存储桶策略"^]
+

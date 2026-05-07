@@ -16,8 +16,8 @@ summary: 了解ONTAP 9.18.1 中包含的可用于 AFX 存储系统的新功能�
 [role="lead"]
 了解ONTAP 9.18.1 中包含的可用于 AFX 存储系统的新功能。
 
-* 了解 https://docs.netapp.com/us-en/ai-data-engine/release-notes/whats-new.html["对 AI Data Engine 的全新增强支持"^]。
 
+TIP: 了解新增和增强的支持 https://docs.netapp.com/us-en/ai-data-engine/release-notes/whats-new.html["AI Data Engine"^]。
 
 
 
