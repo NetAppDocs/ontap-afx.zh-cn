@@ -124,7 +124,7 @@ CAUTION: 在增加 AFX 存储系统的操作参数之前，您应该评估它可
 集群交换机:: 集群存储网络中至少需要两台交换机。允许的最大值是根据集群中控制器节点的总数来确定的。
 
 
-您应该查看NetAppHardware Universe和互操作性矩阵工具中提供的详细信息，以确定您的 AFX 集群的功能。
+您应该查看 NetApp Hardware Universe and Interoperability Matrix Tool 中提供的详细信息，以确定 AFX 集群的功能。另请参阅 AFX 发行说明部分中的link:../release-notes/changes-to-limits-defaults.html["对 ONTAP 限制和默认值的更改"]。
 
 
 
