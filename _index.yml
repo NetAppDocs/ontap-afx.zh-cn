@@ -13,8 +13,10 @@ indexpage:
       url: "/get-started/ontap-afx-storage.html"
     - title: 快速启动
       url: "/get-started/quick-start.html"
-    - title: 安装 AFX 硬件
+    - title: 安装 AFX 1K 硬件
       url: "/install-setup/install-setup-workflow.html"
+    - title: 安装 AFX 2K 硬件
+      url: "/install-afx-2k/install-setup-workflow.html"
     - title: 设置 AFX 集群
       url: "/install-setup/cluster-setup.html"
   - title: 集群管理

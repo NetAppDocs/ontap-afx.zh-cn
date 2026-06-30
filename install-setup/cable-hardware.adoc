@@ -147,7 +147,7 @@ image::../media/drw_afx_network_cabling_b_ieops-2814.svg[以太网电缆]
 image::../media/oie_cable100_gbe_qsfp28.png[100 Gb 电缆]
 
 +
-image::../media/drw_afx_ha_cluster_storage_a_ieops-2779.svg[线缆控制器集群,HA,and storage to switch A]
+image::../media/drw_afx_ha_cluster_storage_a_ieops-2779.svg[线缆控制器集群,800px,and storage to switch A]
 
 
 
@@ -178,7 +178,7 @@ image::../media/drw_afx_ha_cluster_storage_a_ieops-2779.svg[线缆控制器集�
 image::../media/oie_cable100_gbe_qsfp28.png[100 Gb 电缆]
 
 +
-image::../media/drw_afx_ha_cluster_storage_b_ieops-2780.svg[线缆控制器集群,HA,and storage to switch B]
+image::../media/drw_afx_ha_cluster_storage_b_ieops-2780.svg[线缆控制器集群,800px,and storage to switch B]
 
 
 

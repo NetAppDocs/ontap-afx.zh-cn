@@ -592,7 +592,6 @@
   <block id="66d537e06ce64167a2a89717123fb13a" category="paragraph">以下硬件组件与 AFX 集群一起使用：</block>
   <block id="95f44be3500aa9aeb45f0071ca7649b2" category="list-text">AFX 1K 控制器</block>
   <block id="a43cc36cba3c97642118a8f1e1411d2a" category="list-text">NX224货架</block>
-  <block id="e89680076a38528b667f845c37798fcc" category="list-text">Cisco Nexus 9332D-GX2B 或 Nexus 9364D-GX2A 交换机</block>
   <block id="e4b73aea5fedcc9f4eb9b804ebd249aa" category="summary">在生产环境中部署 AFX 之前，必须了解管理结构和配置选项。这可确保您的 AFX 集群管理安全、高效且有效。</block>
   <block id="982e02e3abfea4e77a8d9e6cb357ccc0" category="doc">准备管理您的 AFX 存储系统</block>
   <block id="1e793b1e0f039cf758071c91b073a4f1" category="paragraph">存储虚拟机 (SVM) 是ONTAP集群内的隔离服务器或租户环境。您可以配置 SVM 来向连接的客户端提供数据。您应该熟悉 AFX SVM 的功能和特性。</block>
@@ -713,8 +712,6 @@
   <block id="cef2cef14135fa0a7f8a1a1b12d33005" category="section-title">支持的 AFX 1K 布线配置</block>
   <block id="d68caa870c599c4f4feda00ea05204ad" category="paragraph">AFX 1K 存储系统的初始配置支持至少四个控制器节点通过双交换机连接到存储磁盘架。</block>
   <block id="8204ac96f4db60a13314fdddc8e9d0b9" category="paragraph">附加控制器节点和磁盘架扩展了初始 AFX 1K 存储系统配置。扩展的 AFX 1K 配置遵循与下图所示的相同的基于交换机的布线方法。</block>
-  <block id="325fb005ba5ff6b41fa0892905611f15" category="inline-image-macro">AFK 1K 存储系统示例布线</block>
-  <block id="3fbfe926ceca9a55d625df8be8f9ee1b" category="paragraph"><block ref="3fbfe926ceca9a55d625df8be8f9ee1b" category="inline-image-macro-rx" type="image"></block></block>
   <block id="cf0b851cf65a2b38aa358691f2054eb4" category="section-title">支持的硬件组件</block>
   <block id="1614dfbda42baa4bbc5a3a16bcf72202" category="paragraph">查看 AFX 1K 存储系统的兼容存储磁盘架、交换机和电缆类型。</block>
   <block id="bd5c641408f65aa18580861a6ce2400c" category="cell">*控制器架*</block>
@@ -886,12 +883,9 @@
   <block id="e3eb7077125dbf096d560da8b3939c79" category="paragraph">AFX 存储控制器和存储架很重。抬起和移动这些物品时要小心。</block>
   <block id="8426a795d3bdc2e3b917313eb942f86a" category="section-title">存储控制器权重</block>
   <block id="7d83ce9fcec155b754d28f26c44bb2c0" category="paragraph">移动或抬起 AFX 1K 存储控制器时请采取必要的预防措施。</block>
-  <block id="ce697af2e18af53f8cb875724d64de00" category="paragraph">AFX 1K 存储控制器的重量可达 62.83 磅（28.5 千克）。要抬起存储控制器，需要两个人或使用液压升降机。</block>
-  <block id="ea2b428ae3132b5aa1f8abadc2dac0ec" category="image-alt">ASA A1K 解除警告图标</block>
   <block id="336e0262f6402efd45d8cf9d7ae13e8c" category="section-title">仓储货架重量</block>
   <block id="fe464b77547b113c26b6c4a663f8d99c" category="paragraph">移动或抬起架子时请采取必要的预防措施。</block>
   <block id="95431e07be1f7b49eef0ce6156cca6e1" category="open-title">NX224货架</block>
-  <block id="1e9ac948c22c380faef83bb8dfbfecd1" category="paragraph">NX224 架子的重量最多可达 60.1 磅（27.3 千克）。要抬起架子，需要两个人或使用液压升降机。将所有组件放在架子上（前部和后部），以防止架子重量不平衡。</block>
   <block id="6eb6b5d3bd8847e6deb32e696bd6b006" category="image-alt">NX224 NSM100 起吊注意事项</block>
   <block id="35c124f455f44a154eb3b514029ee58a" category="inline-link">安全信息和监管通知</block>
   <block id="fa81f583d8b6c7dcaf8e26a5fcf5de52" category="list-text"><block ref="fa81f583d8b6c7dcaf8e26a5fcf5de52" category="inline-link-rx"></block></block>
@@ -935,8 +929,6 @@
   <block id="828eeccf398aa5a5516c86cf77b98e41" category="list-text">对于每个交换机，使用八个 10-32 或 12-24 螺钉和夹紧螺母将支架和滑轨安装到前后柜柱上。</block>
   <block id="19a356d6227c782e9f5da9f11a646795" category="list-text">用于在NetApp机柜中安装交换机的Cisco标准导轨套件。</block>
   <block id="784c55256af328db72b621f19722713c" category="admonition">直通套件中不包含跳线。如果您的交换机未附带跳线，请联系NetApp订购正确的跳线。</block>
-  <block id="290d336236260cd4a5246beda2a977d5" category="inline-link">Cisco Nexus 9332D-GX2B NX-OS 模式交换机硬件安装指南</block>
-  <block id="b1ec8c60f31cf5056d372b5933be8b0b" category="inline-link">Cisco Nexus 9364D-GX2A NX-OS 模式交换机硬件安装指南</block>
   <block id="233f5d43fe68130332533db747eb58bf" category="list-text">安装直通盲板。</block>
   <block id="f6a7153bd6774aa611c605474f2c556a" category="list-text">确定机柜或机架中交换机和盲板的垂直位置。</block>
   <block id="eca4fd64fa30887cca883fb2a8f5e9b3" category="list-text">在前柜导轨两侧的相应方孔中安装两个夹紧螺母。</block>
@@ -1040,7 +1032,6 @@
   <block id="5dc15886a7be0b02974c471249fd2702" category="image-alt">控制台连接</block>
   <block id="9e7e8b48adc159107d0baf9021253c61" category="list-text">使用管理子网上的 TCP/IP 地址为笔记本电脑分配一个 TCP/IP 地址。</block>
   <block id="a2e521b7ad497537c9e544a50086c51b" category="list-text">将电源线插入控制器电源，然后将其连接到不同电路的电源。</block>
-  <block id="5d181ca91be1af691d1f01654691cc7b" category="image-alt">A1K存储系统与A70或A90电源连接图</block>
   <block id="e477637685baafe9bbd353f71ef51283" category="list-text">系统开始启动。初始启动可能需要长达八分钟。</block>
   <block id="eccb4d5293fe0dd408e74aab9093fb9b" category="list-text">LED 闪烁且风扇启动，表明控制器正在通电。</block>
   <block id="2a15831b428ec92914dd2d9b9c14a463" category="list-text">风扇在启动时可能会有噪音，这是正常现象。</block>
@@ -1469,7 +1460,6 @@
   <block id="be11c74c1dd7f307bb80183a90dc2067" category="sidebar">开始使用</block>
   <block id="c0531ee3830705c2acf41508b19aea16" category="sidebar">了解 AFX</block>
   <block id="06ad314b340900d226b1196e1fe289e9" category="sidebar">快速启动</block>
-  <block id="89ff3ce0de6b4487110c6bfb69e1cec4" category="sidebar">安装 AFX 硬件</block>
   <block id="4271b9430afa5773472f29d8cf243dc1" category="sidebar">设置 AFX 集群</block>
   <block id="6c0e4fd4b7e2ef11d891ac59729c5f3e" category="sidebar">集群管理</block>
   <block id="2ee20619a771993544eaaa7e388816d1" category="sidebar">管理存储虚拟机</block>
@@ -1719,10 +1709,7 @@
   <block id="c29e3429d133a5255487ffdb4b3cd5b3" category="paragraph">根据您的更新选择，推荐的更新将自动下载并安装在您的 ONTAP AFX 系统上。</block>
   <block id="f6ea197b186340b340ddfd0eb0da559f" category="inline-link-macro">创建ONTAP集群并加入节点</block>
   <block id="46111b54a1fe09b4b0f338f84ed73d0f" category="admonition">有关如何在非 Windows 环境中创建集群的信息，请参阅 <block ref="084582f867948d8226893522df8bc4b0" category="inline-link-macro-rx"></block>。</block>
-  <block id="26790bd35f75a3d2177dc5a2d5e4162f" category="admonition">如果交换机的气流配置为端口侧进气（酒红色风扇和 PSU），则交换机的网络端口必须面向机柜正面安装，排气风扇必须面向机柜背面。使用此配置时，您必须确保使用的电缆足够长，以便从机柜前面的网络端口延伸到机柜后面的存储端口。+ 有关这些交换机的更多详细信息，请访问 Cisco 网站：<block ref="41dd90940bbf956b1a1bc9743b5329d8" category="inline-link-rx"></block> 和 <block ref="0684e00763f44490e4a966ecd9b6db00" category="inline-link-rx"></block>。</block>
   <block id="5ba4d3956504a570f9a51b322b5f740c" category="list-text">连接两台交换机之间的 ISL 电缆。</block>
-  <block id="86411bbf3fc2afbe73de144737c4ff80" category="list-text">对于 Cisco Nexus 9332D-GX2B 交换机，ISL 连接使用端口 31/32。有关详细信息，请参见 <block ref="bab51173328bbc094a925e4a5c7604c6" category="inline-link-macro-rx"></block>。</block>
-  <block id="f8979ce4e5d66f41e330415672140ef8" category="list-text">对于 Cisco Nexus 9364D-GX2A 交换机，ISL 连接使用端口 63/64。有关详细信息，请参见 <block ref="d3ef7ae1e3bea631e525704fa9f8906b" category="inline-link-macro-rx"></block>。</block>
   <block id="35baa74f76db10604e3f71a16b4078d1" category="paragraph">NetApp AFX 针对高性能 NAS 和对象工作负载进行了优化。因此，AFF 和 FAS 存储系统存在差异。以下功能不适用于 NetApp AFX；列表按主要功能或功能区域进行组织。您还应根据 ONTAP 版本查看 <block ref="e4ac4a7dd877729340e2b0880473ea1b" category="inline-link-macro-rx"></block> 中的 AFX 更新和更改。</block>
   <block id="86daf5160966102a39f5f3c0390bde11" category="list-text">负载共享镜像</block>
   <block id="8c60e60e96c6540bd35beb72adc17cb0" category="section-title">步骤 3：将集群、HA 和存储连接连接到交换机 A</block>
@@ -1767,7 +1754,6 @@
   <block id="5089e4b50d1f4e886a231cd5c043ad9d" category="inline-link">AIDE 安装选项</block>
   <block id="d3d9eaa68fa2acc25f51847944519bc7" category="paragraph">您需要决定是仅安装 AFX，还是将 AFX 与 AI Data Engine 一起安装。查看<block ref="b158da038797eb3a533563ed16d340e2" category="inline-link-rx"></block>以帮助确定最适合您需求的选项。</block>
   <block id="99882077cc5150985de38b05fe43c5bf" category="paragraph-title"><block ref="54f425ce8d89f4ed6b8a546561af5d60" category="inline-image-macro-rx" type="image"></block> 安装和设置硬件</block>
-  <block id="1f9c2a9600aa7017fad495f671dfcc9d" category="inline-link-macro">安装您的 AFX 存储系统</block>
   <block id="8a28e13725679cf81ae7a97f135f3151" category="paragraph-title"><block ref="05b2444faffd66d76e88602ea7dd353f" category="inline-image-macro-rx" type="image"></block> 设置集群</block>
   <block id="67cf641733ab3c2361c8f1f769a0874b" category="inline-link">使用新的 AFX 集群设置 AIDE</block>
   <block id="35a50ba3ebcc67e69ce937368b540ae9" category="paragraph">使用 System Manager 按照快速简单的过程<block ref="5f55a5e0ef0b631e2040a3d854a6456f" category="inline-link-macro-rx"></block>您的 ONTAP 集群。如果您还要在数据计算节点上安装 AIDE 以及 AFX，请查看<block ref="ea340cdc1a42614e036446f1b104ebdd" category="inline-link-rx"></block>以了解其他必需的配置。</block>
@@ -1799,7 +1785,6 @@
   <block id="2f89616ef718a1cdf501f4048f79f110" category="paragraph">NetApp AI Data Engine (AIDE) 是在连接到 AFX 群集的计算节点上运行的存储集成 AI 数据服务。您可以选择使用以下两种部署模式之一安装 AIDE 并将其与 AFX 群集集成：NetApp 提供的数据计算节点 (DCN) 或第三方服务器上的 AIDE 软件。NetApp DCN 部署提供完整的 AIDE 功能，而第三方服务器部署则以元数据为重点。</block>
   <block id="26bf1fb96884a6d564b885faac9346fe" category="inline-link">安装 AIDE 第三方服务器</block>
   <block id="0feacb0d94d23bf1fee14eae79e870cd" category="inline-link">安装 AIDE NetApp 数据计算节点</block>
-  <block id="d038ff5d4df9255a9c0316641b289913" category="paragraph"><block ref="a832b8bc8244484582041183718520b7" category="inline-link-macro-rx"></block> 以及可选的 <block ref="55438a0ee0065472ca14633bb4190e20" category="inline-link-rx"></block> 或 <block ref="2e7d33dc5887b0da93aae67b0f923c5c" category="inline-link-rx"></block> 如果您在初始配置中包括 AIDE。</block>
   <block id="bd9ad7be68120900030f68ff19b5b1e4" category="paragraph">首次安装和设置 AFX 时，您可以选择包括 NetApp AI Data Engine (AIDE)。AIDE 支持两种部署模式：第三方服务器上的 AIDE 软件或 NetApp 提供的数据计算节点 (DCN)。如果您计划设置 AIDE，请先完成部署模型的先决条件：</block>
   <block id="bf53bb5aa0413b6868cea02f2c24f170" category="inline-link">第三方服务器上 AI Data Engine 的硬件安装</block>
   <block id="1f9fa35f3b88c59775937f1382277c15" category="inline-link">在第三方服务器上安装 AIDE 软件</block>
@@ -1917,4 +1902,199 @@
   <block id="f80f1ede0c7983dcab18fc7104224f56" category="cell">动态存储效率</block>
   <block id="00e7d9732d9f1a308baa60f42ec78d16" category="paragraph">Dynamic Storage Efficiency 智能地针对需要高性能和最大吞吐量的大型工作负载优化存储效率操作（压缩、重复数据删除和压缩）。它自动检测高容量写入条件，并暂时挂起内联和后台存储效率流程，以防止峰值负载期间的性能下降。当吞吐量低于定义的阈值时，存储效率操作将恢复，并且无需手动干预即可恢复节省的成本。该功能在 AFX 存储系统上可用，默认情况下启用，无需配置。</block>
   <block id="0b6845dd2391304844b6f9578fd8c865" category="sidebar">对 ONTAP 默认值和限制的更改</block>
+  <block id="ade0334803648df75c59492f5cdc9515" category="list-text">AFX 1K或2K控制器</block>
+  <block id="d93573d87e2303f62f258396da54c30a" category="list-text">Cisco Nexus 9332D-GX2B、Nexus 9364D-GX2A 或 Nexus 9808 交换机</block>
+  <block id="23b43ede4557b73e6fa354124a73ba91" category="inline-link-macro">AFX 2K</block>
+  <block id="67f77e2b70d6947cf982bd2da150677a" category="paragraph">安装您的<block ref="7348958905d0d24441b4869883313dcd" category="inline-link-macro-rx"></block>或<block ref="024ba43ec37d7ed62c4f2aab58b974f1" category="inline-link-macro-rx"></block>存储系统。或者，如果您将 AIDE 作为初始 AFX 1K 配置的一部分，您也可以<block ref="55438a0ee0065472ca14633bb4190e20" category="inline-link-rx"></block>或<block ref="2e7d33dc5887b0da93aae67b0f923c5c" category="inline-link-rx"></block>。</block>
+  <block id="8d7460cb352c0a6b105cf65e1fa10c31" category="doc">您的 AFX 2K 存储系统支持的配置</block>
+  <block id="1a99ce1ec4ed0985ca29a2e328f9e4c9" category="paragraph">了解 AFX 2K 存储系统支持的硬件组件和布线选项，包括正确设置系统所需的兼容存储磁盘盘架、交换机和电缆类型。</block>
+  <block id="0c6e41fac4d1679f2837b31810ad5736" category="section-title">支持的AFX 2K布线配置</block>
+  <block id="dcf9ddc90465a875b2ffe5e80d67051e" category="paragraph">AFX 2K 存储系统的初始配置支持至少四个控制器节点，这些节点通过双交换机连接到存储磁盘盘架。</block>
+  <block id="78f6ed6aec8bf39808f6730998cc28af" category="paragraph">其他控制器节点和磁盘架可扩展初始 AFX 2K 存储系统配置。扩展的 AFX 2K 配置遵循与下述架构相同的基于交换机的布线方法。</block>
+  <block id="32d8581495e9b5e3e83544b56bf80e78" category="inline-image-macro">AFX 2K 存储系统布线示例，宽度=1000px</block>
+  <block id="c059960fdf7d3084051bf28117228b5e" category="paragraph"><block ref="c059960fdf7d3084051bf28117228b5e" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="9b81f2c4d0680a7c5c28bbb9d57141fe" category="paragraph">查看 AFX 2K 存储系统的兼容存储磁盘架、交换机和电缆类型。</block>
+  <block id="b2311a2cf7a04db2bfe860c3fa17635c" category="cell">硬件组件</block>
+  <block id="01769bf0c8e5ef5209cacdb3116f2451" category="cell">支持的电缆</block>
+  <block id="4d4abeb46ced7064cea6f8653ed03898" category="cell">AFX 2K（控制器架）</block>
+  <block id="411e488c95ab8539adbaede3043cb31b" category="list-text">400GbE QDD至400GbE QSFP电缆（控制器至交换机连接）</block>
+  <block id="34d2248a5a5108ca5028027917e19230" category="cell">NX224（磁盘架）</block>
+  <block id="c61f21daf666beed13cb4995d166bf43" category="list-text">400GbE QSFP-DD 分支至 4x100GbE QSFP 分支电缆（交换机至磁盘架连接）</block>
+  <block id="0790b922a8eca7a3264b8934f8991968" category="cell">Cisco Nexus 9808 (交换机)</block>
+  <block id="b557fd9426768bc84f4452915257ea41" category="cell">Cisco Nexus 9332D-GX2B (交换机)</block>
+  <block id="35759d2d8d631c485934e676110bed0b" category="cell">Cisco Nexus 9364D-GX2A (交换机)</block>
+  <block id="8c8650d90ea2e4c85cf6f7a261e6a88a" category="inline-link-macro">查看 AFX 2K 存储系统的网络要求</block>
+  <block id="a71737a22e6e6082f84dda969583a3a8" category="paragraph">在查看支持的系统配置和硬件组件后，<block ref="1eed71682bbf2ef2fc9992d178fdd1e6" category="inline-link-macro-rx"></block>。</block>
+  <block id="83f3a94c9271728fcefda23571e5e329" category="summary">了解如何将 AFX 2K 控制器电缆连接到网络，并将控制器连接到磁盘架。</block>
+  <block id="a0ed08f2fe307d8bdc70986871965e30" category="doc">用缆线连接AFX 2K存储系统的硬件</block>
+  <block id="f752c6c9dfd63493ae5fab0c6aeae9db" category="paragraph">为 AFX 2K 存储系统安装机架硬件后，为控制器安装网络电缆，并连接控制器与存储架之间的电缆。</block>
+  <block id="f9bf2d74923113919435e379d4f8c326" category="list-text">AFX 2K 控制器上的 I/O 插槽编号为 1 到 11。</block>
+  <block id="1910382d2df1981bfd58fce3bc46f693" category="cell">插槽编号</block>
+  <block id="e6010d0015a0057354e2f435c8258d8c" category="cell">I/O 插槽</block>
+  <block id="594c16ca0695f6665d7cf4971707adf6" category="cell">HA</block>
+  <block id="f92f448740bddae7b25ed117dcbd39ec" category="image-alt">标注编号 4</block>
+  <block id="140e6f3619a868d803ee4deb2e00c8d2" category="image-alt">标注编号 5</block>
+  <block id="36a9bb76a73be848a5443273efc36dce" category="cell">NVRAM12</block>
+  <block id="6ba8ef21cd3a6e29bac6f5100625f023" category="image-alt">标注编号 9</block>
+  <block id="eec89088ee408b80387155272b113256" category="cell">网络</block>
+  <block id="252d3b7f2054eb6f5b22182e91ecc613" category="image-alt">标注编号 6</block>
+  <block id="07df018939a3e88fde27c12e57c601e0" category="image-alt">标注编号 7</block>
+  <block id="3b8240959b126ef66dac73a8609d4e88" category="cell">NVRAM12-EX</block>
+  <block id="995ee42e14fa7ada296e437cafe297d0" category="image-alt">标注编号 10</block>
+  <block id="8c4aa541ee911e8d80451ef8cc304806" category="cell">存储</block>
+  <block id="5f695e51ae076dac62d244a3e86a2eae" category="image-alt">标注编号 3</block>
+  <block id="8c7663c7feb0ad581220a65f1966b9b1" category="image-alt">标注编号 8</block>
+  <block id="3f93d6296d6d3a4e6ccba7c6defe16e0" category="image-alt">标注编号 11</block>
+  <block id="2bbc0144b4be4eb8e87f365fd41bfd2b" category="cell">(*可选*)四端口 25GbE SFP28，用于附加管理连接</block>
+  <block id="6bd9339f2f0585eab4cbb0c0d62df9e5" category="list-text">AFX 2K 存储系统使用 400GbE 电缆。400GbE 连接在控制器和交换机之间建立。存储架和交换机之间的连接使用 4x100GbE 分支电缆，100GbE 连接连接到驱动器架端口。</block>
+  <block id="93396b568b9b4bf0b46ec65fc0558907" category="paragraph">机架存储连接可以连接到交换机上的任何 100GbE 分支端口。HA/集群连接可以连接到交换机上的任何 400GbE 端口。所有"a"控制器端口都连接到交换机 A，所有"b"控制器端口都连接到交换机 B。</block>
+  <block id="fdc34d062b69cbcf219ffbaae6462289" category="list-text">连接到管理网络。</block>
+  <block id="b8a432c7c652eb6366dd8feef36c1192" category="list-text">e9a</block>
+  <block id="6652bb7b257b817e0c435d5f894c4feb" category="paragraph">*400GbE 电缆*</block>
+  <block id="f768c4d18da94e03e6c29967d495968f" category="image-alt">400 Gb Ethernet 电缆</block>
+  <block id="128fc4f48693ac191c662898b0719506" category="list-text">e9b</block>
+  <block id="4015e00b406d10c628519f953d69e086" category="section-title">步骤 3：对集群和 HA 连接进行布线</block>
+  <block id="a45bc78fe2c6d80b60e2cbcea70b132c" category="paragraph">使用 Cluster 和 HA 互连电缆将端口 e1a 和 e2a 连接到交换机 A，将端口 e1b 和 e2b 连接到交换机 B。e1a/e1b 端口用于 HA 连接，e2a/e2a 端口用于集群连接。</block>
+  <block id="7d1e8fb2f50320f7b5004ba0fd39055b" category="list-text">将以下控制器端口连接到集群网络交换机 A 上的任何非 ISL 端口。</block>
+  <block id="e2aeea381e329717c42f44dba2be7dd2" category="list-text">e2a (集群)</block>
+  <block id="29b62d617481485649ea2d5b54fca512" category="image-alt">集群HA电缆</block>
+  <block id="f1d133e33e29362e931a34312a961d0b" category="image-alt">将集群连接到集群网络的缆线</block>
+  <block id="ac32cb5bd4dc17916ab1ece800d39226" category="list-text">将以下控制器端口连接到集群网络交换机 B 上的任何非 ISL 端口。</block>
+  <block id="071d2b87306e3f261a7ce8b66da93da7" category="list-text">e2b (Cluster)</block>
+  <block id="c61349783073807f1993874d0e3a4a8c" category="section-title">步骤 4：为控制器到交换机的存储连接布线</block>
+  <block id="7bebd570400c9d8d9796caad43fdcebd" category="paragraph">将控制器存储端口连接到交换机。确保您的交换机有正确的电缆和连接器。有关详细信息，请参见<block ref="16a6d09025d51cb8dd3516798b3fee8a" category="inline-link-rx"></block>。</block>
+  <block id="994d86a3ee99c20bd6e3b1c0feaa203f" category="admonition">控制器上的 e10b 和 e8a 端口未用于 AFX 2K 存储系统配置中的存储连接。</block>
+  <block id="d7434100057b78673eee73421ad29942" category="list-text">将以下存储端口连接到交换机 A 上的任何非 ISL 端口。</block>
+  <block id="405e469b4aa3065616ee04f4a4b2b35e" category="list-text">e10a</block>
+  <block id="56812cf9e76eb2dfaa41475474798d4b" category="image-alt">将控制器存储设备通过线缆连接到交换机 A</block>
+  <block id="dc1921771bb6c193442045d9a99b8c9d" category="list-text">将以下存储端口连接到交换机 B 上的任何非 ISL 端口。</block>
+  <block id="9c7db5f6d7644e660ab462efb6df4eb6" category="list-text">e8b</block>
+  <block id="73b33ccdc5c989a11800499004721836" category="image-alt">将控制器存储通过缆线连接到交换机 B</block>
+  <block id="db9e36945d880b9a54f22b3bab495a59" category="paragraph">将 NX224 存储架连接到交换机上的 100GbE 分支端口。</block>
+  <block id="135eab8c92ccb3775b404dfdd27aa456" category="list-text">将以下磁盘架端口连接到模块 A 的交换机 A 和交换机 B 上的任意分支端口。</block>
+  <block id="3a7f101e405892ae90298d3607c48869" category="list-text">将以下磁盘架端口连接到交换机 A 和交换机 B 上用于模块 B 的任意分支端口。</block>
+  <block id="9e78fee773333046040ad791b8742899" category="summary">了解如何为 AFX 2K 存储系统和存储架安装滑轨套件，以及如何将 AFX 硬件固定在机柜或电信机架中。</block>
+  <block id="3b2dc186f0daefb9da028ec51012f0c6" category="doc">安装您的 AFX 2K 存储系统</block>
+  <block id="23b39f09dd672a4fdc11c4332efa1d13" category="paragraph">安装交换机后，应为 AFX 2K 存储系统安装硬件。首先，安装滑轨套件。然后将存储系统安装并固定在机柜或电信机架中。</block>
+  <block id="ae0d8e847f8ab5ee560c68b32f1bbded" category="list-text">如果您的AFX 2K存储系统附带电缆管理设备，请将其连接到存储系统的后部。</block>
+  <block id="375fabf294ecb62aaa7fb7257a915f0f" category="inline-link-macro">AFX 2K 存储系统支持的布线配置</block>
+  <block id="bb885cec98023257ba83b46bd8568bd7" category="paragraph">为 AFX 系统安装硬件后，请查看<block ref="644587c64becba73f3c1cc55fca7e5b4" category="inline-link-macro-rx"></block>。</block>
+  <block id="9de04133b422a45b2b4db0f6da19c6de" category="doc">AFX 2K 存储系统的网络要求</block>
+  <block id="9373657b437037574bdca50e8fc97e26" category="paragraph">记录连接到 AFX 2K 存储系统的每个网络的所需信息。</block>
+  <block id="d922d73d59b6c4f4e139c54f8514fbef" category="paragraph">在开始安装 AFX 2K 存储系统之前，请收集所需的网络信息</block>
+  <block id="66ae8ff18d363d41b87658f9954edf91" category="paragraph">对于 Cisco Nexus 9808、Cisco Nexus 9332D-GX2 和 9364D-GX2A 交换机的安装和维护，请务必查看布线和网络要求。</block>
+  <block id="45e89ca8f25ad9002015ba4fa01c00b7" category="inline-link-macro">连接 AFX 2K 存储系统的控制器和存储架</block>
+  <block id="fb8b0fb286d0cedc5fa7dcb033bf8b01" category="paragraph">在查看网络要求后，您 <block ref="5f4d9374056fc6c09ec104940ef99307" category="inline-link-macro-rx"></block>。</block>
+  <block id="fe1577361af26f8e4dd532050fb50109" category="summary">查看 AFX 2K 存储控制器和存储架所需的设备和起吊预防措施。</block>
+  <block id="d308c28d83ec0bb0d058af4f3c2204da" category="doc">AFX 2K存储系统的安装要求</block>
+  <block id="f5c6c7697af84dadac884b524b99bb4f" category="paragraph">查看 AFX 2K 存储控制器和存储架所需的设备以及提升注意事项。</block>
+  <block id="07e65db26538c9813f032d5d18ab781c" category="paragraph">要安装 AFX 2K 存储系统，需要以下设备和工具。</block>
+  <block id="a39eb1657f72fd9be67946f2084dca74" category="paragraph">移动或抬起 AFX 2K 存储控制器时，请采取必要的预防措施。</block>
+  <block id="f415d8d2a6618e04d44d634d47bc83a2" category="paragraph">AFX 2K 存储控制器的重量可达 64.0 磅（29.03 千克）。要抬起存储控制器，请使用两人或液压升降机。</block>
+  <block id="0a89a0c735763d3d02f511e7e0568691" category="image-title">AFX 2K控制器起吊预防措施。</block>
+  <block id="bc9f127189e18d043f25d56a13a3f3a6" category="image-alt">AFX 2K 控制器抬起警示图标</block>
+  <block id="49d94e9d9cc1d911477394f4f5587281" category="paragraph">NX224 磁盘架的重量可达 60.1 磅（27.3 千克）。要抬起磁盘架，请使用两人或液压升降机。将所有组件保留在磁盘架中（前部和后部），以防止磁盘架重量不平衡。</block>
+  <block id="e3d899fe7d7d08e9d1b7af94989d0ea1" category="image-title">NX224 磁盘架提升注意事项。</block>
+  <block id="e6f1e8dcf7e84e228388169fccef969e" category="image-alt">NX224 NSM100 吊装注意图标</block>
+  <block id="b6283ecc2875030877658d5f50509cca" category="section-title">交换机权重</block>
+  <block id="1e7fc07c8d33fee1cd76c12787fb389a" category="paragraph">移动或抬起交换机时，请采取必要的预防措施。</block>
+  <block id="2082d0b73a4a04320b20b1e6d00e06cf" category="paragraph-title">Cisco Nexus 9808</block>
+  <block id="71d0ecf29d8418c39d3a7020d9e1d139" category="inline-link-macro">162 磅（73 千克），满载的 Cisco 9808 交换机最高可达 766 磅（347 千克）</block>
+  <block id="0647f55e09b4cecb34907d2657dd833f" category="paragraph">空载的 Cisco 9808 重量可达 <block ref="13f1d1617f442c7bc3aba3932c9f89e0" category="inline-link-macro-rx"></block>。要抬起该交换机，请使用液压升降机。</block>
+  <block id="f688f103c3ec15271cd0271af6a60615" category="image-title">卸载的 Cisco Nexus 9808 起重注意事项。</block>
+  <block id="d1074c2e1d5567caec7fef210fcc6c0c" category="image-alt">Cisco Nexus 9808 吊装注意图标</block>
+  <block id="8ea52e70a593eb2b21673e9d3cf56c98" category="image-title">全负载 Cisco Nexus 9808 吊装注意事项。</block>
+  <block id="85ac8bd593004fb7ff69d84ab92ddf4f" category="image-alt">Cisco Nexus 9808 满载起重警告图标</block>
+  <block id="6e6cbd7e9384425cb0fa31a261d35522" category="paragraph-title">Cisco Nexus9332D-GX2B</block>
+  <block id="e8084d649e131c99b13eccc6351f748c" category="inline-link-macro">12.7 千克（28.1 磅）</block>
+  <block id="a66d55678c1a6c3efd062d73040bd490" category="paragraph">Cisco 9332D-GX2B 可重达 <block ref="6f9014f572f52bb6524452d132abc2f4" category="inline-link-macro-rx"></block>。</block>
+  <block id="0e7640c65f26c9e296a33421d0fb5c5a" category="paragraph-title">Cisco Nexus 9364D-GX2A</block>
+  <block id="cf32471bf244ab09b7a83cfa57b0a59d" category="inline-link-macro">58 lb（26.3 kg）</block>
+  <block id="02366468ef122cb4ccf5c75dc007d66e" category="paragraph">Cisco Nexus 9364D-GX2A 交换机的重量可达<block ref="143c757a55c009a400277dc1af60d01f" category="inline-link-macro-rx"></block>。要抬起交换机，请使用两人或液压升降机。</block>
+  <block id="80a48afafed4748afbb7fb8e00d4fbac" category="image-title">Cisco Nexus 9364D-GX2A 吊装预防措施。</block>
+  <block id="9c652f92636878a413a07289fa19df8b" category="image-alt">Cisco Nexus 9364D-GX2A 吊装注意图标</block>
+  <block id="6d2e6fa4ad5c4e1d70e0049f2bb6744f" category="inline-link-macro">准备安装您的 AFX 2K 存储系统</block>
+  <block id="ceda96a5bbb707ae04d5b2e833b8513f" category="paragraph">在查看硬件要求后，您<block ref="df78cfc12e7986adea8b6958aea20c15" category="inline-link-macro-rx"></block>。</block>
+  <block id="14c2f5caaa33edd3d9c98d021675599a" category="summary">开始安装和设置 AFX 2K 存储系统，并将其部署在 ONTAP 环境中。</block>
+  <block id="bb5e6a0ec35d5434a23001e4f5b7aa1c" category="doc">AFX 2K 存储系统的安装和设置工作流程</block>
+  <block id="748f51609c111e704a444b9474a78c25" category="paragraph">要安装和配置 AFX 2K 存储系统，您需要查看硬件要求，准备好站点，安装交换机，安装硬件组件并连接电缆，打开系统电源，并设置 ONTAP AFX 集群。</block>
+  <block id="62871ffb3e01a536fedef64c1e7e369d" category="paragraph-title"><block ref="58f667aaf05f87159670e12bd9bc076b" category="inline-image-macro-rx" type="image"></block><block ref="9e214765c0ab508a9dabd5b4c0fc9d2c" category="inline-link-macro-rx"></block></block>
+  <block id="8cf07a0ccfd463d05761ad47cd2b6674" category="paragraph">查看安装 AFX 2K 存储系统的硬件要求。</block>
+  <block id="4e8e5e25feb54728bbdf5f233f6f6deb" category="inline-link-macro">准备安装AFX 2K存储系统</block>
+  <block id="692d921a1a212daf707f21af1597565f" category="paragraph-title"><block ref="54f425ce8d89f4ed6b8a546561af5d60" category="inline-image-macro-rx" type="image"></block><block ref="2fb89b8f2c297a83f899bf1a209a7f04" category="inline-link-macro-rx"></block></block>
+  <block id="b071c0df87fd86ef958c06a3a3081417" category="paragraph">通过准备现场、检查环境和电气要求、确保足够的机架空间、打开设备包装、验证包装单上的内容以及注册硬件以获得支持，来准备安装 AFX 2K 存储系统。</block>
+  <block id="9798a67def0b529180e57f6634c50e86" category="inline-link-macro">为您的 AFX 2K 存储系统安装交换机</block>
+  <block id="e020a50d66335697eec9135a7be5ff38" category="paragraph-title"><block ref="05b2444faffd66d76e88602ea7dd353f" category="inline-image-macro-rx" type="image"></block><block ref="dc3f7314737cc8aa039ac5d145cd875b" category="inline-link-macro-rx"></block></block>
+  <block id="e0932c1a37a4c035802585cf946bb5c5" category="paragraph">在机柜或机架中安装 Cisco Nexus 9808、9332D-GX2B 或 9364D-GX2A 交换机。如果使用 Cisco Nexus 9364D-GX2A 交换机，请安装直通面板套件。</block>
+  <block id="f1db20f2a6ea67281b280039ed23e84b" category="inline-link-macro">为您的 AFX 2K 存储系统安装硬件</block>
+  <block id="174ba30a4adb6eef22be0ec2ba4f2bbb" category="paragraph-title"><block ref="beadfa85a2fdca06b91edc1131c603e6" category="inline-image-macro-rx" type="image"></block><block ref="29c414a2b34b20c38b54cd0b7cbe50f0" category="inline-link-macro-rx"></block></block>
+  <block id="0339b38c5e536ce5872c1e1f4a7277bc" category="inline-link-macro">用缆线连接 AFX 2K 存储系统的控制器和磁盘架</block>
+  <block id="cc6a36795b2fc813a47ae09ef8a58b8b" category="paragraph-title"><block ref="99e8b2f00e172bfcff96afdce69907bc" category="inline-image-macro-rx" type="image"></block><block ref="177fa42f91004bf8418c9d0abe33728e" category="inline-link-macro-rx"></block></block>
+  <block id="03e1dec6cc3a9116adc8943ea0059cd6" category="inline-link-macro">打开电源并配置 AFX 2K 存储系统的交换机</block>
+  <block id="1b96854974d5f4ffd9f2dcc8a009acc3" category="paragraph-title"><block ref="ef78558f80439832e0f51cc22cee8b8c" category="inline-image-macro-rx" type="image"></block><block ref="beaa88dc5bf8500bb31077215f00658c" category="inline-link-macro-rx"></block></block>
+  <block id="c5e937dffaba36411bcbdd3eb4791ea6" category="paragraph">为您的 AFX 2K 存储系统打开电源并配置交换机。检查 Cisco Nexus 9808、9332D-GX2B 和 9364D-GX2A 交换机的配置说明。</block>
+  <block id="c5468f271ce4f817142b4ba7b7e32a93" category="inline-link-macro">启动您的 AFX 2K 存储系统</block>
+  <block id="ae11ea589792bd6df4cefbf4beb129f3" category="paragraph-title"><block ref="36915574c413876eaa75cbd48f69fd00" category="inline-image-macro-rx" type="image"></block><block ref="e44d41ea69a939c847404b9f191abb00" category="inline-link-macro-rx"></block></block>
+  <block id="9304d8e6349135f4f1b0131240ab5a26" category="summary">了解如何为 AFX 2K 存储系统和存储盘架安装交换机。</block>
+  <block id="07e73c47ab45b375fd0ccd199b3b74bb" category="paragraph">完成 AFX 2K 存储系统安装准备后，应将交换机安装在机柜或电信机架中。</block>
+  <block id="abbd69be44276666819991687fb0f350" category="inline-link-macro">Cisco Nexus 9808 Mode Switch 硬件安装指南</block>
+  <block id="2abff668059e41efff161539a8bd3a5d" category="inline-link-macro">Cisco Nexus 9332D-GX2B 模式交换机硬件安装指南</block>
+  <block id="9ff9fb2231633f869e228568f0b014a0" category="inline-link-macro">Cisco Nexus 9364D-GX2A 模式交换机硬件安装指南</block>
+  <block id="1155f06a0efc47f87895fe1d43b1308b" category="admonition">如果交换机的气流配置为端口侧进气（酒红色风扇和 PSU），则交换机的网络端口必须面向机柜正面安装，排气风扇必须面向机柜背面。使用此配置时，您必须确保使用的电缆足够长，以便从机柜前面的网络端口延伸到机柜后面的存储端口。+ 有关这些交换机的更多详细信息，请访问 Cisco 网站：<block ref="b1e3c6adefcb656038c1e4e161770597" category="inline-link-macro-rx"></block>、<block ref="3148b19c0d24aa893b9a673ab43c93f2" category="inline-link-macro-rx"></block> 和 <block ref="ada068d3b68a48c78244497c91bbab0b" category="inline-link-macro-rx"></block>。</block>
+  <block id="634537c38f042132e8fd2f46f0570ece" category="section-title">Cisco Nexus 9808 交换机安装</block>
+  <block id="98e35c1e75a2c08c1f49e829579e9817" category="paragraph">如果要安装 Cisco Nexus 9808 交换机，请参阅<block ref="9d897c09acfda023b7ac88c3caedc148" category="inline-link-macro-rx"></block>，了解有关如何在机柜或机架中安装交换机的详细说明。</block>
+  <block id="b30efe348aad9b1fd465cf0c2c1f78e7" category="section-title">Cisco Nexus 9332D-GX2B 和 9364D-GX2A 交换机安装</block>
+  <block id="22f4977d08b7fc3ab6d1301c0f1669d8" category="paragraph">如果要安装 Cisco Nexus 9332D-GX2B 或 9364D，请执行以下步骤将交换机安装到机柜或机架中。</block>
+  <block id="f73884780799db5b46f3b756e9cbc3b9" category="list-text">将两根跳线的母连接器从面板后部穿过刷子组件。</block>
+  <block id="a522609cadcb30fbb8ce2ab61205935c" category="paragraph">将两个交换机安装在机柜中能够有效访问控制器和磁盘架的位置，例如中间行。</block>
+  <block id="3c44162e4d90b6e64a452898e30b09c1" category="inline-link-macro">在机柜或机架中安装 AFX 2K 存储系统和磁盘架</block>
+  <block id="3acd5cce42e7b34cb81528cf7752716c" category="paragraph">在机柜或机架中安装交换机后，您 <block ref="aa2c652314319031e5bb331412a6d709" category="inline-link-macro-rx"></block>。</block>
+  <block id="20b605f2c9500a07e9e58525fa298af8" category="summary">了解如何为您的 AFX 2K 存储系统打开电源并配置交换机。</block>
+  <block id="b89899cc68b1c7a6d28cb399bc72cff3" category="paragraph">连接 AFX 2K 存储系统后，需要打开并配置 Cisco Nexus 9808、9332D-GX2B 或 9364D-GX2A 交换机。</block>
+  <block id="a401dc7d868b438d53e932d19bbe29c1" category="list-text">有关 Cisco Nexus 9808 交换机的详细信息，请参见 <block ref="b1e3c6adefcb656038c1e4e161770597" category="inline-link-macro-rx"></block>。</block>
+  <block id="5a5c4176551fe6dd6fe6ee11995ce220" category="list-text">对于 Cisco Nexus 9332D-GX2B 交换机，ISL 连接使用端口 31/32。有关详细信息，请参见 <block ref="2fc588ea5e031befba9fe0b0a6466061" category="inline-link-macro-rx"></block>。</block>
+  <block id="1f87cb3b672fcebc0f3e8c027541a0f4" category="list-text">对于 Cisco Nexus 9364D-GX2A 交换机，ISL 连接使用端口 63/64。有关详细信息，请参见 <block ref="9a6587d5653529e56536e1d546440a92" category="inline-link-macro-rx"></block>。</block>
+  <block id="3f09832565123d546de503a179a2a73a" category="list-text">配置交换机以支持 AFX 2K 存储系统。</block>
+  <block id="6643d25175cee9ed135211156448f273" category="inline-link-macro">配置 AFX 存储系统的交换机</block>
+  <block id="658d597bb59c7324b20aa493f0ff0299" category="list-text">有关配置交换机的更多信息，请参见<block ref="c680c8d03caae4efc1e016b731ff8649" category="inline-link-macro-rx"></block>。</block>
+  <block id="708b74e6831efbdefff002e1e0fa8f36" category="inline-link-macro">启动 AFX 2K 存储系统</block>
+  <block id="bdd33111aa5c5ee954d515d83c1a9731" category="paragraph">为 AFX 2K 存储系统配置交换机后，<block ref="50a620d565af3ded921cd2d40d21ce59" category="inline-link-macro-rx"></block>。</block>
+  <block id="e9cff4d9b0d60850bd0c9246eb98b0bc" category="paragraph">为 AFX 2K 存储系统安装机架硬件并安装控制器节点和存储架的电缆后，应打开存储架和控制器节点的电源。</block>
+  <block id="756031cf2e8f6f44dd7976fb219e5e77" category="image-alt">AFX存储系统电源连接图</block>
+  <block id="676acf548f3628aecf9dda22c2fbb15f" category="section-title">步骤 3：验证交换机连接</block>
+  <block id="c0b7f24cd31d467c7ed81224bec89d8c" category="paragraph">在交换机 CLI 中，确认连接到集群端口的交换机端口已启动，集群节点位于其正确的集群 VLAN 中，并且两台交换机之间的 ISL 连接正常运行。</block>
+  <block id="0097fca24c28b6259e494bccda3ea5ac" category="list-text">验证连接到集群端口的交换机端口是否已打开：</block>
+  <block id="44ff10d140597f1cb51bd7445d226660" category="paragraph"><block ref="9bacb249b0368cefba275373cd07ba98" prefix="" category="inline-code"></block></block>
+  <block id="850ac0959fb08d131db400ce32ac1260" category="paragraph">您可以使用<block ref="067b42f7046950ac29ec16c1ee1f3a25" prefix=" " category="inline-code"></block>筛选输出，以仅显示已启动的端口。</block>
+  <block id="4cf6c071b062edfe390393becef4ddb8" category="example-title">显示 Cisco Nexus 9332D-GX2B 和 9364D-GX2A 交换机的示例</block>
+  <block id="df1a0104b3b10c280d3eb4a8b64408b5" category="example-title">显示 Cisco Nexus 9808 交换机的示例</block>
+  <block id="2672a0c9ba5986c403c26e013c160859" category="list-text">使用以下命令验证集群节点是否位于其正确的集群 VLAN 中：</block>
+  <block id="89706bbdab62cd83048f38305d846f95" category="paragraph"><block ref="7d4adecb4116bbfb7ed1130103f872a7" prefix="" category="inline-code"></block></block>
+  <block id="12bc122b0d9a4c902fdf52bfcc13ddc2" category="paragraph"><block ref="c01eca2c804c6a35b8aa8d87eceefe5d" prefix="" category="inline-code"></block></block>
+  <block id="67be433ec0e6f696ebdaeb0fc0c7c17d" category="example-title">显示 Cisco Nexus 9332D-GX2B 交换机的示例</block>
+  <block id="7357894129543c2e60263a258bb54ce3" category="example-title">显示 Cisco Nexus 9364D-GX2A 交换机的示例</block>
+  <block id="422d547a919ce56042b89a80c5d53dc8" category="admonition">有关特定端口和 VLAN 使用情况的详细信息，请参见 RCF 中的横幅和重要注意事项部分。</block>
+  <block id="30cf20765052250ba29f76c2b9e4fee6" category="list-text">验证第一个交换机（cs1）和第二个交换机（cs2）之间的 ISL 是否正常工作：</block>
+  <block id="a8dce9ba2c375a697682cb30d4bd3f7a" category="paragraph"><block ref="2f9f4462a41014889ceaf0991f774466" prefix="" category="inline-code"></block></block>
+  <block id="9217dd0e439535a316153915b1269ee5" category="admonition">由于 Cisco Nexus 9808 交换机是单个交换机，ISL 已断开连接；因此，您不会在命令输出中看到对等项。</block>
+  <block id="e489edfb772eb917fcfdf241301b7148" category="paragraph">打开 AFX 2K 存储系统电源后，根据您的部署选项完成设置：</block>
+  <block id="90a434a515ece3b128a45b7317851ca2" category="list-text">有关专用 AFX 2K 存储系统部署，请转到 <block ref="b434a61d8681e909828695f9b932fe31" category="inline-link-macro-rx"></block>。</block>
+  <block id="c324eabd50a9696c22e3b2bbcb852087" category="summary">准备在 ONTAP 环境中安装 AFX 2K 存储系统并注册硬件以获得支持权益。</block>
+  <block id="f4aa0fcc2422372f2166e5b045d1f496" category="paragraph">通过准备好现场、打开箱子并将箱子内容与装箱单进行比较以及注册系统以获得支持权益，准备安装 AFX 2K 存储系统。</block>
+  <block id="4ad7b5c48c502f39bfd8b09fbcca74ad" category="paragraph">要安装 AFX 2K 存储系统，请确保您计划使用的站点和机柜或机架符合配置规范。</block>
+  <block id="c48d746f4e2949a6e8b2cff970781dd9" category="list-text">1U，适用于 Cisco Nexus 9332D-GX2B 交换机。</block>
+  <block id="5464b20ffc22b4fad80fe63190fc78f2" category="list-text">2U，适用于 Cisco Nexus 9364D-GX2A 交换机。</block>
+  <block id="51921b7f60ec1ecae6ad35b585f36760" category="list-text">16U 用于 Cisco Nexus 9808 交换机。</block>
+  <block id="6054c582ca07fd4aea4c2ef89af00491" category="list-text">Cisco Nexus 9808、9332D-GX2B 或 9364D-GX2A 交换机</block>
+  <block id="d633bcd1ddfd076b687e4dd6dfdcaad6" category="paragraph">确保您的站点满足 AFX 2K 存储系统规范的要求，并验证您已收到所有订购的部件后，请注册您的存储系统。</block>
+  <block id="6ad695199dd1267c394e1b5e8918c099" category="inline-link-macro">为您的 AFX 2K 存储系统安装交换机</block>
+  <block id="64f0f32053db18eaa823db38747a60f5" category="paragraph">准备好安装 AFX 2K 硬件后，即可开始使用<block ref="841c968c6845aaa96391977b14dd30de" category="inline-link-macro-rx"></block>。</block>
+  <block id="24f867588084fea793ec7e904d0fe6bc" category="inline-image-macro">AFX 1K 存储系统布线示例，宽度=1000px</block>
+  <block id="ac53f8ceaf3de2a14d4130e5c80476fc" category="paragraph"><block ref="ac53f8ceaf3de2a14d4130e5c80476fc" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="a7f2e82dc420248ac6b5bb4612abfd3b" category="paragraph">AFX 1K 存储控制器的重量可达 62.83 磅（28.5 千克）。要抬起存储控制器，请使用两人或液压升降机。</block>
+  <block id="46faf4c338a5ad7f7a91f9b2519d784f" category="image-title">AFX 1K控制器起吊预防措施。</block>
+  <block id="f5d3c91e099d33ba30a8c9acd3937c30" category="image-alt">AFX 1K 起吊警示图标</block>
+  <block id="fbaadf625a1c5ac027179dc6e2a281b6" category="admonition">如果交换机的气流配置为端口侧进气（酒红色风扇和 PSU），则交换机的网络端口必须面向机柜正面安装，排气风扇必须面向机柜背面。使用此配置时，您必须确保使用的电缆足够长，以便从机柜前面的网络端口延伸到机柜后面的存储端口。+ 有关这些交换机的更多详细信息，请访问 Cisco 网站：<block ref="5de327010a827538dae114b632be0b56" category="inline-link-rx"></block> 和 <block ref="95c8681536a10cd34cb9abaa027869ff" category="inline-link-rx"></block>。</block>
+  <block id="e6b43d44e837c88835a24eed44fe337e" category="sidebar">安装 AFX 1K 硬件</block>
+  <block id="22b501d3873dc125bd1324e3e003ec6c" category="sidebar">安装 AFX 2K 硬件</block>
 </blocks>
