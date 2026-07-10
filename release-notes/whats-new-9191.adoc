@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: release-notes/whats-new-9191.html 
-keywords: 'afx, release notes, what"s new, 9.19.1, ai data engine, aide' 
+keywords: 'afx, release notes, what"s new, 9.19.1' 
 summary: 了解您的 AFX 存储系统提供的 ONTAP 9.19.1 附带的新功能。 
 ---
 = AFX 存储系统的 ONTAP 9.19.1 新增功能
@@ -15,9 +15,6 @@ summary: 了解您的 AFX 存储系统提供的 ONTAP 9.19.1 附带的新功能�
 
 [role="lead"]
 了解您的 AFX 存储系统提供的 ONTAP 9.19.1 附带的新功能。
-
-
-TIP: 了解新增和增强的支持 https://docs.netapp.com/us-en/ai-data-engine/release-notes/whats-new.html["AI Data Engine"^]。
 
 
 
