@@ -18,6 +18,7 @@ summary: 从ONTAP 9.9.1 开始，您可以使用Cisco Nexus 9364d-gx2a 交换机
 
 
 
+[[gather-network-information]]
 == 收集网络信息
 
 在开始安装 AFX 2K 存储系统之前，请收集所需的网络信息
@@ -48,12 +49,14 @@ summary: 从ONTAP 9.9.1 开始，您可以使用Cisco Nexus 9364d-gx2a 交换机
 
 
 
+[[network-requirements-for-cisco-switches]]
 == Cisco交换机的网络要求
 
 对于 Cisco Nexus 9808、Cisco Nexus 9332D-GX2 和 9364D-GX2A 交换机的安装和维护，请务必查看布线和网络要求。
 
 
 
+[[network-requirements]]
 === 网络要求
 
 所有交换机配置都需要以下网络信息。
@@ -65,6 +68,7 @@ summary: 从ONTAP 9.9.1 开始，您可以使用Cisco Nexus 9364d-gx2a 交换机
 
 
 
+[[cabling-requirements]]
 === 布线要求
 
 * 您拥有适合您的交换机的数量和类型的电缆和电缆连接器。查看 https://hwu.netapp.com["Hardware Universe"^]。

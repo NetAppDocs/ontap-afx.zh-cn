@@ -15,6 +15,7 @@ summary: 要备份 AFX 系统上的数据，您需要创建快照。您可以手
 
 
 
+[[before-you-begin]]
 == 开始之前
 
 快照是数据的本地只读副本，您可以使用它将卷恢复到特定时间点。快照可以根据需要手动创建，也可以根据link:policies-schedules.html["快照策略和计划"]。
@@ -36,6 +37,7 @@ summary: 要备份 AFX 系统上的数据，您需要创建快照。您可以手
 
 
 
+[[create-a-snapshot]]
 == 创建快照
 
 创建卷或一致性组的快照。
@@ -149,6 +151,7 @@ SnapMirror标签由远程目标使用。
 ====
 
 
+[[related-information]]
 == 相关信息
 
 * https://docs.netapp.com/us-en/ontap/data-protection/create-snapshot-policy-task.html["创建ONTAP快照策略"^]

@@ -17,6 +17,7 @@ summary: 快照复制是将 AFX 系统上的一致性组复制到地理位置较
 
 
 
+[[step-1-create-a-cluster-peer-relationship]]
 == 步骤 1：创建集群对等关系
 
 在通过将数据复制到远程集群来保护数据之前，您需要在本地和远程集群之间创建集群对等关系。
@@ -38,6 +39,7 @@ AFX 系统与其他ONTAP系统的集群对等的先决条件相同。link:https:
 
 
 
+[[step-2-optionally-create-a-replication-policy]]
 == 步骤 2：（可选）创建复制策略
 
 快照复制策略定义何时将在 AFX 集群上执行的更新复制到远程站点。
@@ -79,6 +81,7 @@ AFX 系统与其他ONTAP系统的集群对等的先决条件相同。link:https:
 
 
 
+[[step-3-create-a-replication-relationship]]
 == 步骤 3：创建复制关系
 
 快照复制关系在您的 AFX 系统和远程位置之间建立连接，以便您可以将一致性组复制到远程集群。复制的一致性组可用于灾难恢复或数据迁移。
@@ -166,6 +169,7 @@ _source_ 一致性组是指您想要复制的本地集群上的一致性组。
 
 
 
+[[step-4-test-replication-failover]]
 == 步骤 4：测试复制故障转移
 
 或者，如果源集群处于离线状态，请验证您是否可以成功从远程集群上的复制卷提供数据。

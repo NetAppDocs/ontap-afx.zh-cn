@@ -26,6 +26,7 @@ AFX 存储系统的ONTAP软件升级遵循与其他ONTAP系统升级相同的流
 
 
 
+[[execute-automated-pre-upgrade-checks-before-a-planned-upgrade]]
 == 在计划升级之前执行自动升级前检查
 
 您不必在升级 ONTAP 软件的过程中执行 ONTAP 自动升级预检查。独立于 ONTAP 自动升级过程执行升级前检查可让您查看对您的集群执行了哪些检查，并为您提供在开始实际升级之前应更正的任何错误或警告的列表。

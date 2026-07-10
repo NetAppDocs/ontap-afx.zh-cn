@@ -18,6 +18,7 @@ NOTE: 每个ONTAP用户都需要分配一个角色。角色包括权限并决定
 
 
 
+[[create-an-account-role]]
 == 创建帐户角色
 
 当您的 AFX 集群设置并初始化时，会自动创建集群管理员和存储 VM 管理员的角色。您可以创建其他用户帐户角色来定义分配了这些角色的用户可以在您的集群上执行的特定功能。
@@ -32,6 +33,7 @@ NOTE: 每个ONTAP用户都需要分配一个角色。角色包括权限并决定
 
 
 
+[[create-a-cluster-account]]
 == 创建集群帐户
 
 您可以创建一个集群级帐户，以便在执行集群或 SVM 管理时使用。
@@ -54,6 +56,7 @@ NOTE: 每个ONTAP用户都需要分配一个角色。角色包括权限并决定
 
 
 
+[[related-information]]
 == 相关信息
 
 * link:../administer/prepare-authentication.html["准备身份验证服务"]

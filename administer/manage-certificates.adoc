@@ -15,6 +15,7 @@ summary: 根据您的环境，您需要在管理 AFX 的过程中创建和管理
 
 
 
+[[generate-a-certificate-signing-request]]
 == 生成证书签名请求
 
 要开始使用数字证书，您需要生成证书签名请求 (CSR)。  CSR 用于从证书颁发机构 (CA) 请求签名的证书。作为此过程的一部分， ONTAP会创建公钥/私钥对并将公钥包含在 CSR 中。
@@ -33,6 +34,7 @@ summary: 根据您的环境，您需要在管理 AFX 的过程中创建和管理
 
 
 
+[[add-a-trusted-certificate-authority]]
 == 添加受信任的证书颁发机构
 
 ONTAP提供了一组默认的可信根证书，可用于传输层安全性 (TLS) 和其他协议。您可以根据需要添加其他受信任的证书颁发机构。
@@ -50,6 +52,7 @@ ONTAP提供了一组默认的可信根证书，可用于传输层安全性 (TLS)
 
 
 
+[[renew-or-delete-a-trusted-certificate-authority]]
 == 续订或删除受信任的证书颁发机构
 
 受信任的证书颁发机构必须每年更新。如果您不想更新过期的证书，您应该将其删除。
@@ -83,6 +86,7 @@ ONTAP提供了一组默认的可信根证书，可用于传输层安全性 (TLS)
 
 
 
+[[add-a-clientserver-certificate-or-local-certificate-authority]]
 == 添加客户端/服务器证书或本地证书颁发机构
 
 您可以添加客户端/服务器证书或本地证书颁发机构作为启用安全 Web 服务的一部分。
@@ -99,6 +103,7 @@ ONTAP提供了一组默认的可信根证书，可用于传输层安全性 (TLS)
 
 
 
+[[renew-or-delete-a-clientserver-certificate-or-local-certificate-authorities]]
 == 续订或删除客户端/服务器证书或本地证书颁发机构
 
 客户端/服务器证书和本地证书颁发机构必须每年更新。如果您不想更新过期的证书或本地证书颁发机构，您应该删除它们。
@@ -130,6 +135,7 @@ ONTAP提供了一组默认的可信根证书，可用于传输层安全性 (TLS)
 
 
 
+[[related-information]]
 == 相关信息
 
 * https://docs.netapp.com/us-en/ontap/authentication/install-server-certificate-cluster-svm-ssl-server-task.html["在ONTAP中生成并安装 CA 签名的服务器证书"^]

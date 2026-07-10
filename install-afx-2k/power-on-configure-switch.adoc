@@ -25,7 +25,7 @@ summary: 了解如何为您的 AFX 2K 存储系统打开电源并配置交换机
 . 打开每个交换机的电源。
 . 配置交换机以支持 AFX 2K 存储系统。
 +
-** 有关配置交换机的更多信息，请参见link:https://docs.netapp.com/us-en/ontap-systems-switches/afx/index.html["配置 AFX 存储系统的交换机"^]。
+** 有关配置交换机的详细信息，请参见 link:https://docs.netapp.com/us-en/ontap-systems-switches/afx/index.html["配置 AFX 存储系统的交换机"^]。
 
 
 

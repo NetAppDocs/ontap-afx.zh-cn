@@ -15,6 +15,7 @@ AFX 系统包括几个选项来监控每个集群管理的存储。
 
 
 
+[[display-nas-clients]]
 == 显示 NAS 客户端
 
 您可以显示当前连接到 AFX 集群的 NFS 和 SMB/CIFS 客户端列表。
@@ -27,6 +28,7 @@ AFX 系统包括几个选项来监控每个集群管理的存储。
 
 
 
+[[related-information]]
 == 相关信息
 
 * link:../manage-data/prepare-manage-data.html["准备管理您的 AFX 数据"]

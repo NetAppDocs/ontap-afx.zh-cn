@@ -21,6 +21,7 @@ TIP: 了解新增和增强的支持 https://docs.netapp.com/us-en/ai-data-engine
 
 
 
+[[storage-resource-management-enhancements]]
 == 存储资源管理增强
 
 [cols="2,4"]
