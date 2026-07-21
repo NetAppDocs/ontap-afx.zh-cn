@@ -1797,7 +1797,6 @@
   <block id="2de6d638a130f9818bda5d9a251ad5c8" category="admonition">从 ONTAP 9.19.1 开始，SVM 管理员可以使用专用的 System Manager 仪表板监控和管理自己的 SVM。详细了解<block ref="2185e3072c3ca27b5462a691693a5a31" category="inline-link-rx"></block></block>
   <block id="867daeeeb6f3e3dbf90bc2470bdf5fa3" category="paragraph">AFX 在配置和使用集群时会强制执行几个限制，包括最小值和最大值。这些限制分为几个类别。</block>
   <block id="e03d1a6e5f175f9e1dca199acd1ed7a4" category="admonition">在增加 AFX 存储系统的操作参数之前，您应该评估它可能如何影响您的应用程序以及整个集群。例如，虽然扩展控制器节点数量会增加整体容量，但也可能增加集群网络中的流量。了解这些配置更改的含义以及它们可能对您的环境产生的影响非常重要。</block>
-  <block id="737a863c22a0501aae47dfc0b82907b3" category="list-text">每个 AFX 集群必须至少有四个节点。节点的最大数量因 ONTAP 版本而异；例如，9.19.1 RC 版本允许每个 AFX 集群最多 32 个节点。</block>
   <block id="471b5d11017777fb374abe9e4f2cfed4" category="paragraph">跟上 ONTAP 对 S3 存储支持的最新更改和更新也很重要。例如，从 ONTAP 9.19.1 开始，您可以为每个 S3 用户生成第二个访问密钥。这允许您在原始访问密钥过期时保留对 S3 资源的访问权限。您还可以控制条件操作（写入、复制、删除）的实施。</block>
   <block id="1f88cf259e7331ee9666de0aed1e61b2" category="inline-link">重新生成 ONTAP S3 密钥并修改其保留期限</block>
   <block id="da33e3b3b6f0f55817eb5e53583085c6" category="list-text"><block ref="da33e3b3b6f0f55817eb5e53583085c6" category="inline-link-rx"></block></block>
@@ -1810,7 +1809,6 @@
   <block id="9d8ca8942805bbef83b9c607e5358741" category="paragraph">全局重复数据删除将 ONTAP 重复数据删除节省的空间扩展到整个存储可用区 (SAZ)。通过消除 SAZ 中所有卷上的重复数据块，它可以显著提高存储效率并降低总拥有成本。该功能在 AFX 系统上默认启用，无需管理配置即可透明运行。有关详细信息，请参见 <block ref="d20869026a82d2608dc3e8932f1a0bfe" category="inline-link-macro-rx"></block>。</block>
   <block id="5726d8d4b7f0b6d793e33cbdb3ddf7aa" category="cell">Kubernetes 存储编排的平衡布局增强</block>
   <block id="f77466cfbba999a74a9b2bfdbefe7288" category="paragraph">ONTAP 9.19.1 将 <block ref="3f7ecfe68df8aae32ef20639ae717f55" prefix=" " category="inline-code"></block> REST API 端点中当前可用的六个参数添加到 <block ref="74c1b9ffe0a04056613523d15a186b5a" prefix=" " category="inline-code"></block> 端点。这种增强功能使使用 NetApp Trident 进行 Kubernetes 存储编排的客户能够使用 ONTAP 的原生平衡放置功能创建卷。</block>
-  <block id="5473f7e1d0ef87e9a99388e05733c203" category="cell">对符合条件的 SnapMirror 主卷的 ARP/AI 支持</block>
   <block id="3def1da8e6d471a763e2b21ec25e0c82" category="paragraph">ARP/AI 支持与 AFX 系统的 SnapMirror 同步关系中的合格主卷。ARP/AI 在活动读写主卷上运行，创建仅主 ARP 快照，并提供基于机器学习的勒索软件检测。</block>
   <block id="281fd14262fa7c1793e3c18dfd336f7f" category="inline-link-macro">支持 TLS 硬件卸载</block>
   <block id="9ae8ab2f2bc89803b54b2d95dc15e797" category="cell"><block ref="9ae8ab2f2bc89803b54b2d95dc15e797" category="inline-link-macro-rx"></block></block>
@@ -1836,8 +1834,6 @@
   <block id="4d209cddba5e4e3f517cda6d0180e867" category="cell">限制更改</block>
   <block id="534453c63ab1c5041c53f8bbc059a9b7" category="cell">发布时更改</block>
   <block id="8010ab2f71c733c1a8013b31b901be79" category="cell">每个集群的节点</block>
-  <block id="355836185b6feaed32d56f19e33032eb" category="paragraph">您可以将 AFX 集群扩展到最多 32 个节点。这使您可以扩展 AFX 存储系统，以满足工作负载和应用程序不断增长的需求。</block>
-  <block id="5148c61a8c3e3afeb285a73e9241d26c" category="cell">ONTAP 9.19.1 RC</block>
   <block id="f80f1ede0c7983dcab18fc7104224f56" category="cell">动态存储效率</block>
   <block id="00e7d9732d9f1a308baa60f42ec78d16" category="paragraph">Dynamic Storage Efficiency 智能地针对需要高性能和最大吞吐量的大型工作负载优化存储效率操作（压缩、重复数据删除和压缩）。它自动检测高容量写入条件，并暂时挂起内联和后台存储效率流程，以防止峰值负载期间的性能下降。当吞吐量低于定义的阈值时，存储效率操作将恢复，并且无需手动干预即可恢复节省的成本。该功能在 AFX 存储系统上可用，默认情况下启用，无需配置。</block>
   <block id="0b6845dd2391304844b6f9578fd8c865" category="sidebar">对 ONTAP 默认值和限制的更改</block>
@@ -2050,4 +2046,36 @@
   <block id="f177c581ed9f9f9a2ade361b69f40000" category="list-text">对于 Cisco Nexus 9808 交换机，请参见集群和存储交换机文档 <block ref="fd812bd375b22a989715c699eb7ed44d" category="inline-link-macro-rx"></block>。</block>
   <block id="414467ebb81a54b0d2bfde0829d9be94" category="list-text">对于 Cisco Nexus 9332D-GX2B 交换机，请参见集群和存储交换机文档 <block ref="4267e88712cb2b91d08e1a42358e695f" category="inline-link-macro-rx"></block>。</block>
   <block id="837d45987b31811e3c4dc00585c6683b" category="list-text">对于 Cisco Nexus 9364D-GX2A 交换机，请参见集群和存储交换机文档 <block ref="b235e965e82dd587688a629268d671aa" category="inline-link-macro-rx"></block>。</block>
+  <block id="67de111be220e704fc0fcaa510ec0b92" category="section-title">IPspace TCP性能</block>
+  <block id="d3e53b85a4d88cd5e122ce8261a4169a" category="paragraph">从 ONTAP 9.19.1 开始，ONTAP 通过将两个丢包恢复功能 PRR 和 RACK 集成到 ONTAP TCP 堆栈中，提高了有损耗、高延迟 WAN 链路上的 TCP 数据传输性能。PRR 适用于所有网络，默认情况下处于启用状态。RACK 适用于链路速度约为 25 千兆位/秒的拥塞网络，默认情况下处于禁用状态。</block>
+  <block id="eca8546fa06b104b28a6d070fd7aeaec" category="inline-link-macro">使用 PRR 和 RACK 提高 TCP WAN 性能</block>
+  <block id="0d0ceb30517990e149f7c0115b20a144" category="paragraph">有关详细信息，请参见 <block ref="2f41cfc6efb882326a07e3acf541c6e5" category="inline-link-macro-rx"></block>。</block>
+  <block id="6b6c95ed3ef78f4a7bc534697ad0c478" category="paragraph">您应了解以下 ONTAP 数据保护功能及其与 AFX 存储系统的关系。</block>
+  <block id="4855a7e19f65daa9af8f3596fa9d0c8c" category="section-title">负载共享镜像</block>
+  <block id="076d33100bcfd1f9076dfa799ac16b20" category="paragraph">使用 ONTAP，负载共享镜像 (LSM) 是存储虚拟机 (SVM) 根卷的 SnapMirror 副本，该根卷充当 SVM 的 NAS 命名空间的入口点。通过在其他节点上维护根卷的一个或多个只读副本，即使 HA 对的两个节点都不可用，负载共享镜像也有助于客户端访问 NAS 命名空间。</block>
+  <block id="bd8277e79fa32895c76e47771ec3c027" category="paragraph">*AFX 存储系统不支持负载分担镜像。*您无法在 AFX 上创建、初始化或更新负载分担镜像关系。要实现 AFX 上的命名空间弹性、数据分发或读取扩展，请改用 FlexCache 卷或 SnapMirror 复制。这些功能为保持数据和命名空间对客户端可用提供了等效或更强的能力，并且 AFX 完全支持这些功能。</block>
+  <block id="48943fd6a375d0852da5ac067bf413fe" category="inline-link">了解 ONTAP SnapMirror 根卷复制</block>
+  <block id="cabcbbabc15f52713a62eb42f8484a28" category="list-text"><block ref="cabcbbabc15f52713a62eb42f8484a28" category="inline-link-rx"></block></block>
+  <block id="64500d2f1eb952270058fcdc56fc55cb" category="section-title">SnapMirror 适用于 NAS 的活动同步</block>
+  <block id="a4d5a9b04549fd43c1bca697b6ae8151" category="paragraph">SnapMirror 活动同步允许业务服务在完整站点故障时继续运行。该技术使应用程序能够无缝地故障切换到辅助副本，而无需手动干预或自定义脚本。详细了解<block ref="0aa3a1786b7eb8f80dffac419450355e" category="inline-link-rx"></block>。</block>
+  <block id="4ade1e690485ace608877ec90f1e5fbc" category="section-title">基于 TLS 的 NFS</block>
+  <block id="a8d13b5c2965c87ca9fbbcf9afd27457" category="inline-link">启用 NFS over TLS</block>
+  <block id="06c9fd0e4a1e637e7cd5da80408c883c" category="paragraph">从 ONTAP 9.19.1 开始，ONTAP 添加了对基于 TLS 1.3 的 NFS over TLS 的本地支持，以加密启用 NFS 的 SVM 上传输中的 NFS 流量。该版本还支持可选的每 LIF 双向 TLS 主机身份验证和导出策略控制，以拒绝匹配客户端的非 TLS TCP 访问。NFS over TLS 与现有的 ONTAP NFS 基础架构协同工作，因此应用程序可继续正常使用 NFS，而 TLS 则对传输中的 NFS 流量进行加密。NFS over TLS 不适用于 ONTAP 9.19.1 中的云平台。有关详细信息，请参阅<block ref="4cf4365fc3bcf33037d7569c83a99e13" category="inline-link-rx"></block>。</block>
+  <block id="58e9fd1349348ac0d3b814afbc757395" category="list-text">每个 AFX 集群必须至少有四个节点。节点的最大数量因 ONTAP 版本而异；例如，9.19.1 版本允许每个 AFX 集群最多 32 个节点。</block>
+  <block id="c968f0f1a1f47bf53c5bb5503d2b9765" category="paragraph">您可以将 AFX 集群扩展到最多 32 个节点。这使您可以扩展 AFX 存储系统，以满足工作负载和应用程序不断增长的需求。请注意，对 32 个节点的支持仅提供有限的功能集；有关详细信息，请咨询您的 NetApp 客户团队。</block>
+  <block id="ea7f38fbe84ac28be0f7c90cca730a69" category="cell">ONTAP 9.19.1</block>
+  <block id="6c4c7d8e76cfe8af8727252cf3e875b5" category="cell">每个 FlexGroup 的卷数</block>
+  <block id="af6694594a3904e8c097275a5063d99b" category="paragraph">FlexGroup 中的最大卷数已增加到 512 个，包含 32 个节点。这使得 AFX 存储系统能够为较大的集群充分发挥其性能能力。</block>
+  <block id="d359aad806cfd9033ebf70235d998444" category="inline-link-macro">使用适用于 NAS 的 ONTAP SnapMirror 活动同步进行保护</block>
+  <block id="2e6bc327967589a31f3b3cf912541969" category="cell"><block ref="2e6bc327967589a31f3b3cf912541969" category="inline-link-macro-rx"></block></block>
+  <block id="6df678bfc8af1b23041d41f6cdba54ad" category="paragraph">SnapMirror 活动同步支持在 AFX 集群（仅限 4 节点）上使用 NFS 和 SMB 在 SVM 级别的 NAS 工作负载，并且仅在主集群上支持读写访问。</block>
+  <block id="a5fa5746370b608090b994a97b49e98b" category="section-title">网络连接</block>
+  <block id="1d3f2716111de88760369111858eeee2" category="inline-link-macro">TCP性能改进</block>
+  <block id="0564b4663ca85cec01dd40ac0620d42b" category="cell"><block ref="0564b4663ca85cec01dd40ac0620d42b" category="inline-link-macro-rx"></block></block>
+  <block id="a9ca0c6d9fc385c7343075bc02edc104" category="paragraph">从 ONTAP 9.19.1 开始，ONTAP 通过将两个丢包恢复功能 PRR 和 RACK 集成到 ONTAP TCP 堆栈中，提高了有损耗、高延迟 WAN 链路上的 TCP 数据传输性能。</block>
+  <block id="f44c5b52283f6fd3cb045d14198dfa6e" category="inline-link">对 SnapMirror 主卷的 ARP/AI 支持</block>
+  <block id="2399496a6e54ed20ed46828a475f7a0e" category="cell"><block ref="2399496a6e54ed20ed46828a475f7a0e" category="inline-link-rx"></block></block>
+  <block id="e8eb207e6de7c7757810bc07b0846e79" category="inline-link-macro">基于 TLS 的 NFS v3</block>
+  <block id="9f76431b14eae171858837b9c8175543" category="cell"><block ref="9f76431b14eae171858837b9c8175543" category="inline-link-macro-rx"></block></block>
+  <block id="fb78157da1449370c33ba54cae495e1f" category="paragraph">从 ONTAP 9.19.1 开始，ONTAP 添加了对具有 TLS 1.3 的 NFS over TLS 的本地支持，以加密启用 NFS 的 SVM 上传输中的 NFS 流量。该版本还支持可选的每 LIF 双向 TLS 主机身份验证和导出策略控制，以拒绝匹配客户端的非 TLS TCP 访问。</block>
 </blocks>
