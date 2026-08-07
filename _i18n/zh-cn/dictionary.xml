@@ -2078,4 +2078,11 @@
   <block id="e8eb207e6de7c7757810bc07b0846e79" category="inline-link-macro">基于 TLS 的 NFS v3</block>
   <block id="9f76431b14eae171858837b9c8175543" category="cell"><block ref="9f76431b14eae171858837b9c8175543" category="inline-link-macro-rx"></block></block>
   <block id="fb78157da1449370c33ba54cae495e1f" category="paragraph">从 ONTAP 9.19.1 开始，ONTAP 添加了对具有 TLS 1.3 的 NFS over TLS 的本地支持，以加密启用 NFS 的 SVM 上传输中的 NFS 流量。该版本还支持可选的每 LIF 双向 TLS 主机身份验证和导出策略控制，以拒绝匹配客户端的非 TLS TCP 访问。</block>
+  <block id="5a7a5c8d2eee66d24f7458eee76c2938" category="inline-link">使用 ONTAP SnapMirror Cloud 将数据备份到云</block>
+  <block id="989d9263b7c2ecdd061c7f8f17651198" category="list-text"><block ref="989d9263b7c2ecdd061c7f8f17651198" category="inline-link-rx"></block></block>
+  <block id="bf34fdc864301c032f0e276e4ff8833a" category="cell">SnapMirror 云支持</block>
+  <block id="e23180ba684584a4c88cfa3b05724d54" category="paragraph">SnapMirror 云支持的 S3 存储桶最大数量已增加到 100 个。这使您可以为工作负载和应用程序创建更多 S3 存储桶。</block>
+  <block id="9c1a79f4f2d2fd2b367f6ed1bb37d7ae" category="inline-link-macro">SnapMirror 云支持限制已增加到 100 个 S3 存储桶</block>
+  <block id="b2d786633879a334695de09f0ae3cfb0" category="cell"><block ref="b2d786633879a334695de09f0ae3cfb0" category="inline-link-macro-rx"></block></block>
+  <block id="0f2919ddc73a7864a3605abad5d389c6" category="paragraph">SnapMirror cloud 将支持的 S3 存储桶数量增加到 100 个。</block>
 </blocks>

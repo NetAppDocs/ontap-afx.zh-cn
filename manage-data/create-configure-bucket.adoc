@@ -25,3 +25,7 @@ summary: 您可以创建一个存储桶并将其附加到 SVM。每个存储桶�
 . 可选择“更多选项”来获得与数据保护、锁定和权限相关的其他配置。
 . 选择“*保存*”以添加存储桶。
 
+
+.相关信息
+* https://docs.netapp.com/us-en/ontap/data-protection/cloud-backup-with-snapmirror-task.html["使用 ONTAP SnapMirror Cloud 将数据备份到云"^]
+

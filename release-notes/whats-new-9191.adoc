@@ -29,6 +29,11 @@ summary: 了解您的 AFX 存储系统提供的 ONTAP 9.19.1 附带的新功能�
 | link:../administer/additional-ontap-svm.html["使用适用于 NAS 的 ONTAP SnapMirror 活动同步进行保护"]  a| 
 SnapMirror 活动同步支持在 AFX 集群（仅限 4 节点）上使用 NFS 和 SMB 在 SVM 级别的 NAS 工作负载，并且仅在主集群上支持读写访问。
 
+
+
+| link:../manage-data/create-configure-bucket.html["SnapMirror 云支持限制已增加到 100 个 S3 存储桶"]  a| 
+SnapMirror cloud 将支持的 S3 存储桶数量增加到 100 个。
+
 |===
 
 

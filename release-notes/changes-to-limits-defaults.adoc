@@ -37,6 +37,11 @@ TIP: 您应该查看NetAppHardware Universe和互操作性矩阵工具中提供�
 | 每个 FlexGroup 的卷数  a| 
 FlexGroup 中的最大卷数已增加到 512 个，包含 32 个节点。这使得 AFX 存储系统能够为较大的集群充分发挥其性能能力。
 | ONTAP 9.19.1 
+
+
+| SnapMirror 云支持  a| 
+SnapMirror 云支持的 S3 存储桶最大数量已增加到 100 个。这使您可以为工作负载和应用程序创建更多 S3 存储桶。
+| ONTAP 9.19.1 
 |===
 
 
