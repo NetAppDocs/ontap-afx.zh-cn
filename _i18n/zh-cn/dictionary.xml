@@ -2085,4 +2085,11 @@
   <block id="9c1a79f4f2d2fd2b367f6ed1bb37d7ae" category="inline-link-macro">SnapMirror 云支持限制已增加到 100 个 S3 存储桶</block>
   <block id="b2d786633879a334695de09f0ae3cfb0" category="cell"><block ref="b2d786633879a334695de09f0ae3cfb0" category="inline-link-macro-rx"></block></block>
   <block id="0f2919ddc73a7864a3605abad5d389c6" category="paragraph">SnapMirror cloud 将支持的 S3 存储桶数量增加到 100 个。</block>
+  <block id="fab7289d2e0b55fc43d0b47d53a00fc3" category="admonition">ONTAP 9.17.1 为 AFX 提供了几项新功能。其中一些是针对 AFX 的，而其他许多则来自共同的共享产品基础。除了查看下面描述的 AFX 功能外，您还应参考<block ref="f893755dddb8099eec78a6462ce91d0b" category="inline-link-rx"></block>。</block>
+  <block id="4104746c2a71c1942a4995ce44c82593" category="admonition">ONTAP 9.18.1 为 AFX 提供了几项新功能。其中一些是针对 AFX 的，而其他许多则来自共同的共享产品基础。除了查看下面描述的 AFX 功能外，您还应参考<block ref="204bccace7f1ae9c578cbca9117d36d7" category="inline-link-rx"></block>。</block>
+  <block id="ecaf96cdec76c873c95a0fdcb5bf95c6" category="admonition">ONTAP 9.19.1 为 AFX 提供了几项新功能。其中一些是针对 AFX 的，而其他许多则来自共同的共享产品基础。除了查看下面描述的 AFX 功能外，您还应参考<block ref="6397caa908413ec6433ae55aa1981652" category="inline-link-rx"></block>。</block>
+  <block id="51985b9bdf0ec7b57ade2b6af08c0214" category="section-title">S3 对象存储</block>
+  <block id="6b10f0340ee90e881f251f6a6c1c50e5" category="paragraph"><block ref="6b10f0340ee90e881f251f6a6c1c50e5" category="inline-xref-macro-rx"></block></block>
+  <block id="980de945038567285acd832eeffc81db" category="paragraph">您可以使用条件来强制对象上传的条件写入和对象删除的条件删除。条件写入和删除提供了一种防止覆盖或意外删除对象的方法。</block>
+  <block id="2f3fb7b10644dc3204e82bf0a20ccfe1" category="paragraph">为了在原始访问密钥过期时保持用户对 S3 资源的访问，ONTAP 集群管理员可以为每个 S3 用户生成第二个访问密钥。</block>
 </blocks>

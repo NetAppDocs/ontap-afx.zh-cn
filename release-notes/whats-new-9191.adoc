@@ -17,6 +17,9 @@ summary: 了解您的 AFX 存储系统提供的 ONTAP 9.19.1 附带的新功能�
 了解您的 AFX 存储系统提供的 ONTAP 9.19.1 附带的新功能。
 
 
+NOTE: ONTAP 9.19.1 为 AFX 提供了几项新功能。其中一些是针对 AFX 的，而其他许多则来自共同的共享产品基础。除了查看下面描述的 AFX 功能外，您还应参考 https://docs.netapp.com/us-en/ontap/release-notes/whats-new-9191.html["ONTAP 9.19.1 中的新增功能"^]。
+
+
 
 [[data-protection]]
 == 数据保护
@@ -85,6 +88,29 @@ Dynamic Storage Efficiency 智能地针对需要高性能和最大吞吐量的�
 
 | Kubernetes 存储编排的平衡布局增强  a| 
 ONTAP 9.19.1 将  `/storage/volumes` REST API 端点中当前可用的六个参数添加到  `/applications/containers` 端点。这种增强功能使使用 NetApp Trident 进行 Kubernetes 存储编排的客户能够使用 ONTAP 的原生平衡放置功能创建卷。
+
+|===
+
+
+[[s3-object-storage]]
+== S3 对象存储
+
+[cols="30%,70%"]
+|===
+| 更新 | 描述 
+
+
+ a| 
+xref:../manage-data/manage-buckets.html[管理 AFX 存储系统存储桶]
+ a| 
+您可以使用条件来强制对象上传的条件写入和对象删除的条件删除。条件写入和删除提供了一种防止覆盖或意外删除对象的方法。
+
+
+
+ a| 
+xref:../manage-data/manage-buckets.html[管理 AFX 存储系统存储桶]
+ a| 
+为了在原始访问密钥过期时保持用户对 S3 资源的访问，ONTAP 集群管理员可以为每个 S3 用户生成第二个访问密钥。
 
 |===
 

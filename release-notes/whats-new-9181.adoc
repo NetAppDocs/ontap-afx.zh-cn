@@ -17,6 +17,9 @@ summary: 了解ONTAP 9.18.1 中包含的可用于 AFX 存储系统的新功能�
 了解ONTAP 9.18.1 中包含的可用于 AFX 存储系统的新功能。
 
 
+NOTE: ONTAP 9.18.1 为 AFX 提供了几项新功能。其中一些是针对 AFX 的，而其他许多则来自共同的共享产品基础。除了查看下面描述的 AFX 功能外，您还应参考 https://docs.netapp.com/us-en/ontap/release-notes/whats-new-9181.html["ONTAP 9.18.1 的新增功能"^]。
+
+
 
 [[storage-resource-management-enhancements]]
 == 存储资源管理增强
