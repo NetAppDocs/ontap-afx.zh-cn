@@ -63,6 +63,10 @@ xref:../administer/configure-svm.html[支持SVM和卷上的两级嵌套QoS策略
 您可以同时将QoS策略分配给SVM和SVM下的卷。
 
 |===
-.相关信息
+
+
+[[related-information]]
+== 相关信息
+
 * https://docs.netapp.com/us-en/ontap/release-notes/index.html["ONTAP 9 发布亮点"^]
 

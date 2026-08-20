@@ -38,6 +38,26 @@ NOTE: ONTAP 9.17.1 为 AFX 提供了几项新功能。其中一些是针对 AFX 
 
 
 |===
-.相关信息
+
+
+[[storage-resource-management-enhancements]]
+== 存储资源管理增强
+
+[cols="30%,70%"]
+|===
+| 更新 | 描述 
+
+
+ a| 
+xref:../manage-data/monitor-debug-storage.html[监控和排除 AFX 存储系统的故障]
+ a| 
+在为 NAS 协议分配的 ONTAP 集群上新创建的 SVM 上创建的卷默认情况下启用了文件系统分析 (FSA)。一旦创建卷，FSA 就会自动激活，无需额外配置即可提供即时分析功能。
+
+|===
+
+
+[[related-information]]
+== 相关信息
+
 * https://docs.netapp.com/us-en/ontap/release-notes/index.html["ONTAP 9 发布亮点"^]
 
