@@ -2,7 +2,6 @@
 <blocks>
   <block id="9300fda436a5cc421811b04dc04badf8" category="summary">除了典型的 AFX 集群管理之外，您可能还需要根据您的环境执行其他任务。大多数附加任务都可以使用系统管理器执行，但在某些情况下您可能需要使用 CLI。</block>
   <block id="faede213fca7a18a345d45f0d29088a6" category="doc">AFX 存储系统集群的附加管理</block>
-  <block id="7d36f828619651b0ec19095f0f25dfc8" category="admonition">所描述的ONTAP功能和管理对于运行 Unified ONTAP 的AFX 存储系统和AFF或FAS系统来说是通用的。其中包含指向相关 Unified ONTAP文档的链接（视情况而定）。</block>
   <block id="0b9c6eef4e3d3a222eb04e910d252339" category="section-title">许可</block>
   <block id="92ff5239ce1b1631936446319c85a178" category="paragraph">AFX 系统的许可方式与 Unified ONTAP AFF和FAS系统类似。  AFX 集群默认包含所支持协议的大多数功能。</block>
   <block id="b378946fe8453b6639548e16e14e8d27" category="section-title">ONTAP许可证管理</block>
@@ -2092,4 +2091,22 @@
   <block id="6b10f0340ee90e881f251f6a6c1c50e5" category="paragraph"><block ref="6b10f0340ee90e881f251f6a6c1c50e5" category="inline-xref-macro-rx"></block></block>
   <block id="980de945038567285acd832eeffc81db" category="paragraph">您可以使用条件来强制对象上传的条件写入和对象删除的条件删除。条件写入和删除提供了一种防止覆盖或意外删除对象的方法。</block>
   <block id="2f3fb7b10644dc3204e82bf0a20ccfe1" category="paragraph">为了在原始访问密钥过期时保持用户对 S3 资源的访问，ONTAP 集群管理员可以为每个 S3 用户生成第二个访问密钥。</block>
+  <block id="11ba5c1727548057c68ac606191a008a" category="paragraph">除了典型的 AFX 集群管理之外，还可能需要根据您的环境执行其他任务。大多数其他任务可以使用 System Manager 执行，但在某些情况下，您可能需要使用 CLI。所述 ONTAP 功能和管理对于 AFX 存储系统以及运行 Unified ONTAP 的 AFF 或 FAS 系统是通用的。适当时包含相关 Unified ONTAP 文档的链接。</block>
+  <block id="95e6e1659bc28dbb709323a6e8ad256f" category="admonition">查看其他 ONTAP AFX 功能和配置的简要说明。如果您找不到所需的选项，请务必查看底部的链接以获取其他资源。</block>
+  <block id="8f1df3d891a92d7cf641c00a5d10a5e1" category="inline-link">准备在 ONTAP 网络上使用 IP 安全</block>
+  <block id="66a386fe45902150e921567e6268eea8" category="list-text"><block ref="66a386fe45902150e921567e6268eea8" category="inline-link-rx"></block></block>
+  <block id="0e39b789f7717bc975ea58eaf0db4905" category="inline-link">使用 FIPS 为所有 SSL 连接配置 ONTAP 网络安全</block>
+  <block id="9c40aa856fab06d435d3012a0852a8b9" category="list-text"><block ref="9c40aa856fab06d435d3012a0852a8b9" category="inline-link-rx"></block></block>
+  <block id="f94158b9ac425f46f5e560391d7810ea" category="paragraph">除了典型的 AFX SVM 管理之外，还可能需要根据您的环境执行其他任务。大多数其他任务可以使用 System Manager 执行，但在某些情况下，您可能需要使用 CLI。所描述的 ONTAP 功能和管理对于 AFX 存储系统以及运行 Unified ONTAP 的 AFF 或 FAS 系统是通用的。适当时包括相关 Unified ONTAP 文档的链接。</block>
+  <block id="8a13505dd6946f762d484d5548520dad" category="inline-link">自适应 QoS 策略组</block>
+  <block id="cb0922a55eba1a82e50cf71c18ebe232" category="list-text"><block ref="cb0922a55eba1a82e50cf71c18ebe232" category="inline-link-rx"></block></block>
+  <block id="8e02fbebde6eda602f04ad6be7872598" category="inline-xref-macro">其他管理员：IPsec 硬件卸载</block>
+  <block id="5b3998aa47cfda7a64ed6ff67b670846" category="paragraph"><block ref="5b3998aa47cfda7a64ed6ff67b670846" category="inline-xref-macro-rx"></block></block>
+  <block id="0e512d1b0e0eec22d9c82690b21dc8e3" category="paragraph">IPsec 硬件卸载支持已扩展到 IPv6。</block>
+  <block id="dbdd0c87a08f7da829b770094938ec4f" category="inline-xref-macro">其他管理员：OpenSSL PQC 算法</block>
+  <block id="5a9a17f2a80f4bf17ebd21e4bd62d32c" category="paragraph"><block ref="5a9a17f2a80f4bf17ebd21e4bd62d32c" category="inline-xref-macro-rx"></block></block>
+  <block id="4f6ab42dbc66c329bdc56764d3561476" category="paragraph">ONTAP 支持适用于 SSL 的后量子计算加密算法。这些算法可针对未来潜在的量子计算攻击提供额外保护，在禁用 SSL FIPS 模式时可用。</block>
+  <block id="8e2c307ef6e54871dce87c1828dc21fd" category="inline-xref-macro">支持SVM和卷上的两级嵌套QoS策略组</block>
+  <block id="e08db9e8d24efaf5a7190ce782b11af3" category="paragraph"><block ref="e08db9e8d24efaf5a7190ce782b11af3" category="inline-xref-macro-rx"></block></block>
+  <block id="0d42fe34cb867538d9d93ccdd8b15ac7" category="paragraph">您可以同时将QoS策略分配给SVM和SVM下的卷。</block>
 </blocks>

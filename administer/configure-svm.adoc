@@ -42,3 +42,7 @@ summary: 创建 SVM 后，您可以根据您的要求和客户需求更新配置
 . 选择所需的 SVM，然后选择“*设置*”选项卡。
 . 查看页面上的配置选项；根据需要选择并更新设置。
 
+
+.相关信息
+* https://docs.netapp.com/us-en/ontap/performance-admin/adaptive-qos-policy-groups-task.html["自适应 QoS 策略组"^]
+

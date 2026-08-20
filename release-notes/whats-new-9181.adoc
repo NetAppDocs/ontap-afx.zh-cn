@@ -21,6 +21,29 @@ NOTE: ONTAP 9.18.1 为 AFX 提供了几项新功能。其中一些是针对 AFX 
 
 
 
+[[security]]
+== 安全性
+
+[cols="30%,70%"]
+|===
+| 更新 | 描述 
+
+
+ a| 
+xref:../administer/additional-ontap-cluster.html[其他管理员：IPsec 硬件卸载]
+ a| 
+IPsec 硬件卸载支持已扩展到 IPv6。
+
+
+
+ a| 
+xref:../administer/additional-ontap-cluster.html[其他管理员：OpenSSL PQC 算法]
+ a| 
+ONTAP 支持适用于 SSL 的后量子计算加密算法。这些算法可针对未来潜在的量子计算攻击提供额外保护，在禁用 SSL FIPS 模式时可用。
+
+|===
+
+
 [[storage-resource-management-enhancements]]
 == 存储资源管理增强
 
@@ -31,6 +54,13 @@ NOTE: ONTAP 9.18.1 为 AFX 提供了几项新功能。其中一些是针对 AFX 
 
 | 增强体积放置  a| 
 NetApp AFX 可自动平衡集群中所有节点上的卷放置位置。在之前的ONTAP版本中，放置算法是基于集群中的卷数。无论活动情况如何，每个节点都被分配相同数量的卷。从ONTAP 9.18.1 开始，该算法得到了增强，可以在放置或移动体数据时考虑节点的性能。这样可以改善 AFX 集群中各个节点之间的性能平衡，并大大降低单个节点过载的可能性。
+
+
+
+ a| 
+xref:../administer/configure-svm.html[支持SVM和卷上的两级嵌套QoS策略组]
+ a| 
+您可以同时将QoS策略分配给SVM和SVM下的卷。
 
 |===
 .相关信息

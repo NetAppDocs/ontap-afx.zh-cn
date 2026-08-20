@@ -11,10 +11,10 @@ summary: 除了典型的 AFX 集群管理之外，您可能还需要根据您的
 
 
 [role="lead"]
-除了典型的 AFX 集群管理之外，您可能还需要根据您的环境执行其他任务。大多数附加任务都可以使用系统管理器执行，但在某些情况下您可能需要使用 CLI。
+除了典型的 AFX 集群管理之外，还可能需要根据您的环境执行其他任务。大多数其他任务可以使用 System Manager 执行，但在某些情况下，您可能需要使用 CLI。所述 ONTAP 功能和管理对于 AFX 存储系统以及运行 Unified ONTAP 的 AFF 或 FAS 系统是通用的。适当时包含相关 Unified ONTAP 文档的链接。
 
 
-NOTE: 所描述的ONTAP功能和管理对于运行 Unified ONTAP 的AFX 存储系统和AFF或FAS系统来说是通用的。其中包含指向相关 Unified ONTAP文档的链接（视情况而定）。
+TIP: 查看其他 ONTAP AFX 功能和配置的简要说明。如果您找不到所需的选项，请务必查看底部的链接以获取其他资源。
 
 
 
@@ -140,4 +140,6 @@ OAuth 2.0 是行业标准授权框架，用于使用签名的访问令牌来限�
 * https://docs.netapp.com/us-en/ontap/authentication/overview-oauth2.html["ONTAP OAuth 2.0 实施概述"^]
 * link:../administer/additional-ontap-svm.html["AFX SVM 的额外管理"]
 * https://docs.netapp.com/us-en/ontap/data-protection/manage-snapmirror-root-volume-replication-concept.html["了解 ONTAP SnapMirror 根卷复制"^]
+* https://docs.netapp.com/us-en/ontap/networking/ipsec-prepare.html["准备在 ONTAP 网络上使用 IP 安全"^]
+* https://docs.netapp.com/us-en/ontap/networking/configure_network_security_using_federal_information_processing_standards_fips.html["使用 FIPS 为所有 SSL 连接配置 ONTAP 网络安全"^]
 
