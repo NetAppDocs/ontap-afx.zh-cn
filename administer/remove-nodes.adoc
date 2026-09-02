@@ -1,0 +1,205 @@
+---
+sidebar: sidebar 
+permalink: administer/remove-nodes.html 
+keywords: netapp afx, remove node, unjoin, cluster remove-node, evacuate volumes, zero-copy volume move 
+summary: 了解如何从 NetApp AFX 集群中删除存储节点，包括卷撤离、LIF 迁移和 HA 合作伙伴退出。 
+---
+= 从 AFX 存储系统集群中删除节点
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可能需要从 AFX 集群中删除节点以进行维护或硬件更换。一次只能删除一个节点，删除节点后，还必须删除其 HA 伙伴。
+
+.关于此任务
+* 对于 AFX 存储系统，所有存储都包含在单个存储可用区 (SAZ) 中，该存储可用区可由集群中的每个节点访问。因此，当删除节点时，不需要从离开节点复制数据。相反，指向离开节点上的卷的指针会在剩余节点之间更新。这称为零拷贝卷移动 (ZCVM)，由于实际上没有复制或移动任何数据，因此会立即发生。
++
+[NOTE]
+====
+在删除节点之前，手动处理 ZCVM 无法移动的任何卷。这些包括卷克隆、脱机卷、原始加密密钥已更改或重新加密的加密卷，以及使用 SnapMirror 云还原的卷。审核暂存卷和根卷在节点取消加入过程中由 ZCVM 移动。
+
+** 详细了解link:https://docs.netapp.com/us-en/ontap/nas-audit/basic-auditing-concept.html["审核暂存卷"^]。
+** 详细了解link:https://docs.netapp.com/us-en/ontap/encryption-at-rest/rekey-encrypted-volume-task.html["已重新加密的加密卷"^]。
+
+
+====
+* 成功从集群中取消加入节点会执行以下操作：
++
+** 标记节点为不合格状态，且不在 CLAM 仲裁范围内。
+** 彻底关闭节点并将所有权转移到存活节点。
+** 清除节点上的 RAID 高可用性 (HA) 状态，并将其从集群数据库中删除。
+
+
+
+
+
+
+[[step-1-prepare-to-remove-nodes-from-an-afx-cluster]]
+== 步骤 1：准备从 AFX 集群中删除节点
+
+在从 AFX 集群中删除节点之前，应验证集群是否正常，并且要删除的节点上没有数据 LIF。
+
+.步骤
+. 确认集群运行正常：
++
+[source, cli]
+----
+cluster show
+----
+. 确认要删除的节点处于联机状态且正常运行：
++
+[source, cli]
+----
+system node show -node <node> -health -epsilon
+----
+. 查看节点上的 LIF：
++
+[source, cli]
+----
+network interface show -curr-node <node>
+----
+. 从节点迁移数据 LIF：
++
+[source, cli]
+----
+network interface migrate -vserver <SVM> -lif <LIF> -dest-node <destination_node> -dest-port <destination_port>
+----
++
+对所有数据 LIF 重复此命令。只有集群 LIF 和节点管理 LIF 应保留在节点上。
+
+. 验证是否已删除所有数据 LIF，并且只有集群 LIF 和节点管理 LIF 保留在节点上：
++
+[source, cli]
+----
+network interface show -curr-node <node>
+----
+
+
+.下一步是什么？
+完成准备步骤后，可以从集群中删除 HA 对中的第一个节点，然后删除其 HA 配对节点。
+
+
+
+[[step-2-unjoin-a-single-node-from-an-afx-cluster]]
+== 步骤 2：从 AFX 集群中取消加入单个节点
+
+只有在完成准备节点以进行删除所需的步骤后，才能从 AFX 集群中删除节点。从集群中删除节点后，必须删除其 HA 伙伴。
+
+.开始之前
+建议您 link:manage-autosupport.html["发出 AutoSupport 消息"] 以通知 NetApp 技术支持您正在从集群中删除节点。
+
+.步骤
+. 迁移节点卷：
++
+[source, cli]
+----
+system node evacuate-volumes start -node <node_to_remove>
+----
+. 确认节点卷已迁移完毕：
++
+[source, cli]
+----
+system node evacuate-volumes show -node <node_to_remove>
+----
++
+请等待*待定计数*为 0 后再继续。在卷完全疏散之前，请勿移动 epsilon 或资格。
+
++
+如有必要，您可以使用 `system node evacuate-volumes abort -node <node>`命令中止疏散过程。
+
+. 识别持有 epsilon 的节点：
++
+[source, cli]
+----
+cluster show -epsilon true
+----
++
+.. 如果要删除的节点包含 epsilon，请将 epsilon 移动到另一个节点：
++
+[source, cli]
+----
+cluster modify -node <surviving_node> -epsilon true
+----
+
+
+. 识别当前主节点：
++
+[source, cli]
+----
+cluster ring show
+----
++
+.. 如果您要删除的节点是当前主节点，请将其设置为不合格：
++
+[source, cli]
+----
+cluster modify -node <node_to_remove> -eligibility false
+----
+
+
+. 显示剩余数据 LIF 的主节点：
++
+[source, cli]
+----
+network interface show -home-node <node_to_remove>
+----
+. 将剩余数据 LIF 的主节点更改为其他节点：
++
+[source, cli]
+----
+network interface modify -vserver <SVM> -lif <LIF> -home-node <surviving_node>
+----
++
+将集群 LIF 和节点管理 LIF 保留在离开的节点上。
+
+. 禁止接管要删除的节点：
++
+[source, cli]
+----
+storage failover modify -node <node_to_remove> -enable-takeover-of false
+----
+. 确认要删除的节点已禁用接管：
++
+[source, cli]
+----
+storage failover show
+----
++
+禁用故障转移时，无法在高可用性对上进行接管。
+
+. 在正常运行的健康节点上，将权限级别设置为 advanced：
++
+[source, cli]
+----
+privilege set -level advanced
+----
+. 从集群中取消加入节点：
++
+[source, cli]
+----
+cluster remove-node -node <node_to_remove>
+----
++
+确认警告。作业应以 *Node remove succeeded* 结束。
+
+
+
+.下一步是什么？
+重复前面的步骤从集群中删除 HA 伙伴。在未加入的节点的 HA 伙伴被删除之前，您无法删除其他节点。
+
+
+
+[[step-3-optionally-clean-the-removed-hardware]]
+== 步骤 3：（可选）清洁已拆卸的硬件
+
+如果要重新调整已从集群中删除的节点的用途，则必须先清除节点配置并初始化所有磁盘，然后才能重新加入集群。
+
+.步骤
+. 在启动过程中，出现提示时，按 Ctrl-C 显示启动菜单。
+. 选择启动菜单选项 *(4) Clean configuration and initialize all disks*。
+
+
+.下一步是什么？
+可以使用 `cluster add-node`命令在同一集群中重用 HA 对。

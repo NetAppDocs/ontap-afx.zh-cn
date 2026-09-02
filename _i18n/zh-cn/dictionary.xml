@@ -2113,4 +2113,55 @@
   <block id="05ac85f50d8d37906293d2e2a6c88604" category="list-text"><block ref="05ac85f50d8d37906293d2e2a6c88604" category="inline-link-rx"></block></block>
   <block id="99a1ee6766885a2da62b660dd8ea16ac" category="paragraph"><block ref="99a1ee6766885a2da62b660dd8ea16ac" category="inline-xref-macro-rx"></block></block>
   <block id="d71e1a06e0aeac0cc6a7a6eb58601633" category="paragraph">在为 NAS 协议分配的 ONTAP 集群上新创建的 SVM 上创建的卷默认情况下启用了文件系统分析 (FSA)。一旦创建卷，FSA 就会自动激活，无需额外配置即可提供即时分析功能。</block>
+  <block id="7a5cd40812fc4b3d065db77f8ad471a2" category="summary">了解如何从 NetApp AFX 集群中删除存储节点，包括卷撤离、LIF 迁移和 HA 合作伙伴退出。</block>
+  <block id="4e5ba73143016dcff33719a396a6a145" category="doc">从 AFX 存储系统集群中删除节点</block>
+  <block id="6f0c0dcb367b5c75b40798fbe71ce6cf" category="paragraph">您可能需要从 AFX 集群中删除节点以进行维护或硬件更换。一次只能删除一个节点，删除节点后，还必须删除其 HA 伙伴。</block>
+  <block id="4dc248d72f6d53f41520e119f1f1df61" category="list-text">对于 AFX 存储系统，所有存储都包含在单个存储可用区 (SAZ) 中，该存储可用区可由集群中的每个节点访问。因此，当删除节点时，不需要从离开节点复制数据。相反，指向离开节点上的卷的指针会在剩余节点之间更新。这称为零拷贝卷移动 (ZCVM)，由于实际上没有复制或移动任何数据，因此会立即发生。</block>
+  <block id="2dbbd7a8acfe4ab40ac6e02f5b4365bd" category="paragraph">在删除节点之前，手动处理 ZCVM 无法移动的任何卷。这些包括卷克隆、脱机卷、原始加密密钥已更改或重新加密的加密卷，以及使用 SnapMirror 云还原的卷。审核暂存卷和根卷在节点取消加入过程中由 ZCVM 移动。</block>
+  <block id="7b556ab7df79413da0cc234f3e94ae5c" category="inline-link-macro">审核暂存卷</block>
+  <block id="b94fbeba18cc08b1ba75cabcbc2e50a0" category="list-text">详细了解<block ref="9fec2c3b1c6739fae6e26aee450a7911" category="inline-link-macro-rx"></block>。</block>
+  <block id="791417c8f8a45d10a1481c1cdb8725eb" category="inline-link-macro">已重新加密的加密卷</block>
+  <block id="1ddf84f2c214ffe15e58979d29d13e7e" category="list-text">详细了解<block ref="c62dc8115ddd949100052ee500f4ed05" category="inline-link-macro-rx"></block>。</block>
+  <block id="03f868c6a771736d2ede498b24db10fd" category="list-text">成功从集群中取消加入节点会执行以下操作：</block>
+  <block id="da83a680025062a416e893d926036b59" category="list-text">标记节点为不合格状态，且不在 CLAM 仲裁范围内。</block>
+  <block id="1d6d051efd8278e7af988bc240035964" category="list-text">彻底关闭节点并将所有权转移到存活节点。</block>
+  <block id="81969b995904bbc6ec383d70d109fe78" category="list-text">清除节点上的 RAID 高可用性 (HA) 状态，并将其从集群数据库中删除。</block>
+  <block id="ee564f7d2a41885a7b7c447302897684" category="section-title">步骤 1：准备从 AFX 集群中删除节点</block>
+  <block id="20f6fea895a9042d4cb497b9b561472f" category="paragraph">在从 AFX 集群中删除节点之前，应验证集群是否正常，并且要删除的节点上没有数据 LIF。</block>
+  <block id="50ab3243fc412f508feaf2651e35de5a" category="list-text">确认集群运行正常：</block>
+  <block id="6ed6db99070eb594c7294b2758336a36" category="list-text">确认要删除的节点处于联机状态且正常运行：</block>
+  <block id="c8bd62f17e39fb32ef39057543588fff" category="list-text">查看节点上的 LIF：</block>
+  <block id="b296f30bfe1b8d15961aace982c88ede" category="list-text">从节点迁移数据 LIF：</block>
+  <block id="b7fb269285f339c28cc4295e470228ce" category="paragraph">对所有数据 LIF 重复此命令。只有集群 LIF 和节点管理 LIF 应保留在节点上。</block>
+  <block id="67ad2de6e0aebb768d64f688a26f3263" category="list-text">验证是否已删除所有数据 LIF，并且只有集群 LIF 和节点管理 LIF 保留在节点上：</block>
+  <block id="3f297ef15cde0668e93b35f2752fd4fd" category="paragraph-title">下一步是什么？</block>
+  <block id="af7028a97133d9d6579e0120e4d2ac54" category="paragraph">完成准备步骤后，可以从集群中删除 HA 对中的第一个节点，然后删除其 HA 配对节点。</block>
+  <block id="129a0f9dbb25cd859dc8156de126758f" category="section-title">步骤 2：从 AFX 集群中取消加入单个节点</block>
+  <block id="9e84e50094430ea932ef692f2de2fd8d" category="paragraph">只有在完成准备节点以进行删除所需的步骤后，才能从 AFX 集群中删除节点。从集群中删除节点后，必须删除其 HA 伙伴。</block>
+  <block id="ff13cd92e9c877582383685ad84e1408" category="inline-link-macro">发出 AutoSupport 消息</block>
+  <block id="e1e010021551213000f9a5ad8268a504" category="paragraph">建议您 <block ref="389d719ba9fa696dc8807adb3c915714" category="inline-link-macro-rx"></block> 以通知 NetApp 技术支持您正在从集群中删除节点。</block>
+  <block id="61ef46349dc8aeb8c96f3f89d14d2e3b" category="list-text">迁移节点卷：</block>
+  <block id="4352398a52fe792d0d9bc8cd2e093100" category="list-text">确认节点卷已迁移完毕：</block>
+  <block id="4fa4b393f4bd68dcb2697caa0d486054" category="paragraph">请等待*待定计数*为 0 后再继续。在卷完全疏散之前，请勿移动 epsilon 或资格。</block>
+  <block id="073a5eccc26b37d386010ab2297fb4ad" category="paragraph">如有必要，您可以使用<block ref="1800c917431345cdd794d19f800ce56a" prefix=" " category="inline-code"></block>命令中止疏散过程。</block>
+  <block id="2cca63e4c1d7ec175a21377faff9a6ec" category="list-text">识别持有 epsilon 的节点：</block>
+  <block id="e23022fe3595885bf954a01c22683bad" category="list-text">如果要删除的节点包含 epsilon，请将 epsilon 移动到另一个节点：</block>
+  <block id="49e8d819c7a12b23ca983a3bc99e1bdf" category="list-text">识别当前主节点：</block>
+  <block id="14029d6b9a69926c796b630bd649fe4a" category="list-text">如果您要删除的节点是当前主节点，请将其设置为不合格：</block>
+  <block id="7f6abdd99160e3d3527591b98c573c7f" category="list-text">显示剩余数据 LIF 的主节点：</block>
+  <block id="b77fc9ce12284fe9cb0ed31c9a1f86d5" category="list-text">将剩余数据 LIF 的主节点更改为其他节点：</block>
+  <block id="c9b5aae4621661ad2ffccfee6c9b3874" category="paragraph">将集群 LIF 和节点管理 LIF 保留在离开的节点上。</block>
+  <block id="f73e9b92493b90c37101390646ee7ff4" category="list-text">禁止接管要删除的节点：</block>
+  <block id="2f6504307623c74dfa94926c73a36268" category="list-text">确认要删除的节点已禁用接管：</block>
+  <block id="398e3c6027c9ad5a579ba201dbdf1422" category="paragraph">禁用故障转移时，无法在高可用性对上进行接管。</block>
+  <block id="e66ad8765eff08cc92ad6062c3b5484e" category="list-text">在正常运行的健康节点上，将权限级别设置为 advanced：</block>
+  <block id="8e9c4f7e32d6d0c0b5026f9b1bd4cb0e" category="list-text">从集群中取消加入节点：</block>
+  <block id="248d96fc2d0062d179e38ec920bbc9a6" category="paragraph">确认警告。作业应以 *Node remove succeeded* 结束。</block>
+  <block id="fd7d664fcabce9a7163ddf544905c254" category="paragraph">重复前面的步骤从集群中删除 HA 伙伴。在未加入的节点的 HA 伙伴被删除之前，您无法删除其他节点。</block>
+  <block id="ebe7c0cf5ca9d4767514a83c4598b75c" category="section-title">步骤 3：（可选）清洁已拆卸的硬件</block>
+  <block id="3212383e8d23d729b6cb21418a172111" category="paragraph">如果要重新调整已从集群中删除的节点的用途，则必须先清除节点配置并初始化所有磁盘，然后才能重新加入集群。</block>
+  <block id="9e870c65221f5c544b31efc1da95daeb" category="list-text">在启动过程中，出现提示时，按 Ctrl-C 显示启动菜单。</block>
+  <block id="5b43d3aa91abf75fd24c44f1341b2f06" category="list-text">选择启动菜单选项 *(4) Clean configuration and initialize all disks*。</block>
+  <block id="e482842fa3fe9110a14b09a7990fc7e3" category="paragraph">可以使用<block ref="5fc60967dddffb3c388156e897d54aad" prefix=" " category="inline-code"></block>命令在同一集群中重用 HA 对。</block>
+  <block id="92157b9dae17603751a4d60f0f94bf8c" category="sidebar">从集群中删除节点</block>
 </blocks>

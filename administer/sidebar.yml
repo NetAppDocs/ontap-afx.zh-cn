@@ -46,6 +46,8 @@ entries:
   entries:
   - title: 扩展集群
     url: "/administer/expand-cluster.html"
+  - title: 从集群中删除节点
+    url: "/administer/remove-nodes.html"
   - title: 升级ONTAP
     url: "/administer/upgrade-ontap.html"
   - title: 更新固件
