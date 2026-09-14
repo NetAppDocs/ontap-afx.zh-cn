@@ -4,7 +4,7 @@ permalink: secure-data/secure-ip-connections.html
 keywords: netapp afx, afx, ip security, ipsec, secure data, data security, encryption, data-in-flight, secure connections, hardware offload 
 summary: 'IP 安全 (IPsec) 是一种互联网协议标准，它为网络端点之间在 IP 层流动的流量提供数据加密、完整性和身份验证。您可以使用 IPsec 来增强 AFX 集群和客户端之间前端网络的安全性。' 
 ---
-= AFX 存储系统上的安全 IP 连接
+= AFX 存储系统的 IP 安全
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

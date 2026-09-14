@@ -1446,7 +1446,6 @@
   <block id="b66a2d14c1891462455fed5e4a620880" category="list-text">添加 KMIP 客户端证书。</block>
   <block id="a2d38e07f32f557705115c0e67b1cf0c" category="list-text">选择*双层加密*以启用软件加密。</block>
   <block id="de6f6891ab1d865f318115a39e658b18" category="summary">在管理 AFX 数据之前，您应该熟悉主要概念和功能。</block>
-  <block id="9297a6c5e1e2ce6644265b71048498d4" category="doc">准备保护您的 AFX 存储系统数据</block>
   <block id="fd0b40056f2f1d2d8b24894a14c29204" category="paragraph">您应该熟悉几个与 AFX 数据安全相关的术语。</block>
   <block id="232a2b16a1710c0ed1d16548ba8bb8f1" category="list-text">勒索软件</block>
   <block id="1dd2239be8a1348b44deadbaab8103bb" category="list-text">数字证书和 PKI</block>
@@ -1681,8 +1680,6 @@
   <block id="86921103071233483e469eaa840b0e55" category="list-text">加密是将数据转换为安全格式的过程，未经适当授权就无法轻易读取。ONTAP提供基于软件和基于硬件的加密技术来保护静态数据。这确保了当存储介质被重新利用、退回、放错地方或被盗时，它无法被读取。这些加密解决方案可以使用外部密钥管理服务器或ONTAP提供的板载密钥管理器进行管理。请参阅<block ref="c93bd16a781b45e60a7d7d16eedf487d" category="inline-link-macro-rx"></block>了解更多信息。</block>
   <block id="420d6d4489a72885833a9c3cef85fb57" category="list-text">数字证书是用于证明公钥所有权的电子文档。公钥和相关的私钥可以以多种方式使用，包括通常作为更大的安全框架（如 TLS 和 IPsec）的一部分来建立身份。这些密钥以及支持协议和格式标准构成了公钥基础设施 (PKI) 的基础。请参阅<block ref="e4dcc7e3ac3e4848bf64003b8c2cdc66" category="inline-link-macro-rx"></block>了解更多信息。</block>
   <block id="04c053beb02ce1214b9f43301cc9ee58" category="list-text">互联网协议安全</block>
-  <block id="4504e962308541316b8f741529026c50" category="inline-link-macro">AFX 存储系统上的安全 IP 连接</block>
-  <block id="b434862bc36c3dfc5a3f669575381d37" category="list-text">IPsec 是一种互联网标准，它为网络端点之间在 IP 层传输的数据提供传输中的数据加密、完整性和身份验证。它能保护ONTAP与客户端之间的所有 IP 流量，包括 NFS 和 SMB 等更高级别的协议。 IPsec 可保护您的数据免受恶意重放攻击和中间人攻击。请参阅<block ref="fefb8a20b2037a3c6c06f48d1c1a3c61" category="inline-link-macro-rx"></block>了解更多信息。</block>
   <block id="4f6a6f917a61b67c18bc3831abc050e2" category="summary">IP 安全 (IPsec) 是一种互联网协议标准，它为网络端点之间在 IP 层流动的流量提供数据加密、完整性和身份验证。您可以使用 IPsec 来增强 AFX 集群和客户端之间前端网络的安全性。</block>
   <block id="ff3b00711e5ec535f68b25c53f6c52ea" category="section-title">在 AFX 系统上配置 IPsec</block>
   <block id="b73a4478ceeb8906001c1f76559a3230" category="inline-link">准备配置ONTAP网络的 IP 安全</block>
@@ -2164,4 +2161,7 @@
   <block id="5b43d3aa91abf75fd24c44f1341b2f06" category="list-text">选择启动菜单选项 *(4) Clean configuration and initialize all disks*。</block>
   <block id="e482842fa3fe9110a14b09a7990fc7e3" category="paragraph">可以使用<block ref="5fc60967dddffb3c388156e897d54aad" prefix=" " category="inline-code"></block>命令在同一集群中重用 HA 对。</block>
   <block id="92157b9dae17603751a4d60f0f94bf8c" category="sidebar">从集群中删除节点</block>
+  <block id="b2375be1b55171fc0fe7ba669593238f" category="doc">了解适用于AFX存储系统的数据安全选项</block>
+  <block id="37dd71b6db62e453909fcf1f5be615ed" category="inline-link-macro">AFX 存储系统的 IP 安全</block>
+  <block id="9af24b0bdb566c1fee75a1df0538116b" category="list-text">IPsec 是一种互联网标准，为 IP 级别的网络端点之间的流量提供传输中数据加密、完整性和身份验证。它保护 ONTAP 与客户端之间的所有 IP 流量，包括 NFS 和 SMB 等更高级别的协议。IPsec 可保护您的数据免受恶意重放攻击和中间人攻击。有关详细信息，请参见 <block ref="54df1974748af2173ffe01e9841e7cb0" category="inline-link-macro-rx"></block>。</block>
 </blocks>
