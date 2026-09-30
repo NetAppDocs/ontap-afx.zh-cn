@@ -155,6 +155,11 @@ ARP/AI 支持与 AFX 系统的 SnapMirror 同步关系中的合格主卷。ARP/A
 | link:../administer/additional-ontap-cluster.html["支持修改控制自动 QoS 吞吐量上限增加的默认设置"]  a| 
 您可以修改默认设置，以控制 QoS 策略组如何自动增加 QoS 吞吐量上限，以响应对更高性能的短期需求。这些设置在 ONTAP 9.18.1 及更早版本中无法修改。
 
+
+
+| link:../administer/fabricpool.html["FabricPool分层"]  a| 
+FabricPool 是一种 ONTAP 功能，可根据数据的活动在高性能本地层和低成本远程云或容量层之间移动数据。从 ONTAP 9.19.1 P3 开始，FabricPool 已扩展到 AFX 存储系统。它可以实现更大的数据规模，以支持数据密集型工作负载。虽然 AFX 实现引入了一些架构更改，但 ONTAP 功能的核心特征保持不变。
+
 |===
 
 

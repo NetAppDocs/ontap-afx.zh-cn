@@ -1,0 +1,41 @@
+---
+permalink: administer/fabricpool-manage.html 
+sidebar: sidebar 
+keywords: afx, oam, fabricpool, manage, monitor, space, tiering policy, zcvm, volume move, node join, node unjoin, flexaggr 
+summary: FabricPool 对 AFX 系统的持续管理类似于 AFF 和 FAS 系统。您需要监控空间利用率、管理卷并调整分层策略。AFX 环境有一些值得注意的新增功能，包括节点加入或离开 AFX 集群时的行为。 
+---
+= 管理适用于 AFX 存储系统的 FabricPool
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+FabricPool 对 AFX 系统的持续管理类似于 AFF 和 FAS 系统。您需要监控空间利用率、管理卷并调整分层策略。AFX 环境有一些值得注意的新增功能，包括节点加入或离开 AFX 集群时的行为。
+
+
+
+[[monitor-space-and-manage-volumes]]
+== 监控空间并管理卷
+
+与 AFX 配合使用的用于监控容量层和性能层使用情况以及日常卷管理的程序，通常与 ONTAP 中使用的程序相同。请注意，在 AFX 中，空间报告会考虑分解架构。容量层空间信息可通过集群级别和可用性区域报告获得，而不是通过管理员可见的聚合获得。
+
+
+
+[[node-join-and-node-unjoin]]
+== 节点联接和节点退出联接
+
+节点操作在 AFX 系统上具有 FabricPool 感知能力，这与 ONTAP 存在显著差异。请注意以下行为：
+
+* *节点加入。*当节点加入 AFX 集群且集群对象存储配置已存在时，会自动触发对象存储附加。如果连接失败，则节点加入操作也会失败。
+* *节点退出加入。*当节点退出加入或从集群中删除时，数据将被标记为"defunct"。相关卷将使用 ZCVM 重新定位。停用的对象元文件将被保留，以便其云对象保持可访问状态并可进行垃圾回收。
+
+
+
+
+[[related-information]]
+== 相关信息
+
+* https://docs.netapp.com/us-en/ontap/fabricpool/determine-data-inactive-reporting-task.html["管理 FabricPool"^]
+* link:../administer/expand-cluster.html["扩展 AFX 存储系统集群"]
+

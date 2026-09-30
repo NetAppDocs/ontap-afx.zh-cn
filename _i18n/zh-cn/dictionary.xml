@@ -1149,7 +1149,6 @@
   <block id="c57ebf896522e61d2fb2936af391a342" category="inline-link-macro">准备管理您的 AFX 数据</block>
   <block id="5546f6d8bc3d0dd5a40c20c4d749d48e" category="list-text"><block ref="5546f6d8bc3d0dd5a40c20c4d749d48e" category="inline-link-macro-rx"></block></block>
   <block id="264c7a25568ab93610cc395140359eb4" category="summary">在管理 AFX 数据之前，您应该熟悉基本概念和功能。</block>
-  <block id="bfd961e2a1e35548010fea792ecda5e4" category="doc">准备管理您的 AFX 存储系统数据</block>
   <block id="4e5fb30db16cab1af452750211083830" category="section-title">术语和选项</block>
   <block id="91818c76048499823f8f320043c66890" category="paragraph">您应该熟悉几个与 AFX 存储相关的术语。</block>
   <block id="045efe415c2e22ca0585f899f658f875" category="list-text">FlexVolume</block>
@@ -2164,4 +2163,173 @@
   <block id="b2375be1b55171fc0fe7ba669593238f" category="doc">了解适用于AFX存储系统的数据安全选项</block>
   <block id="37dd71b6db62e453909fcf1f5be615ed" category="inline-link-macro">AFX 存储系统的 IP 安全</block>
   <block id="9af24b0bdb566c1fee75a1df0538116b" category="list-text">IPsec 是一种互联网标准，为 IP 级别的网络端点之间的流量提供传输中数据加密、完整性和身份验证。它保护 ONTAP 与客户端之间的所有 IP 流量，包括 NFS 和 SMB 等更高级别的协议。IPsec 可保护您的数据免受恶意重放攻击和中间人攻击。有关详细信息，请参见 <block ref="54df1974748af2173ffe01e9841e7cb0" category="inline-link-macro-rx"></block>。</block>
+  <block id="36c0c696cc672617c7a91032909fc9dd" category="summary">在 AFX 存储系统上部署 FabricPool 时，还有一些其他注意事项。</block>
+  <block id="68b2f2e9481a98d76eb29e98c469539b" category="doc">在 AFX 存储系统上使用 FabricPool 的其他注意事项</block>
+  <block id="32921d0648a2e0a63d4a2fab3c0bb1aa" category="section-title">FabricPool 镜像</block>
+  <block id="38be87aa0a33e73b90e7b8b2cf533204" category="paragraph">FabricPool 镜像是一种针对分层云数据的高可用性配置，通过将第二个对象存储附加到单个 FabricPool 来创建。配置附加镜像后，ONTAP 会同时将数据同步分层到这两个对象存储，从而确保在发生灾难或对象存储故障期间数据仍可访问。由于 AFX 配置了单个集群级对象存储，因此在初始版本中，AFX 不支持 *FabricPool 镜像。</block>
+  <block id="6d6dd30e9f82364893c3757f057ff11e" category="paragraph">加密与 FabricPool 在 AFF 上运行，无需额外配置。但您应该注意以下几点：</block>
+  <block id="cdcb6b2bbabc73846d6486681a2e1f6d" category="list-text">AFX 支持 NetApp 卷加密 (NVE)；不支持 NetApp 聚合加密 (NAE)。</block>
+  <block id="fc85c87a5ada4b4fe0e8748b5415ae70" category="list-text">NVE对性能层和容量层使用相同的密钥。</block>
+  <block id="0e4acae2d18d8539c63cdf3f533696fb" category="list-text">重新加密操作使用新密钥重写整个卷的数据，包括云层数据。</block>
+  <block id="dcfcd3be99ed99852cf7a4285f6fe1c5" category="list-text">重新加密操作和 Zero Copy Volume Move 不能同时运行。</block>
+  <block id="1cf9d0b0f882cf1146bf9379876b211a" category="section-title">备用管理界面</block>
+  <block id="e3ba113dd8c0e5a3ad40ae5de58958ac" category="paragraph">System Manager 是在 AFX 上配置和管理 FabricPool 的主要推荐管理界面。但您也可以使用命令行界面 (CLI) 或 REST API 执行这些任务。</block>
+  <block id="ecde210c403f1f9c60e7b1bbf5a1574b" category="paragraph">AFX CLI 经过重新设计，以支持 FabricPool，与集群重点和缺少聚合的情况保持一致。</block>
+  <block id="ef0c2e4ff59090ebfaefc45ec766529c" category="section-title">集群级对象存储命令</block>
+  <block id="b33a8a32e1dcfff3e2886844c176bd8b" category="paragraph">以下命令在 <block ref="21232f297a57a5a743894a0e4a801fc3" prefix=" " category="inline-code"></block> 级别可用，用于管理分层数据的对象存储：</block>
+  <block id="3f5775993b166d6aaaeea20885559bb0" category="list-text">*cluster object-store config create* 定义 StorageGRID 或 ONTAP S3 对象存储的配置，并自动将其附加到集群中的所有 flexaggrs。此单个命令取代了统一 ONTAP 中使用的两步流程（config create + attach）。该操作是幂等的，如果初始附加失败，可以重新运行。</block>
+  <block id="409950bfdf58b011b74a798176b03e92" category="list-text">*cluster object-store config modify* 修改对象存储配置属性。在统一 ONTAP 中可修改的相同属性（连接设置、凭据、证书选项）也可以在 AFX 中修改。</block>
+  <block id="700e472380c60ff28d8b278716eca3c9" category="list-text">*cluster object-store config rename* 重命名现有对象存储配置。</block>
+  <block id="d0f42758027ae5a9a96933b1f431b1a9" category="list-text">*cluster object-store config show* 显示当前对象存储配置，包括连接详细信息和附件状态。</block>
+  <block id="ee13b67e5cf52a5e7718993f0a1f774c" category="list-text">*cluster space show* 显示集群级空间利用率，包括累计的对象存储使用率。输出包括逻辑已用容量、逻辑引用容量、逻辑未引用容量和云层上的总物理已用空间。</block>
+  <block id="4bb047bd8fef3f2053302f03728b6c8b" category="section-title">卷级分层命令（管理和高级模式）：</block>
+  <block id="c76ae342c20b3e9675fd7e3a57ad67ea" category="paragraph">控制分层行为的所有 ONTAP 卷创建和修改命令在 AFX 上均完全支持，且语法相同。这包括带有分层相关参数的标准卷创建和卷修改命令，包括：</block>
+  <block id="a7eccb52726bd28c01fb9068943f7f7c" category="list-text">-tiering-policy</block>
+  <block id="55c3d45354eb01d97141bb8bdf021ff1" category="list-text">-tiering-minimum-cooling-days</block>
+  <block id="5d3f204d30c366a50a05951d5b665ffe" category="list-text">-cloud-retrieval-policy</block>
+  <block id="8796fcae0e188d58f86e57aebdd0e1c8" category="list-text">-is-cloud-write-enabled</block>
+  <block id="c4368b4c39826353d0d1ee41b06d1386" category="list-text">-tiering-object-tags</block>
+  <block id="433e50f8ec506e1df46132eea3892209" category="paragraph">卷默认为无分层策略，因此必须为每个卷显式启用分层。</block>
+  <block id="03cf44954541246aa6f6587f411e097e" category="paragraph">AFX 上的 FabricPool REST API 端点支持集群级对象存储管理和卷级分层配置。由于集群级架构，不支持基于聚合的端点。</block>
+  <block id="bb1a61c7f94bb4ea7a7c87d1dc733847" category="paragraph">有几个受支持的端点，包括：</block>
+  <block id="089f077b4591772f837eca154198cab3" category="list-text">适用于 <block ref="924520a1e9cd00ae6286d18c0cafb163" prefix=" " category="inline-code"></block> 的 GET 和 POST</block>
+  <block id="fef3af77c5b38c677cf614bf789866eb" category="list-text">GET 和 PATCH 用于 <block ref="2e22c326cb25063846823765aa3f96ab" prefix=" " category="inline-code"></block></block>
+  <block id="89f1e9bc99d770b3807502f057526bd3" category="list-text">GET 和 POST 用于<block ref="3f7ecfe68df8aae32ef20639ae717f55" prefix=" " category="inline-code"></block></block>
+  <block id="ed0971f8d1d1274ade576b513d7f5019" category="list-text">使用以下分层参数对 `/storage/volumes/{uuid} 执行 GET 和 PATCH 操作：</block>
+  <block id="e9946cf6480842a1434c5ffac6c83ef4" category="list-text">tiering.policy</block>
+  <block id="4fa524f8b5d2c0ced2d02cd041929f06" category="list-text">tiering.min_cooling_days</block>
+  <block id="307a0cdc13cfb2d0bf4487257edac38d" category="list-text">tiering.object_tags</block>
+  <block id="0ed47abdb81e7d1aa66cc0ed67baf949" category="list-text">cloud_retrieval_policy</block>
+  <block id="600f1fc6700d47a20de355a4e2e238f8" category="list-text">cloud_write_enabled</block>
+  <block id="8f03ca4c3f1cae7636822bff50b51011" category="paragraph">不支持的端点和参数包括：</block>
+  <block id="082b9a661c623fb6e1887773fa5ddc17" category="list-text">DELETE<block ref="2e22c326cb25063846823765aa3f96ab" prefix=" " category="inline-code"></block></block>
+  <block id="df94d73bf03f7a81b37b7fd03a1d5ee4" category="list-text"><block ref="fb758b8dca72d74fd51f4e7f79360c85" prefix="" category="inline-code"></block> 卷操作</block>
+  <block id="541affca1796d3afcd30064311cb5cc6" category="list-text">的所有操作<block ref="40fea6251dd6f5ff3c5409b72c318ff9" prefix=" " category="inline-code"></block></block>
+  <block id="6ed743862fbf7c9ec2137c9a34a68796" category="inline-link">用于管理 FabricPool 资源的 ONTAP 命令</block>
+  <block id="73c68a2c7423fafc132c279632e571e5" category="list-text"><block ref="73c68a2c7423fafc132c279632e571e5" category="inline-link-rx"></block></block>
+  <block id="8a5d40738ed536345857b84b69cef177" category="summary">在较高层面上，在 AFF 存储系统上配置和激活 FabricPool 涉及两个不同级别的流程。首先，您需要在集群级别为数据定义一个云层。然后，您可以使用多个分层策略之一在特定卷上激活分层。</block>
+  <block id="29a23642c2b850d2776d53e5f54f7125" category="doc">为 AFF 存储系统配置 FabricPool</block>
+  <block id="f76ce37dc91cfe787a3fd895b4380e41" category="section-title">在 ONTAP 集群级别配置 FabricPool</block>
+  <block id="477d914456b8ab0cca6f69741c21fe47" category="paragraph">您需要定义一个对整个 ONTAP 集群可用的单个对象桶。为 FabricPool 数据分层启用的所有卷都使用相同的存储桶。</block>
+  <block id="1c8fa6644e5a05a7d831fe5f0ce1f684" category="paragraph">与 ONTAP 的两步流程（包括每个聚合附加）不同，AFX 依赖于单个集群范围的流程来配置对象存储并将所有节点附加到存储桶。连接也已确认，与对象存储的关联是永久性的。</block>
+  <block id="691e68843c304cfde92b34dfcc0a18df" category="paragraph">使用 System Manager 描述云层的配置，但也可以使用其他选项。例如，您可以将命令<block ref="e67758d6f667ad4f9dd7c700bbfa3db2" prefix=" " category="inline-code"></block>与 CLI 一起使用。有关详细信息，请参阅<block ref="5da4f80c3cdca1c49dff65bdadf9219e" category="inline-link-macro-rx"></block>。</block>
+  <block id="22b94eaedb7f4527b48fc38e9a27cf0a" category="inline-link-macro">准备在 AFF 存储系统上实施 FabricPool</block>
+  <block id="4ac19ca276f8ced5f995a9d60058a96b" category="list-text">查看 AFX FabricPool 先决条件。例如，确认集群处于 9.19.1 或更高版本，并且未从早期版本升级。有关更多详细信息，请参见 <block ref="a6eb2fd98b5837a1b5cfe24c21a54be8" category="inline-link-macro-rx"></block>。</block>
+  <block id="a9a717c3c8c4be6ab0c66bc5bbe2be11" category="list-text">调配对象存储桶。在 NetApp StorageGRID 或 ONTAP S3 上创建一个存储桶，为您的数据提供足够的容量。您可以选择为对象存储安装 CA 证书，以提供更安全的连接。</block>
+  <block id="2ec2b914293a3deaa3470c83330aeb93" category="list-text">创建集群间 LIF 并验证与对象存储的连接。您需要定义一对集群间 LIF 来访问 AFX 集群中每个节点上的对象存储。验证所有节点均可访问对象存储端点，且名称解析正常运行。</block>
+  <block id="b4d48e119ae3fe88feae3f09f5811772" category="list-text">在 System Manager 中，选择左侧导航窗格中的*云层*菜单项。</block>
+  <block id="0c465595787778ac9a93f7b6a5323da6" category="paragraph">如果未配置云层，则会显示带有"添加"按钮的空状态页面。</block>
+  <block id="438c314a575bdb56bd91eb9d26c15fbd" category="list-text">选择*添加*以启动云层创建；将出现一个包含两个选项的对话框。</block>
+  <block id="a07c1f28115d9c48befa493786c8d6db" category="list-text">选择 StorageGRID 或 ONTAP S3 作为您的提供商。此时将打开相应的*添加云层*表单。</block>
+  <block id="f2b51276f4458f051e75583031d2daee" category="list-text">请提供所需的对象存储信息，包括：</block>
+  <block id="be5cdd3269eeb0aa6f6ad16e90a0ceb9" category="list-text">对象存储名称（配置标识符）</block>
+  <block id="496f533343d55c0dcc7ea739d9e3939a" category="list-text">服务器名称（对象存储终结点的 FQDN 或 IP 地址）</block>
+  <block id="833b3926afecfa6b5c1925063b650783" category="list-text">容器名称（桶名称）</block>
+  <block id="01ff242bdfd4d00936bfb72b4e70611f" category="list-text">访问密钥和私密密钥（对象存储凭据）</block>
+  <block id="e4628be599b568438b0aa60226eecb24" category="list-text">证书验证设置（推荐：使用正确的 CA 证书启用）</block>
+  <block id="bf5a04edc23039691c881ab2a851a866" category="list-text">选择将承载云层流量的集群间 LIF。</block>
+  <block id="a27b9e4d7fe946025163923bb610f47d" category="paragraph">如果没有合适的接口，则提供创建新接口的选项。</block>
+  <block id="b0432bdfe23fa846502db266b3a65ac1" category="paragraph">System Manager 创建集群级对象存储配置，并在验证网络连接后自动将其附加到集群中的所有节点。</block>
+  <block id="78ca32808e8e65a9bc23907a14c59c4c" category="list-text">请在云层页面卡上验证云层详细信息。</block>
+  <block id="bd965e38a0c9cf27aa1bde099308e23f" category="paragraph-title">完成后</block>
+  <block id="a33e59c6a413e908c040ea166539e28c" category="paragraph">确认集群仪表板容量卡显示云层使用情况。请注意，您分配的存储桶在被 FabricPool 识别使用后将无法重命名。您可以根据需要对单个数据卷启用分层。</block>
+  <block id="b530eb06f31de7c37257f5677442c9d6" category="section-title">使用卷级策略启用分层</block>
+  <block id="d11c5b040fff15926785782704aca2ba" category="paragraph">在集群级别配置 FabricPool 后，您可以通过设置适当的分层策略在各个卷上启用分层。一般来说，这些策略对 AFF 的操作方式与对 ONTAP 的操作方式相同。</block>
+  <block id="8ca260b75fb3857f827d6fd0b61081e5" category="list-text">*卷级分层。*按卷启用分层。您可以为每个卷设置不同的分层策略。根据策略，卷的数据有资格移动到云层。</block>
+  <block id="31760c5cc0f267f1a499e18a218d3bad" category="list-text">*分层策略。*可以为卷定义四个分层策略，包括：</block>
+  <block id="b7db1a351f5dfc71ba4e26a5bb1b009d" category="list-text"><block ref="8805d416ce540c5f2df34af5b18d742b" prefix="" category="inline-code"></block></block>
+  <block id="4b8389540f787ab175fd035495faa505" category="list-text"><block ref="9df22f196a33acd0b372fe502de51211" prefix="" category="inline-code"></block></block>
+  <block id="8a608645da754a8fe766ffb5924b5e1b" category="list-text"><block ref="a181a603769c1f98ad927e7367c7aa51" prefix="" category="inline-code"></block></block>
+  <block id="56d058c51fcd79545706c62569ba5a19" category="list-text"><block ref="334c4a4c42fdb79d7ebc3e73b517e6f8" prefix="" category="inline-code"></block></block>
+  <block id="dce8b52069a0bf38b329cc4a971c0097" category="list-text">*默认分层策略。*默认策略为<block ref="334c4a4c42fdb79d7ebc3e73b517e6f8" prefix=" " category="inline-code"></block>，这意味着没有数据有资格移动到云层。相比之下，新附加聚合上的 ONTAP 卷在 AFF 和 FAS 系统上默认为<block ref="8805d416ce540c5f2df34af5b18d742b" prefix=" " category="inline-code"></block>。</block>
+  <block id="71d660929bc49fd03aacab469d4f2213" category="list-text">*策略触发。*设置除<block ref="334c4a4c42fdb79d7ebc3e73b517e6f8" prefix=" " category="inline-code"></block>之外的策略会触发云连接并激活数据分层。</block>
+  <block id="4e9c497f91ac9fe03bda6036e797893d" category="list-text">*冷却期。*冷却期决定了数据必须保持非活动状态多长时间才能符合分层条件。使用 CLI 时，通常使用<block ref="55c3d45354eb01d97141bb8bdf021ff1" prefix=" " category="inline-code"></block>参数进行设置。auto 策略的默认冷却期为 31 天，仅快照策略的默认冷却期实际约为 2 天。您可以针对每个卷进行调整以匹配工作负载。</block>
+  <block id="10345225ac4708bc0dfe6f035bd5135f" category="list-text">*温度跟踪。*使用 AFX，温度跟踪按卷而非聚合级别执行。</block>
+  <block id="59cd389ca54a6337be785984e17dc727" category="inline-link">使用 ONTAP FabricPool 策略高效分层数据</block>
+  <block id="5f062cc40c9c2b8737567a9103cc8521" category="paragraph">有关 FabricPool 分级策略的详细信息，请参阅<block ref="0cb43e5e347e999a1bccf7dccd9de434" category="inline-link-rx"></block>。</block>
+  <block id="9bf2246d2552d9e8ff07524d5f9387a1" category="section-title">激活卷级分层和后续步骤</block>
+  <block id="1a2e9e660be413b7c6c5a1f6d9fe898d" category="paragraph">要在卷上启用分层，请在 System Manager 中导航到 *Volumes* 页面并选择 *Edit*，然后选择 *Cloud Tier Settings* 以根据需要为每个卷配置分层策略和冷却周期。默认策略为 none，因此必须为每个卷显式启用分层。您可以在 CLI 中使用现有的卷命令。</block>
+  <block id="6a360d9e36eacc40e9b4fe4ce2b2b9db" category="paragraph">分层开始后，应监控分层和容量利用率。同时验证卷分层状态并监视性能层和容量层空间使用情况。请注意，AFX 上禁用了非活动数据报告（IDR/AutoIDR），因此计划以不同于 AFF 或 FAS 系统的方式来衡量可分层/冷数据。</block>
+  <block id="a6eb2fd98b5837a1b5cfe24c21a54be8" category="list-text"><block ref="a6eb2fd98b5837a1b5cfe24c21a54be8" category="inline-link-macro-rx"></block></block>
+  <block id="d3b86214377e3d53daec331c7e268b53" category="inline-link-macro">了解适用于 AFF 存储系统的 FabricPool</block>
+  <block id="83d70fe4c62dfc6b7f3c45feb3d59f7d" category="list-text"><block ref="83d70fe4c62dfc6b7f3c45feb3d59f7d" category="inline-link-macro-rx"></block></block>
+  <block id="3b0eb66e0f0e8cba4e043c8e34e14529" category="summary">FabricPool 对 AFX 系统的持续管理类似于 AFF 和 FAS 系统。您需要监控空间利用率、管理卷并调整分层策略。AFX 环境有一些值得注意的新增功能，包括节点加入或离开 AFX 集群时的行为。</block>
+  <block id="faf03e0bf28c1e0e34fc51a753672f8a" category="doc">管理适用于 AFX 存储系统的 FabricPool</block>
+  <block id="000b4b7ad7af8f7897fdcdb2bb984545" category="section-title">监控空间并管理卷</block>
+  <block id="fb772ddd95665be255df3485c0eea669" category="paragraph">与 AFX 配合使用的用于监控容量层和性能层使用情况以及日常卷管理的程序，通常与 ONTAP 中使用的程序相同。请注意，在 AFX 中，空间报告会考虑分解架构。容量层空间信息可通过集群级别和可用性区域报告获得，而不是通过管理员可见的聚合获得。</block>
+  <block id="dae3f04cfa05af411b66518aa5bbaeb5" category="section-title">节点联接和节点退出联接</block>
+  <block id="c3bed1230651867e07cda2846ad33843" category="paragraph">节点操作在 AFX 系统上具有 FabricPool 感知能力，这与 ONTAP 存在显著差异。请注意以下行为：</block>
+  <block id="d0c69bc54e278cfeda6f5b7c95bfaa26" category="list-text">*节点加入。*当节点加入 AFX 集群且集群对象存储配置已存在时，会自动触发对象存储附加。如果连接失败，则节点加入操作也会失败。</block>
+  <block id="31d6d2726aa557100ecd6d2956abe466" category="list-text">*节点退出加入。*当节点退出加入或从集群中删除时，数据将被标记为"defunct"。相关卷将使用 ZCVM 重新定位。停用的对象元文件将被保留，以便其云对象保持可访问状态并可进行垃圾回收。</block>
+  <block id="fe6c586998b990896f483dbc3ec1673f" category="inline-link">管理 FabricPool</block>
+  <block id="c01ff608529dd5327e507018f5b90493" category="list-text"><block ref="c01ff608529dd5327e507018f5b90493" category="inline-link-rx"></block></block>
+  <block id="9e92caa9b806d380742bb01fc9a842ee" category="list-text"><block ref="9e92caa9b806d380742bb01fc9a842ee" category="inline-link-macro-rx"></block></block>
+  <block id="06d543aad5fbf42be7211fff409c940e" category="summary">在 AFF 存储系统上配置 FabricPool 之前，您应熟悉相关要求、限制和选定技术，做好准备工作。</block>
+  <block id="4f8089a5088aca33393a35978b0e9cbe" category="paragraph">在 AFX 存储上部署 FabricPool 时，最重要的要求包括以下内容：</block>
+  <block id="c07d060d13609f3b89369fb46286679c" category="list-text">*ONTAP 版本。*FabricPool 在使用 ONTAP 9.19.1 P3 及更高版本的 AFX 存储系统上受支持。由于存储寻址方式的内部更改，从 9.18.1 升级的 AFX 集群不支持此功能。</block>
+  <block id="d04c54a54c13e3a8acfbe80892131e2c" category="list-text">*对象存储。*需要 NetApp StorageGRID 或 ONTAP S3 存储桶。与运行统一 ONTAP 的 AFF 和 FAS 存储一样，存储桶必须已经存在，并且根据您的数据具有足够的容量。除非明确禁用证书检查，否则建议使用 CA 证书。</block>
+  <block id="28324a6982f0abfa719e277114015d6e" category="list-text">*网络连接。*AFX 集群中的所有节点必须具有到对象存储的网络连接。这是在每个节点使用一对集群间 LIF 来实现的，这与 AFF 和 FAS 系统相同。</block>
+  <block id="4ded46815ec7cfe0bdcbe56113109b18" category="inline-link">使用 ONTAP FabricPool 的要求</block>
+  <block id="9c55f8aa4b0418da27642d66bd9f5a3b" category="paragraph">AFX 和 ONTAP FabricPool 的实现非常相似。查看<block ref="128a0c8e5208475feea91f1d0d39dbd0" category="inline-link-rx"></block>以了解更多信息。</block>
+  <block id="951aab35be376f0a0ed00832cae9acce" category="section-title">限制和制约因素</block>
+  <block id="d45f3c2bf0116d72110d5aebefc83693" category="paragraph">AFX FabricPool 实现在多个方面比统一 ONTAP 更具限制性。以下功能在 AFX 上的 FabricPool 中*不受支持*：</block>
+  <block id="0a33a6df9b06cfd5285e707ab30cf4f1" category="list-text">AFX 不支持可与 ONTAP 配合使用的公有云对象存储，例如 Amazon S3 和 Google Cloud Storage。仅支持 StorageGRID 和 ONTAP S3。</block>
+  <block id="6bbd863d505652d98080235a1a5d7daa" category="list-text">FabricPool 镜像。</block>
+  <block id="47a4fb70d8b782b84ccc36fafe0b65eb" category="list-text">多个对象存储桶或卷粒度存储桶连接；每个 AFX 集群使用一个集群级存储桶。</block>
+  <block id="d4f9dbdd910b3de43456435262714185" category="list-text">优化卷移动、优化 SVM 迁移和优化克隆拆分。</block>
+  <block id="48fe42d5394496af03f3395977f13a00" category="list-text">SVM 从 AFF 或 FAS 系统迁移至 AFX 系统。</block>
+  <block id="71dd786832f94051f0eaa4216edf1580" category="list-text">非活动数据报告（IDR/AutoIDR）。</block>
+  <block id="a0950ec7d864df41f996f57deb48f672" category="paragraph">对于 AFF 和 FAS 系统，在分层到第三方公共云对象存储时需要基于容量的 FabricPool 许可证，但在使用 StorageGRID 或 ONTAP S3 时不需要其他许可证。由于 AFX 仅支持 StorageGRID 和 ONTAP S3，因此 AFX FabricPool 不需要 FabricPool 容量许可证。</block>
+  <block id="7178ee2dceac9cd462bc40d9fd33245c" category="section-title">集群间 LIF</block>
+  <block id="e334077f7bb4f665a77a3c02c57b9e28" category="paragraph">集群间 LIF 是用于跨集群或外部通信的逻辑网络接口。对于 AFF 和 FAS 系统，FabricPool HA 对每对需要两个集群间 LIF 才能到达云层，NetApp 建议使用额外的集群间 LIF 以实现弹性。对于 AFX，集群间 LIF 也用于与对象存储进行通信。在创建对象存储配置的过程中，将对集群中的所有节点验证连接性。</block>
+  <block id="53913658f99be38116a6034c406e12b5" category="list-text"><block ref="53913658f99be38116a6034c406e12b5" category="inline-link-rx"></block></block>
+  <block id="065c34032610d311bfd3657f136f2e26" category="inline-link">ONTAP 对等互连基础知识</block>
+  <block id="462e57d423f95476d9155603442e6a82" category="list-text"><block ref="462e57d423f95476d9155603442e6a82" category="inline-link-rx"></block></block>
+  <block id="9a172a221d677f136b93a0c04c1dc48a" category="inline-link">在共享数据端口上配置 ONTAP 集群间 LIF</block>
+  <block id="11dc3b62d6da6bd017df683f0fb09f98" category="list-text"><block ref="11dc3b62d6da6bd017df683f0fb09f98" category="inline-link-rx"></block></block>
+  <block id="a5c6d13ea9b851eb6cb01c046b44dc09" category="summary">从 ONTAP 9.19.1 P3 开始，您可以配置 FabricPool 以扩展 AFX 存储系统的可用容量，并降低成本和提高效率。</block>
+  <block id="9fe343788d08130f46e418bb81928479" category="section-title">FabricPool 概述</block>
+  <block id="ceaadcb8c520d3e7feb910abd1d71330" category="paragraph">FabricPool 是一种 ONTAP 功能，可根据数据的活动或"温度"在高性能本地层和低成本远程云或容量层之间移动数据。它将频繁访问的 _hot_ 数据保留在快速本地 SSD 存储中，同时将很少使用的 _cold_ 数据移动到成本较低的对象存储中。FabricPool 在后台自动透明地运行，无需更改应用程序或进行大量持续管理。当数据移动到云层并返回时，相关的 ONTAP 存储效率功能（例如压缩和重复数据删除）将得到保留。</block>
+  <block id="5550e4a60c5a40b4e1ad5d483a297a4c" category="paragraph">FabricPool 分层支持使用 ONTAP 9.19.1 P3 及更高版本的 AFX 存储系统，将 AFX 集群容量扩展到本地层以外，以应对数据密集型工作负载。虽然 AFX 对 FabricPool 的实现引入了一些架构更改，但 ONTAP 功能的核心操作和特性保持不变。</block>
+  <block id="7ec25a926b5b84366c2340453ac9f3ea" category="paragraph">管理员可通过每个卷策略以及定义非活动数据何时符合移动条件的最短冷却期来继续控制数据分层。这种策略驱动的模型通过回收昂贵的闪存容量并提供通往混合存储环境的简单途径来提高存储经济性。它可在对活动工作集性能影响最小的情况下，确保分层数据受到保护且可用。</block>
+  <block id="39452eba83734216cfdb4e7f34130611" category="section-title">比较 AFF 和 FAS 与 AFX 实现</block>
+  <block id="a12641493ca806da294fcd0336e03fe2" category="paragraph">虽然 FabricPool 在不同 ONTAP 特性之间的行为非常相似（适用于 AFF 和 FAS 系统的统一 ONTAP 特性，以及适用于 AFX 系统的 AFX ONTAP 特性），但分解式 AFX 架构引入了若干差异。下面总结了这两种实现之间最重要的比较领域。</block>
+  <block id="8d5997846e8f86e51acd682548a95aab" category="cell">区域或操作</block>
+  <block id="b40d6a1a2de02d83542f4039c3433e48" category="cell">AFF 和 FAS 存储</block>
+  <block id="1f3bccae9ec6e70af4750a6ab35399ea" category="cell">AFX 存储</block>
+  <block id="28a9ff4f236cbca167ba3a3702ed19de" category="cell">对象存储范围</block>
+  <block id="17857f79a52a61ef52bb888e51ed3f46" category="cell">按聚合配置，分为两个步骤：配置创建，然后附加</block>
+  <block id="3c8ae231f1522612c4001d8d19663cb2" category="cell">使用单个命令在集群级别进行配置；每个集群定义一个存储桶</block>
+  <block id="6fb6850c966cd386e070d6b4fe33da60" category="cell">默认分层策略</block>
+  <block id="e51fa2d9b995b22d963aa0c409e58a35" category="cell">默认策略为 <block ref="334c4a4c42fdb79d7ebc3e73b517e6f8" prefix=" " category="inline-code"></block>，但启用了 FabricPool 的聚合除外，其默认值为 <block ref="c322d3de29d2b0c5e2e011dad5e77df2" prefix=" " category="inline-code"></block></block>
+  <block id="e23d29d70657da965822a4e0ec8f546b" category="cell">默认策略为<block ref="334c4a4c42fdb79d7ebc3e73b517e6f8" prefix=" " category="inline-code"></block></block>
+  <block id="3daeebad041e5bfd6f3201fcdec79710" category="cell">温度跟踪</block>
+  <block id="2a3317e03d44d341504d96b0c12b490a" category="cell">每卷粒度</block>
+  <block id="7868204f5e206dceb3273bea4608f30a" category="cell">云层提供商</block>
+  <block id="42585093541e213f2b79b96101aaaa5c" category="cell">StorageGRID、ONTAP S3 和几种主要的公共云</block>
+  <block id="8bf89d4d57b893396a6bfda952b806a0" category="cell">仅 StorageGRID 或 ONTAP S3</block>
+  <block id="92ef3738de9a4f7e190599dcd8472124" category="cell">使用 MetroCluster 进行镜像</block>
+  <block id="eaa4dc5078017a5c5bebf383ab6f5124" category="cell">支持</block>
+  <block id="aa7f77e663b832d5b0e544c5511e680c" category="cell">不支持</block>
+  <block id="23b3156b957d1491a47bbeaa0d98afc8" category="cell">卷移动</block>
+  <block id="cc707c916a696bb2ca2dfe461b264f31" category="cell">标准和优化的卷移动</block>
+  <block id="568a24bb03a09fbcb425602857f398cc" category="cell">零拷贝卷移动 (ZCVM)，无需移动容量层数据</block>
+  <block id="18e1d990949517f36865ef994af4780c" category="inline-link">FabricPool 基本概念</block>
+  <block id="ee5c4f33403089d1cb3fac231c75ea23" category="list-text"><block ref="ee5c4f33403089d1cb3fac231c75ea23" category="inline-link-rx"></block></block>
+  <block id="a1a5b1419016c899ee8206658634b838" category="inline-link">了解使用 ONTAP FabricPool 进行数据分层</block>
+  <block id="e60857e7baf180bf7f6eee1d60fe034e" category="list-text"><block ref="e60857e7baf180bf7f6eee1d60fe034e" category="inline-link-rx"></block></block>
+  <block id="9275ca01303e940379de8282ad4b40a3" category="inline-link">ONTAP 分层技术报告</block>
+  <block id="1b6bcb9dffc862927fbf35df8119574d" category="list-text"><block ref="1b6bcb9dffc862927fbf35df8119574d" category="inline-link-rx"></block></block>
+  <block id="e8f9498350aa21865a8e83a88de6a889" category="paragraph-title">AFX 是否支持 FabricPool？</block>
+  <block id="94bd5f205aa476b9ffb298ed4ae57698" category="paragraph">是的。从 ONTAP 9.19.1 P3 开始，AFX 存储系统支持 FabricPool 将数据分层到容量对象存储。AFX 实现与 ONTAP 在架构上有若干差异。例如，云层连接到整个集群（或 SAZ），而不是单个聚合；并且只能使用 ONTAP S3 或 StorageGRID 存储桶。有关详细信息，请参见 <block ref="dde2254b9e458ecae8b03e2a8b01a7ef" category="inline-link-macro-rx"></block>。</block>
+  <block id="5933d9a0441d1f9543a9286674ef11b5" category="doc">AFX S3存储桶管理选项</block>
+  <block id="b8efc14136159d215438d8120125f40e" category="doc">了解如何管理 AFX 存储系统数据</block>
+  <block id="8a4d2cf09ee805145425a9c9a50479f9" category="cell"><block ref="8a4d2cf09ee805145425a9c9a50479f9" category="inline-link-macro-rx"></block></block>
+  <block id="7e8213474819c05fba2da0767bba628f" category="paragraph">FabricPool 是一种 ONTAP 功能，可根据数据的活动在高性能本地层和低成本远程云或容量层之间移动数据。从 ONTAP 9.19.1 P3 开始，FabricPool 已扩展到 AFX 存储系统。它可以实现更大的数据规模，以支持数据密集型工作负载。虽然 AFX 实现引入了一些架构更改，但 ONTAP 功能的核心特征保持不变。</block>
+  <block id="4d1dea91c95564bd60ade3a0184d292b" category="sidebar">管理集群数据</block>
+  <block id="6b84642664b0d7a75d932397df49f779" category="sidebar">FabricPool 层管理</block>
+  <block id="4cb8e8aa7b8cfad0a37845e662bd451e" category="sidebar">了解 FabricPool</block>
+  <block id="9cc7e1b7216fc9da25559b80381f9ca5" category="sidebar">准备实施 FabricPool</block>
+  <block id="6a917ac3c4ad1cc61d8259a608f2ae4e" category="sidebar">配置 FabricPool</block>
+  <block id="015f8c34f52b6ef8a3361958660f5e88" category="sidebar">其他注意事项</block>
 </blocks>

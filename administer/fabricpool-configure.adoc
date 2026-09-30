@@ -1,0 +1,104 @@
+---
+permalink: administer/fabricpool-configure.html 
+sidebar: sidebar 
+keywords: afx, fabricpool, object store, cluster object-store, tiering policy, attach, capacity tier 
+summary: 在较高层面上，在 AFF 存储系统上配置和激活 FabricPool 涉及两个不同级别的流程。首先，您需要在集群级别为数据定义一个云层。然后，您可以使用多个分层策略之一在特定卷上激活分层。 
+---
+= 为 AFF 存储系统配置 FabricPool
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在较高层面上，在 AFF 存储系统上配置和激活 FabricPool 涉及两个不同级别的流程。首先，您需要在集群级别为数据定义一个云层。然后，您可以使用多个分层策略之一在特定卷上激活分层。
+
+
+
+[[configure-fabricpool-at-the-ontap-cluster-level]]
+== 在 ONTAP 集群级别配置 FabricPool
+
+您需要定义一个对整个 ONTAP 集群可用的单个对象桶。为 FabricPool 数据分层启用的所有卷都使用相同的存储桶。
+
+.关于此任务
+与 ONTAP 的两步流程（包括每个聚合附加）不同，AFX 依赖于单个集群范围的流程来配置对象存储并将所有节点附加到存储桶。连接也已确认，与对象存储的关联是永久性的。
+
+使用 System Manager 描述云层的配置，但也可以使用其他选项。例如，您可以将命令 `cluster object-store config create`与 CLI 一起使用。有关详细信息，请参阅link:../administer/fabricpool-additional.html["在 AFX 存储系统上使用 FabricPool 的其他注意事项"]。
+
+.开始之前
+* 查看 AFX FabricPool 先决条件。例如，确认集群处于 9.19.1 或更高版本，并且未从早期版本升级。有关更多详细信息，请参见 link:../administer/fabricpool-prepare.html["准备在 AFF 存储系统上实施 FabricPool"]。
+* 调配对象存储桶。在 NetApp StorageGRID 或 ONTAP S3 上创建一个存储桶，为您的数据提供足够的容量。您可以选择为对象存储安装 CA 证书，以提供更安全的连接。
+* 创建集群间 LIF 并验证与对象存储的连接。您需要定义一对集群间 LIF 来访问 AFX 集群中每个节点上的对象存储。验证所有节点均可访问对象存储端点，且名称解析正常运行。
+
+
+.步骤
+. 在 System Manager 中，选择左侧导航窗格中的*云层*菜单项。
++
+如果未配置云层，则会显示带有"添加"按钮的空状态页面。
+
+. 选择*添加*以启动云层创建；将出现一个包含两个选项的对话框。
+. 选择 StorageGRID 或 ONTAP S3 作为您的提供商。此时将打开相应的*添加云层*表单。
+. 请提供所需的对象存储信息，包括：
++
+.. 对象存储名称（配置标识符）
+.. 服务器名称（对象存储终结点的 FQDN 或 IP 地址）
+.. 容器名称（桶名称）
+.. 访问密钥和私密密钥（对象存储凭据）
+.. 证书验证设置（推荐：使用正确的 CA 证书启用）
+
+
+. 选择将承载云层流量的集群间 LIF。
++
+如果没有合适的接口，则提供创建新接口的选项。
+
+. 选择*保存*。
++
+System Manager 创建集群级对象存储配置，并在验证网络连接后自动将其附加到集群中的所有节点。
+
+. 请在云层页面卡上验证云层详细信息。
+
+
+.完成后
+确认集群仪表板容量卡显示云层使用情况。请注意，您分配的存储桶在被 FabricPool 识别使用后将无法重命名。您可以根据需要对单个数据卷启用分层。
+
+
+
+[[enable-tiering-with-volume-level-policies]]
+== 使用卷级策略启用分层
+
+在集群级别配置 FabricPool 后，您可以通过设置适当的分层策略在各个卷上启用分层。一般来说，这些策略对 AFF 的操作方式与对 ONTAP 的操作方式相同。
+
+* *卷级分层。*按卷启用分层。您可以为每个卷设置不同的分层策略。根据策略，卷的数据有资格移动到云层。
+* *分层策略。*可以为卷定义四个分层策略，包括：
++
+** `snapshot-only`
+** `auto`
+** `all`
+** `none`
+
+
+* *默认分层策略。*默认策略为 `none`，这意味着没有数据有资格移动到云层。相比之下，新附加聚合上的 ONTAP 卷在 AFF 和 FAS 系统上默认为 `snapshot-only`。
+* *策略触发。*设置除 `none`之外的策略会触发云连接并激活数据分层。
+* *冷却期。*冷却期决定了数据必须保持非活动状态多长时间才能符合分层条件。使用 CLI 时，通常使用 `-tiering-minimum-cooling-days`参数进行设置。auto 策略的默认冷却期为 31 天，仅快照策略的默认冷却期实际约为 2 天。您可以针对每个卷进行调整以匹配工作负载。
+* *温度跟踪。*使用 AFX，温度跟踪按卷而非聚合级别执行。
+
+
+有关 FabricPool 分级策略的详细信息，请参阅 https://docs.netapp.com/us-en/ontap/fabricpool/tiering-policies-concept.html["使用 ONTAP FabricPool 策略高效分层数据"^]。
+
+
+
+[[activate-volume-level-tiering-and-next-steps]]
+=== 激活卷级分层和后续步骤
+
+要在卷上启用分层，请在 System Manager 中导航到 *Volumes* 页面并选择 *Edit*，然后选择 *Cloud Tier Settings* 以根据需要为每个卷配置分层策略和冷却周期。默认策略为 none，因此必须为每个卷显式启用分层。您可以在 CLI 中使用现有的卷命令。
+
+分层开始后，应监控分层和容量利用率。同时验证卷分层状态并监视性能层和容量层空间使用情况。请注意，AFX 上禁用了非活动数据报告（IDR/AutoIDR），因此计划以不同于 AFF 或 FAS 系统的方式来衡量可分层/冷数据。
+
+
+
+[[related-information]]
+== 相关信息
+
+* link:../administer/fabricpool-prepare.html["准备在 AFF 存储系统上实施 FabricPool"]
+* link:../administer/fabricpool.html["了解适用于 AFF 存储系统的 FabricPool"]
+
