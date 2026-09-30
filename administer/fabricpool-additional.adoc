@@ -18,53 +18,53 @@ summary: 在 AFX 存储系统上部署 FabricPool 时，还有一些其他注意
 [[fabricpool-mirrors]]
 == FabricPool 镜像
 
-FabricPool 镜像是一种针对分层云数据的高可用性配置，通过将第二个对象存储附加到单个 FabricPool 来创建。配置附加镜像后，ONTAP 会同时将数据同步分层到这两个对象存储，从而确保在发生灾难或对象存储故障期间数据仍可访问。由于 AFX 配置了单个集群级对象存储，因此在初始版本中，AFX 不支持 *FabricPool 镜像。
+FabricPool 镜像是分层云数据的高可用性配置，通过将第二个对象存储附加到单个 FabricPool 来创建。配置附加镜像后，ONTAP 会同时将数据同步分层到两个对象存储，确保在灾难或对象存储中断期间数据仍可访问。由于 AFX 配置单个集群级对象存储，因此初始版本的 AFX 不支持 *FabricPool 镜像。
 
 
 
 [[encryption]]
 == 加密
 
-加密与 FabricPool 在 AFF 上运行，无需额外配置。但您应该注意以下几点：
+加密与 AFX 上的 FabricPool 配合使用，无需额外配置。但您应该注意以下几点：
 
-* AFX 支持 NetApp 卷加密 (NVE)；不支持 NetApp 聚合加密 (NAE)。
-* NVE对性能层和容量层使用相同的密钥。
-* 重新加密操作使用新密钥重写整个卷的数据，包括云层数据。
-* 重新加密操作和 Zero Copy Volume Move 不能同时运行。
+* AFX 支持 NetApp 卷加密（NVE）；不支持 NetApp 聚合加密（NAE）。
+* NVE 对性能层和容量层使用相同的密钥。
+* 更换密钥操作会使用新密钥重写整个卷的数据，包括云层数据。
+* Rekey 操作和 Zero Copy Volume Move 不能同时运行。
 
 
 
 
 [[alternative-administrative-interfaces]]
-== 备用管理界面
+== 备用管理接口
 
-System Manager 是在 AFX 上配置和管理 FabricPool 的主要推荐管理界面。但您也可以使用命令行界面 (CLI) 或 REST API 执行这些任务。
+System Manager 是在 AFX 上配置和管理 FabricPool 的主要且推荐的管理界面。但您也可以使用命令行界面（CLI）或 REST API 来执行这些任务。
 
 
 
 [[command-line-interface]]
 === 命令行界面
 
-AFX CLI 经过重新设计，以支持 FabricPool，与集群重点和缺少聚合的情况保持一致。
+AFX CLI 经过重新设计，以支持 FabricPool，从而与集群重点和缺少聚合的情况保持一致。
 
 
 
-==== 集群级对象存储命令
+==== 群集级对象存储命令
 
-以下命令在  `admin` 级别可用，用于管理分层数据的对象存储：
+在 `admin`级别可用的以下命令用于管理分层数据的对象存储：
 
-* *cluster object-store config create* 定义 StorageGRID 或 ONTAP S3 对象存储的配置，并自动将其附加到集群中的所有 flexaggrs。此单个命令取代了统一 ONTAP 中使用的两步流程（config create + attach）。该操作是幂等的，如果初始附加失败，可以重新运行。
+* *cluster object-store config create* 定义 StorageGRID 或 ONTAP S3 对象存储的配置，并自动将其附加到集群中的所有 flexaggrs。此单个命令取代了统一 ONTAP 中使用的两步过程（config create + attach）。该操作是幂等的，如果初始附加失败，可以重新运行。
 * *cluster object-store config modify* 修改对象存储配置属性。在统一 ONTAP 中可修改的相同属性（连接设置、凭据、证书选项）也可以在 AFX 中修改。
 * *cluster object-store config rename* 重命名现有对象存储配置。
-* *cluster object-store config show* 显示当前对象存储配置，包括连接详细信息和附件状态。
-* *cluster space show* 显示集群级空间利用率，包括累计的对象存储使用率。输出包括逻辑已用容量、逻辑引用容量、逻辑未引用容量和云层上的总物理已用空间。
+* *cluster object-store config show* 显示当前对象存储配置，包括连接详细信息和附加状态。
+* *cluster space show* 显示集群级空间利用率，包括累计的对象存储使用量。输出包括逻辑已用容量、逻辑引用容量、逻辑未引用容量和云层上的总物理已用空间。
 
 
 
 
 ==== 卷级分层命令（管理和高级模式）：
 
-控制分层行为的所有 ONTAP 卷创建和修改命令在 AFX 上均完全支持，且语法相同。这包括带有分层相关参数的标准卷创建和卷修改命令，包括：
+在 AFX 上完全支持所有控制分层行为的 ONTAP 卷创建和修改命令，且语法相同。这包括带有分层相关参数的标准卷创建和卷修改命令，包括：
 
 * -tiering-policy
 * -tiering-minimum-cooling-days
@@ -84,10 +84,10 @@ AFX 上的 FabricPool REST API 端点支持集群级对象存储管理和卷级�
 
 有几个受支持的端点，包括：
 
-* 适用于  `/cloud/targets` 的 GET 和 POST
-* GET 和 PATCH 用于  `/cloud/targets/{uuid}`
+* GET 和 POST 用于 `/cloud/targets`
+* GET 和 PATCH 用于 `/cloud/targets/{uuid}`
 * GET 和 POST 用于 `/storage/volumes`
-* 使用以下分层参数对 `/storage/volumes/{uuid} 执行 GET 和 PATCH 操作：
+* 对 `/storage/volumes/{uuid} 的 GET 和 PATCH，使用以下分层参数：
 +
 ** tiering.policy
 ** tiering.min_cooling_days
@@ -100,8 +100,8 @@ AFX 上的 FabricPool REST API 端点支持集群级对象存储管理和卷级�
 
 不支持的端点和参数包括：
 
-* DELETE `/cloud/targets/{uuid}`
-* `tiering.supported parameter` 卷操作
+* 删除 `/cloud/targets/{uuid}`
+* `tiering.supported parameter` 关于卷操作
 * 的所有操作 `/storage/aggregates/{aggregate.uuid}/cloud-stores`
 
 

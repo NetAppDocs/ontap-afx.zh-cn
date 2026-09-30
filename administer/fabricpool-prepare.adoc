@@ -2,16 +2,16 @@
 permalink: administer/fabricpool-prepare.html 
 sidebar: sidebar 
 keywords: afx, fabricpool, requirements, limitations, licensing, prepare, prerequisites, storagegrid, ontap s3 
-summary: 在 AFF 存储系统上配置 FabricPool 之前，您应熟悉相关要求、限制和选定技术，做好准备工作。 
+summary: 在 AFX 存储系统上配置 FabricPool 之前，您应该通过熟悉要求、限制和所选技术来做好准备。 
 ---
-= 准备在 AFF 存储系统上实施 FabricPool
+= 准备在 AFX 存储系统上实施 FabricPool
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-在 AFF 存储系统上配置 FabricPool 之前，您应熟悉相关要求、限制和选定技术，做好准备工作。
+在 AFX 存储系统上配置 FabricPool 之前，您应该通过熟悉要求、限制和所选技术来做好准备。
 
 
 
@@ -20,25 +20,25 @@ summary: 在 AFF 存储系统上配置 FabricPool 之前，您应熟悉相关要
 
 在 AFX 存储上部署 FabricPool 时，最重要的要求包括以下内容：
 
-* *ONTAP 版本。*FabricPool 在使用 ONTAP 9.19.1 P3 及更高版本的 AFX 存储系统上受支持。由于存储寻址方式的内部更改，从 9.18.1 升级的 AFX 集群不支持此功能。
+* *ONTAP 版本。*运行 ONTAP 9.19.1 P3 及更高版本的 AFX 存储系统支持 FabricPool。由于存储寻址方式的内部更改，从 9.18.1 升级的 AFX 集群不支持此功能。
 * *对象存储。*需要 NetApp StorageGRID 或 ONTAP S3 存储桶。与运行统一 ONTAP 的 AFF 和 FAS 存储一样，存储桶必须已经存在，并且根据您的数据具有足够的容量。除非明确禁用证书检查，否则建议使用 CA 证书。
 * *网络连接。*AFX 集群中的所有节点必须具有到对象存储的网络连接。这是在每个节点使用一对集群间 LIF 来实现的，这与 AFF 和 FAS 系统相同。
 
 
-AFX 和 ONTAP FabricPool 的实现非常相似。查看 https://docs.netapp.com/us-en/ontap/fabricpool/requirements-concept.html["使用 ONTAP FabricPool 的要求"^]以了解更多信息。
+AFX 和 ONTAP FabricPool 的实现非常相似。有关详细信息，请查看 https://docs.netapp.com/us-en/ontap/fabricpool/requirements-concept.html["使用 ONTAP FabricPool 的要求"^]。
 
 
 
 [[limitations-and-restrictions]]
-== 限制和制约因素
+== 限制和约束
 
-AFX FabricPool 实现在多个方面比统一 ONTAP 更具限制性。以下功能在 AFX 上的 FabricPool 中*不受支持*：
+在几个方面，AFX FabricPool 实现比统一 ONTAP 更具限制性。AFX 上的 FabricPool *不支持*以下功能：
 
-* AFX 不支持可与 ONTAP 配合使用的公有云对象存储，例如 Amazon S3 和 Google Cloud Storage。仅支持 StorageGRID 和 ONTAP S3。
+* AFX 不支持可用于 ONTAP 的公有云对象存储，例如 Amazon S3 和 Google Cloud Storage。仅支持 StorageGRID 和 ONTAP S3。
 * FabricPool 镜像。
-* 多个对象存储桶或卷粒度存储桶连接；每个 AFX 集群使用一个集群级存储桶。
+* 多个对象存储存储桶或卷粒度存储桶连接；每个 AFX 集群使用一个集群级存储桶。
 * 优化卷移动、优化 SVM 迁移和优化克隆拆分。
-* SVM 从 AFF 或 FAS 系统迁移至 AFX 系统。
+* SVM 迁移以及从 AFF 或 FAS 系统到 AFX 系统的迁移。
 * 非活动数据报告（IDR/AutoIDR）。
 
 
@@ -47,14 +47,14 @@ AFX FabricPool 实现在多个方面比统一 ONTAP 更具限制性。以下功�
 [[licensing]]
 == 许可
 
-对于 AFF 和 FAS 系统，在分层到第三方公共云对象存储时需要基于容量的 FabricPool 许可证，但在使用 StorageGRID 或 ONTAP S3 时不需要其他许可证。由于 AFX 仅支持 StorageGRID 和 ONTAP S3，因此 AFX FabricPool 不需要 FabricPool 容量许可证。
+对于 AFF 和 FAS 系统，在分层到第三方公共云对象存储时，需要基于容量的 FabricPool 许可证，但在使用 StorageGRID 或 ONTAP S3 时不需要其他许可证。由于 AFX 仅支持 StorageGRID 和 ONTAP S3，因此 AFX FabricPool 不需要 FabricPool 容量许可证。
 
 
 
 [[intercluster-lifs]]
 == 集群间 LIF
 
-集群间 LIF 是用于跨集群或外部通信的逻辑网络接口。对于 AFF 和 FAS 系统，FabricPool HA 对每对需要两个集群间 LIF 才能到达云层，NetApp 建议使用额外的集群间 LIF 以实现弹性。对于 AFX，集群间 LIF 也用于与对象存储进行通信。在创建对象存储配置的过程中，将对集群中的所有节点验证连接性。
+集群间 LIF 是用于跨集群或外部通信的逻辑网络接口。对于 AFF 和 FAS 系统，FabricPool HA 对每对需要两个集群间 LIF 才能到达云层，并且 NetApp 建议使用额外的集群间 LIF 以实现弹性。使用 AFX，集群间 LIF 也用于与对象存储进行通信。作为创建对象存储配置的一部分，将验证集群中所有节点的连接性。
 
 
 
@@ -62,6 +62,6 @@ AFX FabricPool 实现在多个方面比统一 ONTAP 更具限制性。以下功�
 == 相关信息
 
 * https://docs.netapp.com/us-en/ontap/fabricpool/requirements-concept.html["使用 ONTAP FabricPool 的要求"^]
-* https://docs.netapp.com/us-en/ontap/peering/peering-basics-concept.html["ONTAP 对等互连基础知识"^]
+* https://docs.netapp.com/us-en/ontap/peering/peering-basics-concept.html["ONTAP 对等基础知识"^]
 * https://docs.netapp.com/us-en/ontap/peering/configure-intercluster-lifs-share-data-ports-task.html["在共享数据端口上配置 ONTAP 集群间 LIF"^]
 

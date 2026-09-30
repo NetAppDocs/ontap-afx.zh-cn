@@ -116,4 +116,4 @@ NetApp AFX 可自动平衡集群中所有节点上的卷放置位置。从ONTAP 
 在最初的 9.17.1 AFX 版本中，卷只会在存储故障转移恢复场景中以及向集群添加或删除节点时移动。这些移动仅通过ONTAP进行控制。
 
 .AFX 是否支持 FabricPool？
-是的。从 ONTAP 9.19.1 P3 开始，AFX 存储系统支持 FabricPool 将数据分层到容量对象存储。AFX 实现与 ONTAP 在架构上有若干差异。例如，云层连接到整个集群（或 SAZ），而不是单个聚合；并且只能使用 ONTAP S3 或 StorageGRID 存储桶。有关详细信息，请参见 link:./administer/fabricpool.html["了解适用于 AFF 存储系统的 FabricPool"]。
+是的。从 ONTAP 9.19.1 P3 开始，AFX 存储系统支持 FabricPool 将数据分层到容量对象存储。AFX 实现在架构上与 ONTAP 有几个不同之处。例如，云层连接到整个集群（或 SAZ）而不是单个聚合；并且只能使用 ONTAP S3 或 StorageGRID 存储桶。有关详细信息，请参见 link:./administer/fabricpool.html["了解适用于 AFX 存储系统的 FabricPool"]。
