@@ -1316,7 +1316,6 @@
   <block id="e2bf3258a6bd916a9b75ab07319e2aa4" category="list-text">分层一致性组是在ONTAP 9.16.1 中引入的，并可与 AFX 一起使用。通过分层结构，可以将一个或多个一致性组配置为父级下的子级。这些分层组允许您将单独的快照策略应用于子一致性组，并通过复制父组将所有子组的快照作为单个单元复制到远程集群。</block>
   <block id="85fdd77d0274be7a2ed2bdefd292e18c" category="list-text">SnapLock是ONTAP 的一项功能，允许您通过将文件移动到一次写入多次读取 (WORM) 状态来保护文件。这可以防止在指定的保留期内进行修改或删除。创建的SnapLock卷在基于保留创建后不能从非SnapLock卷转换。</block>
   <block id="f5ec2b2f45cf6729ee766559c7aa50f1" category="summary">快照复制是将 AFX 系统上的一致性组复制到地理位置较远的位置的过程。初始复制之后，一致性组的更改将根据复制策略复制到远程位置。复制的一致性组可用于灾难恢复或数据迁移。</block>
-  <block id="1fb9148e9e8349d6e785a8abe0e5fdba" category="doc">管理 AFX 存储系统上的快照复制</block>
   <block id="a7ee55059187c77f0db0f1191da3e6c8" category="paragraph">要设置快照复制，您需要在 AFX 存储系统和远程位置之间建立复制关系。复制关系由复制策略控制。在集群设置期间创建复制所有快照的默认策略。您可以使用默认策略，也可以选择创建新策略。</block>
   <block id="bb35c8e1197f3cb1f834baa178f51fdd" category="section-title">步骤 1：创建集群对等关系</block>
   <block id="256483a2b5ed8710e7c8fdf9ce515426" category="paragraph">在通过将数据复制到远程集群来保护数据之前，您需要在本地和远程集群之间创建集群对等关系。</block>
@@ -2332,4 +2331,5 @@
   <block id="9cc7e1b7216fc9da25559b80381f9ca5" category="sidebar">准备实施 FabricPool</block>
   <block id="6a917ac3c4ad1cc61d8259a608f2ae4e" category="sidebar">配置 FabricPool</block>
   <block id="015f8c34f52b6ef8a3361958660f5e88" category="sidebar">其他注意事项</block>
+  <block id="f71f016f7ff1ffe09fcc0bb6c3f2c337" category="doc">AFX 存储系统的快照复制工作流</block>
 </blocks>
