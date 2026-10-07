@@ -4,7 +4,7 @@ permalink: manage-data/prepare-manage-data.html
 keywords: afx, afx system, prepare, prepare manage, prepare manage data 
 summary: 在管理 AFX 数据之前，您应该熟悉基本概念和功能。 
 ---
-= bfd961e2a1e35548010fea792ecda5e4
+= 了解如何管理 AFX 存储系统数据
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
