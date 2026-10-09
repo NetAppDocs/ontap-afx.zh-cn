@@ -2333,4 +2333,6 @@
   <block id="5933d9a0441d1f9543a9286674ef11b5" category="doc">AFX S3存储桶管理选项</block>
   <block id="b8efc14136159d215438d8120125f40e" category="doc">了解如何管理 AFX 存储系统数据</block>
   <block id="f71f016f7ff1ffe09fcc0bb6c3f2c337" category="doc">AFX 存储系统的快照复制工作流</block>
+  <block id="df0a5fa7367c040e26263e7f6bd5d3bb" category="paragraph-title">我可以在 AFX 存储架中使用不同的驱动器大小吗？</block>
+  <block id="a5ca85d705ee24e667c1206bd5c112b4" category="paragraph">不可以。AFX 不支持单个存储架内的混合驱动器大小。存储架内的所有驱动器必须大小相同。有关 AFX 存储系统配置的完整兼容性信息，请参阅<block ref="bb9c67b5a4c15a85b5e6aa6c9afd0285" category="inline-link-rx"></block>。</block>
 </blocks>
