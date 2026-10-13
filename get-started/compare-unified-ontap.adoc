@@ -4,7 +4,7 @@ permalink: get-started/compare-unified-ontap.html
 keywords: afx, afx system, compare afx, compare unified ontap 
 summary: NetApp AFX 系统运行定制的ONTAP特性，它与在AFF和FAS存储上运行的ONTAP特性（称为统一ONTAP ）不同。您应该了解 AFX 系统与FAS和AFF系统有何相似之处和不同之处。这提供了宝贵的视角，并且在您的环境中部署 AFX 时会很有帮助。 
 ---
-= 将 AFX 存储系统与AFF和FAS系统进行比较
+= AFX 与 AFF 和 FAS 存储系统的区别
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -106,7 +106,7 @@ AFX 提供的ONTAP CLI 通常与AFF和FAS系统提供的 CLI 相同。但存在�
 == 相关信息
 
 * link:../get-started/system-design.html["AFX系统特性"]
-* link:../get-started/software-architecture.html["AFX 架构细节"]
+* link:../get-started/software-architecture.html["AFX 存储系统架构"]
 * link:../faq-ontap-afx.html["AFX 存储系统常见问题解答"]
 * link:../administer/additional-ontap-cluster.html["额外的 AFX 集群管理"]
 * link:../administer/additional-ontap-svm.html["额外的 AFX SVM 管理"]

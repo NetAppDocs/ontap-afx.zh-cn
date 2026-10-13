@@ -4,7 +4,7 @@ permalink: get-started/software-architecture.html
 keywords: afx, afx system, cluster, architecture, components, physical, logical 
 summary: AFX 架构由多个硬件和软件组件组成。这些系统组件被组织成不同的类别。 
 ---
-= AFX存储系统架构细节
+= AFX 存储系统架构
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

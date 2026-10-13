@@ -4,7 +4,7 @@ permalink: get-started/quick-start.html
 keywords: afx, afx system, quick start 
 summary: 要最初启动并运行 AFX 系统，需要安装硬件组件、设置集群并准备管理集群和 SVM。 
 ---
-= 快速启动设置 AFX 存储系统
+= AFX 存储系统快速入门
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
