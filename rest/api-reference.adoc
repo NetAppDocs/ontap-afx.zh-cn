@@ -4,7 +4,7 @@ permalink: rest/api-reference.html
 keywords: afx, afx system, rest api, rest api reference, swagger 
 summary: AFX REST API 参考包含有关所有 API 调用的详细信息。该文档在开发自动化应用程序时很有用。 
 ---
-= AFX 存储系统的 REST API 参考
+= 访问 AFX 存储系统的 REST API 文档
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

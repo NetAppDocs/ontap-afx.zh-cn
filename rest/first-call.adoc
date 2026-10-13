@@ -4,7 +4,7 @@ permalink: rest/first-call.html
 keywords: afx, afx system, rest api, first call, curl 
 summary: 您可以发出一个简单的 curl 命令来开始使用 AFX REST API 并确认其可用性。 
 ---
-= 您的第一个 AFX 存储系统 REST API 调用
+= 进行首次 AFX 存储系统 REST API 调用
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

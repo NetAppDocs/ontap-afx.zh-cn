@@ -1392,7 +1392,6 @@
   <block id="51048cf34d4c82d7ae92b4e8b33ccc35" category="inline-link">ONTAP 9 发布亮点</block>
   <block id="858426bc9cba92152de24f66ed20c19b" category="list-text"><block ref="858426bc9cba92152de24f66ed20c19b" category="inline-link-rx"></block></block>
   <block id="a94bc3cecb41ed2607e30e4137f48423" category="summary">AFX REST API 参考包含有关所有 API 调用的详细信息。该文档在开发自动化应用程序时很有用。</block>
-  <block id="9d9d25e0255ab68716120450f05905de" category="doc">AFX 存储系统的 REST API 参考</block>
   <block id="21ffe7e5e1175fdf48a61fcd9c71ff47" category="list-text">AFX 集群管理 LIF 的 IP 地址或 FQDN</block>
   <block id="33eb1e63e3f6eb080297d3d1813fb0fc" category="list-text">集群管理员帐户的凭证</block>
   <block id="1aaa22d05f688af827774a38c8cc4a4f" category="list-text">将您的 Web 浏览器连接到集群管理 IP 地址或域名：</block>
@@ -1403,7 +1402,6 @@
   <block id="8162203e3ec38c896e5f6d688115d731" category="inline-link">ONTAP REST API 参考</block>
   <block id="99ec9f1726a6519eae656fd574344d13" category="list-text"><block ref="99ec9f1726a6519eae656fd574344d13" category="inline-link-rx"></block></block>
   <block id="1b145f28c9e1e4044efc92e3e1567780" category="summary">您可以发出一个简单的 curl 命令来开始使用 AFX REST API 并确认其可用性。</block>
-  <block id="82c5461d1a57f884eb846ca365801e17" category="doc">您的第一个 AFX 存储系统 REST API 调用</block>
   <block id="7013ac323311e3dab810263b1d637a84" category="paragraph">除了在本地工作站上提供 curl 实用程序之外，您还需要以下内容：</block>
   <block id="e57ddd021ae925c610e301862e495d93" category="list-text">AFX 系统集群管理 LIF 的 IP 地址或 FQDN</block>
   <block id="6c62a36f8e262347f2ba79452265a020" category="list-text">有权访问ONTAP REST API 的帐户的ONTAP凭据</block>
@@ -2335,4 +2333,6 @@
   <block id="f71f016f7ff1ffe09fcc0bb6c3f2c337" category="doc">AFX 存储系统的快照复制工作流</block>
   <block id="df0a5fa7367c040e26263e7f6bd5d3bb" category="paragraph-title">我可以在 AFX 存储架中使用不同的驱动器大小吗？</block>
   <block id="a5ca85d705ee24e667c1206bd5c112b4" category="paragraph">不可以。AFX 不支持单个存储架内的混合驱动器大小。存储架内的所有驱动器必须大小相同。有关 AFX 存储系统配置的完整兼容性信息，请参阅<block ref="bb9c67b5a4c15a85b5e6aa6c9afd0285" category="inline-link-rx"></block>。</block>
+  <block id="147085887c747ae25d5c898682fdb3b2" category="doc">访问 AFX 存储系统的 REST API 文档</block>
+  <block id="e0bb0202db2abc666440192da58b5166" category="doc">进行首次 AFX 存储系统 REST API 调用</block>
 </blocks>
