@@ -58,7 +58,7 @@ AFX 存储系统于 2025 年 10 月在NetApp Insight大会上发布。AFX 支持
 不可以。您不能在同一个集群中混合运行不同ONTAP特性的系统节点。例如，您不能在同一个集群中将 AFX 节点（运行 AFX ONTAP个性化）与AFF或FAS节点（运行 Unified ONTAP个性化）混合使用。
 
 .我可以将FlexCache与 AFX 系统集群一起使用吗？
-是AFX 存储系统支持FlexCache与运行 Unified ONTAP特性的AFF或FAS系统之间的通信。唯一的限制是 AFX 不支持具有回写模式的FlexCache 。
+是。AFX 存储系统支持与运行统一 ONTAP 特性的 AFF 或 FAS 系统之间的双向 FlexCache。但是，当为同一卷启用 FlexGroup Advanced Capacity Balancing 时，无法使用 FlexCache 回写。ACB 默认为每个卷启用，因此必须先禁用它（使用选项 `-granular-data``），然后才能启用 FlexCache 回写。统一 ONTAP 中也存在同样的限制。
 
 .如果我想将AFF或FAS系统（运行统一ONTAP个性）与 AFX 系统一起用于SnapMirror或FlexCache，我需要哪个ONTAP版本？
 AFX 的SnapMirror版本规则与 Unified ONTAP相同。这意味着要从 Unified ONTAP复制，源系统必须在支持的版本范围内。要从 AFX 复制，Unified ONTAP系统必须是ONTAP 9.16.1 或更高版本（支持高级容量平衡功能的最早版本）。对于FlexCache，源系统和目标系统适用相同的规则，如 https://www.netapp.com/pdf.html?item=/media/7336-tr4743.pdf["TR-4743"^]。
