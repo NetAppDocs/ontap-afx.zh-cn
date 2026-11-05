@@ -63,7 +63,7 @@ AFX 存储系统于 2025 年 10 月在NetApp Insight大会上发布。AFX 支持
 .如果我想将AFF或FAS系统（运行统一ONTAP个性）与 AFX 系统一起用于SnapMirror或FlexCache，我需要哪个ONTAP版本？
 AFX 的SnapMirror版本规则与 Unified ONTAP相同。这意味着要从 Unified ONTAP复制，源系统必须在支持的版本范围内。要从 AFX 复制，Unified ONTAP系统必须是ONTAP 9.16.1 或更高版本（支持高级容量平衡功能的最早版本）。对于FlexCache，源系统和目标系统适用相同的规则，如 https://www.netapp.com/pdf.html?item=/media/7336-tr4743.pdf["TR-4743"^]。
 
-对FlexGroup卷的支持存在一些差异。  AFX 上的FlexGroup卷不能成为使用写回模式的FlexCache卷的原始卷。
+对 FlexGroup 卷的支持存在一些差异。AFX 上的 FlexGroup 卷不能是使用回写模式的 FlexCache 卷的原始卷。
 
 .我可以对 AFX 集群进行 ONTAPI（ZAPI）API 调用吗？
 不可以。AFX 仅支持ONTAP REST API。任何使用 ZAPI 的自动化代码都需要转换为 REST API 才能与 AFX 一起使用。

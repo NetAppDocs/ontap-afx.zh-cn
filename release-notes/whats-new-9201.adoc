@@ -1,0 +1,340 @@
+---
+sidebar: sidebar 
+permalink: release-notes/whats-new-9201.html 
+keywords: 'afx, release notes, what"s new, 9.20.1' 
+summary: 了解您的 AFX 存储系统提供的 ONTAP 9.20.1 附带的新功能。 
+---
+= AFX 存储系统的 ONTAP 9.20.1 新增功能
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+了解您的 AFX 存储系统提供的 ONTAP 9.20.1 附带的新功能。
+
+
+NOTE: ONTAP 9.20.1 为 AFX 提供了几项新功能。其中一些是针对 AFX 的，而其他许多则来自共同的共享产品基础。除了查看下面描述的 AFX 功能外，您还应参考 https://docs.netapp.com/us-en/ontap/release-notes/whats-new-9201.html["ONTAP 9.20.1 中的新增功能"^]。
+
+
+
+[[data-protection]]
+== 数据保护
+
+[cols="30%,70%"]
+|===
+| 更新 | 描述 
+
+
+ a| 
+从非 SnapLock 源一致性组复制到 SnapLock for SnapVault 目标一致性组
+ a| 
+您可以从非 SnapLock 源一致性组复制到 SnapLock for SnapVault 目标一致性组。SnapLock for SnapVault 可防止意外或恶意删除已复制的一致性组。
+
+
+
+ a| 
+NAS 的 SnapMirror 活动同步对象限制
+ a| 
+NAS 的 SnapMirror 主动同步将 AFX 平台（4 x 4）支持的卷数量增加到 600 个。
+
+
+
+ a| 
+了解 SnapMirror 同步灾难恢复
+ a| 
+SnapMirror 同步将 AFX 平台的复制操作数量增加到 600 个。
+
+
+
+ a| 
+增强的 SVM 灾难恢复
+ a| 
+ONTAP 9.20.1 通过使用标准管理员权限卷修改工作流，允许在 SVM-DR 目标卷上修改选定的卷属性，从而增强了 SVM 灾难恢复功能，减少了对支持人员协助程序的需求。该版本还将选择加入的 SVM-DR 快速重新同步支持扩展到了 FlexGroup 成分卷，帮助承载大型 FlexGroup 的 SVM 在 DR 演练、重新同步或反向重新同步工作流之后更快地恢复到受保护状态。
+
+
+
+ a| 
+SnapMirror 云就地恢复到原始源卷
+ a| 
+SnapMirror 云支持对 FlexVol 卷进行就地还原操作，使您能够直接将云快照还原到原始源卷。ONTAP 选择最新的公共快照并执行增量传输，从而缩短还原时间。
+
+|===
+
+
+[[nas]]
+== NAS
+
+[cols="30%,70%"]
+|===
+| 更新 | 描述 
+
+
+ a| 
+实现对 NormaliseNameInfo 在 NetApp ONTAP SMB 协议中的支持，以确保与 Windows 客户端的兼容性和性能
+ a| 
+Windows 客户端可以在单个请求中检索规范的文件和目录名称，从而减少文件打开延迟并提高企业桌面、应用程序和文件服务器的 SMB 兼容性。ONTAP 自动返回打开的文件和目录的规范路径，避免在 Windows 11 24H2 及更高版本的客户端上进行逐组件查找，且无需进行额外配置。
+
+
+
+ a| 
+支持使用 VAAI-NAS 的自动 UNMAP 以实现空间回收
+ a| 
+ONTAP 支持通过适用于 VMware VAAI 的 NetApp NFS 插件自动回收 NFS 数据存储的空间。当 VMware ESXi 9.0 或更高版本的主机发出 UNMAP 操作时，这有助于从精简配置的 VMDK 块范围中回收空间。
+
+
+
+ a| 
+ONTAP FlexVol 卷的最大目录大小
+ a| 
+ONTAP 通过支持高达 4GB 的目录大小，提高了包含多达约 2500 万个文件的超大目录的性能。运行在单个目录中生成极高文件数量的工作负载（例如 AI 训练）的客户，可以通过避免以前在大型目录中出现的性能损失而受益。它还可以通过确保目录在数据保护故障转移后保持完全索引来提高弹性，因此即使 SnapMirror 关系中断，复制的副本也能保持良好的性能。此功能适用于 AFX 存储系统，并可根据需要在每个卷上启用。
+
+
+
+ a| 
+自动 SID 到 UNIX ID 转换支持
+ a| 
+ONTAP 为连接 LDAP 的 SVM 引入了自动 SID 到 UNIX ID 转换支持，以便从 Windows SID 生成和反向转换 POSIX UID/GID。这消除了在 Active Directory 中手动维护 uidNumber/gidNumber 属性的需要，减少了管理开销，并有助于确保跨 NFS 和 SMB 的一致文件访问。这一符合行业标准的功能对于从基于 SSSD 的 NAS 平台迁移大型网络并希望保持身份映射一致性的客户来说尤其有价值。默认情况下，该功能处于禁用状态，并按 SVM 进行配置。
+
+|===
+
+
+[[networking]]
+== 网络连接
+
+[cols="30%,70%"]
+|===
+| 更新 | 描述 
+
+
+| link:../administer/additional-ontap-svm.html["将 FPolicy 扩展到 NFS 4.2"]  a| 
+FPolicy 扩展到 NFS 4.2，将文件活动监控和策略实施引入到 ONTAP 支持的最新 NFS 协议版本中。FPolicy 监控 NFSv4.2 文件访问事件，以支持审核、合规性和网络弹性用例。高级安全属性监控可提供更强大的数据保护和分类。标记 NFS 支持可实现对合规敏感和分类数据环境的安全标签更改的策略驱动响应。使用此功能可加强审计、合规性和勒索软件防护。
+
+|===
+
+
+[[s3-object-storage]]
+== S3 对象存储
+
+[cols="30%,70%"]
+|===
+| 更新 | 描述 
+
+
+| link:../administer/additional-ontap-svm.html["用于 S3 对象存储的 FPolicy"]  a| 
+FPolicy 为 S3 对象工作流程提供安全监控。这为文件和对象存储提供了统一的 FPolicy 框架，简化了混合数据环境的安全操作。针对 S3 对象的 FPolicy 提供对象生命周期可见性，以监控对象的创建、删除和元数据标记更改，以满足安全性、合规性和审核要求。此功能提供无中断监控，而不会影响性能。
+
+
+
+ a| 
+灵活的 S3 存储桶大小调整
+ a| 
+ONTAP 支持新 S3 存储桶的可配置默认大小。这有助于减少应用程序在不指定容量的情况下通过 S3 API 创建存储桶时手动调整大小。如果未配置默认大小，存储桶创建行为将保持不变。
+
+
+
+ a| 
+允许在 FlexCache（源为 FlexVol）上使用 OnTAP S3 NAS 存储桶
+ a| 
+从 ONTAP 9.20.1 开始，支持基于 FlexVol 源的 FlexCache 卷上的 S3 NAS 存储桶。支持单对象 S3 操作（PUT、GET、DELETE、HEAD、LIST）。不支持分段上传，因为底层 FlexVol 卷不支持粒度数据分布。
+
+
+
+ a| 
+支持在具有 FG 来源的 FC 卷上为 S3 NAS 存储桶复制对象
+ a| 
+从 ONTAP 9.20.1 开始，FlexCache 卷上的 S3 NAS 存储桶支持使用 S3 CopyObject 和 UploadPartCopy API 的服务器端对象复制操作。您可以在同一个 FlexCache NAS 存储桶内复制对象，或者将对象从由 FlexGroup 卷支持的 S3 NAS 存储桶复制到 FlexCache NAS 存储桶。
+
+
+
+ a| 
+初始 S3 校验和支持
+ a| 
+ONTAP S3 支持 S3 NAS 存储桶的兼容 AWS 的 CRC-64NVME 校验和。当 S3 客户端为支持的上传和分段操作提供校验和信息时，ONTAP 会验证并存储校验和，并返回支持的 GET 和 HEAD 请求的校验和信息。
+
+|===
+
+
+[[san]]
+== SAN
+
+[cols="30%,70%"]
+|===
+| 更新 | 描述 
+
+
+ a| 
+支持在将数据从 AFF 或 FAS 系统迁移到 AFX 系统后提高性能
+ a| 
+从 ONTAP 9.20.1 开始，ONTAP 减少了数据从 AFF 或 FAS 系统迁移到 AFX 系统后可能发生的额外读取延迟和 CPU 使用率。
+
+|===
+
+
+[[security]]
+== 安全性
+
+[cols="30%,70%"]
+|===
+| 更新 | 描述 
+
+
+ a| 
+增强对 ARP/AI 快照响应策略的控制
+ a| 
+您可以在 SVM 或卷级别配置 ARP/AI 快照响应策略，以控制 ARP/AI 在检测到异常活动时是否创建快照。有三种策略可用： `alert-with-proactive-and-periodic-snapshot`（默认，保留现有行为）、 `alert-with-proactive-snapshot`（仅攻击快照，无定期快照）和 `alert-only`（仅警报和事件日志，不创建快照）。升级到 9.20.1 后，默认定期快照最大计数从 6 更改为 2，默认保留期从 12 小时更改为 7 小时，除非之前已修改这些节点级别选项。有关详细信息，请参阅 https://docs.netapp.com/us-en/ontap/anti-ransomware/modify-snapshot-options-arpai.html["增强对 ARP/AI 快照响应策略的控制"^]。
+
+
+
+ a| 
+数据 SVM 的密钥管理工作流程改进
+ a| 
+当您在数据 SVM 上启用外部密钥管理器时，ONTAP 可以自动将该 SVM 的卷加密密钥从管理范围密钥管理器迁移到新的数据 SVM 密钥管理器。这简化了向外部密钥管理的过渡，并消除了在标准工作流中执行单独手动迁移步骤的需要。
+
+
+
+ a| 
+支持 IdP、AD 和 LDAP 组作为 MAV 审批人
+ a| 
+MAV 审批组可以包括作为审批人的身份提供程序（IdP）、Active Directory（AD）和 LDAP（nsswitch）组以及单个管理员。支持的组类型包括 Entra ID、ADFS、AD 域组和 LDAP 组。在 IdP、AD 或 LDAP 目录中添加或删除用户不需要对 MAV 配置进行任何更改。对用户组成员身份的更改将在用户下次登录时重新进行身份验证后生效。您可以使用 security multi-admin-verify registered-operations show 命令显示当前集群上可用的所有 MAV 可保护操作。
+
+
+
+ a| 
+SNMPv3 SHA-512 身份验证支持
+ a| 
+ONTAP 支持 SNMPv3 用户的 SHA-512 身份验证。此增强功能允许您将更强大的 SNMPv3 身份验证用于外部 SNMP 客户端和交换机监控，包括需要 SHA-512 身份验证的交换机。有关详细信息，请参见在 ONTAP 集群中配置 SNMPv3 用户和为以太网交换机健康监控配置 SNMPv3。
+
+请参阅  https://docs.netapp.com/us-en/ontap-systems-switches/switch-cshm/config-snmpv3.html["配置 SNMPv3 以进行以太网交换机运行状况监控"^] 以了解更多信息。
+
+|===
+
+
+[[storage-efficiency]]
+== 存储效率
+
+[cols="30%,70%"]
+|===
+| 更新 | 描述 
+
+
+ a| 
+自动重复数据删除调度程序（ADS）优化
+ a| 
+ONTAP 提高了 ADS（自动重复数据删除调度程序）性能，允许每个节点有更多的并发重复数据删除会话，以及更智能、更有针对性的限制，以更好地平衡客户端 I/O。DP 卷上的重复数据删除活动（来自 SnapMirror 传输）和全局重复数据删除会话与常规卷重复数据删除一起管理，从而减少竞争和元数据增长。您可以从存储效率节省中受益，特别是在混合工作负载下，无需更改配置。默认情况下，此功能处于启用状态，并且在 AFX 存储系统上可用。
+
+|===
+
+
+[[storage-resource-management]]
+== 存储资源管理
+
+[cols="30%,70%"]
+|===
+| 更新 | 描述 
+
+
+ a| 
+AFX 32 节点企业支持
+ a| 
+您可以在完整的企业功能支持下以完整的 32 节点规模部署 ONTAP AFX 群集，与以前仅适用于较小 AFX 部署的功能相匹配。这使企业客户，特别是那些运行 AI/ML 训练和数据管道的客户，能够在不牺牲分层、数据保护、快照和弹性等企业数据服务的情况下构建更大、更密集的存储群集。完整的 NAS 和对象协议支持（包括 NFS、SMB、S3、FlexGroup 和 FlexCache）以及 HA 和恢复工作流程已经过此规模的验证，以确保随着 AFX 部署的增长而可靠运行。
+
+
+
+ a| 
+FabricPool分层
+ a| 
+FabricPool 是一项 ONTAP 功能，可根据数据活动在高性能本地层和低成本远程云或容量层之间移动数据。FabricPool 从 ONTAP 9.20.1 开始已正式扩展到 AFX 存储系统，并且也可在 9.19.1 P3 中使用。它可以实现更大的数据规模，以支持数据密集型工作负载。虽然 AFX 实现引入了一些架构更改，但 ONTAP 功能的核心特征保持不变。
+
+
+
+ a| 
+FSA - 准确的目录访问时间
+ a| 
+文件系统分析扫描和 System Manager 文件系统资源管理器浏览会保留目录访问时间（atime）元数据。这有助于为归档、分层、合规性和数据生命周期工作流维护准确的 atime 值。
+
+
+
+ a| 
+FlexCache 卷指标
+ a| 
+FlexCache 卷指标报告 FlexCache 卷与其源卷之间交换的数据和元数据量。现有的 ONTAP REST 卷统计信息和指标端点中添加了两个新属性，这些属性提供了对 FlexCache 到源以及源到 FlexCache 数据传输的可见性。计数器会自动收集，无需配置；它们有助于容量规划、性能分析、网络故障排除和计费分析。此功能要求在 FlexCache 和源节点上均运行 ONTAP 9.20 或更高版本。有关详细信息，请参见 ONTAP 自动化文档。
+
+
+
+ a| 
+集群内再平衡
+ a| 
+ONTAP 引入了两种新的平衡放置功能，以帮助在您的工作负载和集群容量演变时，以最少的管理工作量保持集群的最佳性能。配置时放置控制允许客户在通过 REST API 放置新卷时，指示应优先考虑性能还是空间要求。空间性能重新平衡（SPR）是一个后台进程，它会持续寻找整个集群中不断发展的性能热点或聚合空间压力。根据配置的模式，SPR 要么通过 EMS 通知建议进行纠正性卷移动，要么使用标准且无中断的 ONTAP 卷移动操作自动执行移动。有关详细信息，请参阅 ONTAP 自动化文档。
+
+
+
+ a| 
+支持删除包含对象的 ONTAP S3 存储桶
+ a| 
+使用可配置的基于保留的恢复窗口时，管理员可以安排删除包含对象的存储区。这可以在保留窗口到期之前实现存储区恢复。此功能减少了过期积压，并使容量更快地重新用于高流失率工作负载。
+
+
+
+ a| 
+支持 S3 NAS 存储桶的 SVM 迁移
+ a| 
+ONTAP 9.20.1 支持对在 FlexVol 卷上托管 S3 NAS 存储桶的 SVM 进行 SVM 迁移，允许管理员迁移 SVM，而无需首先删除 S3 NAS 配置。
+
+
+
+ a| 
+计算 FlexGroup 卷上的可回收空间
+ a| 
+ONTAP 支持在删除 FlexGroup 卷上的快照之前计算可回收空间。
+
+
+
+ a| 
+异步删除的性能增强
+ a| 
+ONTAP 增强了异步删除性能，加快了 NAS/SMB 客户端的空间回收。请联系您的 NetApp 代表了解详细信息。
+
+
+
+ a| 
+自动配置高性能 FlexGroup 卷
+ a| 
+ONTAP 通过存储配置文件简化了 FlexGroup 配置，让客户能够为其工作负载选择平衡或高性能的数据容器，从而减少了管理员手动配置和调整成分卷大小以满足性能要求的需要。
+
+
+
+ a| 
+结合 FlexCache 的 NVFAIL 支持
+ a| 
+您可以创建与启用了 NVFAIL 的源的 FlexCache 关系。您还可以独立于源卷在缓存卷上启用 NVFAIL。在已发生 NVFAIL 的源卷或缓存卷上，ONTAP 会阻止数据读取或修改，同时保留已修改缓存数据的回写，并在恢复后恢复正常 I/O。
+
+|===
+
+
+[[system-manager]]
+== System Manager
+
+[cols="30%,70%"]
+|===
+| 更新 | 描述 
+
+
+ a| 
+支持证书和用户密码过期警报
+ a| 
+System Manager 在群集或 Storage Virtual Machine（SVM）证书过期前 30 天显示仪表板运行状况警报，并使用过期前剩余天数每天更新该警报。
+
+此外，如果与用户帐户关联的角色配置了密码过期警报，则从密码过期前 14 天开始，用户在登录后会立即在 System Manager 中收到页面顶部横幅警报。每次用户登录时都会更新警报，以显示距离密码过期的剩余天数。您可以在添加或编辑管理员角色时配置过期警报。
+
+
+
+ a| 
+支持其他 AutoSupport 警报
+ a| 
+System Manager 显示可帮助您解决 AutoSupport 配置问题的新 AutoSupport 警报。
+
+|===
