@@ -2348,7 +2348,6 @@
   <block id="5d77241ae2b7d563a9a889195fa97992" category="summary">了解您的 AFX 存储系统提供的 ONTAP 9.20.1 附带的新功能。</block>
   <block id="cfb4a84db453703235f2d352055e8e96" category="doc">AFX 存储系统的 ONTAP 9.20.1 新增功能</block>
   <block id="a723b6a368d39c8d49c195613b8f0358" category="inline-link">ONTAP 9.20.1 中的新增功能</block>
-  <block id="528b908fb06e37839863d0ab949aecc9" category="admonition">ONTAP 9.20.1 为 AFX 提供了几项新功能。其中一些是针对 AFX 的，而其他许多则来自共同的共享产品基础。除了查看下面描述的 AFX 功能外，您还应参考<block ref="bb496d6e4178788766e55a32eadccfc7" category="inline-link-rx"></block>。</block>
   <block id="e764116c8b6d02fe92e8e153aab7cfb1" category="paragraph">从非 SnapLock 源一致性组复制到 SnapLock for SnapVault 目标一致性组</block>
   <block id="2db2c5f9a8e212e0f487a507cc5d27b0" category="paragraph">您可以从非 SnapLock 源一致性组复制到 SnapLock for SnapVault 目标一致性组。SnapLock for SnapVault 可防止意外或恶意删除已复制的一致性组。</block>
   <block id="0caba8f4c2505674387cfae0d08c928e" category="paragraph">NAS 的 SnapMirror 活动同步对象限制</block>
@@ -2422,4 +2421,5 @@
   <block id="444ba6c64d0d15801551acade229d411" category="paragraph">此外，如果与用户帐户关联的角色配置了密码过期警报，则从密码过期前 14 天开始，用户在登录后会立即在 System Manager 中收到页面顶部横幅警报。每次用户登录时都会更新警报，以显示距离密码过期的剩余天数。您可以在添加或编辑管理员角色时配置过期警报。</block>
   <block id="290121bb9aa53673a1305e69e7450334" category="paragraph">支持其他 AutoSupport 警报</block>
   <block id="18770d28af8537961088ebf517a0919b" category="paragraph">System Manager 显示可帮助您解决 AutoSupport 配置问题的新 AutoSupport 警报。</block>
+  <block id="ce5b4b8e40877f3059210dd9eb2c728c" category="admonition">ONTAP 9.20.1 为 AFX 提供了几项新功能。其中一些是针对 AFX 的，而其他许多则来自共同的共享产品基础。除了查看下面描述的 AFX 功能外，您还应参考<block ref="b9759575dd760b6d9ef8b5db42227b0c" category="inline-link-rx"></block>。</block>
 </blocks>

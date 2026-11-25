@@ -17,7 +17,7 @@ summary: 了解您的 AFX 存储系统提供的 ONTAP 9.20.1 附带的新功能�
 了解您的 AFX 存储系统提供的 ONTAP 9.20.1 附带的新功能。
 
 
-NOTE: ONTAP 9.20.1 为 AFX 提供了几项新功能。其中一些是针对 AFX 的，而其他许多则来自共同的共享产品基础。除了查看下面描述的 AFX 功能外，您还应参考 https://docs.netapp.com/us-en/ontap/release-notes/whats-new-9201.html["ONTAP 9.20.1 中的新增功能"^]。
+NOTE: ONTAP 9.20.1 为 AFX 提供了几项新功能。其中一些是针对 AFX 的，而其他许多则来自共同的共享产品基础。除了查看下面描述的 AFX 功能外，您还应参考 https://docs.netapp.com/us-en/ontap/release-notes/index.html["ONTAP 9.20.1 中的新增功能"^]。
 
 
 
