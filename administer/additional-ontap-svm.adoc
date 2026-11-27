@@ -132,7 +132,7 @@ FPolicy 是一个文件访问通知框架，用于监视和管理存储虚拟机
 
 详细了解 https://docs.netapp.com/us-en/ontap/nas-audit/supported-file-operation-filter-fpolicy-nfsv4-concept.html["ONTAP FPolicy 为 NFSv4 监控的受支持文件操作和筛选器组合"^]。
 
-详细了解 https://docs.netapp.com/us-en/ontap/nas-audit/supported-file-operation-filter-fpolicy-s3-concept.html["FPolicy 可以为 S3 监控的受支持文件操作和筛选器组合"^]。
+详细了解 https://docs.netapp.com/us-en/ontap/nas-audit/supported-file-operation-filter-fpolicy-s3.html["FPolicy 可以为 S3 监控的受支持文件操作和筛选器组合"^]。
 
 
 

@@ -2336,7 +2336,6 @@
   <block id="ba7ad22e1a81b751fd383ff85d5afdb0" category="inline-link">ONTAP FPolicy 为 NFSv4 监控的受支持文件操作和筛选器组合</block>
   <block id="6a8ad412c3d9ebc0ab18e421d3127d72" category="paragraph">详细了解<block ref="05cd43db8de5476d5e1977c9d95397ca" category="inline-link-rx"></block>。</block>
   <block id="e5b5010fb7d96e12a82e9bc806b23fce" category="inline-link">FPolicy 可以为 S3 监控的受支持文件操作和筛选器组合</block>
-  <block id="e50510d4bf96779c214f9db49c19a5c7" category="paragraph">详细了解<block ref="92eebf3a041620ee5865a1f5090aa0f7" category="inline-link-rx"></block>。</block>
   <block id="786347e300cbffb5148b2ca2c681797d" category="paragraph">对 FlexGroup 卷的支持存在一些差异。AFX 上的 FlexGroup 卷不能是使用回写模式的 FlexCache 卷的原始卷。</block>
   <block id="fabdf2613f35f155197eae75e7a715c5" category="paragraph">NAS 的 SnapMirror 主动同步将 AFX 平台（4 x 4）支持的卷数量增加到 600 个。</block>
   <block id="fa864467d02b35efb5b48d7a1226e621" category="cell">ONTAP 9.20.1</block>
@@ -2422,4 +2421,5 @@
   <block id="290121bb9aa53673a1305e69e7450334" category="paragraph">支持其他 AutoSupport 警报</block>
   <block id="18770d28af8537961088ebf517a0919b" category="paragraph">System Manager 显示可帮助您解决 AutoSupport 配置问题的新 AutoSupport 警报。</block>
   <block id="ce5b4b8e40877f3059210dd9eb2c728c" category="admonition">ONTAP 9.20.1 为 AFX 提供了几项新功能。其中一些是针对 AFX 的，而其他许多则来自共同的共享产品基础。除了查看下面描述的 AFX 功能外，您还应参考<block ref="b9759575dd760b6d9ef8b5db42227b0c" category="inline-link-rx"></block>。</block>
+  <block id="79498987844b3ce9d7ea24ee59238d91" category="paragraph">详细了解<block ref="69a372dbedd0136addf9b2f90e089772" category="inline-link-rx"></block>。</block>
 </blocks>
